@@ -1,0 +1,1 @@
+go build -o bin\vss.exe src\main.go
