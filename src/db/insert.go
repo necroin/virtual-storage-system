@@ -16,10 +16,11 @@ func (database *Database) Insert(table string, columns []string, values []string
 	return nil
 }
 
-func (database *Database) InsertHandler(data io.Reader, responseWriter io.Writer) error {
-	request := &Request{}
-	if err := json.NewDecoder(data).Decode(request); err != nil {
-		return fmt.Errorf("[Database] [InsertHandler] [Error] failed decode json request: %s", err)
+func (database *Database) InsertRequest(request *Request) *Response {
+	response := &Response{
+		Records: nil,
+		Success: true,
+		Error:   "",
 	}
 
 	names := []string{}
@@ -33,9 +34,24 @@ func (database *Database) InsertHandler(data io.Reader, responseWriter io.Writer
 	}
 
 	if err := database.Insert(request.Table, names, values); err != nil {
-		return err
+		response.Success = false
+		response.Error = err.Error()
+		return response
 	}
 
-	responseWriter.Write([]byte(`{"result": true}`))
+	return response
+}
+
+func (database *Database) InsertHandler(data io.Reader, responseWriter io.Writer) error {
+	request := &Request{}
+	if err := json.NewDecoder(data).Decode(request); err != nil {
+		return fmt.Errorf("[Database] [InsertHandler] [Error] failed decode json request: %s", err)
+	}
+
+	response := database.InsertRequest(request)
+	if err := json.NewEncoder(responseWriter).Encode(response); err != nil {
+		return fmt.Errorf("[Database] [InsertHandler] [Error] failed encode json response: %s", err)
+	}
+
 	return nil
 }

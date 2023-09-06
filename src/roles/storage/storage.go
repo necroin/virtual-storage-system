@@ -40,7 +40,7 @@ func (storage *Storage) DeleteHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func (storage *Storage) ViewHandler(responseWriter http.ResponseWriter, r *http.Request) {
-	response := storage.db.Select(&db.Request{
+	response := storage.db.SelectRequest(&db.Request{
 		Table:  "filesystem",
 		Fields: []db.Field{{Name: "path"}},
 	})

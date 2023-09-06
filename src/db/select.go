@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func (database *Database) Select(request *Request) *Response {
+func (database *Database) SelectRequest(request *Request) *Response {
 	response := &Response{
 		Records: []Record{},
 		Success: true,
@@ -36,7 +36,7 @@ func (database *Database) Select(request *Request) *Response {
 	result, err := database.sql.Query(sqlCommand)
 	if err != nil {
 		response.Success = false
-		response.Error = fmt.Sprintf("[Database] [Select] [Error] failed database request: %s", err)
+		response.Error = fmt.Sprintf("[Database] [SelectRequest] [Error] failed database request: %s", err)
 		return response
 	}
 	defer result.Close()
@@ -44,7 +44,7 @@ func (database *Database) Select(request *Request) *Response {
 	columns, err := result.Columns()
 	if err != nil {
 		response.Success = false
-		response.Error = fmt.Sprintf("[Database] [Select] [Error] failed get result columns: %s", err)
+		response.Error = fmt.Sprintf("[Database] [SelectRequest] [Error] failed get result columns: %s", err)
 		return response
 	}
 
@@ -57,7 +57,7 @@ func (database *Database) Select(request *Request) *Response {
 
 		if err := result.Scan(valuesPointers...); err != nil {
 			response.Success = false
-			response.Error = fmt.Sprintf("[Database] [Select] [Error] failed scan row values: %s", err)
+			response.Error = fmt.Sprintf("[Database] [SelectRequest] [Error] failed scan row values: %s", err)
 			return response
 		}
 
@@ -81,13 +81,12 @@ func (database *Database) Select(request *Request) *Response {
 func (database *Database) SelectHadler(data io.Reader, responseWriter io.Writer) error {
 	request := &Request{}
 	if err := json.NewDecoder(data).Decode(request); err != nil {
-		return fmt.Errorf("[Database] [Select] [Error] failed decode json request: %s", err)
+		return fmt.Errorf("[Database] [SelectHadler] [Error] failed decode json request: %s", err)
 	}
 
-	response := database.Select(request)
-
+	response := database.SelectRequest(request)
 	if err := json.NewEncoder(responseWriter).Encode(response); err != nil {
-		return fmt.Errorf("[Database] [Select] [Error] failed encode json response: %s", err)
+		return fmt.Errorf("[Database] [SelectHadler] [Error] failed encode json response: %s", err)
 	}
 
 	return nil

@@ -7,10 +7,11 @@ import (
 	"strings"
 )
 
-func (database *Database) UpdateHandler(data io.Reader, responseWriter io.Writer) error {
-	request := &Request{}
-	if err := json.NewDecoder(data).Decode(request); err != nil {
-		return fmt.Errorf("[Database] [Update] [Error] failed decode json request: %s", err)
+func (database *Database) UpdateRequest(request *Request) *Response {
+	response := &Response{
+		Records: nil,
+		Success: true,
+		Error:   "",
 	}
 
 	sqlCommand := fmt.Sprintf("UPDATE %s SET ", request.Table)
@@ -32,10 +33,23 @@ func (database *Database) UpdateHandler(data io.Reader, responseWriter io.Writer
 
 	_, err := database.sql.Exec(sqlCommand)
 	if err != nil {
-		return fmt.Errorf("[Database] [Update] [Error] failed database request: %s", err)
+		response.Success = false
+		response.Error = fmt.Sprintf("[Database] [UpdateRequest] [Error] failed database request: %s", err)
 	}
 
-	responseWriter.Write([]byte(`{"result": true}`))
+	return response
+}
+
+func (database *Database) UpdateHandler(data io.Reader, responseWriter io.Writer) error {
+	request := &Request{}
+	if err := json.NewDecoder(data).Decode(request); err != nil {
+		return fmt.Errorf("[Database] [UpdateHandler] [Error] failed decode json request: %s", err)
+	}
+
+	response := database.UpdateRequest(request)
+	if err := json.NewEncoder(responseWriter).Encode(response); err != nil {
+		return fmt.Errorf("[Database] [UpdateHandler] [Error] failed encode json response: %s", err)
+	}
 
 	return nil
 }
