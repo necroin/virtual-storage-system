@@ -1,8 +1,9 @@
 package app
 
 import (
-	"fmt"
 	"vss/src/config"
+	"vss/src/roles/storage"
+	"vss/src/server"
 )
 
 type Application struct {
@@ -14,11 +15,31 @@ func New() (*Application, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	return &Application{
 		config: config,
 	}, nil
 }
 
-func (app *Application) Run() {
-	fmt.Println(app.config)
+func (app *Application) Run() error {
+	server := server.New(app.config.Url)
+
+	if app.config.Roles.Storage.Enable {
+		storageRole, err := storage.New("storage.db")
+		if err != nil {
+			return err
+		}
+		server.AddHandler("/view", storageRole.ViewHandler)
+		server.AddHandler("/insert", storageRole.InsertHandler)
+		server.AddHandler("/select", storageRole.SelectHandler)
+		server.AddHandler("/update", storageRole.UpdateHandler)
+		server.AddHandler("/delete", storageRole.DeleteHandler)
+		go storageRole.LoadFileSystem()
+	}
+
+	if err := server.Start(); err != nil {
+		return err
+	}
+
+	return nil
 }

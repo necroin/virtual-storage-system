@@ -11,5 +11,8 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	app.Run()
+
+	if err := app.Run(); err != nil {
+		fmt.Println(err)
+	}
 }
