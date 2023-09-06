@@ -3,12 +3,13 @@ package server
 import (
 	"context"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"os/signal"
-	"sync"
 	"syscall"
 	"time"
+	"vss/src/settings"
 
 	"github.com/gorilla/mux"
 )
@@ -30,12 +31,8 @@ func New(url string) *Server {
 		},
 	}
 }
-func (server *Server) Start() error {
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-
+func (server *Server) Start() {
 	go func() {
-		defer wg.Done()
 		sigint := make(chan os.Signal, 1)
 		signal.Notify(sigint, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
 		<-sigint
@@ -44,14 +41,31 @@ func (server *Server) Start() error {
 		server.instance.Shutdown(ctx)
 	}()
 
-	if err := server.instance.ListenAndServe(); err != http.ErrServerClosed {
-		return fmt.Errorf("[App] [Run] [Error] failed start server: %s", err)
-	}
-
-	wg.Wait()
-	return nil
+	server.instance.ListenAndServe()
 }
 
 func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request)) {
 	server.router.HandleFunc(path, handler)
+}
+
+func (server *Server) WaitStart() error {
+	client := http.Client{}
+	for i := 0; i < settings.ServerWaitStartRepeatCount; i++ {
+		response, err := client.Do(&http.Request{
+			RequestURI: server.url + settings.ServerStatusEndpoint,
+		})
+		if err != nil {
+			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
+			continue
+		}
+		data, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
+			continue
+		}
+		if string(data) == settings.ServerStatusResponse {
+			return nil
+		}
+	}
+	return fmt.Errorf("[Server] [WaitStart] [Error] failed get server status")
 }
