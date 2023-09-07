@@ -5,27 +5,37 @@ import (
 	"io/fs"
 	"path"
 	"path/filepath"
+	"vss/src/config"
+	"vss/src/connector"
 	"vss/src/db"
+	"vss/src/settings"
 )
 
 type Storage struct {
+	url       string
 	routerUrl string
 	db        *db.Database
 }
 
-func New(routerUrl string, dbPath string) (*Storage, error) {
+func New(config *config.Config, dbPath string) (*Storage, error) {
 	db, err := db.New(dbPath)
 	if err != nil {
 		return nil, err
 	}
 	return &Storage{
-		routerUrl: routerUrl,
+		url:       config.Url,
+		routerUrl: config.RouterUrl,
 		db:        db,
 	}, nil
 }
 
-func (storage *Storage) NotifyRouter() {
-	// TODO: NotifyRouter
+func (storage *Storage) NotifyRouter() error {
+	message := connector.NotifyMessage{
+		Type: connector.NotifyMessageStorageType,
+		Url:  storage.url,
+	}
+	_, err := connector.SendPostRequest(storage.routerUrl+settings.RouterNotifyEndpoint, message)
+	return err
 }
 
 func (storage *Storage) LoadFileSystem() {

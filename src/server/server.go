@@ -1,6 +1,7 @@
 package server
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"io/ioutil"
@@ -44,16 +45,20 @@ func (server *Server) Start() {
 	server.instance.ListenAndServe()
 }
 
-func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request)) {
-	server.router.HandleFunc(path, handler)
+func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), method string) {
+	server.router.HandleFunc(path, handler).Methods(method)
 }
 
 func (server *Server) WaitStart() error {
 	client := http.Client{}
 	for i := 0; i < settings.ServerWaitStartRepeatCount; i++ {
-		response, err := client.Do(&http.Request{
-			RequestURI: server.url + settings.ServerStatusEndpoint,
-		})
+		request, _ := http.NewRequest(
+			http.MethodGet,
+			"http://"+server.url+settings.ServerStatusEndpoint,
+			bytes.NewReader([]byte("")),
+		)
+
+		response, err := client.Do(request)
 		if err != nil {
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
 			continue

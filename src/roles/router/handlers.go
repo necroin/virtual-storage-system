@@ -2,12 +2,13 @@ package router
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
-	"vss/src/settings"
+	"vss/src/connector"
 )
 
 func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	response := settings.TopologyMessage{
+	response := connector.TopologyMessage{
 		Storages: router.storages,
 		Runners:  router.runners,
 	}
@@ -16,20 +17,21 @@ func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, req
 }
 
 func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	message := &settings.NotifyMessage{}
+	message := &connector.NotifyMessage{}
 	if err := json.NewDecoder(request.Body).Decode(message); err != nil {
 		// TODO: handle error
 	}
 
-	if message.Type == settings.NotifyMessageStorageType {
+	fmt.Println(message)
+	if message.Type == connector.NotifyMessageStorageType {
 		router.storages = append(router.storages, message.Url)
+		router.NotifyRunners()
 	}
 
-	if message.Type == settings.NotifyMessageRunnerType {
+	if message.Type == connector.NotifyMessageRunnerType {
 		router.runners = append(router.runners, message.Url)
+		router.NotifyRunner(message.Url)
 	}
-
-	router.NotifyRunners()
 }
 
 func (router *Router) ViewHandler(responseWriter http.ResponseWriter, request *http.Request) {

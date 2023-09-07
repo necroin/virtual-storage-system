@@ -39,31 +39,35 @@ func (app *Application) Run() error {
 
 	server.AddHandler(settings.ServerStatusEndpoint, func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(settings.ServerStatusResponse))
-	})
+	}, "GET")
 
 	if app.config.Roles.Storage.Enable {
-		storageRole, err := storage.New(app.config.RouterUrl, "storage.db")
+		storageRole, err := storage.New(app.config, "storage.db")
 		if err != nil {
 			return err
 		}
 		app.storageRole = storageRole
-		server.AddHandler(settings.StorageViewEndpoint, storageRole.ViewHandler)
-		server.AddHandler(settings.StorageInsertEndpoint, storageRole.InsertHandler)
-		server.AddHandler(settings.StorageSelectEndpoint, storageRole.SelectHandler)
-		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler)
-		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler)
+
+		server.AddHandler(settings.StorageViewEndpoint, storageRole.ViewHandler, "GET")
+
+		server.AddHandler(settings.StorageInsertEndpoint, storageRole.InsertHandler, "POST")
+		server.AddHandler(settings.StorageSelectEndpoint, storageRole.SelectHandler, "POST")
+		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
+		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler, "POST")
 		go storageRole.LoadFileSystem()
 	}
 
 	if app.config.Roles.Runner.Enable {
-		runnerRole, err := runner.New(app.config.RouterUrl)
+		runnerRole, err := runner.New(app.config)
 		if err != nil {
 			return err
 		}
 		app.runnerRole = runnerRole
-		server.AddHandler(settings.RouterNotifyEndpoint, runnerRole.NotifyHandler)
-		server.AddHandler(settings.RunnerViewEndpoint, runnerRole.ViewHandler)
-		server.AddHandler(settings.RunnerOpenEndpoint, runnerRole.OpenFileHandler)
+
+		server.AddHandler(settings.RunnerViewEndpoint, runnerRole.ViewHandler, "GET")
+
+		server.AddHandler(settings.RunnerNotifyEndpoint, runnerRole.NotifyHandler, "POST")
+		server.AddHandler(settings.RunnerOpenEndpoint, runnerRole.OpenFileHandler, "POST")
 	}
 
 	if app.config.Roles.Router.Enable {
@@ -72,9 +76,11 @@ func (app *Application) Run() error {
 			return err
 		}
 		app.routerRole = routerRole
-		server.AddHandler(settings.RouterViewEndpoint, routerRole.ViewHandler)
-		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler)
-		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler)
+
+		server.AddHandler(settings.RouterViewEndpoint, routerRole.ViewHandler, "GET")
+		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler, "GET")
+
+		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler, "POST")
 	}
 
 	go func() {
@@ -88,13 +94,14 @@ func (app *Application) Run() error {
 	}
 
 	if app.storageRole != nil {
-		app.storageRole.NotifyRouter()
+		if err := app.storageRole.NotifyRouter(); err != nil {
+			return err
+		}
 	}
 	if app.runnerRole != nil {
-		app.runnerRole.NotifyRouter()
-	}
-	if app.routerRole != nil {
-		app.routerRole.NotifyRunners()
+		if err := app.runnerRole.NotifyRouter(); err != nil {
+			return err
+		}
 	}
 
 	wg.Wait()

@@ -1,9 +1,17 @@
 package runner
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+	"vss/src/connector"
+)
 
 func (runner *Runner) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	// TODO: NotifyHandler
+	topology := &connector.TopologyMessage{}
+	if err := json.NewDecoder(request.Body).Decode(topology); err != nil {
+		// TODO: handle error
+	}
+	runner.storages = append(runner.storages, topology.Storages...)
 }
 
 func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
