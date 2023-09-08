@@ -4,16 +4,20 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
+
+	_ "embed"
+
 	"vss/src/connector"
 )
 
-func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	response := connector.TopologyMessage{
-		Storages: router.storages,
-		Runners:  router.runners,
-	}
+var (
+	//go:embed assets/topology.html
+	topologyHandlerResponseTemplate string
+)
 
-	json.NewEncoder(responseWriter).Encode(response)
+func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	responseWriter.Write([]byte(fmt.Sprintf(topologyHandlerResponseTemplate, strings.Join(router.storages, "</li>\n<li>"), strings.Join(router.runners, "</li>\n<li>"))))
 }
 
 func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -22,7 +26,6 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 		// TODO: handle error
 	}
 
-	fmt.Println(message)
 	if message.Type == connector.NotifyMessageStorageType {
 		router.storages = append(router.storages, message.Url)
 		router.NotifyRunners()

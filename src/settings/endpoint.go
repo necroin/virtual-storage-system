@@ -1,21 +1,24 @@
 package settings
 
 const (
-	ServerStatusEndpoint = "/status"
+	ServerStatusEndpoint  = "/status"
+	ServerMetricsEndpoint = "/metrics"
 )
 
 const (
-	StorageViewEndpoint   = "/storage/view"
-	StorageInsertEndpoint = "/storage/insert"
-	StorageSelectEndpoint = "/storage/select"
-	StorageUpdateEndpoint = "/storage/update"
-	StorageDeleteEndpoint = "/storage/delete"
+	StorageFilesystemEndpoint = "/storage/filesystem"
+	StorageViewEndpoint       = "/storage/view"
+	StorageInsertEndpoint     = "/storage/insert"
+	StorageSelectEndpoint     = "/storage/select"
+	StorageUpdateEndpoint     = "/storage/update"
+	StorageDeleteEndpoint     = "/storage/delete"
 )
 
 const (
-	RunnerViewEndpoint   = "/runner/view"
-	RunnerOpenEndpoint   = "/runner/open"
-	RunnerNotifyEndpoint = "/runner/notify"
+	RunnerViewEndpoint     = "/runner/view"
+	RunnerOpenEndpoint     = "/runner/open"
+	RunnerTopologyEndpoint = "/runner/topology"
+	RunnerNotifyEndpoint   = "/runner/notify"
 )
 const (
 	RouterViewEndpoint     = "/router/view"

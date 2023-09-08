@@ -1,8 +1,17 @@
 package storage
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
-	"vss/src/db"
+	"strings"
+
+	_ "embed"
+)
+
+var (
+	//go:embed assets/view.html
+	viewTamplate string
 )
 
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -21,13 +30,21 @@ func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, reques
 	storage.db.InsertHandler(request.Body, responseWriter)
 }
 
-func (storage *Storage) ViewHandler(responseWriter http.ResponseWriter, r *http.Request) {
-	response := storage.db.SelectRequest(&db.Request{
-		Table:  "filesystem",
-		Fields: []db.Field{{Name: "path"}},
-	})
+func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, r *http.Request) {
+	fileSystemMessage := storage.CollectFileSystem()
+	json.NewEncoder(responseWriter).Encode(fileSystemMessage)
+}
 
-	for _, record := range response.Records {
-		responseWriter.Write([]byte(record.Fields[0].Value + "\n"))
+func (storage *Storage) ViewHandler(responseWriter http.ResponseWriter, r *http.Request) {
+	fileSystemView := storage.CollectFileSystem()
+
+	files := fmt.Sprintf("<head>Files</head>\n<body>\n<ul>\n<li>%s</li>\n</ul>\n</body>\n", strings.Join(fileSystemView.Files, "</li>\n<li>"))
+	dirs := []string{}
+	for name := range fileSystemView.Directories[""].Directories {
+		fmt.Println(name)
+		dirs = append(dirs, name)
 	}
+	directories := fmt.Sprintf("<head>Directories</head>\n<body>\n<ul>\n<li>%s</li>\n</ul>\n</body>", strings.Join(dirs, "</li>\n<li>"))
+	fmt.Println(fmt.Sprintf(viewTamplate, files+directories))
+	responseWriter.Write([]byte(fmt.Sprintf(viewTamplate, files+directories)))
 }

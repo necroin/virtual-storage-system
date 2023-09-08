@@ -1,6 +1,9 @@
 package router
 
-import "vss/src/connector"
+import (
+	"vss/src/connector"
+	"vss/src/settings"
+)
 
 type Router struct {
 	storages []string
@@ -16,7 +19,7 @@ func (router *Router) NotifyRunner(url string) {
 		Storages: router.storages,
 		Runners:  router.runners,
 	}
-	connector.SendPostRequest(url, topology)
+	connector.SendPostRequest(url+settings.RunnerNotifyEndpoint, topology)
 }
 
 func (router *Router) NotifyRunners() {

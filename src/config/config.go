@@ -1,12 +1,5 @@
 package config
 
-import (
-	"fmt"
-	"os"
-
-	"gopkg.in/yaml.v2"
-)
-
 type StorageRole struct {
 	Enable bool `yaml:"enable"`
 }
@@ -32,13 +25,19 @@ type Config struct {
 }
 
 func Load(path string) (*Config, error) {
-	configFileContent, err := os.ReadFile(path)
-	if err != nil {
-		return nil, fmt.Errorf("[Config] [Load] [Error] failed read config file: %s", err)
-	}
-	config := &Config{}
-	if err := yaml.Unmarshal(configFileContent, config); err != nil {
-		return nil, fmt.Errorf("[Config] [Load] [Error] failed parse config file: %s", err)
+	config := &Config{
+		Url: "localhost:3301",
+		Roles: Roles{
+			Storage: StorageRole{
+				Enable: true,
+			},
+			Runner: RunnerRole{
+				Enable: true,
+			},
+			Router: RouterRole{
+				Enable: true,
+			},
+		},
 	}
 
 	if config.RouterUrl == "" {

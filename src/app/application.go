@@ -1,7 +1,6 @@
 package app
 
 import (
-	"net/http"
 	"sync"
 	"vss/src/config"
 	"vss/src/roles/router"
@@ -37,9 +36,7 @@ func (app *Application) Run() error {
 
 	server := server.New(app.config.Url)
 
-	server.AddHandler(settings.ServerStatusEndpoint, func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(settings.ServerStatusResponse))
-	}, "GET")
+	server.AddHandler(settings.ServerStatusEndpoint, server.StatusHandler, "GET")
 
 	if app.config.Roles.Storage.Enable {
 		storageRole, err := storage.New(app.config, "storage.db")
@@ -48,8 +45,8 @@ func (app *Application) Run() error {
 		}
 		app.storageRole = storageRole
 
+		server.AddHandler(settings.StorageFilesystemEndpoint, storageRole.FilesystemHandler, "GET")
 		server.AddHandler(settings.StorageViewEndpoint, storageRole.ViewHandler, "GET")
-
 		server.AddHandler(settings.StorageInsertEndpoint, storageRole.InsertHandler, "POST")
 		server.AddHandler(settings.StorageSelectEndpoint, storageRole.SelectHandler, "POST")
 		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
@@ -65,7 +62,7 @@ func (app *Application) Run() error {
 		app.runnerRole = runnerRole
 
 		server.AddHandler(settings.RunnerViewEndpoint, runnerRole.ViewHandler, "GET")
-
+		server.AddHandler(settings.RunnerTopologyEndpoint, runnerRole.GetTopologyHandler, "GET")
 		server.AddHandler(settings.RunnerNotifyEndpoint, runnerRole.NotifyHandler, "POST")
 		server.AddHandler(settings.RunnerOpenEndpoint, runnerRole.OpenFileHandler, "POST")
 	}
@@ -79,7 +76,6 @@ func (app *Application) Run() error {
 
 		server.AddHandler(settings.RouterViewEndpoint, routerRole.ViewHandler, "GET")
 		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler, "GET")
-
 		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler, "POST")
 	}
 
