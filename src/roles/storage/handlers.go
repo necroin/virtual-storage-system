@@ -2,9 +2,9 @@ package storage
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
-	"strings"
+	"vss/src/connector"
+	"vss/src/utils/html"
 
 	_ "embed"
 )
@@ -35,16 +35,37 @@ func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, r 
 	json.NewEncoder(responseWriter).Encode(fileSystemMessage)
 }
 
+func buildFileSystemHtml(name string, exploreDir *connector.FilesystemDirectory) string {
+	files := html.NewBody(html.NewHead())
+	filesList := html.NewUnorderedList()
+	for _, file := range exploreDir.Files {
+		filesList.Add(html.NewText(file))
+	}
+	files.Add(filesList)
+
+	directories := html.NewBody(html.NewHead())
+	directoriesList := html.NewUnorderedList()
+	for dirName, dir := range exploreDir.Directories {
+		dirHTML := buildFileSystemHtml(dirName, dir)
+		directoriesList.Add(html.NewText(dirHTML))
+	}
+	directories.Add(directoriesList)
+
+	return html.NewBody(html.NewHead().Add(html.NewText(name))).Add(files, directories).ToHTML()
+}
+
 func (storage *Storage) ViewHandler(responseWriter http.ResponseWriter, r *http.Request) {
+
 	fileSystemView := storage.CollectFileSystem()
 
-	files := fmt.Sprintf("<head>Files</head>\n<body>\n<ul>\n<li>%s</li>\n</ul>\n</body>\n", strings.Join(fileSystemView.Files, "</li>\n<li>"))
-	dirs := []string{}
-	for name := range fileSystemView.Directories[""].Directories {
-		fmt.Println(name)
-		dirs = append(dirs, name)
-	}
-	directories := fmt.Sprintf("<head>Directories</head>\n<body>\n<ul>\n<li>%s</li>\n</ul>\n</body>", strings.Join(dirs, "</li>\n<li>"))
-	fmt.Println(fmt.Sprintf(viewTamplate, files+directories))
-	responseWriter.Write([]byte(fmt.Sprintf(viewTamplate, files+directories)))
+	document := html.NewDocument()
+	document.Add(
+		html.NewBody(
+			html.NewHead().Add(html.NewText("FileSystem")),
+		).Add(
+			html.NewText(buildFileSystemHtml("/", &fileSystemView)),
+		),
+	)
+
+	responseWriter.Write([]byte(document.ToHTML()))
 }
