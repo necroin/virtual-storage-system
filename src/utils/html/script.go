@@ -13,5 +13,5 @@ func NewScript(text string) *Script {
 }
 
 func (script *Script) ToHTML() string {
-	return fmt.Sprintf("<script>%s</script>", script.text)
+	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script.text)
 }

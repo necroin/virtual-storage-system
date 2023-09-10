@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"path"
 	"vss/src/connector"
 	"vss/src/settings"
 	"vss/src/utils/html"
@@ -76,20 +77,31 @@ func (storage *Storage) ViewHandler(responseWriter http.ResponseWriter, request 
 
 func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgPath, _ := ioutil.ReadAll(request.Body)
+
 	walkPath := "/"
 	if len(msgPath) != 0 {
 		walkPath = string(msgPath)
 	}
 
 	list := html.NewUnorderedList()
+	list.Add(html.NewButton("..").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))))
+
 	entries, _ := os.ReadDir(walkPath)
-	for _, e := range entries {
-		list.Add(
-			html.NewButton(e.Name()).SetOnClick(fmt.Sprintf("open(/%s/)", e.Name())),
-		)
+	for _, entry := range entries {
+		button := html.NewButton(entry.Name())
+		button.SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, entry.Name())))
+		list.Add(button)
 	}
+
+	head := html.NewHead()
+	head.Add(html.NewText(walkPath))
+
+	body := html.NewBody(head)
+	body.Add(list)
+	body.Add(html.NewScript(fmt.Sprintf(openScript, "http://"+storage.url+settings.StorageMainEndpoint)))
+
 	document := html.NewDocument()
-	body := html.NewBody(html.NewHead()).Add(list).Add(html.NewScript(fmt.Sprintf(openScript, storage.url+settings.StorageMainEndpoint)))
 	document.Add(body)
+
 	responseWriter.Write([]byte(document.ToHTML()))
 }

@@ -45,8 +45,8 @@ func (server *Server) Start() {
 	server.instance.ListenAndServe()
 }
 
-func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), method string) {
-	server.router.HandleFunc(path, handler).Methods(method)
+func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), methods ...string) {
+	server.router.HandleFunc(path, handler).Methods(methods...)
 }
 
 func (server *Server) WaitStart() error {
