@@ -6,6 +6,7 @@ const (
 )
 
 const (
+	StorageMainEndpoint       = "/storage"
 	StorageFilesystemEndpoint = "/storage/filesystem"
 	StorageViewEndpoint       = "/storage/view"
 	StorageInsertEndpoint     = "/storage/insert"

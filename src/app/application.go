@@ -45,6 +45,7 @@ func (app *Application) Run() error {
 		}
 		app.storageRole = storageRole
 
+		server.AddHandler(settings.StorageMainEndpoint, storageRole.MainHandler, "GET")
 		server.AddHandler(settings.StorageFilesystemEndpoint, storageRole.FilesystemHandler, "GET")
 		server.AddHandler(settings.StorageViewEndpoint, storageRole.ViewHandler, "GET")
 		server.AddHandler(settings.StorageInsertEndpoint, storageRole.InsertHandler, "POST")
