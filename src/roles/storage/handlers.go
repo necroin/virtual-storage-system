@@ -66,7 +66,12 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 	body := html.NewBody(head)
 	body.AddElements(
 		html.NewButton("", "←").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))),
-		html.NewText(walkPath),
+		html.NewTag("form").AddElements(
+			html.NewTag("input").AddModifiers(
+				html.NewModifier("type", "text"),
+				html.NewModifier("placeholder", walkPath),
+			),
+		),
 		list,
 		html.NewScript(fmt.Sprintf(openScript, "http://"+storage.url+settings.StorageMainEndpoint)),
 	)

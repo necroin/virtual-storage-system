@@ -53,10 +53,12 @@ func (tag *Tag) ToHTML() string {
 	return fmt.Sprintf("<%s %s>%s</%s>", tag.name, strings.Join(modifiers, " "), strings.Join(elements, ""), tag.name)
 }
 
-func (tag *Tag) AddElements(elements ...Element) {
+func (tag *Tag) AddElements(elements ...Element) *Tag {
 	tag.elements = append(tag.elements, elements...)
+	return tag
 }
 
-func (tag *Tag) AddModifiers(modifiers ...*Modifier) {
+func (tag *Tag) AddModifiers(modifiers ...*Modifier) *Tag {
 	tag.modifiers = append(tag.modifiers, modifiers...)
+	return tag
 }

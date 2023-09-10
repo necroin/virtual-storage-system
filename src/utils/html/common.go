@@ -6,7 +6,3 @@ func NewScript(text string) *Tag {
 	script.AddElements(NewText(text))
 	return script
 }
-
-func NewForm() *Tag {
-	return NewTag("form")
-}
