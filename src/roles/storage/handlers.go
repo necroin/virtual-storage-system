@@ -54,23 +54,25 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 	for _, directory := range walkDirectory.Directories {
 		button := html.NewButton(directory, "📁")
 		button.SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory)))
-		list.Add(button)
+		list.AddElements(button)
 	}
 
 	for _, file := range walkDirectory.Files {
 		button := html.NewButton(file, "")
-		list.Add(button)
+		list.AddElements(button)
 	}
 
 	head := html.NewHead()
 	body := html.NewBody(head)
-	body.Add(html.NewButton("", "←").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))))
-	body.Add(html.NewText(walkPath))
-	body.Add(list)
-	body.Add(html.NewScript(fmt.Sprintf(openScript, "http://"+storage.url+settings.StorageMainEndpoint)))
+	body.AddElements(
+		html.NewButton("", "←").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))),
+		html.NewText(walkPath),
+		list,
+		html.NewScript(fmt.Sprintf(openScript, "http://"+storage.url+settings.StorageMainEndpoint)),
+	)
 
 	document := html.NewDocument()
-	document.Add(body)
+	document.AddElements(body)
 
 	responseWriter.Write([]byte(document.ToHTML()))
 }

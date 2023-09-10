@@ -1,29 +1,18 @@
 package html
 
-import (
-	"fmt"
-	"strings"
-)
-
 type UnorderedList struct {
-	elements []Element
+	*Tag
 }
 
 func NewUnorderedList() *UnorderedList {
-	return &UnorderedList{
-		elements: []Element{},
-	}
+	return &UnorderedList{NewTag("ul")}
 }
 
-func (list *UnorderedList) ToHTML() string {
-	items := []string{}
-	for _, element := range list.elements {
-		items = append(items, fmt.Sprintf("<li>%v</li>", element.ToHTML()))
+func (list *UnorderedList) AddElements(elements ...Element) *UnorderedList {
+	for _, element := range elements {
+		item := NewTag("li")
+		item.AddElements(element)
+		list.Tag.AddElements(item)
 	}
-	return fmt.Sprintf("<ul>%s</ul>", strings.Join(items, ""))
-}
-
-func (list *UnorderedList) Add(elements ...Element) *UnorderedList {
-	list.elements = append(list.elements, elements...)
 	return list
 }

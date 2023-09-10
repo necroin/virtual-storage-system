@@ -6,13 +6,15 @@ import (
 )
 
 type Button struct {
+	*Tag
+	icon    string
 	text    string
 	onClick string
-	icon    string
 }
 
 func NewButton(text, icon string) *Button {
 	return &Button{
+		Tag:  NewTag("button"),
 		icon: icon,
 		text: text,
 	}
