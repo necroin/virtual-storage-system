@@ -32,6 +32,7 @@ func (button *Button) SetOnClick(script string) *Button {
 	return button
 }
 
-func (button *Button) SetIcon(name string) {
+func (button *Button) SetIcon(name string) *Button {
 	button.icon = name
+	return button
 }

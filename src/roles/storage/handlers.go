@@ -50,6 +50,7 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 	walkDirectory := storage.CollectFileSystem(walkPath)
 
 	list := html.NewUnorderedList()
+
 	for _, directory := range walkDirectory.Directories {
 		button := html.NewButton(directory, "📁")
 		button.SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory)))

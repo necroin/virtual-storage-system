@@ -20,10 +20,10 @@ func (list *UnorderedList) ToHTML() string {
 	for _, element := range list.elements {
 		items = append(items, fmt.Sprintf("<li>%v</li>", element.ToHTML()))
 	}
-
 	return fmt.Sprintf("<ul>%s</ul>", strings.Join(items, ""))
 }
 
-func (list *UnorderedList) Add(elements ...Element) {
+func (list *UnorderedList) Add(elements ...Element) *UnorderedList {
 	list.elements = append(list.elements, elements...)
+	return list
 }
