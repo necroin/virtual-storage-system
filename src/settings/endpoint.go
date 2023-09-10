@@ -8,7 +8,6 @@ const (
 const (
 	StorageMainEndpoint       = "/storage"
 	StorageFilesystemEndpoint = "/storage/filesystem"
-	StorageViewEndpoint       = "/storage/view"
 	StorageInsertEndpoint     = "/storage/insert"
 	StorageSelectEndpoint     = "/storage/select"
 	StorageUpdateEndpoint     = "/storage/update"
@@ -16,13 +15,11 @@ const (
 )
 
 const (
-	RunnerViewEndpoint     = "/runner/view"
 	RunnerOpenEndpoint     = "/runner/open"
 	RunnerTopologyEndpoint = "/runner/topology"
 	RunnerNotifyEndpoint   = "/runner/notify"
 )
 const (
-	RouterViewEndpoint     = "/router/view"
 	RouterTopologyEndpoint = "/router/topology"
 	RouterNotifyEndpoint   = "/router/notify"
 )

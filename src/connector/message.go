@@ -16,8 +16,6 @@ type TopologyMessage struct {
 }
 
 type FilesystemDirectory struct {
-	Directories map[string]*FilesystemDirectory `json:"directories"`
-	Files       []string                        `json:"files"`
+	Directories []string `json:"directories"`
+	Files       []string `json:"files"`
 }
-
-type FilesystemMessage FilesystemDirectory

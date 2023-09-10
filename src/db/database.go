@@ -45,11 +45,6 @@ func New(path string) (*Database, error) {
 		return nil, fmt.Errorf("[Database] [Error] failed open database: %s", err)
 	}
 
-	db.Exec("DROP TABLE filesystem")
-
-	db.Exec("CREATE TABLE IF NOT EXISTS filesystem (id INTEGER PRIMARY KEY, kind TEXT, path TEXT)")
-	db.Exec("CREATE TABLE IF NOT EXISTS tree_path (ancestor INTEGER, descendant INTEGER, PRIMARY KEY (ancestor, descendant))")
-
 	return &Database{
 		path: path,
 		sql:  db,

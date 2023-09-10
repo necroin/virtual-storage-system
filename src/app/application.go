@@ -47,12 +47,10 @@ func (app *Application) Run() error {
 
 		server.AddHandler(settings.StorageMainEndpoint, storageRole.MainHandler, "POST", "GET")
 		server.AddHandler(settings.StorageFilesystemEndpoint, storageRole.FilesystemHandler, "GET")
-		server.AddHandler(settings.StorageViewEndpoint, storageRole.ViewHandler, "GET")
 		server.AddHandler(settings.StorageInsertEndpoint, storageRole.InsertHandler, "POST")
 		server.AddHandler(settings.StorageSelectEndpoint, storageRole.SelectHandler, "POST")
 		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
 		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler, "POST")
-		go storageRole.LoadFileSystem()
 	}
 
 	if app.config.Roles.Runner.Enable {
@@ -62,7 +60,6 @@ func (app *Application) Run() error {
 		}
 		app.runnerRole = runnerRole
 
-		server.AddHandler(settings.RunnerViewEndpoint, runnerRole.ViewHandler, "GET")
 		server.AddHandler(settings.RunnerTopologyEndpoint, runnerRole.GetTopologyHandler, "GET")
 		server.AddHandler(settings.RunnerNotifyEndpoint, runnerRole.NotifyHandler, "POST")
 		server.AddHandler(settings.RunnerOpenEndpoint, runnerRole.OpenFileHandler, "POST")
@@ -75,7 +72,6 @@ func (app *Application) Run() error {
 		}
 		app.routerRole = routerRole
 
-		server.AddHandler(settings.RouterViewEndpoint, routerRole.ViewHandler, "GET")
 		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler, "GET")
 		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler, "POST")
 	}

@@ -36,7 +36,3 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 		router.NotifyRunner(message.Url)
 	}
 }
-
-func (router *Router) ViewHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	// TODO: ViewHandler
-}

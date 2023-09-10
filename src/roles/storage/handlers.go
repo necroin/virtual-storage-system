@@ -5,9 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"path"
-	"vss/src/connector"
 	"vss/src/settings"
 	"vss/src/utils/html"
 
@@ -35,44 +33,11 @@ func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, reques
 	storage.db.InsertHandler(request.Body, responseWriter)
 }
 
-func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, r *http.Request) {
-	fileSystemMessage := storage.CollectFileSystem()
+func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	msgPath, _ := ioutil.ReadAll(request.Body)
+
+	fileSystemMessage := storage.CollectFileSystem(string(msgPath))
 	json.NewEncoder(responseWriter).Encode(fileSystemMessage)
-}
-
-func buildFileSystemHtml(name string, exploreDir *connector.FilesystemDirectory) string {
-	files := html.NewBody(html.NewHead())
-	filesList := html.NewUnorderedList()
-	for _, file := range exploreDir.Files {
-		filesList.Add(html.NewText(file))
-	}
-	files.Add(filesList)
-
-	directories := html.NewBody(html.NewHead())
-	directoriesList := html.NewUnorderedList()
-	for dirName, dir := range exploreDir.Directories {
-		dirHTML := buildFileSystemHtml(dirName, dir)
-		directoriesList.Add(html.NewText(dirHTML))
-	}
-	directories.Add(directoriesList)
-
-	return html.NewBody(html.NewHead().Add(html.NewText(name))).Add(files, directories).ToHTML()
-}
-
-func (storage *Storage) ViewHandler(responseWriter http.ResponseWriter, request *http.Request) {
-
-	fileSystemView := storage.CollectFileSystem()
-
-	document := html.NewDocument()
-	document.Add(
-		html.NewBody(
-			html.NewHead().Add(html.NewText("FileSystem")),
-		).Add(
-			html.NewText(buildFileSystemHtml("/", &fileSystemView)),
-		),
-	)
-
-	responseWriter.Write([]byte(document.ToHTML()))
 }
 
 func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -82,21 +47,24 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 	if len(msgPath) != 0 {
 		walkPath = string(msgPath)
 	}
+	walkDirectory := storage.CollectFileSystem(walkPath)
 
 	list := html.NewUnorderedList()
-	list.Add(html.NewButton("..").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))))
+	for _, directory := range walkDirectory.Directories {
+		button := html.NewButton(directory, "📁")
+		button.SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory)))
+		list.Add(button)
+	}
 
-	entries, _ := os.ReadDir(walkPath)
-	for _, entry := range entries {
-		button := html.NewButton(entry.Name())
-		button.SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, entry.Name())))
+	for _, file := range walkDirectory.Files {
+		button := html.NewButton(file, "")
 		list.Add(button)
 	}
 
 	head := html.NewHead()
-	head.Add(html.NewText(walkPath))
-
 	body := html.NewBody(head)
+	body.Add(html.NewButton("", "←").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))))
+	body.Add(html.NewText(walkPath))
 	body.Add(list)
 	body.Add(html.NewScript(fmt.Sprintf(openScript, "http://"+storage.url+settings.StorageMainEndpoint)))
 
