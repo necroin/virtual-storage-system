@@ -63,6 +63,7 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 	}
 
 	head := html.NewHead()
+	head.AddElements(html.NewText(`<meta name="viewport" content="width=device-width, initial-scale=1">`))
 	body := html.NewBody(head)
 	body.AddElements(
 		html.NewButton("", "←").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))),
@@ -71,6 +72,8 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 				html.NewAttribute("type", "text"),
 				html.NewAttribute("value", walkPath),
 			),
+		).AddAttribute(
+			html.NewAttribute("style", "display: inline;"),
 		),
 		list,
 		html.NewScript(fmt.Sprintf(openScript, "http://"+storage.url+settings.StorageMainEndpoint)),
