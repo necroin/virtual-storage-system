@@ -1,0 +1,78 @@
+:root {
+    --backgroud-color: rgb(30, 30, 30);
+    --elements-bg-color: rgb(60, 60, 60);
+    --default-color: white;
+    --margin: 10px
+}
+
+body {
+    background-color: var(--backgroud-color);
+    color: var(--elements-bg-color);
+}
+
+.bar-button {
+    color: var(--default-color);
+    background-color: var(--elements-bg-color);
+    width: 100px;
+    height: 30px;
+    margin: var(--margin);
+}
+
+.filesystem-address {
+    display: flex;
+    margin: var(--margin);
+    background-color: var(--backgroud-color);
+}
+
+.filesystem-address-button {
+    color: var(--default-color);
+    background-color: var(--elements-bg-color);
+    width: 50px;
+    margin-right: 10px;
+}
+
+.filesystem-address-line {
+    flex: 2;
+    margin-right: 10px;
+    background-color: var(--backgroud-color);
+    border-color: var(--default-color);
+    color: var(--default-color);
+}
+
+.filesystem-find-line {
+    flex: 1;
+    background-color: var(--backgroud-color);
+    border-color: var(--default-color);
+    color: var(--default-color);
+}
+
+#filesystem-explorer {
+    position: relative;
+    background-color: inherit;
+    color: var(--default-color);
+    margin: 20px;
+    box-shadow: -2px 0 0 gray;
+    overflow: auto;
+    height: 500px;
+}
+
+#filesystem-explorer table thead th {
+    background-color: var(--backgroud-color);
+    text-align: start;
+    border-color: var(--default-color);
+    border-right: 1px solid;
+    padding-left: 1em;
+    min-width: max-content;
+    resize: horizontal;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+}
+
+#filesystem-explorer table tbody td {
+    text-align: start;
+    padding-left: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
