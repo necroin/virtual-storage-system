@@ -67,9 +67,9 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 	body.AddElements(
 		html.NewButton("", "←").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))),
 		html.NewTag("form").AddElements(
-			html.NewTag("input").AddModifiers(
-				html.NewModifier("type", "text"),
-				html.NewModifier("placeholder", walkPath),
+			html.NewTag("input").AddAttribute(
+				html.NewAttribute("type", "text"),
+				html.NewAttribute("placeholder", walkPath),
 			),
 		),
 		list,

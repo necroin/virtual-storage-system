@@ -1,7 +1,6 @@
 package html
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -13,24 +12,17 @@ type Button struct {
 }
 
 func NewButton(text, icon string) *Button {
-	return &Button{
+	button := &Button{
 		Tag:  NewTag("button"),
 		icon: icon,
 		text: text,
 	}
-}
-
-func (button *Button) ToHTML() string {
-	modifiers := []string{}
-	if button.onClick != "" {
-		modifiers = append(modifiers, fmt.Sprintf(`onclick="%s"`, button.onClick))
-	}
-
-	return fmt.Sprintf("<button %s>%s</button>", strings.Join(modifiers, " "), strings.Join([]string{button.icon, button.text}, " "))
+	button.AddElements(NewText(strings.Join([]string{button.icon, button.text}, " ")))
+	return button
 }
 
 func (button *Button) SetOnClick(script string) *Button {
-	button.onClick = script
+	button.Tag.AddAttribute(NewAttribute("onclick", script))
 	return button
 }
 

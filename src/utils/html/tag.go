@@ -9,33 +9,33 @@ type Element interface {
 	ToHTML() string
 }
 
-type Modifier struct {
+type Attribute struct {
 	name  string
 	value string
 }
 
-func NewModifier(name string, value string) *Modifier {
-	return &Modifier{
+func NewAttribute(name string, value string) *Attribute {
+	return &Attribute{
 		name:  name,
 		value: value,
 	}
 }
 
-func (mod *Modifier) ToHTML() string {
-	return fmt.Sprintf(`%s="%s"`, mod.name, mod.value)
+func (attribute *Attribute) ToHTML() string {
+	return fmt.Sprintf(`%s="%s"`, attribute.name, attribute.value)
 }
 
 type Tag struct {
-	name      string
-	elements  []Element
-	modifiers []*Modifier
+	name       string
+	elements   []Element
+	attributes []*Attribute
 }
 
 func NewTag(name string) *Tag {
 	return &Tag{
-		name:      name,
-		elements:  []Element{},
-		modifiers: []*Modifier{},
+		name:       name,
+		elements:   []Element{},
+		attributes: []*Attribute{},
 	}
 }
 
@@ -45,12 +45,12 @@ func (tag *Tag) ToHTML() string {
 		elements = append(elements, element.ToHTML())
 	}
 
-	modifiers := []string{}
-	for _, modifier := range tag.modifiers {
-		modifiers = append(modifiers, modifier.ToHTML())
+	attributes := []string{}
+	for _, attribute := range tag.attributes {
+		attributes = append(attributes, attribute.ToHTML())
 	}
 
-	return fmt.Sprintf("<%s %s>%s</%s>", tag.name, strings.Join(modifiers, " "), strings.Join(elements, ""), tag.name)
+	return fmt.Sprintf("<%s %s>%s</%s>", tag.name, strings.Join(attributes, " "), strings.Join(elements, ""), tag.name)
 }
 
 func (tag *Tag) AddElements(elements ...Element) *Tag {
@@ -58,7 +58,7 @@ func (tag *Tag) AddElements(elements ...Element) *Tag {
 	return tag
 }
 
-func (tag *Tag) AddModifiers(modifiers ...*Modifier) *Tag {
-	tag.modifiers = append(tag.modifiers, modifiers...)
+func (tag *Tag) AddAttribute(attributes ...*Attribute) *Tag {
+	tag.attributes = append(tag.attributes, attributes...)
 	return tag
 }
