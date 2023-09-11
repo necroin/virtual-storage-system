@@ -69,7 +69,7 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 		html.NewTag("form").AddElements(
 			html.NewTag("input").AddAttribute(
 				html.NewAttribute("type", "text"),
-				html.NewAttribute("placeholder", walkPath),
+				html.NewAttribute("value", walkPath),
 			),
 		),
 		list,

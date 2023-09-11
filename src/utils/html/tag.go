@@ -28,14 +28,14 @@ func (attribute *Attribute) ToHTML() string {
 type Tag struct {
 	name       string
 	elements   []Element
-	attributes []*Attribute
+	attributes map[string]*Attribute
 }
 
 func NewTag(name string) *Tag {
 	return &Tag{
 		name:       name,
 		elements:   []Element{},
-		attributes: []*Attribute{},
+		attributes: map[string]*Attribute{},
 	}
 }
 
@@ -59,6 +59,8 @@ func (tag *Tag) AddElements(elements ...Element) *Tag {
 }
 
 func (tag *Tag) AddAttribute(attributes ...*Attribute) *Tag {
-	tag.attributes = append(tag.attributes, attributes...)
+	for _, attribute := range attributes {
+		tag.attributes[attribute.name] = attribute
+	}
 	return tag
 }
