@@ -1,6 +1,6 @@
 :root {
     --backgroud-color: rgb(30, 30, 30);
-    --elements-bg-color: rgb(60, 60, 60);
+    --elements-bg-color: rgba(60, 60, 60, 1);
     --default-color: white;
     --default-height: 30px;
     --margin: 10px
@@ -22,14 +22,41 @@ body {
 #bar {
     display: flex;
     flex-direction: row;
+    box-shadow: 0px;
+    margin-top: var(--margin);
+    margin-left: var(--margin);
 
-    .bar-button {
+    .bar-text-button {
+        display: flex;
+        align-items: center;
+        gap: var(--margin);
         color: var(--default-color);
-        background-color: var(--elements-bg-color);
-        margin: var(--margin);
+        background-color: var(--backgroud-color);
         height: var(--default-height);
         width: 100px;
+        height: 40px;
+        border: none;
+        border-color: var(--default-color);
+        border-right: 1px solid;
     }
+
+    .bar-text-button:hover {
+        background-color: var(--elements-bg-color);
+    }
+
+    .bar-symbol-button {
+        color: var(--default-color);
+        background-color: var(--backgroud-color);
+        height: var(--default-height);
+        width: 40px;
+        height: 40px;
+        border: none;
+    }
+
+    .bar-symbol-button:hover {
+        background-color: var(--elements-bg-color);
+    }
+
 }
 
 #filesystem-address {
@@ -74,7 +101,6 @@ body {
 #filesystem-explorer table {
     border-spacing: 0;
     white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 #filesystem-explorer table thead th {
@@ -91,13 +117,25 @@ body {
     overflow: auto;
 }
 
-#filesystem-explorer td {
+#filesystem-explorer table td {
     text-align: start;
     padding-left: 1em;
     overflow: hidden;
     height: var(--default-height);
+    max-width: 0;
+    text-overflow: ellipsis;
 }
 
-#filesystem-explorer table tbody tr:hover {
-    background-color: '#3c3c3c';
+#filesystem-explorer table td:last-child {
+    text-align: end;
+    padding-left: 0;
+    padding-right: 1em;
+}
+
+#filesystem-explorer table tr:hover td {
+    background-color: var(--elements-bg-color);
+}
+
+#filesystem-explorer table tr:focus td {
+    background-color: rgba(90, 90, 90, 1);
 }
