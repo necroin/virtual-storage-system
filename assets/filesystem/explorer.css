@@ -69,9 +69,15 @@ body {
 
 #filesystem-address-button {
     color: var(--default-color);
-    background-color: var(--elements-bg-color);
-    width: 50px;
+    background-color: var(--backgroud-color);
+    width: 30px;
+    height: var(--default-height);
     margin-right: var(--margin);
+    border: none;
+}
+
+#filesystem-address-button:hover {
+    background-color: var(--elements-bg-color);
 }
 
 #filesystem-address-line {
