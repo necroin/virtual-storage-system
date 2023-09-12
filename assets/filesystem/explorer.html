@@ -8,8 +8,6 @@
         function ChangeColor(tableRow, highLight) {
             if (highLight) {
                 tableRow.style.backgroundColor = '#3c3c3c';
-                tableRow.style.borderRight = '1px solid';
-                tableRow.style.borderColor = '#3c3c3c';
             }
             else {
                 tableRow.style.backgroundColor = '#1e1e1e';
@@ -19,166 +17,164 @@
 </head>
 
 <body>
-    <section>
+    <div id="bar">
         <button class="bar-button">+ Создать</button>
         <button class="bar-button">Вырезать</button>
         <button class="bar-button">Копировать</button>
         <button class="bar-button">Вставить</button>
         <button class="bar-button">Удалить</button>
-    </section>
-    <section>
-        <form class="filesystem-address">
-            <button class="filesystem-address-button">←</button>
-            <input class="filesystem-address-line" type="text" value="/some/dir">
-            <input class="filesystem-find-line" type="text" placeholder="Поиск">
+    </div>
+    <div>
+        <form id="filesystem-address">
+            <button id="filesystem-address-button">←</button>
+            <input id="filesystem-address-line" type="text" value="/some/dir">
+            <input id="filesystem-find-line" type="text" placeholder="Поиск">
         </form>
-    </section>
-    <section>
-        <div id="filesystem-explorer">
-            <table>
-                <thead>
-                    <th>Имя</th>
-                    <th>Дата изменения</th>
-                    <th>Тип</th>
-                    <th>Размер</th>
-                </thead>
-                <tbody>
-                    <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
-                        <td>📁 Dir 1</td>
-                        <td>11.09.2023</td>
-                        <td>Папка</td>
-                        <td>1 мб</td>
-                    </tr>
-                    <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
-                        <td>📁 Super Long Directory Name</td>
-                        <td>11.09.2023</td>
-                        <td>Мамка</td>
-                        <td>2 мб</td>
-                    </tr>
-                    <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
-                        <td>File 1</td>
-                        <td>11.09.2023</td>
-                        <td>Файл</td>
-                        <td>3 мб</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                    <tr>
-                        <td class="filesystem-explorer-data">Anothe File</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+    </div>
+    <div id="filesystem-explorer">
+        <table>
+            <thead>
+                <th>Имя</th>
+                <th>Дата изменения</th>
+                <th>Тип</th>
+                <th>Размер</th>
+            </thead>
+            <tbody>
+                <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+                    <td>📁 Dir 1</td>
+                    <td>11.09.2023</td>
+                    <td>Папка</td>
+                    <td>1 мб</td>
+                </tr>
+                <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+                    <td>📁 Super Long Directory Name That I Must Shrink</td>
+                    <td>11.09.2023</td>
+                    <td>Мамка</td>
+                    <td>2 мб</td>
+                </tr>
+                <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+                    <td>File 1</td>
+                    <td>11.09.2023</td>
+                    <td>Файл</td>
+                    <td>3 мб</td>
+                </tr>
+                <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+                <tr>
+                    <td class="filesystem-explorer-data">Anothe File</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
