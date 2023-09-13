@@ -6,15 +6,11 @@ import (
 	"io/ioutil"
 	"net/http"
 	"path"
+	"strconv"
 	"vss/src/settings"
 	"vss/src/utils/html"
 
 	_ "embed"
-)
-
-var (
-	//go:embed open.js
-	openScript string
 )
 
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -49,38 +45,43 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 	}
 	walkDirectory := storage.CollectFileSystem(walkPath)
 
-	list := html.NewUnorderedList()
+	table_rows := html.NewTag("tbody")
+	rows_count := int64(0)
 
 	for _, directory := range walkDirectory.Directories {
-		button := html.NewButton(directory, "📁")
-		button.SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory)))
-		list.AddElements(button)
+		row := html.NewTag("tr").AddAttribute(html.NewAttribute("tabindex", strconv.FormatInt(int64(rows_count), 10)))
+		row_name := html.NewTag("td").AddElements(html.NewText("📁 " + directory))
+		row_date := html.NewTag("td").AddElements(html.NewText("?"))
+		row_type := html.NewTag("td").AddElements(html.NewText("Папка с файлами"))
+		row_size := html.NewTag("td").AddElements(html.NewText("? байт"))
+		row.AddAttribute(html.NewAttribute("ondblclick", fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory))))
+		row.AddElements(row_name, row_date, row_type, row_size)
+		table_rows.AddElements(row)
+		rows_count += 1
 	}
 
 	for _, file := range walkDirectory.Files {
-		button := html.NewButton(file, "")
-		list.AddElements(button)
+		row := html.NewTag("tr").AddAttribute(html.NewAttribute("tabindex", strconv.FormatInt(int64(rows_count), 10)))
+		row_name := html.NewTag("td").AddElements(html.NewText(file))
+		row_date := html.NewTag("td").AddElements(html.NewText("?"))
+		row_type := html.NewTag("td").AddElements(html.NewText("Файл"))
+		row_size := html.NewTag("td").AddElements(html.NewText("? байт"))
+		row.AddElements(row_name, row_date, row_type, row_size)
+		table_rows.AddElements(row)
+		rows_count += 1
 	}
 
-	head := html.NewHead()
-	head.AddElements(html.NewText(`<meta name="viewport" content="width=device-width, initial-scale=1">`))
-	body := html.NewBody(head)
-	body.AddElements(
-		html.NewButton("", "←").SetOnClick(fmt.Sprintf("window.open('%s')", path.Join(walkPath, ".."))),
-		html.NewTag("form").AddElements(
-			html.NewTag("input").AddAttribute(
-				html.NewAttribute("type", "text"),
-				html.NewAttribute("value", walkPath),
-			),
-		).AddAttribute(
-			html.NewAttribute("style", "display: inline;"),
-		),
-		list,
-		html.NewScript(fmt.Sprintf(openScript, "http://"+storage.url+settings.StorageMainEndpoint)),
+	style := html.NewTag("style").AddElements(html.NewText(settings.ExplorerStyle)).AddAttribute(html.NewAttribute("type", "text/css"))
+	script := html.NewScript(fmt.Sprintf(settings.ExplorerScript, "http://"+storage.url+settings.StorageMainEndpoint))
+	result := fmt.Sprintf(
+		settings.ExplorerTemlate,
+		style.ToHTML(), script.ToHTML(),
+		settings.ExplorerIconCreate, settings.ExplorerIconCut, settings.ExplorerIconCopy, settings.ExplorerIconPaste, settings.ExplorerIconDelete,
+		path.Join(walkPath, ".."),
+		settings.ExplorerIconArrowLeft,
+		walkPath,
+		table_rows.ToHTML(),
 	)
 
-	document := html.NewDocument()
-	document.AddElements(body)
-
-	responseWriter.Write([]byte(document.ToHTML()))
+	responseWriter.Write([]byte(result))
 }

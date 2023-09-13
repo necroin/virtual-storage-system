@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Style Place -->
+    %s
+    <!-- Script Place -->
+    %s
+</head>
+
+<body>
+    <div id="bar">
+        <table>
+            <th>
+                <!-- Create button -->
+                <button class="bar-text-button">
+                    <!-- Incon -->
+                    %s
+                    Создать ˇ
+                </button>
+            </th>
+            <th>
+                <!-- Cut button -->
+                <button class="bar-symbol-button">
+                    <!-- Incon -->
+                    %s
+                </button>
+            </th>
+            <th>
+                <!-- Copy button -->
+                <button class="bar-symbol-button">
+                    <!-- Incon -->
+                    %s
+                </button>
+            </th>
+            <th>
+                <!-- Paste button -->
+                <button class="bar-symbol-button">
+                    <!-- Incon -->
+                    %s
+                </button>
+            </th>
+            <th>
+                <!-- Delete button -->
+                <button class="bar-symbol-button">
+                    <!-- Incon -->
+                    %s
+                </button>
+            </th>
+        </table>
+    </div>
+    <div id="filesystem-address">
+        <button id="filesystem-address-button" onclick="window.open('%s')">
+            <!-- Incon -->
+            %s
+        </button>
+        <input id="filesystem-address-line" type="text" value="%s">
+        <input id="filesystem-find-line" type="text" placeholder="Поиск">
+    </div>
+    <div id="filesystem-explorer">
+        <table>
+            <thead>
+                <th style="padding-right: 200px">Имя</th>
+                <th>Дата изменения</th>
+                <th style="padding-right: 100px">Тип</th>
+                <th style="padding-right: 100px">Размер</th>
+            </thead>
+            <!-- tbody -->
+            %s
+        </table>
+    </div>
+</body>
+
+</html>
