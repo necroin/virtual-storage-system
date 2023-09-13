@@ -53,6 +53,14 @@ func (tag *Tag) ToHTML() string {
 	return fmt.Sprintf("<%s %s>%s</%s>", tag.name, strings.Join(attributes, " "), strings.Join(elements, ""), tag.name)
 }
 
+func (tag *Tag) InnerHTML() string {
+	elements := []string{}
+	for _, element := range tag.elements {
+		elements = append(elements, element.ToHTML())
+	}
+	return strings.Join(elements, "")
+}
+
 func (tag *Tag) AddElements(elements ...Element) *Tag {
 	tag.elements = append(tag.elements, elements...)
 	return tag

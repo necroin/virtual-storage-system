@@ -1,5 +1,9 @@
 package connector
 
+import (
+	"io/fs"
+)
+
 const (
 	NotifyMessageStorageType = "storage"
 	NotifyMessageRunnerType  = "runner"
@@ -16,6 +20,6 @@ type TopologyMessage struct {
 }
 
 type FilesystemDirectory struct {
-	Directories []string `json:"directories"`
-	Files       []string `json:"files"`
+	Directories map[string]fs.FileInfo `json:"directories"`
+	Files       map[string]fs.FileInfo `json:"files"`
 }
