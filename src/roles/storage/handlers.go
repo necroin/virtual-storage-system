@@ -16,19 +16,21 @@ import (
 )
 
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	storage.db.InsertHandler(request.Body, responseWriter)
+	msgPath, _ := ioutil.ReadAll(request.Body)
+	utils.CreateNewDirectory(string(msgPath))
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	storage.db.InsertHandler(request.Body, responseWriter)
+
 }
 
 func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	storage.db.InsertHandler(request.Body, responseWriter)
+
 }
 
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	storage.db.InsertHandler(request.Body, responseWriter)
+	msgPath, _ := ioutil.ReadAll(request.Body)
+	utils.RemoveDirectory(string(msgPath))
 }
 
 func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -41,7 +43,7 @@ func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, re
 func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgPath, _ := ioutil.ReadAll(request.Body)
 
-	walkPath := "/"
+	walkPath := "/Test"
 	if len(msgPath) != 0 {
 		walkPath = string(msgPath)
 	}
@@ -59,7 +61,10 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 		row_date := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v", stat.ModTime().Format("02.01.2006 15:04"))))
 		row_type := html.NewTag("td").AddElements(html.NewText("Папка с файлами"))
 		row_size := html.NewTag("td").AddElements(html.NewText(""))
-		row.AddAttribute(html.NewAttribute("ondblclick", fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory))))
+		row.AddAttribute(
+			html.NewAttribute("ondblclick", fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory))),
+			html.NewAttribute("name", directory),
+		)
 		row.AddElements(row_name, row_date, row_type, row_size)
 		table_rows.AddElements(row)
 		rows_count += 1
@@ -74,6 +79,7 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 		row_date := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v", stat.ModTime().Format("02.01.06 15:04"))))
 		row_type := html.NewTag("td").AddElements(html.NewText("Файл"))
 		row_size := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v байт", stat.Size())))
+		row.AddAttribute(html.NewAttribute("name", file))
 		row.AddElements(row_name, row_date, row_type, row_size)
 		table_rows.AddElements(row)
 		rows_count += 1

@@ -19,7 +19,7 @@
                 Создать ˇ
             </button>
             <div id="create-options" class="dropdown-content">
-                <button>Папку</button>
+                <button onclick="window.create_dir()">Папку</button>
                 <button>Текстовый файл</button>
             </div>
         </div>
@@ -39,7 +39,7 @@
             %s
         </button>
         <!-- Delete button -->
-        <button class="bar-symbol-button">
+        <button class="bar-symbol-button" onclick="window.remove_dir()">
             <!-- Incon -->
             %s
         </button>
@@ -53,7 +53,7 @@
         <input id="filesystem-find-line" type="text" placeholder="Поиск">
     </div>
     <div id="filesystem-explorer">
-        <table id="filesystem-explorer-table">
+        <table id="filesystem-explorer-table" onclick="this.focus_item=document.activeElement">
             <thead>
                 <th style="padding-right: 200px">Имя</th>
                 <th style="padding-right: 50px">Дата изменения</th>
