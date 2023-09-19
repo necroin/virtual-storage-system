@@ -11,44 +11,38 @@
 
 <body>
     <div id="bar">
-        <table>
-            <th>
-                <!-- Create button -->
-                <button class="bar-text-button">
-                    <!-- Incon -->
-                    %s
-                    Создать ˇ
-                </button>
-            </th>
-            <th>
-                <!-- Cut button -->
-                <button class="bar-symbol-button">
-                    <!-- Incon -->
-                    %s
-                </button>
-            </th>
-            <th>
-                <!-- Copy button -->
-                <button class="bar-symbol-button">
-                    <!-- Incon -->
-                    %s
-                </button>
-            </th>
-            <th>
-                <!-- Paste button -->
-                <button class="bar-symbol-button">
-                    <!-- Incon -->
-                    %s
-                </button>
-            </th>
-            <th>
-                <!-- Delete button -->
-                <button class="bar-symbol-button">
-                    <!-- Incon -->
-                    %s
-                </button>
-            </th>
-        </table>
+        <div class="dropdown">
+            <!-- Create button -->
+            <button class="bar-text-button" onclick="window.open_create_options()">
+                <!-- Incon -->
+                %s
+                Создать ˇ
+            </button>
+            <div id="create-options" class="dropdown-content">
+                <button>Папку</button>
+                <button>Текстовый файл</button>
+            </div>
+        </div>
+        <!-- Cut button -->
+        <button class="bar-symbol-button">
+            <!-- Incon -->
+            %s
+        </button>
+        <!-- Copy button -->
+        <button class="bar-symbol-button">
+            <!-- Incon -->
+            %s
+        </button>
+        <!-- Paste button -->
+        <button class="bar-symbol-button">
+            <!-- Incon -->
+            %s
+        </button>
+        <!-- Delete button -->
+        <button class="bar-symbol-button">
+            <!-- Incon -->
+            %s
+        </button>
     </div>
     <div id="filesystem-address">
         <button id="filesystem-address-button" onclick="window.back()">

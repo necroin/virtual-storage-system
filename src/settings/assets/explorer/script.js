@@ -5,7 +5,7 @@ function open(path) {
     if (path == "") {
         document.body.innerHTML = req.responseText
     } else {
-        document.getElementById("filesystem-explorer-table-body").innerHTML= req.responseText
+        document.getElementById("filesystem-explorer-table-body").innerHTML = req.responseText
         document.getElementById("filesystem-address-line").value = path
     }
 }
@@ -17,4 +17,21 @@ function back() {
         path = "/"
     }
     open(path)
+}
+
+function open_create_options() {
+    document.getElementById("create-options").classList.toggle("show");
+}
+
+window.onclick = function (event) {
+    if (!event.target.matches('.bar-text-button')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
 }
