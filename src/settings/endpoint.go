@@ -12,6 +12,8 @@ const (
 	StorageSelectEndpoint     = "/storage/select"
 	StorageUpdateEndpoint     = "/storage/update"
 	StorageDeleteEndpoint     = "/storage/delete"
+	StorageCopyEndpoint       = "/storage/copy/{type}"
+	StoragePasteEndpoint      = "/storage/paste"
 )
 
 const (

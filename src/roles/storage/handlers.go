@@ -8,6 +8,7 @@ import (
 	"path"
 	"sort"
 	"strconv"
+	"vss/src/buffer"
 	"vss/src/settings"
 	"vss/src/utils"
 	"vss/src/utils/html"
@@ -18,19 +19,24 @@ import (
 )
 
 var (
-	insertTypes = map[string]func(string){
+	insertHandlers = map[string]func(string){
 		"dir":      func(path string) { utils.CreateNewDirectory(path, "Новая папка") },
 		"textFile": func(path string) { utils.CreateNewFile(path, "Текстовый документ.txt") },
+	}
+	copyHandlers = map[string]func(string){
+		"file": func(path string) { buffer.SetFile(path) },
+		"text": func(text string) {},
 	}
 )
 
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgVars := mux.Vars(request)
-	insertTYpe := msgVars["type"]
-	msgPath, _ := ioutil.ReadAll(request.Body)
+	insertType := msgVars["type"]
 
-	insertFunc := insertTypes[insertTYpe]
-	insertFunc(string(msgPath))
+	path, _ := ioutil.ReadAll(request.Body)
+
+	insertHandler := insertHandlers[insertType]
+	insertHandler(string(path))
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -44,6 +50,20 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgPath, _ := ioutil.ReadAll(request.Body)
 	utils.RemoveFile(string(msgPath))
+}
+
+func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	msgVars := mux.Vars(request)
+	copyType := msgVars["type"]
+
+	path, _ := ioutil.ReadAll(request.Body)
+
+	copyHandler := copyHandlers[copyType]
+	copyHandler(string(path))
+}
+
+func (storage *Storage) PasteHandler(responseWriter http.ResponseWriter, request *http.Request) {
+
 }
 
 func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {

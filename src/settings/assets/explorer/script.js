@@ -60,3 +60,11 @@ function remove() {
         open(document.getElementById("filesystem-address-line").value)
     }
 }
+
+function copy(type) {
+
+}
+
+function paste(type) {
+
+}

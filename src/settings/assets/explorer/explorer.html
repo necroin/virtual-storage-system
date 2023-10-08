@@ -29,12 +29,12 @@
             %s
         </button>
         <!-- Copy button -->
-        <button class="bar-symbol-button">
+        <button class="bar-symbol-button" onclick="window.copy('file')">
             <!-- Incon -->
             %s
         </button>
         <!-- Paste button -->
-        <button class="bar-symbol-button">
+        <button class="bar-symbol-button" onclick="window.paste('file')">
             <!-- Incon -->
             %s
         </button>
@@ -63,6 +63,10 @@
             <!-- tbody -->
             %s
         </table>
+    </div>
+    <div id="status-bar">
+        <div id="status-bar-progress"></div>
+        <span id="status-bar-text"></span>
     </div>
 </body>
 
