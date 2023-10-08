@@ -1,5 +1,7 @@
 package config
 
+import "time"
+
 type StorageRole struct {
 	Enable bool `yaml:"enable"`
 }
@@ -18,10 +20,26 @@ type Roles struct {
 	Router  RouterRole  `yaml:"router"`
 }
 
+type Log struct {
+	Enable bool   `yaml:"enable"`
+	Path   string `yaml:"path"`
+}
+
 type Config struct {
 	Url       string `yaml:"url"`
 	RouterUrl string `yaml:"router"`
 	Roles     Roles  `yaml:"roles"`
+	Log       Log    `yaml:"log"`
+}
+
+func setDefaults(config *Config) {
+	if config.RouterUrl == "" {
+		config.RouterUrl = config.Url
+	}
+
+	if config.Log.Path == "" {
+		config.Log.Path = "logs/log_" + time.Now().Format("2006-01-02T15:04:05") + ".txt"
+	}
 }
 
 func Load(path string) (*Config, error) {
@@ -40,9 +58,7 @@ func Load(path string) (*Config, error) {
 		},
 	}
 
-	if config.RouterUrl == "" {
-		config.RouterUrl = config.Url
-	}
+	setDefaults(config)
 
 	return config, nil
 }

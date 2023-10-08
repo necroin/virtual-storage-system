@@ -87,10 +87,10 @@ func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request 
 
 	result := table_rows.InnerHTML()
 	if len(msgPath) == 0 {
-		style := html.NewTag("style").AddElements(html.NewText(settings.ExplorerStyle)).AddAttribute(html.NewAttribute("type", "text/css"))
-		script := html.NewScript(fmt.Sprintf(settings.ExplorerScript, "http://"+storage.url+settings.StorageMainEndpoint))
+		style := html.NewTag("style").AddElements(html.NewText(settings.GetExplorerStyle())).AddAttribute(html.NewAttribute("type", "text/css"))
+		script := html.NewScript(fmt.Sprintf(settings.GetExplorerScript(), "http://"+storage.url+settings.StorageMainEndpoint))
 		result = fmt.Sprintf(
-			settings.ExplorerTemlate,
+			settings.GetExplorerTemlate(),
 			style.ToHTML(), script.ToHTML(),
 			settings.ExplorerIconCreate, settings.ExplorerIconCut, settings.ExplorerIconCopy, settings.ExplorerIconPaste, settings.ExplorerIconDelete,
 			settings.ExplorerIconArrowLeft,

@@ -8,6 +8,8 @@ import (
 	"vss/src/roles/storage"
 	"vss/src/server"
 	"vss/src/settings"
+
+	"github.com/necroin/golibs/metrics"
 )
 
 type Application struct {
@@ -33,6 +35,7 @@ func New() (*Application, error) {
 
 func (app *Application) Run() error {
 	wg := sync.WaitGroup{}
+	metricsRegistry := metrics.NewRegistry()
 
 	server := server.New(app.config.Url)
 
@@ -96,6 +99,8 @@ func (app *Application) Run() error {
 			return err
 		}
 	}
+
+	server.AddHandler(settings.ServerMetricsEndpoint, metricsRegistry.Handler().ServeHTTP, "GET")
 
 	wg.Wait()
 
