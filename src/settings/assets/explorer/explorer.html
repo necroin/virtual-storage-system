@@ -19,8 +19,8 @@
                 Создать ˇ
             </button>
             <div id="create-options" class="dropdown-content">
-                <button onclick="window.create_dir()">Папку</button>
-                <button>Текстовый файл</button>
+                <button onclick="window.create('dir')">Папку</button>
+                <button onclick="window.create('textFile')">Текстовый файл</button>
             </div>
         </div>
         <!-- Cut button -->
@@ -39,7 +39,7 @@
             %s
         </button>
         <!-- Delete button -->
-        <button class="bar-symbol-button" onclick="window.remove_dir()">
+        <button class="bar-symbol-button" onclick="window.remove()">
             <!-- Incon -->
             %s
         </button>

@@ -8,7 +8,7 @@ const (
 const (
 	StorageMainEndpoint       = "/storage"
 	StorageFilesystemEndpoint = "/storage/filesystem"
-	StorageInsertEndpoint     = "/storage/insert"
+	StorageInsertEndpoint     = "/storage/insert/{type}"
 	StorageSelectEndpoint     = "/storage/select"
 	StorageUpdateEndpoint     = "/storage/update"
 	StorageDeleteEndpoint     = "/storage/delete"

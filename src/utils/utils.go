@@ -13,10 +13,15 @@ func GetMapKeys[K comparable, V any](value map[K]V) []K {
 	return result
 }
 
-func CreateNewDirectory(dirPath string) {
-	os.MkdirAll(path.Join(dirPath, "Новая папка"), os.ModePerm)
+func CreateNewDirectory(dirPath string, name string) {
+	os.MkdirAll(path.Join(dirPath, name), os.ModePerm)
 }
 
-func RemoveDirectory(dirPath string) {
+func CreateNewFile(dirPath string, name string) {
+	file, _ := os.OpenFile(path.Join(dirPath, name), os.O_CREATE, os.ModePerm)
+	file.Close()
+}
+
+func RemoveFile(dirPath string) {
 	os.RemoveAll(dirPath)
 }

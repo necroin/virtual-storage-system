@@ -39,14 +39,14 @@ function open_create_options() {
     document.getElementById("create-options").classList.toggle("show");
 }
 
-function create_dir() {
+function create(type) {
     var req = new XMLHttpRequest();
-    req.open("POST", window.request_url + "/insert", false);
+    req.open("POST", window.request_url + "/insert/"+type, false);
     req.send(document.getElementById("filesystem-address-line").value)
     open(document.getElementById("filesystem-address-line").value)
 }
 
-function remove_dir() {
+function remove() {
     var req = new XMLHttpRequest();
     req.open("POST", window.request_url + "/delete", false);
     let focus_item = document.getElementById("filesystem-explorer-table").focus_item

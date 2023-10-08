@@ -13,11 +13,24 @@ import (
 	"vss/src/utils/html"
 
 	_ "embed"
+
+	"github.com/gorilla/mux"
+)
+
+var (
+	insertTypes = map[string]func(string){
+		"dir":      func(path string) { utils.CreateNewDirectory(path, "Новая папка") },
+		"textFile": func(path string) { utils.CreateNewFile(path, "Текстовый документ.txt") },
+	}
 )
 
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	msgVars := mux.Vars(request)
+	insertTYpe := msgVars["type"]
 	msgPath, _ := ioutil.ReadAll(request.Body)
-	utils.CreateNewDirectory(string(msgPath))
+
+	insertFunc := insertTypes[insertTYpe]
+	insertFunc(string(msgPath))
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -30,7 +43,7 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgPath, _ := ioutil.ReadAll(request.Body)
-	utils.RemoveDirectory(string(msgPath))
+	utils.RemoveFile(string(msgPath))
 }
 
 func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {
