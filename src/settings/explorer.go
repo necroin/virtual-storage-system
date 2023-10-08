@@ -27,16 +27,16 @@ var (
 )
 
 func GetExplorerTemlate() string {
-	data, _ := os.ReadFile("assets/explorer/explorer.html")
+	data, _ := os.ReadFile("src/settings/assets/explorer/explorer.html")
 	return string(data)
 }
 
 func GetExplorerStyle() string {
-	data, _ := os.ReadFile("assets/explorer/explorer.css")
+	data, _ := os.ReadFile("src/settings/assets/explorer/explorer.css")
 	return string(data)
 }
 
 func GetExplorerScript() string {
-	data, _ := os.ReadFile("assets/explorer/script.js")
+	data, _ := os.ReadFile("src/settings/assets/explorer/script.js")
 	return string(data)
 }
