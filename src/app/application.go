@@ -54,6 +54,8 @@ func (app *Application) Run() error {
 		server.AddHandler(settings.StorageSelectEndpoint, storageRole.SelectHandler, "POST")
 		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
 		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler, "POST")
+		server.AddHandler(settings.StorageCopyEndpoint, storageRole.CopyHandler, "POST")
+		server.AddHandler(settings.StoragePasteEndpoint, storageRole.PasteHandler, "POST")
 	}
 
 	if app.config.Roles.Runner.Enable {

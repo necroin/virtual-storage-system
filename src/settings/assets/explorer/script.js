@@ -35,13 +35,17 @@ function back() {
     open(path)
 }
 
+function set_focus_item(table, item) {
+    table.focus_item = item
+}
+
 function open_create_options() {
     document.getElementById("create-options").classList.toggle("show");
 }
 
 function create(type) {
     var req = new XMLHttpRequest();
-    req.open("POST", window.request_url + "/insert/"+type, false);
+    req.open("POST", window.request_url + "/insert/" + type, false);
     req.send(document.getElementById("filesystem-address-line").value)
     open(document.getElementById("filesystem-address-line").value)
 }
@@ -51,8 +55,8 @@ function remove() {
     req.open("POST", window.request_url + "/delete", false);
     let focus_item = document.getElementById("filesystem-explorer-table").focus_item
     if (focus_item != null) {
-        focus_item = focus_item.attributes.name.value
-        let path = [document.getElementById("filesystem-address-line").value, focus_item].join("/")
+        let focus_item_name = focus_item.attributes.name.value
+        let path = [document.getElementById("filesystem-address-line").value, focus_item_name].join("/")
         if (document.getElementById("filesystem-address-line").value == "/") {
             path = "/" + focus_item
         }
@@ -61,10 +65,27 @@ function remove() {
     }
 }
 
-function copy(type) {
+function copy() {
+    var req = new XMLHttpRequest();
+    let focus_item = document.getElementById("filesystem-explorer-table").focus_item
+    if (focus_item != null) {
+        let focus_item_name = focus_item.attributes.name.value
+        let focus_item_type = focus_item.attributes.custom_type.value
+        let path = [document.getElementById("filesystem-address-line").value, focus_item_name].join("/")
+        if (document.getElementById("filesystem-address-line").value == "/") {
+            path = "/" + focus_item_name
+        }
 
+        req.open("POST", window.request_url + "/copy/" + focus_item_type, false);
+        req.send(path)
+        document.getElementById("status-bar-text").innerHTML = req.responseText
+    }
 }
 
-function paste(type) {
-
+function paste() {
+    var req = new XMLHttpRequest();
+    req.open("POST", window.request_url + "/paste", false);
+    req.send(document.getElementById("filesystem-address-line").value)
+    open(document.getElementById("filesystem-address-line").value)
+    document.getElementById("status-bar-text").innerHTML = req.responseText
 }

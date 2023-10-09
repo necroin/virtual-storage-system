@@ -3,16 +3,18 @@ package buffer
 import "fmt"
 
 var (
-	filePath string
+	bufFilePath string
+	bufFileType string
 )
 
-func SetFile(path string) {
-	filePath = path
+func SetFile(filePath string, fileType string) {
+	bufFilePath = filePath
+	bufFileType = fileType
 }
 
-func GetFile() (string, error) {
-	if filePath == "" {
-		return filePath, fmt.Errorf("[Buffer] [Error] buffered file path is empty")
+func GetFile() (string, string, error) {
+	if bufFilePath == "" {
+		return bufFilePath, bufFileType, fmt.Errorf("[Buffer] [Error] buffered file path is empty")
 	}
-	return filePath, nil
+	return bufFilePath, bufFileType, nil
 }

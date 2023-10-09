@@ -29,12 +29,12 @@
             %s
         </button>
         <!-- Copy button -->
-        <button class="bar-symbol-button" onclick="window.copy('file')">
+        <button class="bar-symbol-button" onclick="window.copy()">
             <!-- Incon -->
             %s
         </button>
         <!-- Paste button -->
-        <button class="bar-symbol-button" onclick="window.paste('file')">
+        <button class="bar-symbol-button" onclick="window.paste()">
             <!-- Incon -->
             %s
         </button>
@@ -53,7 +53,7 @@
         <input id="filesystem-find-line" type="text" placeholder="Поиск">
     </div>
     <div id="filesystem-explorer">
-        <table id="filesystem-explorer-table" onclick="this.focus_item=document.activeElement">
+        <table id="filesystem-explorer-table" onclick="window.set_focus_item(this, document.activeElement)">
             <thead>
                 <th style="padding-right: 200px">Имя</th>
                 <th style="padding-right: 50px">Дата изменения</th>
