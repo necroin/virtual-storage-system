@@ -43,10 +43,10 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 	directories := utils.GetMapKeys(walkDirectory.Directories)
 	sort.Strings(directories)
 	for _, directory := range directories {
-		stat := walkDirectory.Directories[directory]
+		info := walkDirectory.Directories[directory]
 		row := html.NewTag("tr").AddAttribute(html.NewAttribute("tabindex", strconv.FormatInt(int64(rows_count), 10)))
 		row_name := html.NewTag("td").AddElements(html.NewText("📁 " + directory))
-		row_date := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v", stat.ModTime().Format("02.01.2006 15:04"))))
+		row_date := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v", info.ModTime.Format("02.01.2006 15:04"))))
 		row_type := html.NewTag("td").AddElements(html.NewText("Папка с файлами"))
 		row_size := html.NewTag("td").AddElements(html.NewText(""))
 		row.AddAttribute(
@@ -62,12 +62,12 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 	files := utils.GetMapKeys(walkDirectory.Files)
 	sort.Strings(files)
 	for _, file := range files {
-		stat := walkDirectory.Files[file]
+		info := walkDirectory.Files[file]
 		row := html.NewTag("tr").AddAttribute(html.NewAttribute("tabindex", strconv.FormatInt(int64(rows_count), 10)))
 		row_name := html.NewTag("td").AddElements(html.NewText(file))
-		row_date := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v", stat.ModTime().Format("02.01.06 15:04"))))
+		row_date := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v", info.ModTime.Format("02.01.06 15:04"))))
 		row_type := html.NewTag("td").AddElements(html.NewText("Файл"))
-		row_size := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v байт", stat.Size())))
+		row_size := html.NewTag("td").AddElements(html.NewText(fmt.Sprintf("%v байт", info.Size)))
 		row.AddAttribute(
 			html.NewAttribute("name", file),
 			html.NewAttribute("custom_type", "file"),

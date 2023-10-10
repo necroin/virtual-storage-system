@@ -1,7 +1,7 @@
 package connector
 
 import (
-	"io/fs"
+	"time"
 )
 
 const (
@@ -20,7 +20,12 @@ type TopologyMessage struct {
 	Runners  []string `json:"runners"`
 }
 
+type FileInfo struct {
+	ModTime time.Time `json:"mod_time"`
+	Size    int64     `json:"size"`
+}
+
 type FilesystemDirectory struct {
-	Directories map[string]fs.FileInfo `json:"directories"`
-	Files       map[string]fs.FileInfo `json:"files"`
+	Directories map[string]FileInfo `json:"directories"`
+	Files       map[string]FileInfo `json:"files"`
 }

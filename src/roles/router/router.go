@@ -1,7 +1,6 @@
 package router
 
 import (
-	"io/fs"
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/settings"
@@ -35,10 +34,26 @@ func (router *Router) NotifyRunners() {
 	}
 }
 
+func (router *Router) CollectStorageFileSystem(url string, walkPath string) connector.FilesystemDirectory {
+	result, _ := connector.SendGetRequest[connector.FilesystemDirectory](url+settings.StorageFilesystemEndpoint, []byte(walkPath))
+	return *result
+}
+
 func (router *Router) CollectFileSystem(walkPath string) connector.FilesystemDirectory {
 	fileSystemDirectory := connector.FilesystemDirectory{
-		Directories: map[string]fs.FileInfo{},
-		Files:       map[string]fs.FileInfo{},
+		Directories: map[string]connector.FileInfo{},
+		Files:       map[string]connector.FileInfo{},
+	}
+
+	for _, storage := range router.storages {
+		storageFilesystem := router.CollectStorageFileSystem(storage, walkPath)
+		for directory, info := range storageFilesystem.Directories {
+			fileSystemDirectory.Directories[directory] = info
+		}
+
+		for file, info := range storageFilesystem.Files {
+			fileSystemDirectory.Files[file] = info
+		}
 	}
 	return fileSystemDirectory
 }

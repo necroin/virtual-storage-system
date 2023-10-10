@@ -10,10 +10,10 @@ func SendPostRequest(url string, data any) (*http.Response, error) {
 	return SendRequestWithDataEncode(url, data, http.MethodPost)
 }
 
-func SendGetRequest[T any](url string) (*T, error) {
+func SendGetRequest[T any](url string, data []byte) (*T, error) {
 	result := new(T)
 
-	response, err := SendRequest(url, []byte{}, http.MethodGet)
+	response, err := SendRequest(url, data, http.MethodGet)
 	if err != nil {
 		return nil, err
 	}
@@ -36,7 +36,7 @@ func SendRequest(url string, data []byte, method string) (*http.Response, error)
 	client := http.Client{}
 
 	request, err := http.NewRequest(
-		http.MethodPost,
+		method,
 		"http://"+url,
 		bytes.NewReader(data),
 	)

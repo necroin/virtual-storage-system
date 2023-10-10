@@ -1,7 +1,6 @@
 package storage
 
 import (
-	"io/fs"
 	"os"
 	"path"
 	"vss/src/config"
@@ -45,8 +44,8 @@ func (storage *Storage) NotifyRouter() error {
 
 func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemDirectory {
 	fileSystemDirectory := connector.FilesystemDirectory{
-		Directories: map[string]fs.FileInfo{},
-		Files:       map[string]fs.FileInfo{},
+		Directories: map[string]connector.FileInfo{},
+		Files:       map[string]connector.FileInfo{},
 	}
 
 	if walkPath == "" {
@@ -56,10 +55,16 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 	entries, _ := os.ReadDir(walkPath)
 	for _, entry := range entries {
 		stat, _ := os.Stat(path.Join(walkPath, entry.Name()))
+
+		info := connector.FileInfo{
+			ModTime: stat.ModTime(),
+			Size:    stat.Size(),
+		}
+
 		if entry.IsDir() {
-			fileSystemDirectory.Directories[entry.Name()] = stat
+			fileSystemDirectory.Directories[entry.Name()] = info
 		} else {
-			fileSystemDirectory.Files[entry.Name()] = stat
+			fileSystemDirectory.Files[entry.Name()] = info
 		}
 	}
 
