@@ -139,36 +139,41 @@ body {
 
 #filesystem-explorer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: var(--backgroud-color);
     color: var(--default-color);
     margin: 20px;
-    box-shadow: -2px 0 0 gray;
     overflow-y: auto;
     overflow-x: hidden;
 
     -webkit-touch-callout: none;
-    /* iOS Safari */
     -webkit-user-select: none;
-    /* Safari */
     -khtml-user-select: none;
-    /* Konqueror HTML */
     -moz-user-select: none;
-    /* Old versions of Firefox */
     -ms-user-select: none;
-    /* Internet Explorer/Edge */
     user-select: none;
 
-    flex-direction: column;
     flex-grow: 10;
 }
 
-#filesystem-explorer table {
+#devices{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#filesystem-explorer-table-wrap{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 10;
+    box-shadow: -2px 0 0 gray;
+}
+
+#filesystem-explorer-table {
     border-spacing: 0;
     white-space: nowrap;
 }
 
-#filesystem-explorer table thead th {
+#filesystem-explorer-table thead th {
     background-color: var(--backgroud-color);
     border-color: var(--default-color);
     text-align: start;
@@ -182,7 +187,7 @@ body {
     overflow: auto;
 }
 
-#filesystem-explorer table td {
+#filesystem-explorer-table td {
     text-align: start;
     padding-left: 1em;
     overflow: hidden;
@@ -191,17 +196,17 @@ body {
     text-overflow: ellipsis;
 }
 
-#filesystem-explorer table td:last-child {
+#filesystem-explorer-table td:last-child {
     text-align: end;
     padding-left: 0;
     padding-right: 1em;
 }
 
-#filesystem-explorer table tr:hover td {
+#filesystem-explorer-table tr:hover td {
     background-color: var(--elements-bg-color);
 }
 
-#filesystem-explorer table tr:focus td {
+#filesystem-explorer-table tr:focus td {
     background-color: rgba(90, 90, 90, 1);
 }
 

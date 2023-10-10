@@ -10,8 +10,9 @@ const (
 )
 
 type NotifyMessage struct {
-	Type string `json:"type"`
-	Url  string `json:"url"`
+	Type     string `json:"type"`
+	Url      string `json:"url"`
+	Hostname string `json:"hostname"`
 }
 
 type TopologyMessage struct {

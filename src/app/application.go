@@ -71,12 +71,13 @@ func (app *Application) Run() error {
 	}
 
 	if app.config.Roles.Router.Enable {
-		routerRole, err := router.New()
+		routerRole, err := router.New(app.config)
 		if err != nil {
 			return err
 		}
 		app.routerRole = routerRole
 
+		server.AddHandler(settings.RouterMainEndpoint, routerRole.MainHandler, "POST", "GET")
 		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler, "GET")
 		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler, "POST")
 	}

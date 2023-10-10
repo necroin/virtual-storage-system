@@ -9,6 +9,7 @@ import (
 	_ "embed"
 
 	"vss/src/connector"
+	"vss/src/roles"
 )
 
 var (
@@ -28,6 +29,7 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 
 	if message.Type == connector.NotifyMessageStorageType {
 		router.storages = append(router.storages, message.Url)
+		router.hostnames[message.Hostname] = message.Url
 		router.NotifyRunners()
 	}
 
@@ -35,4 +37,8 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 		router.runners = append(router.runners, message.Url)
 		router.NotifyRunner(message.Url)
 	}
+}
+
+func (router *Router) MainHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	roles.MainHandler(router, responseWriter, request)
 }

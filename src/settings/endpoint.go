@@ -21,7 +21,9 @@ const (
 	RunnerTopologyEndpoint = "/runner/topology"
 	RunnerNotifyEndpoint   = "/runner/notify"
 )
+
 const (
+	RouterMainEndpoint     = "/router"
 	RouterTopologyEndpoint = "/router/topology"
 	RouterNotifyEndpoint   = "/router/notify"
 )
