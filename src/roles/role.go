@@ -85,8 +85,12 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 		hostnames := role.GetHostnames()
 		hostnamesList := html.NewTag("div")
 		hostnamesList.AddAttribute(html.NewAttribute("id", "devices"))
-		for hostname := range hostnames {
+		allItem := html.NewTag("span").AddElements(html.NewText("Все"))
+		allItem.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage(null)")))
+		hostnamesList.AddElements(allItem)
+		for hostname, url := range hostnames {
 			item := html.NewTag("span").AddElements(html.NewText(hostname))
+			item.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage('%s')", url)))
 			hostnamesList.AddElements(item)
 		}
 

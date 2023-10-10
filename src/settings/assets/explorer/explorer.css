@@ -156,12 +156,22 @@ body {
     flex-grow: 10;
 }
 
-#devices{
+#devices {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-#filesystem-explorer-table-wrap{
+#devices span {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#devices span:hover {
+    background-color: var(--elements-bg-color);
+}
+
+#filesystem-explorer-table-wrap {
     display: flex;
     flex-direction: column;
     flex-grow: 10;
@@ -219,13 +229,13 @@ body {
     border-top: 1px solid gray;
 }
 
-#status-bar-progress{
+#status-bar-progress {
     width: 30px;
     height: 30px;
     padding: 10px;
 }
 
-#status-bar-text{
+#status-bar-text {
     display: flex;
     flex-direction: column;
     justify-content: center;

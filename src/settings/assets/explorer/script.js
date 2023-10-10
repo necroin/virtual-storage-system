@@ -1,4 +1,5 @@
 window.request_url = "%s"
+window.storage_url = null
 
 window.onclick = function (event) {
     if (!event.target.matches('.bar-text-button')) {
@@ -15,6 +16,10 @@ window.onclick = function (event) {
 
 function open(path) {
     var req = new XMLHttpRequest();
+    url = window.request_url
+    if (window.storage_url != null) {
+        url = window.storage_url
+    }
     req.open("POST", window.request_url, false);
     req.send(path);
     if (path == "") {
@@ -24,6 +29,11 @@ function open(path) {
         document.getElementById("filesystem-address-line").value = path
     }
     document.getElementById("filesystem-explorer-table").focus_item = null
+}
+
+function set_storage(url) {
+    window.storage_url = url
+    open(document.getElementById("filesystem-address-line").value)
 }
 
 function back() {
@@ -89,3 +99,4 @@ function paste() {
     open(document.getElementById("filesystem-address-line").value)
     document.getElementById("status-bar-text").innerHTML = req.responseText
 }
+
