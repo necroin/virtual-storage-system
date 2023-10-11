@@ -31,7 +31,7 @@ func FilesystemHandler(role Role, responseWriter http.ResponseWriter, request *h
 func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Request) {
 	msgPath, _ := ioutil.ReadAll(request.Body)
 
-	walkPath := "/Test"
+	walkPath := "/"
 	if len(msgPath) != 0 {
 		walkPath = string(msgPath)
 	}
