@@ -80,7 +80,7 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 	result := table_rows.InnerHTML()
 	if len(msgPath) == 0 {
 		style := html.NewTag("style").AddElements(html.NewText(settings.GetExplorerStyle())).AddAttribute(html.NewAttribute("type", "text/css"))
-		script := html.NewScript(fmt.Sprintf(settings.GetExplorerScript(), "http://"+role.GetUrl()+role.GetMainEndpoint()))
+		script := html.NewScript(fmt.Sprintf(settings.GetExplorerScript(), role.GetUrl()+role.GetMainEndpoint()))
 
 		hostnames := role.GetHostnames()
 		hostnamesList := html.NewTag("div")
@@ -90,7 +90,7 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 		hostnamesList.AddElements(allItem)
 		for hostname, url := range hostnames {
 			item := html.NewTag("span").AddElements(html.NewText(hostname))
-			item.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage('%s')", url)))
+			item.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage('%s/storage')", url)))
 			hostnamesList.AddElements(item)
 		}
 

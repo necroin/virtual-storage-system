@@ -23,8 +23,8 @@ func CreateNewFile(dirPath string, name string) {
 	file.Close()
 }
 
-func RemoveFile(dirPath string) {
-	os.RemoveAll(dirPath)
+func RemoveFile(dirPath string) error {
+	return os.RemoveAll(dirPath)
 }
 
 func CopyFile(srcPath string, dstPath string) error {

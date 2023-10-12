@@ -49,7 +49,12 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgPath, _ := ioutil.ReadAll(request.Body)
-	utils.RemoveFile(string(msgPath))
+	err := utils.RemoveFile(string(msgPath))
+	if err != nil {
+		responseWriter.Write([]byte(err.Error()))
+		return
+	}
+	responseWriter.Write([]byte(fmt.Sprintf("%s удалено", msgPath)))
 }
 
 func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {

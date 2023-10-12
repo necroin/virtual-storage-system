@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"sync"
 	"vss/src/config"
 	"vss/src/roles/router"
@@ -91,6 +92,7 @@ func (app *Application) Run() error {
 	if err := server.WaitStart(); err != nil {
 		return err
 	}
+	fmt.Println("Server started.")
 
 	if app.storageRole != nil {
 		if err := app.storageRole.NotifyRouter(); err != nil {

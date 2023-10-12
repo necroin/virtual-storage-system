@@ -14,18 +14,27 @@ window.onclick = function (event) {
     }
 }
 
-function open(path) {
+function request(methood, url, data) {
     var req = new XMLHttpRequest();
-    url = window.request_url
+    req.open(methood, "https://"+url, false);
+    req.send(data);
+    return req.responseText
+}
+
+function get_request_url() {
+    var url = window.request_url
     if (window.storage_url != null) {
         url = window.storage_url
     }
-    req.open("POST", window.request_url, false);
-    req.send(path);
+    return url
+}
+
+function open(path) {
+    let response = request("POST", get_request_url(), path);
     if (path == "") {
-        document.body.innerHTML = req.responseText
+        document.body.innerHTML = response
     } else {
-        document.getElementById("filesystem-explorer-table-body").innerHTML = req.responseText
+        document.getElementById("filesystem-explorer-table-body").innerHTML = response
         document.getElementById("filesystem-address-line").value = path
     }
     document.getElementById("filesystem-explorer-table").focus_item = null
@@ -54,29 +63,25 @@ function open_create_options() {
 }
 
 function create(type) {
-    var req = new XMLHttpRequest();
-    req.open("POST", window.request_url + "/insert/" + type, false);
-    req.send(document.getElementById("filesystem-address-line").value)
+    request("POST", get_request_url() + "/insert/" + type, document.getElementById("filesystem-address-line").value);
     open(document.getElementById("filesystem-address-line").value)
 }
 
 function remove() {
-    var req = new XMLHttpRequest();
-    req.open("POST", window.request_url + "/delete", false);
     let focus_item = document.getElementById("filesystem-explorer-table").focus_item
     if (focus_item != null) {
         let focus_item_name = focus_item.attributes.name.value
         let path = [document.getElementById("filesystem-address-line").value, focus_item_name].join("/")
         if (document.getElementById("filesystem-address-line").value == "/") {
-            path = "/" + focus_item
+            path = "/" + focus_item_name
         }
-        req.send(path)
+        let response = request("POST", get_request_url() + "/delete", path);
         open(document.getElementById("filesystem-address-line").value)
+        document.getElementById("status-bar-text").innerHTML = response
     }
 }
 
 function copy() {
-    var req = new XMLHttpRequest();
     let focus_item = document.getElementById("filesystem-explorer-table").focus_item
     if (focus_item != null) {
         let focus_item_name = focus_item.attributes.name.value
@@ -85,18 +90,14 @@ function copy() {
         if (document.getElementById("filesystem-address-line").value == "/") {
             path = "/" + focus_item_name
         }
-
-        req.open("POST", window.request_url + "/copy/" + focus_item_type, false);
-        req.send(path)
-        document.getElementById("status-bar-text").innerHTML = req.responseText
+        let response = request("POST", get_request_url() + "/copy/" + focus_item_type, path);
+        document.getElementById("status-bar-text").innerHTML = response
     }
 }
 
 function paste() {
-    var req = new XMLHttpRequest();
-    req.open("POST", window.request_url + "/paste", false);
-    req.send(document.getElementById("filesystem-address-line").value)
+    let response = request("POST", get_request_url() + "/paste", document.getElementById("filesystem-address-line").value);
     open(document.getElementById("filesystem-address-line").value)
-    document.getElementById("status-bar-text").innerHTML = req.responseText
+    document.getElementById("status-bar-text").innerHTML = response
 }
 

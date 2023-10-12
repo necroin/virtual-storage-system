@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -23,12 +24,16 @@ type Server struct {
 
 func New(url string) *Server {
 	router := mux.NewRouter()
+
 	return &Server{
 		url:    url,
 		router: router,
 		instance: &http.Server{
 			Addr:    url,
 			Handler: router,
+			TLSConfig: &tls.Config{
+				ServerName: "localhost",
+			},
 		},
 	}
 }
@@ -42,7 +47,7 @@ func (server *Server) Start() {
 		server.instance.Shutdown(ctx)
 	}()
 
-	server.instance.ListenAndServe()
+	server.instance.ListenAndServeTLS("cert/vss.crt", "cert/vss.key")
 }
 
 func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), methods ...string) {
@@ -50,21 +55,30 @@ func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, 
 }
 
 func (server *Server) WaitStart() error {
-	client := http.Client{}
+	client := http.Client{
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{
+				ServerName:         "localhost",
+				InsecureSkipVerify: true,
+			},
+		},
+	}
 	for i := 0; i < settings.ServerWaitStartRepeatCount; i++ {
 		request, _ := http.NewRequest(
 			http.MethodGet,
-			"http://"+server.url+settings.ServerStatusEndpoint,
+			"https://"+server.url+settings.ServerStatusEndpoint,
 			bytes.NewReader([]byte("")),
 		)
 
 		response, err := client.Do(request)
 		if err != nil {
+			fmt.Println(err)
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
 			continue
 		}
 		data, err := ioutil.ReadAll(response.Body)
 		if err != nil {
+			fmt.Println(err)
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
 			continue
 		}

@@ -2,6 +2,7 @@ package connector
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"net/http"
 )
@@ -33,11 +34,18 @@ func SendRequestWithDataEncode(url string, data any, method string) (*http.Respo
 }
 
 func SendRequest(url string, data []byte, method string) (*http.Response, error) {
-	client := http.Client{}
+	client := http.Client{
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{
+				ServerName:         "localhost",
+				InsecureSkipVerify: true,
+			},
+		},
+	}
 
 	request, err := http.NewRequest(
 		method,
-		"http://"+url,
+		"https://"+url,
 		bytes.NewReader(data),
 	)
 	if err != nil {
