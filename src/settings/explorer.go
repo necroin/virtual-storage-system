@@ -26,6 +26,8 @@ var (
 	ExplorerIconArrowLeft string
 	//go:embed assets/explorer/icons/status_bar_success.svg
 	ExplorerStatusBarSuccess string
+	//go:embed assets/explorer/icons/status_bar_fail.svg
+	ExplorerStatusBarFail string
 )
 
 func GetExplorerTemlate() string {

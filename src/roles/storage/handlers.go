@@ -9,6 +9,7 @@ import (
 	"vss/src/buffer"
 	"vss/src/connector"
 	"vss/src/roles"
+	"vss/src/settings"
 	"vss/src/utils"
 
 	_ "embed"
@@ -52,23 +53,37 @@ var (
 	}
 )
 
+func handlerFailed(responseWriter http.ResponseWriter, err error) {
+	json.NewEncoder(responseWriter).Encode(connector.StatusBarResponse{
+		Status: settings.ExplorerStatusBarFail,
+		Text:   err.Error(),
+	})
+}
+
+func handlerSuccess(responseWriter http.ResponseWriter, text string) {
+	json.NewEncoder(responseWriter).Encode(connector.StatusBarResponse{
+		Status: settings.ExplorerStatusBarSuccess,
+		Text:   text,
+	})
+}
+
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgVars := mux.Vars(request)
 	handlerType := msgVars["type"]
 
 	data := &connector.ClientRequest{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
-		responseWriter.Write([]byte(err.Error()))
+		handlerFailed(responseWriter, err)
 		return
 	}
 
 	insertHandler := insertHandlers[handlerType]
 	if err := insertHandler(data.Path, data.Name); err != nil {
-		responseWriter.Write([]byte(err.Error()))
+		handlerFailed(responseWriter, err)
 		return
 	}
 
-	responseWriter.Write([]byte("Добавлено"))
+	handlerSuccess(responseWriter, "Добавлено")
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -82,12 +97,11 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	data, _ := ioutil.ReadAll(request.Body)
 	deletePath := string(data)
-	err := utils.RemoveFile(deletePath)
-	if err != nil {
-		responseWriter.Write([]byte(err.Error()))
+	if err := utils.RemoveFile(deletePath); err != nil {
+		handlerFailed(responseWriter, err)
 		return
 	}
-	responseWriter.Write([]byte(fmt.Sprintf("%s удалено", path.Base(deletePath))))
+	handlerSuccess(responseWriter, fmt.Sprintf("%s удалено", path.Base(deletePath)))
 }
 
 func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -99,24 +113,23 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 
 	copyHandler := copyHandlers[handlerType]
 	copyHandler(copyPath, handlerType)
-	responseWriter.Write([]byte(fmt.Sprintf("%s добавлен в буффер копирования", path.Base(copyPath))))
+	handlerSuccess(responseWriter, fmt.Sprintf("%s добавлен в буффер копирования", path.Base(copyPath)))
 }
 
 func (storage *Storage) PasteHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	dstPath, _ := ioutil.ReadAll(request.Body)
 	srcPath, handlerType, err := buffer.GetFile()
 	if err != nil {
-		responseWriter.Write([]byte(err.Error()))
+		handlerFailed(responseWriter, err)
 		return
 	}
 
 	pasteHandler := pasteHandlers[handlerType]
-	err = pasteHandler(srcPath, path.Join(string(dstPath), path.Base(srcPath)))
-	if err != nil {
-		responseWriter.Write([]byte(err.Error()))
+	if err := pasteHandler(srcPath, path.Join(string(dstPath), path.Base(srcPath))); err != nil {
+		handlerFailed(responseWriter, err)
 		return
 	}
-	responseWriter.Write([]byte("Вставка выполнена"))
+	handlerSuccess(responseWriter, "Вставка выполнена")
 }
 
 func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {

@@ -72,6 +72,12 @@ function close_create_dialog() {
     document.getElementById("create-dialog-overlay").style.display = "none";
 }
 
+function update_status_bar(raw_data) {
+    let data = JSON.parse(raw_data)
+    document.getElementById("status-bar-progress").innerHTML = data.status
+    document.getElementById("status-bar-text").innerHTML = data.text
+}
+
 function create(type) {
     let data = JSON.stringify(
         {
@@ -83,7 +89,7 @@ function create(type) {
     let response = request("POST", get_request_url() + "/insert/" + type, data);
     open(document.getElementById("filesystem-address-line").value)
     close_create_dialog()
-    document.getElementById("status-bar-text").innerHTML = response
+    update_status_bar(response)
 }
 
 function remove() {
@@ -96,7 +102,7 @@ function remove() {
         }
         let response = request("POST", get_request_url() + "/delete", path);
         open(document.getElementById("filesystem-address-line").value)
-        document.getElementById("status-bar-text").innerHTML = response
+        update_status_bar(response)
     }
 }
 
@@ -110,13 +116,13 @@ function copy() {
             path = "/" + focus_item_name
         }
         let response = request("POST", get_request_url() + "/copy/" + focus_item_type, path);
-        document.getElementById("status-bar-text").innerHTML = response
+        update_status_bar(response)
     }
 }
 
 function paste() {
     let response = request("POST", get_request_url() + "/paste", document.getElementById("filesystem-address-line").value);
     open(document.getElementById("filesystem-address-line").value)
-    document.getElementById("status-bar-text").innerHTML = response
+    update_status_bar(response)
 }
 
