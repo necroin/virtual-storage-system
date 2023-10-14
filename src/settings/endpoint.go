@@ -24,6 +24,7 @@ const (
 
 const (
 	RouterMainEndpoint     = "/router"
+	RouterInsertEndpoint   = "/router/insert/{type}"
 	RouterTopologyEndpoint = "/router/topology"
 	RouterNotifyEndpoint   = "/router/notify"
 )

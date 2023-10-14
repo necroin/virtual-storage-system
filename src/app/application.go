@@ -81,6 +81,7 @@ func (app *Application) Run() error {
 		server.AddHandler(settings.RouterMainEndpoint, routerRole.MainHandler, "POST", "GET")
 		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler, "GET")
 		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler, "POST")
+		server.AddHandler(settings.RouterInsertEndpoint, routerRole.InsertHandler, "POST")
 	}
 
 	go func() {

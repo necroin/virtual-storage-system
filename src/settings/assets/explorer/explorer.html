@@ -18,9 +18,23 @@
                 %s
                 Создать ˇ
             </button>
-            <div id="create-options" class="dropdown-content">
-                <button onclick="window.create('dir')">Папку</button>
-                <button onclick="window.create('textFile')">Текстовый файл</button>
+            <div id="create-options" class="dropdown-content" onclick="window.open_create_dialog()">
+                <button onclick="window.create_focus='dir'">Папку</button>
+                <button onclick="window.create_focus='file'">Файл</button>
+                <button onclick="window.create_focus='textFile'">Текстовый файл</button>
+            </div>
+        </div>
+        <div id="create-dialog-overlay">
+            <div id="create-dialog">
+                <span>Хранилище</span>
+                <!-- Create storage options -->
+                %s
+                <span>Имя</span>
+                <input type="text" id="create-dialog-name"></input>
+                <div>
+                    <button onclick="window.close_create_dialog()"> Отменить</button>
+                    <button onclick="window.create(window.create_focus)">Создать</button>
+                </div>
             </div>
         </div>
         <!-- Cut button -->
@@ -70,9 +84,7 @@
     </div>
     <div id="status-bar">
         <div id="status-bar-progress">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
-                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-            </svg>
+            %s
         </div>
         <div id="status-bar-text">
             <span>Нет задач</span>

@@ -53,6 +53,7 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 			html.NewAttribute("ondblclick", fmt.Sprintf("window.open('%s')", path.Join(walkPath, directory))),
 			html.NewAttribute("name", directory),
 			html.NewAttribute("custom_type", "dir"),
+			html.NewAttribute("storage_url", info.Url),
 		)
 		row.AddElements(row_name, row_date, row_type, row_size)
 		table_rows.AddElements(row)
@@ -71,6 +72,7 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 		row.AddAttribute(
 			html.NewAttribute("name", file),
 			html.NewAttribute("custom_type", "file"),
+			html.NewAttribute("storage_url", info.Url),
 		)
 		row.AddElements(row_name, row_date, row_type, row_size)
 		table_rows.AddElements(row)
@@ -83,25 +85,38 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 		script := html.NewScript(fmt.Sprintf(settings.GetExplorerScript(), role.GetUrl()+role.GetMainEndpoint()))
 
 		hostnames := role.GetHostnames()
+
 		hostnamesList := html.NewTag("div")
 		hostnamesList.AddAttribute(html.NewAttribute("id", "devices"))
 		allItem := html.NewTag("span").AddElements(html.NewText("Все"))
 		allItem.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage(null)")))
 		hostnamesList.AddElements(allItem)
+
+		hostnamesCreateSelect := html.NewTag("select")
+		hostnamesCreateSelect.AddAttribute(html.NewAttribute("id", "create-storage-select"))
+
 		for hostname, url := range hostnames {
 			item := html.NewTag("span").AddElements(html.NewText(hostname))
 			item.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage('%s/storage')", url)))
 			hostnamesList.AddElements(item)
+
+			selectOption := html.NewTag("option")
+			selectOption.AddElements(html.NewText(hostname))
+			selectOption.AddAttribute(html.NewAttribute("value", hostname))
+			hostnamesCreateSelect.AddElements(selectOption)
 		}
 
 		result = fmt.Sprintf(
 			settings.GetExplorerTemlate(),
 			style.ToHTML(), script.ToHTML(),
-			settings.ExplorerIconCreate, settings.ExplorerIconCut, settings.ExplorerIconCopy, settings.ExplorerIconPaste, settings.ExplorerIconDelete,
+			settings.ExplorerIconCreate,
+			hostnamesCreateSelect.ToHTML(),
+			settings.ExplorerIconCut, settings.ExplorerIconCopy, settings.ExplorerIconPaste, settings.ExplorerIconDelete,
 			settings.ExplorerIconArrowLeft,
 			walkPath,
 			hostnamesList.ToHTML(),
 			table_rows.ToHTML(),
+			settings.ExplorerStatusBarSuccess,
 		)
 	}
 

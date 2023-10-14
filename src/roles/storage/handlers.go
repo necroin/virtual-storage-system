@@ -1,11 +1,13 @@
 package storage
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"path"
 	"vss/src/buffer"
+	"vss/src/connector"
 	"vss/src/roles"
 	"vss/src/utils"
 
@@ -15,9 +17,30 @@ import (
 )
 
 var (
-	insertHandlers = map[string]func(string){
-		"dir":      func(path string) { utils.CreateNewDirectory(path, "Новая папка") },
-		"textFile": func(path string) { utils.CreateNewFile(path, "Текстовый документ.txt") },
+	insertHandlers = map[string]func(string, string) error{
+		"dir": func(path string, name string) error {
+			if name == "" {
+				name = "Новая папка"
+			}
+			utils.CreateNewDirectory(path, name)
+			return nil
+		},
+		"file": func(path string, name string) error {
+			if name == "" {
+				return fmt.Errorf("Имя файла не указано")
+			}
+			utils.CreateNewFile(path, name)
+			return nil
+
+		},
+		"textFile": func(path string, name string) error {
+			if name == "" {
+				name = "Текстовый документ"
+			}
+			name += ".txt"
+			utils.CreateNewFile(path, name)
+			return nil
+		},
 	}
 	copyHandlers = map[string]func(string, string){
 		"file": func(filePath string, fileType string) { buffer.SetFile(filePath, fileType) },
@@ -33,10 +56,19 @@ func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, reques
 	msgVars := mux.Vars(request)
 	handlerType := msgVars["type"]
 
-	path, _ := ioutil.ReadAll(request.Body)
+	data := &connector.ClientRequest{}
+	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
+		responseWriter.Write([]byte(err.Error()))
+		return
+	}
 
 	insertHandler := insertHandlers[handlerType]
-	insertHandler(string(path))
+	if err := insertHandler(data.Path, data.Name); err != nil {
+		responseWriter.Write([]byte(err.Error()))
+		return
+	}
+
+	responseWriter.Write([]byte("Добавлено"))
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -48,24 +80,26 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	msgPath, _ := ioutil.ReadAll(request.Body)
-	err := utils.RemoveFile(string(msgPath))
+	data, _ := ioutil.ReadAll(request.Body)
+	deletePath := string(data)
+	err := utils.RemoveFile(deletePath)
 	if err != nil {
 		responseWriter.Write([]byte(err.Error()))
 		return
 	}
-	responseWriter.Write([]byte(fmt.Sprintf("%s удалено", msgPath)))
+	responseWriter.Write([]byte(fmt.Sprintf("%s удалено", path.Base(deletePath))))
 }
 
 func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	msgVars := mux.Vars(request)
 	handlerType := msgVars["type"]
 
-	path, _ := ioutil.ReadAll(request.Body)
+	data, _ := ioutil.ReadAll(request.Body)
+	copyPath := string(data)
 
 	copyHandler := copyHandlers[handlerType]
-	copyHandler(string(path), handlerType)
-	responseWriter.Write([]byte(fmt.Sprintf("%s добавлен в буффер копирования", path)))
+	copyHandler(copyPath, handlerType)
+	responseWriter.Write([]byte(fmt.Sprintf("%s добавлен в буффер копирования", path.Base(copyPath))))
 }
 
 func (storage *Storage) PasteHandler(responseWriter http.ResponseWriter, request *http.Request) {

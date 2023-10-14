@@ -24,6 +24,8 @@ var (
 	ExplorerIconDelete string
 	//go:embed assets/explorer/icons/arrow_left.svg
 	ExplorerIconArrowLeft string
+	//go:embed assets/explorer/icons/status_bar_success.svg
+	ExplorerStatusBarSuccess string
 )
 
 func GetExplorerTemlate() string {

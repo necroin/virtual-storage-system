@@ -16,7 +16,7 @@ window.onclick = function (event) {
 
 function request(methood, url, data) {
     var req = new XMLHttpRequest();
-    req.open(methood, "https://"+url, false);
+    req.open(methood, "https://" + url, false);
     req.send(data);
     return req.responseText
 }
@@ -62,9 +62,28 @@ function open_create_options() {
     document.getElementById("create-options").classList.toggle("show");
 }
 
+function open_create_dialog() {
+    document.getElementById("create-dialog").style.display = "flex";
+    document.getElementById("create-dialog-overlay").style.display = "block";
+}
+
+function close_create_dialog() {
+    document.getElementById("create-dialog").style.display = "none";
+    document.getElementById("create-dialog-overlay").style.display = "none";
+}
+
 function create(type) {
-    request("POST", get_request_url() + "/insert/" + type, document.getElementById("filesystem-address-line").value);
+    let data = JSON.stringify(
+        {
+            "type": type,
+            "path": document.getElementById("filesystem-address-line").value,
+            "name": document.getElementById("create-dialog-name").value
+        }
+    );
+    let response = request("POST", get_request_url() + "/insert/" + type, data);
     open(document.getElementById("filesystem-address-line").value)
+    close_create_dialog()
+    document.getElementById("status-bar-text").innerHTML = response
 }
 
 function remove() {

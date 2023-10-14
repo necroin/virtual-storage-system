@@ -39,6 +39,10 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 	}
 }
 
+func (router *Router) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
+
+}
+
 func (router *Router) MainHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	roles.MainHandler(router, responseWriter, request)
 }
