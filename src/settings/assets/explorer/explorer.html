@@ -3,6 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VSS</title>
     <!-- Style Place -->
     %s
     <!-- Script Place -->
@@ -30,9 +31,9 @@
                 <!-- Create storage options -->
                 %s
                 <span>Имя</span>
-                <input type="text" id="create-dialog-name"></input>
-                <div>
-                    <button onclick="window.close_create_dialog()"> Отменить</button>
+                <input id="create-dialog-name" type="text"></input>
+                <div id="create-dialog-buttons">
+                    <button onclick="window.close_create_dialog()">Отменить</button>
                     <button onclick="window.create(window.create_focus)">Создать</button>
                 </div>
             </div>
