@@ -47,7 +47,7 @@ func (server *Server) Start() {
 		server.instance.Shutdown(ctx)
 	}()
 
-	server.instance.ListenAndServeTLS("cert/vss.crt", "cert/vss.key")
+	server.instance.ListenAndServeTLS("certificates/vss.crt", "certificates/vss.key")
 }
 
 func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), methods ...string) {
