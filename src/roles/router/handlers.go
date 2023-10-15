@@ -2,9 +2,8 @@ package router
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
-	"strings"
+	"path"
 
 	_ "embed"
 
@@ -18,7 +17,7 @@ var (
 )
 
 func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	responseWriter.Write([]byte(fmt.Sprintf(topologyHandlerResponseTemplate, strings.Join(router.storages, "</li>\n<li>"), strings.Join(router.runners, "</li>\n<li>"))))
+	// responseWriter.Write([]byte(fmt.Sprintf(topologyHandlerResponseTemplate, strings.Join(router.storages, "</li>\n<li>"), strings.Join(router.runners, "</li>\n<li>"))))
 }
 
 func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -28,14 +27,14 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 	}
 
 	if message.Type == connector.NotifyMessageStorageType {
-		router.storages = append(router.storages, message.Url)
-		router.hostnames[message.Hostname] = message.Url
+		router.storages = append(router.storages, *message)
+		router.hostnames[message.Hostname] = path.Join(message.Url, message.Token)
 		router.NotifyRunners()
 	}
 
 	if message.Type == connector.NotifyMessageRunnerType {
-		router.runners = append(router.runners, message.Url)
-		router.NotifyRunner(message.Url)
+		router.runners = append(router.runners, *message)
+		router.NotifyRunner(*message)
 	}
 }
 

@@ -8,14 +8,14 @@ const (
 )
 
 const (
-	StorageMainEndpoint       = "/storage"
-	StorageFilesystemEndpoint = "/storage/filesystem"
-	StorageInsertEndpoint     = "/storage/insert/{type}"
-	StorageSelectEndpoint     = "/storage/select"
-	StorageUpdateEndpoint     = "/storage/update"
-	StorageDeleteEndpoint     = "/storage/delete"
-	StorageCopyEndpoint       = "/storage/copy/{type}"
-	StoragePasteEndpoint      = "/storage/paste"
+	StorageMainEndpoint       = "/{token}/storage"
+	StorageFilesystemEndpoint = "/{token}/storage/filesystem"
+	StorageInsertEndpoint     = "/{token}/storage/insert/{type}"
+	StorageSelectEndpoint     = "/{token}/storage/select"
+	StorageUpdateEndpoint     = "/{token}/storage/update"
+	StorageDeleteEndpoint     = "/{token}/storage/delete"
+	StorageCopyEndpoint       = "/{token}/storage/copy/{type}"
+	StoragePasteEndpoint      = "/{token}/storage/paste"
 )
 
 const (
@@ -25,9 +25,8 @@ const (
 )
 
 const (
-	RouterMainEndpoint          = "/router"
-	RouterTokenizedMainEndpoint = "/{token}/router"
-	RouterInsertEndpoint        = "/router/insert/{type}"
-	RouterTopologyEndpoint      = "/router/topology"
-	RouterNotifyEndpoint        = "/router/notify"
+	RouterMainEndpoint     = "/{token}/router"
+	RouterInsertEndpoint   = "/{token}/router/insert/{type}"
+	RouterTopologyEndpoint = "/{token}/router/topology"
+	RouterNotifyEndpoint   = "/{token}/router/notify"
 )

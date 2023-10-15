@@ -6,6 +6,7 @@ import (
 	"io"
 	"os"
 	"path"
+	"strings"
 )
 
 func GetMapKeys[K comparable, V any](value map[K]V) []K {
@@ -22,6 +23,10 @@ func GenerateSecureToken(length int) string {
 		return ""
 	}
 	return hex.EncodeToString(token)
+}
+
+func FormatTokemizedEndpoint(endpoint string, token string) string {
+	return strings.NewReplacer("{token}", token).Replace(endpoint)
 }
 
 func CreateNewDirectory(dirPath string, name string) {

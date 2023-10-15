@@ -61,17 +61,17 @@ func (app *Application) Run() error {
 		server.AddHandler(settings.StoragePasteEndpoint, storageRole.PasteHandler, "POST")
 	}
 
-	if app.config.Roles.Runner.Enable {
-		runnerRole, err := runner.New(app.config)
-		if err != nil {
-			return err
-		}
-		app.runnerRole = runnerRole
+	// if app.config.Roles.Runner.Enable {
+	// 	runnerRole, err := runner.New(app.config)
+	// 	if err != nil {
+	// 		return err
+	// 	}
+	// 	app.runnerRole = runnerRole
 
-		server.AddHandler(settings.RunnerTopologyEndpoint, runnerRole.GetTopologyHandler, "GET")
-		server.AddHandler(settings.RunnerNotifyEndpoint, runnerRole.NotifyHandler, "POST")
-		server.AddHandler(settings.RunnerOpenEndpoint, runnerRole.OpenFileHandler, "POST")
-	}
+	// 	server.AddHandler(settings.RunnerTopologyEndpoint, runnerRole.GetTopologyHandler, "GET")
+	// 	server.AddHandler(settings.RunnerNotifyEndpoint, runnerRole.NotifyHandler, "POST")
+	// 	server.AddHandler(settings.RunnerOpenEndpoint, runnerRole.OpenFileHandler, "POST")
+	// }
 
 	if app.config.Roles.Router.Enable {
 		routerRole, err := router.New(app.config)
@@ -80,11 +80,10 @@ func (app *Application) Run() error {
 		}
 		app.routerRole = routerRole
 
-		server.AddHandler(settings.RouterTokenizedMainEndpoint, server.TokenizedHandler(routerRole.MainHandler), "POST", "GET")
-		server.AddHandler(settings.RouterMainEndpoint, routerRole.MainHandler, "POST", "GET")
-		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler, "GET")
-		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler, "POST")
-		server.AddHandler(settings.RouterInsertEndpoint, routerRole.InsertHandler, "POST")
+		server.AddHandler(settings.RouterMainEndpoint, server.TokenizedHandler(routerRole.MainHandler), "POST", "GET")
+		server.AddHandler(settings.RouterTopologyEndpoint, server.TokenizedHandler(routerRole.GetTopologyHandler), "GET")
+		server.AddHandler(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
+		server.AddHandler(settings.RouterInsertEndpoint, server.TokenizedHandler(routerRole.InsertHandler), "POST")
 	}
 
 	go func() {

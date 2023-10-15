@@ -18,11 +18,10 @@ import (
 )
 
 type Server struct {
-	config       *config.Config
-	sessionToken string
-	url          string
-	router       *mux.Router
-	instance     *http.Server
+	config   *config.Config
+	url      string
+	router   *mux.Router
+	instance *http.Server
 }
 
 func New(config *config.Config) *Server {

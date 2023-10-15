@@ -4,28 +4,31 @@ import (
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/settings"
+	"vss/src/utils"
 )
 
 type Router struct {
-	url       string
-	storages  []string
-	runners   []string
+	config    *config.Config
+	storages  []connector.NotifyMessage
+	runners   []connector.NotifyMessage
 	hostnames map[string]string
 }
 
 func New(config *config.Config) (*Router, error) {
 	return &Router{
-		url:       config.RouterUrl,
+		config:    config,
+		storages:  []connector.NotifyMessage{},
+		runners:   []connector.NotifyMessage{},
 		hostnames: map[string]string{},
 	}, nil
 }
 
-func (router *Router) NotifyRunner(url string) {
-	topology := connector.TopologyMessage{
-		Storages: router.storages,
-		Runners:  router.runners,
-	}
-	connector.SendPostRequest(url+settings.RunnerNotifyEndpoint, topology)
+func (router *Router) NotifyRunner(instance connector.NotifyMessage) {
+	// topology := connector.TopologyMessage{
+	// 	Storages: router.storages,
+	// 	Runners:  router.runners,
+	// }
+	// connector.SendPostRequest(url+settings.RunnerNotifyEndpoint, topology)
 }
 
 func (router *Router) NotifyRunners() {
@@ -34,8 +37,11 @@ func (router *Router) NotifyRunners() {
 	}
 }
 
-func (router *Router) CollectStorageFileSystem(url string, walkPath string) connector.FilesystemDirectory {
-	result, _ := connector.SendGetRequest[connector.FilesystemDirectory](url+settings.StorageFilesystemEndpoint, []byte(walkPath))
+func (router *Router) CollectStorageFileSystem(url string, token string, walkPath string) connector.FilesystemDirectory {
+	result, _ := connector.SendGetRequest[connector.FilesystemDirectory](
+		url+utils.FormatTokemizedEndpoint(settings.StorageFilesystemEndpoint, token),
+		[]byte(walkPath),
+	)
 	return *result
 }
 
@@ -46,7 +52,11 @@ func (router *Router) CollectFileSystem(walkPath string) connector.FilesystemDir
 	}
 
 	for _, storage := range router.storages {
-		storageFilesystem := router.CollectStorageFileSystem(storage, walkPath)
+		storageFilesystem := router.CollectStorageFileSystem(
+			storage.Url,
+			storage.Token,
+			walkPath,
+		)
 		for directory, info := range storageFilesystem.Directories {
 			fileSystemDirectory.Directories[directory] = info
 		}
@@ -59,11 +69,11 @@ func (router *Router) CollectFileSystem(walkPath string) connector.FilesystemDir
 }
 
 func (router *Router) GetUrl() string {
-	return router.url
+	return router.config.RouterUrl
 }
 
 func (router *Router) GetMainEndpoint() string {
-	return settings.RouterMainEndpoint
+	return utils.FormatTokemizedEndpoint(settings.RouterMainEndpoint, router.config.User.Token)
 }
 
 func (router *Router) GetHostnames() map[string]string {

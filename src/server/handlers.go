@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"vss/src/connector"
 	"vss/src/settings"
-	"vss/src/utils"
 	"vss/src/utils/html"
 
 	"github.com/gorilla/mux"
@@ -37,8 +36,7 @@ func (server *Server) AuthTokenHandler(responseWriter http.ResponseWriter, reque
 	}
 
 	if data.Username == server.config.User.Username && data.Password == server.config.User.Password {
-		server.sessionToken = utils.GenerateSecureToken(10)
-		responseWriter.Write([]byte(server.sessionToken))
+		responseWriter.Write([]byte(server.config.User.Token))
 	}
 }
 
@@ -50,7 +48,7 @@ func (server *Server) TokenizedHandler(handler func(http.ResponseWriter, *http.R
 			return
 		}
 
-		if token == server.sessionToken {
+		if token == server.config.User.Token {
 			handler(responseWriter, request)
 		}
 	}

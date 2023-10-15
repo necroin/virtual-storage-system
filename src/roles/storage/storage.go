@@ -1,19 +1,20 @@
 package storage
 
 import (
+	"io/ioutil"
 	"os"
 	"path"
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/db"
 	"vss/src/settings"
+	"vss/src/utils"
 )
 
 type Storage struct {
-	url       string
-	routerUrl string
-	hostname  string
-	db        *db.Database
+	config   *config.Config
+	hostname string
+	db       *db.Database
 }
 
 func New(config *config.Config, dbPath string) (*Storage, error) {
@@ -25,20 +26,47 @@ func New(config *config.Config, dbPath string) (*Storage, error) {
 	hostname, _ := os.Hostname()
 
 	return &Storage{
-		url:       config.Url,
-		routerUrl: config.RouterUrl,
-		hostname:  hostname,
-		db:        db,
+		config:   config,
+		hostname: hostname,
+		db:       db,
 	}, nil
 }
 
+func (storage *Storage) GetRouterToken() (string, error) {
+	message := connector.ClientAuth{
+		Username: storage.config.User.Username,
+		Password: storage.config.User.Password,
+	}
+
+	response, err := connector.SendPostRequest(storage.config.RouterUrl+settings.ServerAuthTokenEndpoint, message)
+	if err != nil {
+		return "", err
+	}
+	tokenData, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return "", err
+	}
+	token := string(tokenData)
+
+	return token, nil
+}
+
 func (storage *Storage) NotifyRouter() error {
+	token, err := storage.GetRouterToken()
+	if err != nil {
+		return err
+	}
+
 	message := connector.NotifyMessage{
 		Type:     connector.NotifyMessageStorageType,
-		Url:      storage.url,
+		Url:      storage.config.Url,
 		Hostname: storage.hostname,
+		Token:    storage.config.User.Token,
 	}
-	_, err := connector.SendPostRequest(storage.routerUrl+settings.RouterNotifyEndpoint, message)
+	_, err = connector.SendPostRequest(
+		storage.config.RouterUrl+utils.FormatTokemizedEndpoint(settings.RouterNotifyEndpoint, token),
+		message,
+	)
 	return err
 }
 
@@ -59,7 +87,7 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 		info := connector.FileInfo{
 			ModTime: stat.ModTime(),
 			Size:    stat.Size(),
-			Url:     storage.url,
+			Url:     storage.config.Url,
 		}
 
 		if entry.IsDir() {
@@ -73,15 +101,15 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 }
 
 func (storage *Storage) GetUrl() string {
-	return storage.url
+	return storage.config.Url
 }
 
 func (storage *Storage) GetMainEndpoint() string {
-	return settings.StorageMainEndpoint
+	return utils.FormatTokemizedEndpoint(settings.StorageMainEndpoint, storage.config.User.Token)
 }
 
 func (storage *Storage) GetHostnames() map[string]string {
 	return map[string]string{
-		storage.hostname: storage.url,
+		storage.hostname: path.Join(storage.config.Url, storage.config.User.Token),
 	}
 }

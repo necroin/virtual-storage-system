@@ -13,6 +13,7 @@ type NotifyMessage struct {
 	Type     string `json:"type"`
 	Url      string `json:"url"`
 	Hostname string `json:"hostname"`
+	Token    string `json:"token"`
 }
 
 type TopologyMessage struct {

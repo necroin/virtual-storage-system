@@ -1,6 +1,9 @@
 package config
 
-import "time"
+import (
+	"time"
+	"vss/src/utils"
+)
 
 type StorageRole struct {
 	Enable bool `yaml:"enable"`
@@ -28,6 +31,7 @@ type Log struct {
 type User struct {
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
+	Token    string `yaml:"token"`
 }
 
 type Config struct {
@@ -53,6 +57,10 @@ func setDefaults(config *Config) {
 
 	if config.User.Password == "" {
 		config.User.Password = "admin"
+	}
+
+	if config.User.Token == "" {
+		config.User.Token = utils.GenerateSecureToken(10)
 	}
 }
 
