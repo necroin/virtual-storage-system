@@ -86,9 +86,9 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 
 		hostnames := role.GetHostnames()
 
-		hostnamesList := html.NewTag("div")
+		hostnamesList := html.NewDiv()
 		hostnamesList.AddAttribute(html.NewAttribute("id", "devices"))
-		allItem := html.NewTag("span").AddElements(html.NewText("Все"))
+		allItem := html.NewSpan("Все")
 		allItem.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage(null)")))
 		hostnamesList.AddElements(allItem)
 
@@ -96,7 +96,7 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 		hostnamesCreateSelect.AddAttribute(html.NewAttribute("id", "create-storage-select"))
 
 		for hostname, url := range hostnames {
-			item := html.NewTag("span").AddElements(html.NewText(hostname))
+			item := html.NewSpan(hostname)
 			item.AddAttribute(html.NewAttribute("onclick", fmt.Sprintf("window.set_storage('%s/storage')", url)))
 			hostnamesList.AddElements(item)
 
@@ -111,7 +111,11 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 			style.ToHTML(), script.ToHTML(),
 			settings.ExplorerIconCreate,
 			hostnamesCreateSelect.ToHTML(),
-			settings.ExplorerIconCut, settings.ExplorerIconCopy, settings.ExplorerIconPaste, settings.ExplorerIconDelete,
+			settings.ExplorerIconCut,
+			settings.ExplorerIconCopy,
+			settings.ExplorerIconPaste,
+			settings.ExplorerIconDelete,
+			settings.ExplorerIconOptions,
 			settings.ExplorerIconArrowLeft,
 			walkPath,
 			hostnamesList.ToHTML(),

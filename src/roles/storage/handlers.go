@@ -12,8 +12,6 @@ import (
 	"vss/src/settings"
 	"vss/src/utils"
 
-	_ "embed"
-
 	"github.com/gorilla/mux"
 )
 

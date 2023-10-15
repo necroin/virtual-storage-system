@@ -22,6 +22,8 @@ var (
 	ExplorerIconPaste string
 	//go:embed assets/explorer/icons/delete.svg
 	ExplorerIconDelete string
+	//go:embed assets/explorer/icons/options.svg
+	ExplorerIconOptions string
 	//go:embed assets/explorer/icons/arrow_left.svg
 	ExplorerIconArrowLeft string
 	//go:embed assets/explorer/icons/status_bar_success.svg

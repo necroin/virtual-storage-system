@@ -12,11 +12,13 @@
 
 <body>
     <div id="bar">
-        <div class="dropdown">
+        <div class="dropdown" style="border-right: 1px solid white;">
             <!-- Create button -->
-            <button class="bar-text-button" onclick="window.open_create_options()">
-                <!-- Incon -->
-                %s
+            <button id="bar-create-button" class="bar-text-button" onclick="window.open_create_options()" style="margin-right: 10px;">
+                <div class="pointer-events-none">
+                    <!-- Incon -->
+                    %s
+                </div>
                 Создать ˇ
             </button>
             <div id="create-options" class="dropdown-content" onclick="window.open_create_dialog()">
@@ -58,6 +60,19 @@
             <!-- Incon -->
             %s
         </button>
+        <div class="dropdown" onclick="window.open_options()" style="border-left: 1px solid white;">
+            <!-- Options button -->
+            <button id="bar-options-button" class="bar-symbol-button" style="margin-left: 10px;">
+                <div class="pointer-events-none">
+                    <!-- Incon -->
+                    %s
+                </div>
+            </button>
+            <div id="options" class="dropdown-content">
+                <button>Переименовать</button>
+                <button>Удалить</button>
+            </div>
+        </div>
     </div>
     <div id="filesystem-address">
         <button id="filesystem-address-button" onclick="window.back()">

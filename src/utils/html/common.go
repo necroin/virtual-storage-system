@@ -6,3 +6,13 @@ func NewScript(text string) *Tag {
 	script.AddElements(NewText(text))
 	return script
 }
+
+func NewDiv() *Tag {
+	return NewTag("div")
+}
+
+func NewSpan(text string) *Tag {
+	span := NewTag("span")
+	span.AddElements(NewText(text))
+	return span
+}

@@ -1,17 +1,15 @@
 window.request_url = "%s"
 window.storage_url = null
 
-window.onclick = function (event) {
-    if (!event.target.matches('.bar-text-button')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
+function remove_dropdown(event, event_id, dropdown_id) {
+    if (!event.target.matches('#'+event_id)){
+        document.getElementById(dropdown_id).classList.remove('show');
     }
+}
+
+window.onclick = function (event) {
+    remove_dropdown(event, "bar-create-button", "create-options")
+    remove_dropdown(event, "bar-options-button", "options")
 }
 
 function request(methood, url, data) {
@@ -70,6 +68,10 @@ function open_create_dialog() {
 function close_create_dialog() {
     document.getElementById("create-dialog").style.display = "none";
     document.getElementById("create-dialog-overlay").style.display = "none";
+}
+
+function open_options() {
+    document.getElementById("options").classList.toggle("show");
 }
 
 function update_status_bar(raw_data) {
