@@ -14,28 +14,30 @@
     <div id="bar">
         <div class="dropdown" style="border-right: 1px solid white;">
             <!-- Create button -->
-            <button id="bar-create-button" class="bar-text-button" onclick="window.open_create_options()" style="margin-right: 10px;">
+            <button id="bar-create-button" class="bar-text-button" onclick="window.open_create_options()"
+                style="margin-right: 10px;">
                 <div class="pointer-events-none">
                     <!-- Incon -->
                     %s
                 </div>
                 Создать ˇ
             </button>
-            <div id="create-options" class="dropdown-content" onclick="window.open_create_dialog()">
+            <div id="create-options" class="dropdown-content"
+                onclick="window.open_dialog('create-dialog', 'create-dialog-overlay')">
                 <button onclick="window.create_focus='dir'">Папку</button>
                 <button onclick="window.create_focus='file'">Файл</button>
                 <button onclick="window.create_focus='textFile'">Текстовый файл</button>
             </div>
         </div>
-        <div id="create-dialog-overlay">
-            <div id="create-dialog">
+        <div id="create-dialog-overlay" class="dialog-overlay">
+            <div id="create-dialog" class="dialog">
                 <span>Хранилище</span>
                 <!-- Create storage options -->
                 %s
                 <span>Имя</span>
                 <input id="create-dialog-name" type="text"></input>
-                <div id="create-dialog-buttons">
-                    <button onclick="window.close_create_dialog()">Отменить</button>
+                <div class="dialog-buttons">
+                    <button onclick="window.close_dialog('create-dialog', 'create-dialog-overlay')">Отменить</button>
                     <button onclick="window.create(window.create_focus)">Создать</button>
                 </div>
             </div>
@@ -69,8 +71,18 @@
                 </div>
             </button>
             <div id="options" class="dropdown-content">
-                <button>Переименовать</button>
-                <button>Удалить</button>
+                <button onclick="window.open_dialog('rename-dialog', 'rename-dialog-overlay')">Переименовать</button>
+                <button onclick="window.remove()">Удалить</button>
+            </div>
+        </div>
+        <div id="rename-dialog-overlay" class="dialog-overlay">
+            <div id="rename-dialog" class="dialog">
+                <span>Новое имя</span>
+                <input id="rename-dialog-name" type="text"></input>
+                <div class="dialog-buttons">
+                    <button onclick="window.close_dialog('rename-dialog', 'rename-dialog-overlay')">Отменить</button>
+                    <button>Изменить</button>
+                </div>
             </div>
         </div>
     </div>

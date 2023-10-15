@@ -3,7 +3,7 @@ window.storage_url = null
 
 function remove_dropdown(event, event_id, dropdown_id) {
     if (!event.target.matches('#'+event_id)){
-        document.getElementById(dropdown_id).classList.remove('show');
+        document.getElementById(dropdown_id).classList.remove('dropdown-show');
     }
 }
 
@@ -61,21 +61,21 @@ function set_focus_item(table, item) {
 }
 
 function open_create_options() {
-    document.getElementById("create-options").classList.toggle("show");
+    document.getElementById("create-options").classList.toggle("dropdown-show");
 }
 
-function open_create_dialog() {
-    document.getElementById("create-dialog").style.display = "flex";
-    document.getElementById("create-dialog-overlay").style.display = "block";
+function open_dialog(dialog, overlay) {
+    document.getElementById(dialog).style.display = "flex";
+    document.getElementById(overlay).style.display = "block";
 }
 
-function close_create_dialog() {
-    document.getElementById("create-dialog").style.display = "none";
-    document.getElementById("create-dialog-overlay").style.display = "none";
+function close_dialog(dialog, overlay) {
+    document.getElementById(dialog).style.display = "none";
+    document.getElementById(overlay).style.display = "none";
 }
 
 function open_options() {
-    document.getElementById("options").classList.toggle("show");
+    document.getElementById("options").classList.toggle("dropdown-show");
 }
 
 function update_status_bar(raw_data) {
