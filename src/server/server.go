@@ -11,25 +11,29 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	"vss/src/config"
 	"vss/src/settings"
 
 	"github.com/gorilla/mux"
 )
 
 type Server struct {
-	url      string
-	router   *mux.Router
-	instance *http.Server
+	config       *config.Config
+	sessionToken string
+	url          string
+	router       *mux.Router
+	instance     *http.Server
 }
 
-func New(url string) *Server {
+func New(config *config.Config) *Server {
 	router := mux.NewRouter()
 
 	return &Server{
-		url:    url,
+		config: config,
+		url:    config.Url,
 		router: router,
 		instance: &http.Server{
-			Addr:    url,
+			Addr:    config.Url,
 			Handler: router,
 			TLSConfig: &tls.Config{
 				ServerName: "localhost",

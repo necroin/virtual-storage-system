@@ -1,0 +1,49 @@
+:root {
+    --backgroud-color: rgb(30, 30, 30);
+    --elements-bg-color: rgba(60, 60, 60, 1);
+    --focus-bg-color: rgba(90, 90, 90, 1);
+    --default-color: white;
+}
+
+body {
+    background-color: var(--backgroud-color);
+}
+
+#auth-form {
+    background-color: var(--elements-bg-color);
+    color: var(--default-color);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    height: 300px;
+    gap: 10px;
+    padding: 50px;
+}
+
+#auth-form input {
+    background-color: var(--elements-bg-color);
+    color: var(--default-color);
+    border: 1px solid var(--default-color);
+    height: 30px;
+}
+
+#auth-header {
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#auth-button {
+    margin-top: 20px;
+    height: 40px;
+    background-color: var(--focus-bg-color);
+    color: var(--default-color);
+    font-size: large;
+}

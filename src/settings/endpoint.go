@@ -1,8 +1,10 @@
 package settings
 
 const (
-	ServerStatusEndpoint  = "/status"
-	ServerMetricsEndpoint = "/metrics"
+	ServerStatusEndpoint    = "/status"
+	ServerMetricsEndpoint   = "/metrics"
+	ServerAuthEndpoint      = "/auth"
+	ServerAuthTokenEndpoint = "/auth/token"
 )
 
 const (
@@ -23,8 +25,9 @@ const (
 )
 
 const (
-	RouterMainEndpoint     = "/router"
-	RouterInsertEndpoint   = "/router/insert/{type}"
-	RouterTopologyEndpoint = "/router/topology"
-	RouterNotifyEndpoint   = "/router/notify"
+	RouterMainEndpoint          = "/router"
+	RouterTokenizedMainEndpoint = "/{token}/router"
+	RouterInsertEndpoint        = "/router/insert/{type}"
+	RouterTopologyEndpoint      = "/router/topology"
+	RouterNotifyEndpoint        = "/router/notify"
 )

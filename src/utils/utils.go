@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"crypto/rand"
+	"encoding/hex"
 	"io"
 	"os"
 	"path"
@@ -12,6 +14,14 @@ func GetMapKeys[K comparable, V any](value map[K]V) []K {
 		result = append(result, key)
 	}
 	return result
+}
+
+func GenerateSecureToken(length int) string {
+	token := make([]byte, length)
+	if _, err := rand.Read(token); err != nil {
+		return ""
+	}
+	return hex.EncodeToString(token)
 }
 
 func CreateNewDirectory(dirPath string, name string) {

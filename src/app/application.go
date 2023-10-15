@@ -38,9 +38,11 @@ func (app *Application) Run() error {
 	wg := sync.WaitGroup{}
 	metricsRegistry := metrics.NewRegistry()
 
-	server := server.New(app.config.Url)
+	server := server.New(app.config)
 
 	server.AddHandler(settings.ServerStatusEndpoint, server.StatusHandler, "GET")
+	server.AddHandler(settings.ServerAuthEndpoint, server.AuthHandler, "GET")
+	server.AddHandler(settings.ServerAuthTokenEndpoint, server.AuthTokenHandler, "POST")
 
 	if app.config.Roles.Storage.Enable {
 		storageRole, err := storage.New(app.config, "storage.db")
@@ -78,6 +80,7 @@ func (app *Application) Run() error {
 		}
 		app.routerRole = routerRole
 
+		server.AddHandler(settings.RouterTokenizedMainEndpoint, server.TokenizedHandler(routerRole.MainHandler), "POST", "GET")
 		server.AddHandler(settings.RouterMainEndpoint, routerRole.MainHandler, "POST", "GET")
 		server.AddHandler(settings.RouterTopologyEndpoint, routerRole.GetTopologyHandler, "GET")
 		server.AddHandler(settings.RouterNotifyEndpoint, routerRole.NotifyHandler, "POST")

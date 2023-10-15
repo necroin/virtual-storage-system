@@ -1,4 +1,4 @@
-window.request_url = "%s"
+window.request_url = '%s'
 window.storage_url = null
 
 function remove_dropdown(event, event_id, dropdown_id) {

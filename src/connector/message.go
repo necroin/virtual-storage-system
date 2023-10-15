@@ -41,3 +41,8 @@ type StatusBarResponse struct {
 	Status string `json:"status"`
 	Text   string `json:"text"`
 }
+
+type ClientAuth struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
