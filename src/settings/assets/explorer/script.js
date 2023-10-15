@@ -53,7 +53,11 @@ function back() {
 }
 
 function set_focus_item(table, item) {
+    if (table.focus_item !=  null) {
+        table.focus_item.style.backgroundColor = "var(--backgroud-color)"
+    }
     table.focus_item = item
+    table.focus_item.style.backgroundColor = "var(--elements-bg-color)"
 }
 
 function open_create_options() {
