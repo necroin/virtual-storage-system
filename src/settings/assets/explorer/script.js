@@ -94,7 +94,7 @@ function create(type) {
     );
     let response = request("POST", get_request_url() + "/insert/" + type, data);
     open(document.getElementById("filesystem-address-line").value)
-    close_create_dialog()
+    window.close_dialog('create-dialog', 'create-dialog-overlay')
     update_status_bar(response)
 }
 

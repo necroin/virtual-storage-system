@@ -1,0 +1,4 @@
+---
+roles:
+  router:
+    enable: true

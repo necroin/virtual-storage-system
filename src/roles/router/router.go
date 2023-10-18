@@ -69,7 +69,7 @@ func (router *Router) CollectFileSystem(walkPath string) connector.FilesystemDir
 }
 
 func (router *Router) GetUrl() string {
-	return router.config.RouterUrl
+	return router.config.Url
 }
 
 func (router *Router) GetMainEndpoint() string {

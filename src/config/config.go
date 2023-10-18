@@ -2,6 +2,7 @@ package config
 
 import (
 	"time"
+	"vss/src/settings"
 	"vss/src/utils"
 )
 
@@ -35,28 +36,24 @@ type User struct {
 }
 
 type Config struct {
-	Url       string `yaml:"url"`
-	RouterUrl string `yaml:"router"`
-	Roles     Roles  `yaml:"roles"`
-	Log       Log    `yaml:"log"`
-	User      User   `yaml:"user"`
+	Url        string `yaml:"url"`
+	ListenPort string `yaml:"listen_port"`
+	Roles      Roles  `yaml:"roles"`
+	Log        Log    `yaml:"log"`
+	User       User   `yaml:"user"`
 }
 
 func setDefaults(config *Config) {
-	if config.RouterUrl == "" {
-		config.RouterUrl = config.Url
-	}
-
 	if config.Log.Path == "" {
 		config.Log.Path = "logs/log_" + time.Now().Format("2006-01-02T15:04:05") + ".txt"
 	}
 
 	if config.User.Username == "" {
-		config.User.Username = "admin"
+		config.User.Username = settings.DefaultUsername
 	}
 
 	if config.User.Password == "" {
-		config.User.Password = "admin"
+		config.User.Password = settings.DefaultPassword
 	}
 
 	if config.User.Token == "" {
@@ -66,7 +63,8 @@ func setDefaults(config *Config) {
 
 func Load(path string) (*Config, error) {
 	config := &Config{
-		Url: "localhost:3301",
+		Url:        settings.DefaultUrl,
+		ListenPort: settings.DefaultListenPort,
 		Roles: Roles{
 			Storage: StorageRole{
 				Enable: true,
