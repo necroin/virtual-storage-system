@@ -97,8 +97,10 @@ func (app *Application) Run() error {
 	if app.storageRole != nil {
 		go func() {
 			addrs := app.lanObserver.Start()
-			if err := app.storageRole.NotifyRouter(<-addrs + settings.DefaultPort); err != nil {
-				fmt.Println(err)
+			for {
+				if err := app.storageRole.NotifyRouter(<-addrs + settings.DefaultPort); err != nil {
+					fmt.Println(err)
+				}
 			}
 		}()
 	}
