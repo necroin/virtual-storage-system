@@ -4,11 +4,13 @@ import (
 	"encoding/json"
 	"net/http"
 	"path"
+	"strings"
 
 	_ "embed"
 
 	"vss/src/connector"
 	"vss/src/roles"
+	"vss/src/settings"
 )
 
 var (
@@ -27,6 +29,7 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 	}
 
 	if message.Type == connector.NotifyMessageStorageType {
+		message.Url = strings.Split(request.RemoteAddr, ":")[0] + settings.DefaultPort
 		router.storages = append(router.storages, *message)
 		router.hostnames[message.Hostname] = path.Join(message.Url, message.Token)
 		router.NotifyRunners()

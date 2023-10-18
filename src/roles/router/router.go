@@ -1,6 +1,7 @@
 package router
 
 import (
+	"fmt"
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/settings"
@@ -38,10 +39,18 @@ func (router *Router) NotifyRunners() {
 }
 
 func (router *Router) CollectStorageFileSystem(url string, token string, walkPath string) connector.FilesystemDirectory {
-	result, _ := connector.SendGetRequest[connector.FilesystemDirectory](
+	fmt.Println(url + utils.FormatTokemizedEndpoint(settings.StorageFilesystemEndpoint, token))
+
+	result, err := connector.SendGetRequest[connector.FilesystemDirectory](
 		url+utils.FormatTokemizedEndpoint(settings.StorageFilesystemEndpoint, token),
 		[]byte(walkPath),
 	)
+	if err != nil {
+		return connector.FilesystemDirectory{}
+	}
+	if result == nil {
+		return connector.FilesystemDirectory{}
+	}
 	return *result
 }
 
