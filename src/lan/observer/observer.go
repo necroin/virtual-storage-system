@@ -38,6 +38,3 @@ func (observer *Observer) Start() chan string {
 	}
 	return result
 }
-
-func (observer *Observer) GetRouters() {
-}

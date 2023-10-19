@@ -10,16 +10,16 @@ import (
 
 type Router struct {
 	config    *config.Config
-	storages  []connector.NotifyMessage
-	runners   []connector.NotifyMessage
+	storages  map[string]connector.NotifyMessage
+	runners   map[string]connector.NotifyMessage
 	hostnames map[string]string
 }
 
 func New(config *config.Config) (*Router, error) {
 	return &Router{
 		config:    config,
-		storages:  []connector.NotifyMessage{},
-		runners:   []connector.NotifyMessage{},
+		storages:  map[string]connector.NotifyMessage{},
+		runners:   map[string]connector.NotifyMessage{},
 		hostnames: map[string]string{},
 	}, nil
 }

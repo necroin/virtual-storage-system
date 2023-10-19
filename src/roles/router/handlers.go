@@ -34,13 +34,13 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 	}
 
 	if message.Type == connector.NotifyMessageStorageType {
-		router.storages = append(router.storages, *message)
+		router.storages[message.Hostname] = *message
 		router.hostnames[message.Hostname] = path.Join(message.Url, message.Token)
 		router.NotifyRunners()
 	}
 
 	if message.Type == connector.NotifyMessageRunnerType {
-		router.runners = append(router.runners, *message)
+		router.runners[message.Hostname] = *message
 		router.NotifyRunner(*message)
 	}
 }
