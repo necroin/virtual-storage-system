@@ -1,6 +1,7 @@
 package observer
 
 import (
+	"fmt"
 	"net"
 	"strconv"
 	"time"
@@ -26,6 +27,7 @@ func (observer *Observer) Start() chan string {
 			for {
 				conn, err := net.DialTimeout("tcp", ip, settings.DefaultLanTimeout)
 				if err == nil {
+					fmt.Println(addr)
 					result <- addr
 					conn.Close()
 				}
