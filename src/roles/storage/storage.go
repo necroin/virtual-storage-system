@@ -80,9 +80,16 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 		walkPath = "/"
 	}
 
-	entries, _ := os.ReadDir(walkPath)
+	entries, err := os.ReadDir(walkPath)
+	if err != nil {
+		return fileSystemDirectory
+	}
+
 	for _, entry := range entries {
-		stat, _ := os.Stat(path.Join(walkPath, entry.Name()))
+		stat, err := os.Stat(path.Join(walkPath, entry.Name()))
+		if err != nil {
+			continue
+		}
 
 		info := connector.FileInfo{
 			ModTime: stat.ModTime(),

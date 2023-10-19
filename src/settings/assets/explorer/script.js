@@ -94,7 +94,7 @@ function create(type) {
     );
     let response = request("POST", get_request_url() + "/insert/" + type, data);
     open(document.getElementById("filesystem-address-line").value)
-    window.close_dialog('create-dialog', 'create-dialog-overlay')
+    close_dialog('create-dialog', 'create-dialog-overlay')
     update_status_bar(response)
 }
 
@@ -145,4 +145,5 @@ function rename() {
     let response = request("POST", get_request_url() + "/rename", data);
     open(document.getElementById("filesystem-address-line").value)
     update_status_bar(response)
+    close_dialog('rename-dialog', 'rename-dialog-overlay')
 }

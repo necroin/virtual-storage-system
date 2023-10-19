@@ -28,8 +28,7 @@ var (
 			if name == "" {
 				return fmt.Errorf("Имя файла не указано")
 			}
-			utils.CreateNewFile(path, name)
-			return nil
+			return utils.CreateNewFile(path, name)
 
 		},
 		"textFile": func(path string, name string) error {
@@ -37,8 +36,7 @@ var (
 				name = "Текстовый документ"
 			}
 			name += ".txt"
-			utils.CreateNewFile(path, name)
-			return nil
+			return utils.CreateNewFile(path, name)
 		},
 	}
 	copyHandlers = map[string]func(string, string){
@@ -93,7 +91,12 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	data, _ := ioutil.ReadAll(request.Body)
+	data, err := ioutil.ReadAll(request.Body)
+	if err != nil {
+		handlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
+		return
+	}
+
 	deletePath := string(data)
 	if err := utils.RemoveFile(deletePath); err != nil {
 		handlerFailed(responseWriter, err)
@@ -106,7 +109,11 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 	msgVars := mux.Vars(request)
 	handlerType := msgVars["type"]
 
-	data, _ := ioutil.ReadAll(request.Body)
+	data, err := ioutil.ReadAll(request.Body)
+	if err != nil {
+		handlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
+		return
+	}
 	copyPath := string(data)
 
 	copyHandler := copyHandlers[handlerType]
@@ -115,7 +122,11 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 }
 
 func (storage *Storage) PasteHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	dstPath, _ := ioutil.ReadAll(request.Body)
+	dstPath, err := ioutil.ReadAll(request.Body)
+	if err != nil {
+		handlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
+		return
+	}
 	srcPath, handlerType, err := buffer.GetFile()
 	if err != nil {
 		handlerFailed(responseWriter, err)

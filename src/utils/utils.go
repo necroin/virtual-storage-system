@@ -33,9 +33,13 @@ func CreateNewDirectory(dirPath string, name string) {
 	os.MkdirAll(path.Join(dirPath, name), os.ModePerm)
 }
 
-func CreateNewFile(dirPath string, name string) {
-	file, _ := os.OpenFile(path.Join(dirPath, name), os.O_CREATE, os.ModePerm)
+func CreateNewFile(dirPath string, name string) error {
+	file, err := os.OpenFile(path.Join(dirPath, name), os.O_CREATE, os.ModePerm)
+	if err != nil {
+		return err
+	}
 	file.Close()
+	return nil
 }
 
 func RemoveFile(dirPath string) error {
