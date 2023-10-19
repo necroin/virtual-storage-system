@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"sync"
 	"vss/src/config"
-	"vss/src/lan"
+	"vss/src/lan/listener"
+	"vss/src/lan/observer"
 	"vss/src/roles/router"
 	"vss/src/roles/runner"
 	"vss/src/roles/storage"
@@ -20,8 +21,8 @@ type Application struct {
 	routerRole  *router.Router
 	config      *config.Config
 	server      *server.Server
-	lanListener *lan.Listener
-	lanObserver *lan.Observer
+	lanListener *listener.Listener
+	lanObserver *observer.Observer
 }
 
 func New() (*Application, error) {
@@ -76,8 +77,8 @@ func New() (*Application, error) {
 		routerRole:  routerRole,
 		config:      config,
 		server:      server,
-		lanListener: lan.NewListener(config),
-		lanObserver: lan.NewObserver(config),
+		lanListener: listener.New(config),
+		lanObserver: observer.New(config),
 	}, nil
 }
 
@@ -93,7 +94,7 @@ func (app *Application) Run() error {
 	if err := app.server.WaitStart(); err != nil {
 		return err
 	}
-	fmt.Println("Server started.")
+	fmt.Printf("Server started on https://%s/auth\n", app.config.Url)
 
 	if app.storageRole != nil {
 		if app.config.Url == "localhost"+settings.DefaultPort {

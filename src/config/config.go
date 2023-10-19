@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"time"
+	"vss/src/lan"
 	"vss/src/settings"
 	"vss/src/utils"
 
@@ -69,7 +70,7 @@ func (user *User) setDefaults() {
 
 func (config *Config) setDefaults() {
 	if config.Url == "" {
-		config.Url = settings.DefaultUrl
+		config.Url = lan.GetMyLanAddr()
 	}
 
 	if config.ListenPort == "" {
