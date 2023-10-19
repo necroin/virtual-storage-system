@@ -7,4 +7,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.17
 )
 
-require github.com/necroin/golibs v0.0.0-20230926094109-05353db26fe2
+require (
+	github.com/necroin/golibs v0.0.0-20230926094109-05353db26fe2
+	gopkg.in/yaml.v2 v2.4.0
+)

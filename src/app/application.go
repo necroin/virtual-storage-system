@@ -51,6 +51,7 @@ func New() (*Application, error) {
 		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler, "POST")
 		server.AddHandler(settings.StorageCopyEndpoint, storageRole.CopyHandler, "POST")
 		server.AddHandler(settings.StoragePasteEndpoint, storageRole.PasteHandler, "POST")
+		server.AddHandler(settings.StorageRenameEndpoint, storage.RenameHandler, "POST")
 	}
 
 	var routerRole *router.Router = nil
@@ -63,7 +64,7 @@ func New() (*Application, error) {
 		server.AddHandler(settings.RouterMainEndpoint, server.TokenizedHandler(routerRole.MainHandler), "POST", "GET")
 		server.AddHandler(settings.RouterTopologyEndpoint, server.TokenizedHandler(routerRole.GetTopologyHandler), "GET")
 		server.AddHandler(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
-		server.AddHandler(settings.RouterInsertEndpoint, server.TokenizedHandler(routerRole.InsertHandler), "POST")
+		server.AddHandler(settings.RouterCallEndpoint, server.TokenizedHandler(routerRole.CallHandler), "POST")
 	}
 
 	metricsRegistry := metrics.NewRegistry()
@@ -95,6 +96,11 @@ func (app *Application) Run() error {
 	fmt.Println("Server started.")
 
 	if app.storageRole != nil {
+		if app.config.Url == "localhost"+settings.DefaultPort {
+			if err := app.storageRole.NotifyRouter(app.config.Url); err != nil {
+				fmt.Println(err)
+			}
+		}
 		go func() {
 			addrs := app.lanObserver.Start()
 			for {

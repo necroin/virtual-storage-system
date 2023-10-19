@@ -67,3 +67,7 @@ func CopyFile(srcPath string, dstPath string) error {
 	err = out.Sync()
 	return nil
 }
+
+func Rename(srcPath string, oldName string, newName string) error {
+	return os.Rename(path.Join(srcPath, oldName), path.Join(srcPath, newName))
+}

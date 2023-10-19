@@ -47,3 +47,9 @@ type ClientAuth struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
+
+type RenameRequest struct {
+	Path    string `json:"path"`
+	OldName string `json:"old_name"`
+	NewName string `json:"new_name"`
+}

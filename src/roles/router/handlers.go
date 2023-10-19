@@ -28,8 +28,12 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 		// TODO: handle error
 	}
 
+	message.Url = strings.Split(request.RemoteAddr, ":")[0] + settings.DefaultPort
+	if message.Url == ("127.0.0.1" + settings.DefaultPort) {
+		message.Url = "localhost" + settings.DefaultPort
+	}
+
 	if message.Type == connector.NotifyMessageStorageType {
-		message.Url = strings.Split(request.RemoteAddr, ":")[0] + settings.DefaultPort
 		router.storages = append(router.storages, *message)
 		router.hostnames[message.Hostname] = path.Join(message.Url, message.Token)
 		router.NotifyRunners()
@@ -41,7 +45,7 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 	}
 }
 
-func (router *Router) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
+func (router *Router) CallHandler(responseWriter http.ResponseWriter, request *http.Request) {
 
 }
 
