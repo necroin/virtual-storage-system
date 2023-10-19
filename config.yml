@@ -1,0 +1,10 @@
+---
+url: localhost:3301
+
+roles:
+  storage:
+    enable: true
+  runner:
+    enable: false
+  router:
+    enable: true

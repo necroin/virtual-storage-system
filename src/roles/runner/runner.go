@@ -15,9 +15,8 @@ type Runner struct {
 
 func New(config *config.Config) (*Runner, error) {
 	return &Runner{
-		url:       config.Url,
-		routerUrl: config.RouterUrl,
-		storages:  []string{},
+		url:      config.Url,
+		storages: []string{},
 	}, nil
 }
 

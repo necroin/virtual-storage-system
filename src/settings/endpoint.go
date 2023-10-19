@@ -16,6 +16,7 @@ const (
 	StorageDeleteEndpoint     = "/{token}/storage/delete"
 	StorageCopyEndpoint       = "/{token}/storage/copy/{type}"
 	StoragePasteEndpoint      = "/{token}/storage/paste"
+	StorageRenameEndpoint     = "/{token}/storage/rename"
 )
 
 const (
@@ -26,7 +27,7 @@ const (
 
 const (
 	RouterMainEndpoint     = "/{token}/router"
-	RouterInsertEndpoint   = "/{token}/router/insert/{type}"
 	RouterTopologyEndpoint = "/{token}/router/topology"
 	RouterNotifyEndpoint   = "/{token}/router/notify"
+	RouterCallEndpoint     = "/{token}/router/call"
 )

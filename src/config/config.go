@@ -1,8 +1,13 @@
 package config
 
 import (
+	"fmt"
+	"os"
 	"time"
+	"vss/src/settings"
 	"vss/src/utils"
+
+	"gopkg.in/yaml.v2"
 )
 
 type StorageRole struct {
@@ -35,38 +40,48 @@ type User struct {
 }
 
 type Config struct {
-	Url       string `yaml:"url"`
-	RouterUrl string `yaml:"router"`
-	Roles     Roles  `yaml:"roles"`
-	Log       Log    `yaml:"log"`
-	User      User   `yaml:"user"`
+	Url        string `yaml:"url"`
+	ListenPort string `yaml:"listen_port"`
+	Roles      Roles  `yaml:"roles"`
+	Log        Log    `yaml:"log"`
+	User       User   `yaml:"user"`
 }
 
-func setDefaults(config *Config) {
-	if config.RouterUrl == "" {
-		config.RouterUrl = config.Url
+func (log *Log) setDefaults() {
+	if log.Path == "" {
+		log.Path = "logs/log_" + time.Now().Format("2006-01-02T15:04:05") + ".txt"
+	}
+}
+
+func (user *User) setDefaults() {
+	if user.Username == "" {
+		user.Username = settings.DefaultUsername
 	}
 
-	if config.Log.Path == "" {
-		config.Log.Path = "logs/log_" + time.Now().Format("2006-01-02T15:04:05") + ".txt"
+	if user.Password == "" {
+		user.Password = settings.DefaultPassword
 	}
 
-	if config.User.Username == "" {
-		config.User.Username = "admin"
+	if user.Token == "" {
+		user.Token = utils.GenerateSecureToken(10)
+	}
+}
+
+func (config *Config) setDefaults() {
+	if config.Url == "" {
+		config.Url = settings.DefaultUrl
 	}
 
-	if config.User.Password == "" {
-		config.User.Password = "admin"
+	if config.ListenPort == "" {
+		config.ListenPort = settings.DefaultListenPort
 	}
 
-	if config.User.Token == "" {
-		config.User.Token = utils.GenerateSecureToken(10)
-	}
+	config.Log.setDefaults()
+	config.User.setDefaults()
 }
 
 func Load(path string) (*Config, error) {
 	config := &Config{
-		Url: "localhost:3301",
 		Roles: Roles{
 			Storage: StorageRole{
 				Enable: true,
@@ -79,8 +94,18 @@ func Load(path string) (*Config, error) {
 			},
 		},
 	}
+	config.setDefaults()
 
-	setDefaults(config)
+	configFile, err := os.ReadFile(settings.ConfigPath)
+	if err != nil {
+		return config, nil
+	}
+
+	if err := yaml.Unmarshal(configFile, config); err != nil {
+		return nil, fmt.Errorf("[Config] [Error] failed parse config file: %s", err)
+	}
+
+	config.setDefaults()
 
 	return config, nil
 }

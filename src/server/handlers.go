@@ -40,6 +40,9 @@ func (server *Server) AuthTokenHandler(responseWriter http.ResponseWriter, reque
 	}
 }
 
+func (server *Server) ExploreHandler(responseWriter http.ResponseWriter, request *http.Request) {
+}
+
 func (server *Server) TokenizedHandler(handler func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
 	return func(responseWriter http.ResponseWriter, request *http.Request) {
 		vars := mux.Vars(request)

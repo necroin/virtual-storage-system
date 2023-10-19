@@ -130,6 +130,27 @@ func (storage *Storage) PasteHandler(responseWriter http.ResponseWriter, request
 	handlerSuccess(responseWriter, "Вставка выполнена")
 }
 
+func RenameHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	data := &connector.RenameRequest{}
+
+	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
+		handlerFailed(responseWriter, err)
+		return
+	}
+
+	if data.NewName == "" {
+		handlerFailed(responseWriter, fmt.Errorf("Не указано новое имя"))
+		return
+	}
+
+	if err := utils.Rename(data.Path, data.OldName, data.NewName); err != nil {
+		handlerFailed(responseWriter, err)
+		return
+	}
+
+	handlerSuccess(responseWriter, "Переименование выполнено")
+}
+
 func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	roles.FilesystemHandler(storage, responseWriter, request)
 }

@@ -94,7 +94,7 @@ function create(type) {
     );
     let response = request("POST", get_request_url() + "/insert/" + type, data);
     open(document.getElementById("filesystem-address-line").value)
-    close_create_dialog()
+    window.close_dialog('create-dialog', 'create-dialog-overlay')
     update_status_bar(response)
 }
 
@@ -132,3 +132,17 @@ function paste() {
     update_status_bar(response)
 }
 
+function rename() {
+    let focus_item = document.getElementById("filesystem-explorer-table").focus_item
+    let old_name = focus_item.attributes.name.value
+    let new_name = document.getElementById("rename-dialog-name").value
+    let path = document.getElementById("filesystem-address-line").value
+    let data = JSON.stringify({
+        "path": path,
+        "old_name": old_name,
+        "new_name": new_name
+    })
+    let response = request("POST", get_request_url() + "/rename", data);
+    open(document.getElementById("filesystem-address-line").value)
+    update_status_bar(response)
+}

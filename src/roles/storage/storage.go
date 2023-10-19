@@ -32,13 +32,13 @@ func New(config *config.Config, dbPath string) (*Storage, error) {
 	}, nil
 }
 
-func (storage *Storage) GetRouterToken() (string, error) {
+func (storage *Storage) GetRouterToken(url string) (string, error) {
 	message := connector.ClientAuth{
 		Username: storage.config.User.Username,
 		Password: storage.config.User.Password,
 	}
 
-	response, err := connector.SendPostRequest(storage.config.RouterUrl+settings.ServerAuthTokenEndpoint, message)
+	response, err := connector.SendPostRequest(url+settings.ServerAuthTokenEndpoint, message)
 	if err != nil {
 		return "", err
 	}
@@ -51,8 +51,8 @@ func (storage *Storage) GetRouterToken() (string, error) {
 	return token, nil
 }
 
-func (storage *Storage) NotifyRouter() error {
-	token, err := storage.GetRouterToken()
+func (storage *Storage) NotifyRouter(url string) error {
+	token, err := storage.GetRouterToken(url)
 	if err != nil {
 		return err
 	}
@@ -64,7 +64,7 @@ func (storage *Storage) NotifyRouter() error {
 		Token:    storage.config.User.Token,
 	}
 	_, err = connector.SendPostRequest(
-		storage.config.RouterUrl+utils.FormatTokemizedEndpoint(settings.RouterNotifyEndpoint, token),
+		url+utils.FormatTokemizedEndpoint(settings.RouterNotifyEndpoint, token),
 		message,
 	)
 	return err
