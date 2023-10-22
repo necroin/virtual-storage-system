@@ -102,7 +102,10 @@ func MainHandler(role Role, responseWriter http.ResponseWriter, request *http.Re
 
 			selectOption := html.NewTag("option")
 			selectOption.AddElements(html.NewText(hostname))
-			selectOption.AddAttribute(html.NewAttribute("value", hostname))
+			selectOption.AddAttribute(
+				html.NewAttribute("value", hostname),
+				html.NewAttribute("storage_url", url+"/storage"),
+			)
 			hostnamesCreateSelect.AddElements(selectOption)
 		}
 

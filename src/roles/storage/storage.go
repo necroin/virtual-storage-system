@@ -94,7 +94,7 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 		info := connector.FileInfo{
 			ModTime: stat.ModTime(),
 			Size:    stat.Size(),
-			Url:     storage.config.Url,
+			Url:     path.Join(storage.config.Url, storage.config.User.Token),
 		}
 
 		if entry.IsDir() {

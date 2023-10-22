@@ -85,6 +85,8 @@ function update_status_bar(raw_data) {
 }
 
 function create(type) {
+    let create_storage_select = document.getElementById("create-storage-select")
+    let url = create_storage_select.options[create_storage_select.selectedIndex].attributes.storage_url.value
     let data = JSON.stringify(
         {
             "type": type,
@@ -92,7 +94,7 @@ function create(type) {
             "name": document.getElementById("create-dialog-name").value
         }
     );
-    let response = request("POST", get_request_url() + "/insert/" + type, data);
+    let response = request("POST", url + "/insert/" + type, data);
     open(document.getElementById("filesystem-address-line").value)
     close_dialog('create-dialog', 'create-dialog-overlay')
     update_status_bar(response)
@@ -102,11 +104,12 @@ function remove() {
     let focus_item = document.getElementById("filesystem-explorer-table").focus_item
     if (focus_item != null) {
         let focus_item_name = focus_item.attributes.name.value
+        let focus_item_storage_url = focus_item.attributes.storage_url.value
         let path = [document.getElementById("filesystem-address-line").value, focus_item_name].join("/")
         if (document.getElementById("filesystem-address-line").value == "/") {
             path = "/" + focus_item_name
         }
-        let response = request("POST", get_request_url() + "/delete", path);
+        let response = request("POST", focus_item_storage_url + "/storage/delete", path);
         open(document.getElementById("filesystem-address-line").value)
         update_status_bar(response)
     }
@@ -134,6 +137,7 @@ function paste() {
 
 function rename() {
     let focus_item = document.getElementById("filesystem-explorer-table").focus_item
+    let focus_item_storage_url = focus_item.attributes.storage_url.value
     let old_name = focus_item.attributes.name.value
     let new_name = document.getElementById("rename-dialog-name").value
     let path = document.getElementById("filesystem-address-line").value
@@ -142,8 +146,12 @@ function rename() {
         "old_name": old_name,
         "new_name": new_name
     })
-    let response = request("POST", get_request_url() + "/rename", data);
+    let response = request("POST", focus_item_storage_url + "/storage/rename", data);
     open(document.getElementById("filesystem-address-line").value)
     update_status_bar(response)
     close_dialog('rename-dialog', 'rename-dialog-overlay')
+}
+
+function call(methood) {
+
 }
