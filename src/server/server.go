@@ -1,7 +1,6 @@
 package server
 
 import (
-	"bytes"
 	"context"
 	"crypto/tls"
 	"fmt"
@@ -12,6 +11,7 @@ import (
 	"syscall"
 	"time"
 	"vss/src/config"
+	"vss/src/connector"
 	"vss/src/settings"
 
 	"github.com/gorilla/mux"
@@ -58,22 +58,8 @@ func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, 
 }
 
 func (server *Server) WaitStart() error {
-	client := http.Client{
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{
-				ServerName:         "localhost",
-				InsecureSkipVerify: true,
-			},
-		},
-	}
 	for i := 0; i < settings.ServerWaitStartRepeatCount; i++ {
-		request, _ := http.NewRequest(
-			http.MethodGet,
-			"https://"+server.url+settings.ServerStatusEndpoint,
-			bytes.NewReader([]byte("")),
-		)
-
-		response, err := client.Do(request)
+		response, err := connector.SendRequest(server.url+settings.ServerStatusEndpoint, []byte(""), http.MethodGet)
 		if err != nil {
 			fmt.Println(err)
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
