@@ -14,7 +14,6 @@ const (
 
 const (
 	DefaultPort       = ":3301"
-	DefaultUrl        = "0.0.0.0" + DefaultPort
 	DefaultListenPort = ":3311"
 	DefaultUsername   = "admin"
 	DefaultPassword   = "admin"

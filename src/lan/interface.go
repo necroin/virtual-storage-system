@@ -26,7 +26,7 @@ func GetMyLanAddr() string {
 				case *net.IPAddr:
 					ip = v.IP.String()
 				}
-				if strings.Contains(ip, "192.168.0.") {
+				if strings.Contains(ip, "192.168.") {
 					return ip + settings.DefaultPort
 				}
 			}

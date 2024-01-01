@@ -5,8 +5,6 @@ import (
 	"os"
 )
 
-var ()
-
 func GetAuthenticationTemlate() string {
 	data, _ := os.ReadFile("src/settings/assets/authentication/authentication.html")
 	return string(data)
