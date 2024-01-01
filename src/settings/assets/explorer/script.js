@@ -1,4 +1,12 @@
-window.storageUrl = null
+window.__context__ = {}
+
+function Init() {
+    let savedPath = window.localStorage.getItem("explorer-address-line")
+    if (savedPath == null) {
+        savedPath = "/"
+    }
+    SetCurrentPath(savedPath)
+}
 
 function remove_dropdown(event, event_id, dropdown_id) {
     if (!event.target.matches('#' + event_id)) {
@@ -19,12 +27,12 @@ function request(methood, url, data) {
 }
 
 function SetStorage(url) {
-    window.storageUrl = url
+    window.__context__.storageUrl = url
 }
 
 function GetRequestUrl(routerUrl) {
-    if (window.storageUrl != null) {
-        return window.storageUrl
+    if (window.__context__.storageUrl != null) {
+        return window.__context__.storageUrl
     }
     return routerUrl
 }
@@ -41,7 +49,8 @@ function GetCurrentPath() {
 }
 
 function SetCurrentPath(path) {
-    return document.getElementById("explorer-address-line").value = path
+    document.getElementById("explorer-address-line").value = path
+    window.localStorage.setItem("explorer-address-line", path)
 }
 
 function GetFilesystem(routerUrl, path) {
@@ -180,6 +189,10 @@ function SetFocusItem(table, item) {
     table.focusItem.style.backgroundColor = "var(--elements-bg-color)"
 }
 
+function GetFocusItem() {
+    return document.getElementById("explorer-filesystem-content").focusItem
+}
+
 function OpenCreateOptions() {
     document.getElementById("create-options").classList.toggle("dropdown-show");
 }
@@ -220,7 +233,7 @@ function Create(type) {
 }
 
 function Remove() {
-    let focusItem = document.getElementById("explorer-filesystem-content").focusItem
+    let focusItem = GetFocusItem()
     if (focusItem != null) {
         let focusItemName = focusItem.__custom__.name
         let focusItemStorageUrl = focusItem.__custom__.storageUrl
@@ -234,7 +247,7 @@ function Remove() {
 }
 
 function Rename() {
-    let focusItem = document.getElementById("explorer-filesystem-content").focusItem
+    let focusItem = GetFocusItem()
     if (focusItem != null) {
         let focusItemStorageUrl = focusItem.__custom__.storageUrl
         let oldName = focusItem.__custom__.name
@@ -248,4 +261,17 @@ function Rename() {
         UpdateStatusBar(response)
         CloseDialog('rename-dialog', 'rename-dialog-overlay')
     }
+}
+
+function Copy() {
+    let focusItem = GetFocusItem()
+    window.__context__.copy = {
+        path: GetCurrentPath(),
+        name: focusItem.__custom__.name,
+        url: focusItem.__custom__.storageUrl
+    }
+}
+
+function Paste() {
+
 }
