@@ -19,9 +19,8 @@ const (
 )
 
 const (
-	RunnerOpenEndpoint     = "/runner/open"
-	RunnerTopologyEndpoint = "/runner/topology"
-	RunnerNotifyEndpoint   = "/runner/notify"
+	RunnerOpenEndpoint   = "/runner/open"
+	RunnerNotifyEndpoint = "/runner/notify"
 )
 
 const (

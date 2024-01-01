@@ -18,9 +18,7 @@ var (
 	topologyHandlerResponseTemplate string
 )
 
-func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	// responseWriter.Write([]byte(fmt.Sprintf(topologyHandlerResponseTemplate, strings.Join(router.storages, "</li>\n<li>"), strings.Join(router.runners, "</li>\n<li>"))))
-}
+func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {}
 
 func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	message := &connector.NotifyMessage{}

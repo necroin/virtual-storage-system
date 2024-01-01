@@ -16,7 +16,7 @@ func (server *Server) StatusHandler(responseWriter http.ResponseWriter, request 
 
 func (server *Server) PageHandler(responseWriter http.ResponseWriter, htmlPage string, pageInfo connector.PageInfo) {
 	pageInfo.Url = server.url
-	pageTemplate, _ := template.New("HtmpPage").Parse(htmlPage)
+	pageTemplate, _ := template.New("HtmlPage").Parse(htmlPage)
 	pageTemplate.Execute(responseWriter, pageInfo)
 }
 
