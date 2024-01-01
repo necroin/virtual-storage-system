@@ -1,13 +1,23 @@
 package connector
 
-import (
-	"time"
-)
-
 const (
 	NotifyMessageStorageType = "storage"
 	NotifyMessageRunnerType  = "runner"
 )
+
+type PageInfo struct {
+	Url           string
+	Style         string
+	Script        string
+	IconCreate    string
+	IconCut       string
+	IconCopy      string
+	IconPaste     string
+	IconDelete    string
+	IconOptions   string
+	IconArrowLeft string
+	StatusBarIcon string
+}
 
 type NotifyMessage struct {
 	Type     string `json:"type"`
@@ -22,9 +32,9 @@ type TopologyMessage struct {
 }
 
 type FileInfo struct {
-	ModTime time.Time `json:"mod_time"`
-	Size    int64     `json:"size"`
-	Url     string    `json:"url"`
+	ModTime string `json:"mod_time"`
+	Size    int64  `json:"size"`
+	Url     string `json:"url"`
 }
 
 type FilesystemDirectory struct {

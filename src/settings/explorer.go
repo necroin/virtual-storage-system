@@ -2,6 +2,7 @@ package settings
 
 import (
 	_ "embed"
+	"fmt"
 	"os"
 )
 
@@ -32,17 +33,19 @@ var (
 	ExplorerStatusBarFail string
 )
 
-func GetExplorerTemlate() string {
+func GetExplorerPage() string {
 	data, _ := os.ReadFile("src/settings/assets/explorer/explorer.html")
 	return string(data)
 }
 
 func GetExplorerStyle() string {
 	data, _ := os.ReadFile("src/settings/assets/explorer/explorer.css")
-	return string(data)
+	style := string(data)
+	return fmt.Sprintf(`<style type="text/css">%s</style>`, style)
 }
 
 func GetExplorerScript() string {
 	data, _ := os.ReadFile("src/settings/assets/explorer/script.js")
-	return string(data)
+	script := string(data)
+	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script)
 }

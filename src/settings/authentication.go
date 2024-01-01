@@ -1,6 +1,9 @@
 package settings
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 var ()
 
@@ -11,10 +14,12 @@ func GetAuthenticationTemlate() string {
 
 func GetAuthenticationStyle() string {
 	data, _ := os.ReadFile("src/settings/assets/authentication/authentication.css")
-	return string(data)
+	style := string(data)
+	return fmt.Sprintf(`<style type="text/css">%s</style>`, style)
 }
 
 func GetAuthenticationScript() string {
 	data, _ := os.ReadFile("src/settings/assets/authentication/authentication.js")
-	return string(data)
+	script := string(data)
+	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script)
 }

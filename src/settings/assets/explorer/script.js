@@ -1,8 +1,7 @@
-window.request_url = '%s'
-window.storage_url = null
+window.storageUrl = null
 
 function remove_dropdown(event, event_id, dropdown_id) {
-    if (!event.target.matches('#'+event_id)){
+    if (!event.target.matches('#' + event_id)) {
         document.getElementById(dropdown_id).classList.remove('dropdown-show');
     }
 }
@@ -14,144 +13,239 @@ window.onclick = function (event) {
 
 function request(methood, url, data) {
     var req = new XMLHttpRequest();
-    req.open(methood, "https://" + url, false);
+    req.open(methood, url, false);
     req.send(data);
     return req.responseText
 }
 
-function get_request_url() {
-    var url = window.request_url
-    if (window.storage_url != null) {
-        url = window.storage_url
+function SetStorage(url) {
+    window.storageUrl = url
+}
+
+function GetRequestUrl(routerUrl) {
+    if (window.storageUrl != null) {
+        return window.storageUrl
     }
-    return url
+    return routerUrl
 }
 
-function open(path) {
-    let response = request("POST", get_request_url(), path);
-    if (path == "") {
-        document.body.innerHTML = response
-    } else {
-        document.getElementById("filesystem-explorer-table-body").innerHTML = response
-        document.getElementById("filesystem-address-line").value = path
+function GetRequestRole() {
+    if (window.storageUrl != null) {
+        return "/storage"
     }
-    document.getElementById("filesystem-explorer-table").focus_item = null
+    return "/router"
 }
 
-function set_storage(url) {
-    window.storage_url = url
-    open(document.getElementById("filesystem-address-line").value)
+function GetCurrentPath() {
+    return document.getElementById("explorer-address-line").value
 }
 
-function back() {
-    let splitted_path = document.getElementById("filesystem-address-line").value.split("/");
+function SetCurrentPath(path) {
+    return document.getElementById("explorer-address-line").value = path
+}
+
+function GetFilesystem(routerUrl, path) {
+    let rowsCount = 0
+    if (path != null) {
+        SetCurrentPath(path)
+    }
+    path = GetCurrentPath()
+    let filesystemResponse = request("POST", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/filesystem", path)
+    let filesystem = JSON.parse(filesystemResponse)
+
+    let filesystemTable = document.getElementById("explorer-filesystem-content-body")
+    filesystemTable.replaceChildren()
+    filesystemTable.focusItem = null
+
+    let directories = filesystem.directories
+    for (let directory in directories) {
+        let info = directories[directory]
+
+        let tableRow = document.createElement("tr")
+        tableRow.tabIndex = String(rowsCount)
+        tableRow.__custom__ = {}
+        tableRow.__custom__["name"] = directory
+        tableRow.__custom__["type"] = "dir"
+        tableRow.__custom__["storageUrl"] = info["url"]
+
+        let nameElement = document.createElement("td")
+        let dateElement = document.createElement("td")
+        let typeElement = document.createElement("td")
+        let sizeElement = document.createElement("td")
+
+        nameElement.innerText = "📁 " + directory
+        dateElement.innerText = info["mod_time"]
+        typeElement.innerText = "Папка с файлами"
+        sizeElement.innerText = ""
+
+        tableRow.appendChild(nameElement)
+        tableRow.appendChild(dateElement)
+        tableRow.appendChild(typeElement)
+        tableRow.appendChild(sizeElement)
+
+        let openPath = "/" + directory
+        if (path == "/") {
+            openPath = directory
+        }
+        openPath = path + openPath
+
+        tableRow.ondblclick = () => GetFilesystem(GetRequestUrl(routerUrl), openPath)
+
+        filesystemTable.appendChild(tableRow)
+
+        rowsCount = rowsCount + 1
+    }
+
+    let files = filesystem.files
+    for (let file in files) {
+        let info = files[file]
+
+        let tableRow = document.createElement("tr")
+        tableRow.tabIndex = String(rowsCount)
+        tableRow.__custom__ = {}
+        tableRow.__custom__["name"] = file
+        tableRow.__custom__["type"] = "file"
+        tableRow.__custom__["storageUrl"] = info["url"]
+
+        let nameElement = document.createElement("td")
+        let dateElement = document.createElement("td")
+        let typeElement = document.createElement("td")
+        let sizeElement = document.createElement("td")
+
+        nameElement.innerText = file
+        dateElement.innerText = info["mod_time"]
+        typeElement.innerText = "Файл"
+        sizeElement.innerText = info["size"] + " байт"
+
+        tableRow.appendChild(nameElement)
+        tableRow.appendChild(dateElement)
+        tableRow.appendChild(typeElement)
+        tableRow.appendChild(sizeElement)
+
+        filesystemTable.appendChild(tableRow)
+
+        rowsCount = rowsCount + 1
+    }
+}
+
+function GetDevices(routerUrl) {
+    let devicesResponse = request("GET", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/devices")
+    let devices = JSON.parse(devicesResponse)
+
+    let devicesList = document.getElementById("devices")
+    devicesList.replaceChildren()
+    let allDevicesElement = document.createElement("span")
+    allDevicesElement.innerText = "Все"
+    allDevicesElement.onclick = () => {
+        SetStorage(null)
+        GetFilesystem(routerUrl)
+    }
+    devicesList.appendChild(allDevicesElement)
+
+    let createOptions = document.getElementById("create-storage-select")
+
+    for (let device in devices) {
+        let deviceUrl = devices[device]
+
+        let deviceElement = document.createElement("span")
+        deviceElement.innerText = device
+        deviceElement.onclick = () => {
+            SetStorage(deviceUrl)
+            GetFilesystem(routerUrl)
+        }
+        devicesList.appendChild(deviceElement)
+
+        let createOptionDeviceElement = document.createElement("option")
+        createOptionDeviceElement.innerText = device
+        createOptionDeviceElement.__custom__ = {}
+        createOptionDeviceElement.__custom__.storageUrl = deviceUrl
+        createOptions.appendChild(createOptionDeviceElement)
+    }
+}
+
+function Back(url) {
+    let splitted_path = document.getElementById("explorer-address-line").value.split("/");
     let path = splitted_path.slice(0, splitted_path.length - 1).join("/");
     if (path == "") {
         path = "/"
     }
-    open(path)
+    GetFilesystem(url, path)
 }
 
-function set_focus_item(table, item) {
-    if (table.focus_item !=  null) {
-        table.focus_item.style.backgroundColor = "var(--backgroud-color)"
+function SetFocusItem(table, item) {
+    if (table.focusItem != null) {
+        table.focusItem.style.backgroundColor = "var(--backgroud-color)"
     }
-    table.focus_item = item
-    table.focus_item.style.backgroundColor = "var(--elements-bg-color)"
+    table.focusItem = item
+    table.focusItem.style.backgroundColor = "var(--elements-bg-color)"
 }
 
-function open_create_options() {
+function OpenCreateOptions() {
     document.getElementById("create-options").classList.toggle("dropdown-show");
 }
 
-function open_dialog(dialog, overlay) {
+function OpenOptions() {
+    document.getElementById("options").classList.toggle("dropdown-show");
+}
+
+function OpenDialog(dialog, overlay) {
     document.getElementById(dialog).style.display = "flex";
     document.getElementById(overlay).style.display = "block";
 }
 
-function close_dialog(dialog, overlay) {
+function CloseDialog(dialog, overlay) {
     document.getElementById(dialog).style.display = "none";
     document.getElementById(overlay).style.display = "none";
 }
 
-function open_options() {
-    document.getElementById("options").classList.toggle("dropdown-show");
-}
-
-function update_status_bar(raw_data) {
+function UpdateStatusBar(raw_data) {
     let data = JSON.parse(raw_data)
     document.getElementById("status-bar-progress").innerHTML = data.status
-    document.getElementById("status-bar-text").innerHTML = data.text
+    document.getElementById("status-bar-text").innerText = data.text
 }
 
-function create(type) {
-    let create_storage_select = document.getElementById("create-storage-select")
-    let url = create_storage_select.options[create_storage_select.selectedIndex].attributes.storage_url.value
+function Create(type) {
+    let createStorageSelect = document.getElementById("create-storage-select")
+    let url = createStorageSelect.options[createStorageSelect.selectedIndex].__custom__.storageUrl
     let data = JSON.stringify(
         {
             "type": type,
-            "path": document.getElementById("filesystem-address-line").value,
+            "path": GetCurrentPath(),
             "name": document.getElementById("create-dialog-name").value
         }
     );
-    let response = request("POST", url + "/insert/" + type, data);
-    open(document.getElementById("filesystem-address-line").value)
-    close_dialog('create-dialog', 'create-dialog-overlay')
-    update_status_bar(response)
+    let response = request("POST", "https://" + url + "/storage/insert/" + type, data);
+    CloseDialog('create-dialog', 'create-dialog-overlay')
+    UpdateStatusBar(response)
 }
 
-function remove() {
-    let focus_item = document.getElementById("filesystem-explorer-table").focus_item
-    if (focus_item != null) {
-        let focus_item_name = focus_item.attributes.name.value
-        let focus_item_storage_url = focus_item.attributes.storage_url.value
-        let path = [document.getElementById("filesystem-address-line").value, focus_item_name].join("/")
-        if (document.getElementById("filesystem-address-line").value == "/") {
-            path = "/" + focus_item_name
+function Remove() {
+    let focusItem = document.getElementById("explorer-filesystem-content").focusItem
+    if (focusItem != null) {
+        let focusItemName = focusItem.__custom__.name
+        let focusItemStorageUrl = focusItem.__custom__.storageUrl
+        let path = [GetCurrentPath(), focusItemName].join("/")
+        if (GetCurrentPath() == "/") {
+            path = "/" + focusItemName
         }
-        let response = request("POST", focus_item_storage_url + "/storage/delete", path);
-        open(document.getElementById("filesystem-address-line").value)
-        update_status_bar(response)
+        let response = request("POST", "https://" + focusItemStorageUrl + "/storage/delete", path);
+        UpdateStatusBar(response)
     }
 }
 
-function copy() {
-    let focus_item = document.getElementById("filesystem-explorer-table").focus_item
-    if (focus_item != null) {
-        let focus_item_name = focus_item.attributes.name.value
-        let focus_item_type = focus_item.attributes.custom_type.value
-        let path = [document.getElementById("filesystem-address-line").value, focus_item_name].join("/")
-        if (document.getElementById("filesystem-address-line").value == "/") {
-            path = "/" + focus_item_name
-        }
-        let response = request("POST", get_request_url() + "/copy/" + focus_item_type, path);
-        update_status_bar(response)
+function Rename() {
+    let focusItem = document.getElementById("explorer-filesystem-content").focusItem
+    if (focusItem != null) {
+        let focusItemStorageUrl = focusItem.__custom__.storageUrl
+        let oldName = focusItem.__custom__.name
+        let newName = document.getElementById("rename-dialog-name").value
+        let data = JSON.stringify({
+            "path": GetCurrentPath(),
+            "old_name": oldName,
+            "new_name": newName
+        })
+        let response = request("POST", "https://" + focusItemStorageUrl + "/storage/rename", data);
+        UpdateStatusBar(response)
+        CloseDialog('rename-dialog', 'rename-dialog-overlay')
     }
-}
-
-function paste() {
-    let response = request("POST", get_request_url() + "/paste", document.getElementById("filesystem-address-line").value);
-    open(document.getElementById("filesystem-address-line").value)
-    update_status_bar(response)
-}
-
-function rename() {
-    let focus_item = document.getElementById("filesystem-explorer-table").focus_item
-    let focus_item_storage_url = focus_item.attributes.storage_url.value
-    let old_name = focus_item.attributes.name.value
-    let new_name = document.getElementById("rename-dialog-name").value
-    let path = document.getElementById("filesystem-address-line").value
-    let data = JSON.stringify({
-        "path": path,
-        "old_name": old_name,
-        "new_name": new_name
-    })
-    let response = request("POST", focus_item_storage_url + "/storage/rename", data);
-    open(document.getElementById("filesystem-address-line").value)
-    update_status_bar(response)
-    close_dialog('rename-dialog', 'rename-dialog-overlay')
-}
-
-function call(methood) {
-
 }

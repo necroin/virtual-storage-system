@@ -2,11 +2,10 @@ package server
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
+	"text/template"
 	"vss/src/connector"
 	"vss/src/settings"
-	"vss/src/utils/html"
 
 	"github.com/gorilla/mux"
 )
@@ -15,17 +14,21 @@ func (server *Server) StatusHandler(responseWriter http.ResponseWriter, request 
 	responseWriter.Write([]byte(settings.ServerStatusResponse))
 }
 
+func (server *Server) PageHandler(responseWriter http.ResponseWriter, htmlPage string, pageInfo connector.PageInfo) {
+	pageInfo.Url = server.url
+	pageTemplate, _ := template.New("HtmpPage").Parse(htmlPage)
+	pageTemplate.Execute(responseWriter, pageInfo)
+}
+
 func (server *Server) AuthHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	style := html.NewTag("style").AddElements(html.NewText(settings.GetAuthenticationStyle())).AddAttribute(html.NewAttribute("type", "text/css"))
-	script := html.NewScript(fmt.Sprintf(settings.GetAuthenticationScript(), server.url))
-
-	result := fmt.Sprintf(
+	server.PageHandler(
+		responseWriter,
 		settings.GetAuthenticationTemlate(),
-		style.ToHTML(),
-		script.ToHTML(),
+		connector.PageInfo{
+			Style:  settings.GetAuthenticationStyle(),
+			Script: settings.GetAuthenticationScript(),
+		},
 	)
-
-	responseWriter.Write([]byte(result))
 }
 
 func (server *Server) AuthTokenHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -38,9 +41,6 @@ func (server *Server) AuthTokenHandler(responseWriter http.ResponseWriter, reque
 	if data.Username == server.config.User.Username && data.Password == server.config.User.Password {
 		responseWriter.Write([]byte(server.config.User.Token))
 	}
-}
-
-func (server *Server) ExploreHandler(responseWriter http.ResponseWriter, request *http.Request) {
 }
 
 func (server *Server) TokenizedHandler(handler func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {

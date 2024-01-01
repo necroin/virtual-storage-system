@@ -39,13 +39,12 @@ func New() (*Application, error) {
 
 	var storageRole *storage.Storage = nil
 	if config.Roles.Storage.Enable {
-		storageRole, err = storage.New(config, "storage.db")
+		storageRole, err = storage.New(config)
 		if err != nil {
 			return nil, err
 		}
 
-		server.AddHandler(settings.StorageMainEndpoint, storageRole.MainHandler, "POST", "GET")
-		server.AddHandler(settings.StorageFilesystemEndpoint, storageRole.FilesystemHandler, "GET")
+		server.AddHandler(settings.StorageFilesystemEndpoint, storageRole.FilesystemHandler, "POST", "GET")
 		server.AddHandler(settings.StorageInsertEndpoint, storageRole.InsertHandler, "POST")
 		server.AddHandler(settings.StorageSelectEndpoint, storageRole.SelectHandler, "POST")
 		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
@@ -57,15 +56,17 @@ func New() (*Application, error) {
 
 	var routerRole *router.Router = nil
 	if config.Roles.Router.Enable {
-		routerRole, err = router.New(config)
+		routerRole, err = router.New(config, server)
 		if err != nil {
 			return nil, err
 		}
 
-		server.AddHandler(settings.RouterMainEndpoint, server.TokenizedHandler(routerRole.MainHandler), "POST", "GET")
+		server.AddHandler(settings.RouterExplorerEndpoint, server.TokenizedHandler(routerRole.ExplorerHandler), "POST", "GET")
+		server.AddHandler(settings.RouterFilesystemEndpoint, server.TokenizedHandler(routerRole.FilesystemHandler), "POST", "GET")
+		server.AddHandler(settings.RouterDevicesEndpoint, server.TokenizedHandler(routerRole.DevicesHandler), "POST", "GET")
+
 		server.AddHandler(settings.RouterTopologyEndpoint, server.TokenizedHandler(routerRole.GetTopologyHandler), "GET")
 		server.AddHandler(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
-		server.AddHandler(settings.RouterCallEndpoint, server.TokenizedHandler(routerRole.CallHandler), "POST")
 	}
 
 	metricsRegistry := metrics.NewRegistry()

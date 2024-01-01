@@ -4,20 +4,23 @@ import (
 	"fmt"
 	"vss/src/config"
 	"vss/src/connector"
+	"vss/src/server"
 	"vss/src/settings"
 	"vss/src/utils"
 )
 
 type Router struct {
 	config    *config.Config
+	server    *server.Server
 	storages  map[string]connector.NotifyMessage
 	runners   map[string]connector.NotifyMessage
 	hostnames map[string]string
 }
 
-func New(config *config.Config) (*Router, error) {
+func New(config *config.Config, server *server.Server) (*Router, error) {
 	return &Router{
 		config:    config,
+		server:    server,
 		storages:  map[string]connector.NotifyMessage{},
 		runners:   map[string]connector.NotifyMessage{},
 		hostnames: map[string]string{},
@@ -78,11 +81,7 @@ func (router *Router) CollectFileSystem(walkPath string) connector.FilesystemDir
 }
 
 func (router *Router) GetUrl() string {
-	return router.config.Url
-}
-
-func (router *Router) GetMainEndpoint() string {
-	return utils.FormatTokemizedEndpoint(settings.RouterMainEndpoint, router.config.User.Token)
+	return router.config.Url + "/" + router.config.User.Token
 }
 
 func (router *Router) GetHostnames() map[string]string {

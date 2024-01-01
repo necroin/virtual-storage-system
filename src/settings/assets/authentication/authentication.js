@@ -1,8 +1,6 @@
-window.request_url = '%s'
-
 function request(methood, url, data) {
     var req = new XMLHttpRequest();
-    req.open(methood, "https://" + url, false);
+    req.open(methood, url, false);
     req.send(data);
     return req.responseText
 }
@@ -16,12 +14,12 @@ function auth() {
             "password": password,
         }
     );
-    let response = request("POST", window.request_url+"/auth/token", data)
+    let response = request("POST", window.location.href+"/token", data)
     open(response)
 }
 
 function open(token) {
     if (token != "") {
-        window.location =  "https://"+window.request_url+"/"+token+"/router"
+        window.location.pathname = "/"+token+"/router/explorer"
     }
 }

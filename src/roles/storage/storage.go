@@ -6,7 +6,6 @@ import (
 	"path"
 	"vss/src/config"
 	"vss/src/connector"
-	"vss/src/db"
 	"vss/src/settings"
 	"vss/src/utils"
 )
@@ -14,21 +13,14 @@ import (
 type Storage struct {
 	config   *config.Config
 	hostname string
-	db       *db.Database
 }
 
-func New(config *config.Config, dbPath string) (*Storage, error) {
-	db, err := db.New(dbPath)
-	if err != nil {
-		return nil, err
-	}
-
+func New(config *config.Config) (*Storage, error) {
 	hostname, _ := os.Hostname()
 
 	return &Storage{
 		config:   config,
 		hostname: hostname,
-		db:       db,
 	}, nil
 }
 
@@ -92,7 +84,7 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 		}
 
 		info := connector.FileInfo{
-			ModTime: stat.ModTime(),
+			ModTime: stat.ModTime().Format("02.01.2006 15:04"),
 			Size:    stat.Size(),
 			Url:     path.Join(storage.config.Url, storage.config.User.Token),
 		}
@@ -109,10 +101,6 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 
 func (storage *Storage) GetUrl() string {
 	return storage.config.Url
-}
-
-func (storage *Storage) GetMainEndpoint() string {
-	return utils.FormatTokemizedEndpoint(settings.StorageMainEndpoint, storage.config.User.Token)
 }
 
 func (storage *Storage) GetHostnames() map[string]string {

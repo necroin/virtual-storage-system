@@ -165,7 +165,3 @@ func RenameHandler(responseWriter http.ResponseWriter, request *http.Request) {
 func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	roles.FilesystemHandler(storage, responseWriter, request)
 }
-
-func (storage *Storage) MainHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	roles.MainHandler(storage, responseWriter, request)
-}

@@ -45,10 +45,14 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 	}
 }
 
-func (router *Router) CallHandler(responseWriter http.ResponseWriter, request *http.Request) {
-
+func (router *Router) ExplorerHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	roles.ExplorerHandler(router, responseWriter, request)
 }
 
-func (router *Router) MainHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	roles.MainHandler(router, responseWriter, request)
+func (router *Router) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	roles.FilesystemHandler(router, responseWriter, request)
+}
+
+func (router *Router) DevicesHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	roles.DevicesHandler(router, responseWriter, request)
 }
