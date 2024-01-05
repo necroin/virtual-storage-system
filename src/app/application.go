@@ -6,6 +6,7 @@ import (
 	"vss/src/config"
 	"vss/src/lan/listener"
 	"vss/src/lan/observer"
+	"vss/src/logger"
 	"vss/src/roles/router"
 	"vss/src/roles/runner"
 	"vss/src/roles/storage"
@@ -31,6 +32,10 @@ func New() (*Application, error) {
 		return nil, err
 	}
 
+	if err := logger.Configure(config.Log.Enable, config.Log.Path, config.Log.Level); err != nil {
+		return nil, err
+	}
+
 	server := server.New(config)
 
 	server.AddHandler(settings.ServerStatusEndpoint, server.StatusHandler, "GET")
@@ -50,7 +55,6 @@ func New() (*Application, error) {
 		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
 		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler, "POST")
 		server.AddHandler(settings.StorageCopyEndpoint, storageRole.CopyHandler, "POST")
-		server.AddHandler(settings.StoragePasteEndpoint, storageRole.PasteHandler, "POST")
 		server.AddHandler(settings.StorageRenameEndpoint, storage.RenameHandler, "POST")
 	}
 

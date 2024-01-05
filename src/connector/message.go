@@ -63,3 +63,9 @@ type RenameRequest struct {
 	OldName string `json:"old_name"`
 	NewName string `json:"new_name"`
 }
+
+type CopyRequest struct {
+	OldPath string `json:"old_path"`
+	NewPath string `json:"new_path"`
+	SrcUrl  string `json:"src_url"`
+}

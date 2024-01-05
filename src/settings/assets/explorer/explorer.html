@@ -15,9 +15,7 @@
             <!-- Create button -->
             <button id="bar-create-button" class="bar-text-button" onclick="window.OpenCreateOptions()"
                 style="margin-right: 10px;">
-                <div class="pointer-events-none">
-                    {{.IconCreate}}
-                </div>
+                <div class="pointer-events-none">{{.IconCreate}}</div>
                 Создать ˇ
             </button>
             <div id="create-options" class="dropdown-content"
@@ -39,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <button class="bar-symbol-button">{{.IconCut}}</button>
+        <button class="bar-symbol-button" onclick="window.Cut(); window.GetFilesystem('{{.Url}}')">{{.IconCut}}</button>
         <button class="bar-symbol-button" onclick="window.Copy(); window.GetFilesystem('{{.Url}}')">{{.IconCopy}}</button>
         <button class="bar-symbol-button" onclick="window.Paste(); window.GetFilesystem('{{.Url}}')">{{.IconPaste}}</button>
         <button class="bar-symbol-button" onclick="window.Remove(); window.GetFilesystem('{{.Url}}')">{{.IconDelete}}</button>

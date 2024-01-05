@@ -8,3 +8,8 @@ roles:
     enable: false
   router:
     enable: true
+
+log:
+  enable: true
+  path: logs/logs.txt
+  level: debug

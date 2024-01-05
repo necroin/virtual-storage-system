@@ -13,8 +13,7 @@ const (
 	StorageSelectEndpoint     = "/{token}/storage/select"
 	StorageUpdateEndpoint     = "/{token}/storage/update"
 	StorageDeleteEndpoint     = "/{token}/storage/delete"
-	StorageCopyEndpoint       = "/{token}/storage/copy/{type}"
-	StoragePasteEndpoint      = "/{token}/storage/paste"
+	StorageCopyEndpoint       = "/{token}/storage/copy"
 	StorageRenameEndpoint     = "/{token}/storage/rename"
 )
 

@@ -3,11 +3,12 @@ package storage
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"path"
-	"vss/src/buffer"
 	"vss/src/connector"
+	"vss/src/logger"
 	"vss/src/roles"
 	"vss/src/settings"
 	"vss/src/utils"
@@ -38,14 +39,6 @@ var (
 			name += ".txt"
 			return utils.CreateNewFile(path, name)
 		},
-	}
-	copyHandlers = map[string]func(string, string){
-		"file": func(filePath string, fileType string) { buffer.SetFile(filePath, fileType) },
-		"text": func(text string, _ string) {},
-	}
-	pasteHandlers = map[string]func(string, string) error{
-		"dir":  func(srcPath string, dstPath string) error { return nil },
-		"file": func(srcPath string, dstPath string) error { return utils.CopyFile(srcPath, dstPath) },
 	}
 )
 
@@ -83,7 +76,16 @@ func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	msgPath, err := io.ReadAll(request.Body)
+	if err != nil {
+		logger.Error("[SelectHandler] failed read path: %s", err)
+		return
+	}
 
+	if err := utils.Compress(string(msgPath), responseWriter); err != nil {
+		logger.Error("[SelectHandler] failed zip data: %s", err)
+		return
+	}
 }
 
 func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -106,39 +108,29 @@ func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	msgVars := mux.Vars(request)
-	handlerType := msgVars["type"]
-
-	data, err := ioutil.ReadAll(request.Body)
-	if err != nil {
-		handlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
+	copyRequest := &connector.CopyRequest{}
+	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
+		handlerFailed(responseWriter, err)
+		logger.Error("[CopyHandler] failed decode response: %s", err)
 		return
 	}
-	copyPath := string(data)
+	logger.Debug("[CopyHandler] request: %#v", copyRequest)
 
-	copyHandler := copyHandlers[handlerType]
-	copyHandler(copyPath, handlerType)
-	handlerSuccess(responseWriter, fmt.Sprintf("%s добавлен в буффер копирования", path.Base(copyPath)))
-}
-
-func (storage *Storage) PasteHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	dstPath, err := ioutil.ReadAll(request.Body)
-	if err != nil {
-		handlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
-		return
-	}
-	srcPath, handlerType, err := buffer.GetFile()
+	response, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
 	if err != nil {
 		handlerFailed(responseWriter, err)
+		logger.Error("[CopyHandler] failed send request: %s", err)
+		return
+	}
+	logger.Debug("[CopyHandler] response: %#v", response)
+
+	if err := utils.Decompress(response.Body, copyRequest.NewPath); err != nil {
+		handlerFailed(responseWriter, err)
+		logger.Error("[CopyHandler] failed unzip file: %s", err)
 		return
 	}
 
-	pasteHandler := pasteHandlers[handlerType]
-	if err := pasteHandler(srcPath, path.Join(string(dstPath), path.Base(srcPath))); err != nil {
-		handlerFailed(responseWriter, err)
-		return
-	}
-	handlerSuccess(responseWriter, "Вставка выполнена")
+	handlerSuccess(responseWriter, "Копирование выполнено")
 }
 
 func RenameHandler(responseWriter http.ResponseWriter, request *http.Request) {

@@ -32,6 +32,7 @@ type Roles struct {
 type Log struct {
 	Enable bool   `yaml:"enable"`
 	Path   string `yaml:"path"`
+	Level  string `yaml:"level"`
 }
 
 type User struct {

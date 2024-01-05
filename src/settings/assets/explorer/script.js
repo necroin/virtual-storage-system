@@ -263,15 +263,36 @@ function Rename() {
     }
 }
 
-function Copy() {
+function Cut() {
     let focusItem = GetFocusItem()
-    window.__context__.copy = {
+    window.__context__.paste = {
         path: GetCurrentPath(),
         name: focusItem.__custom__.name,
         url: focusItem.__custom__.storageUrl
     }
+    window.__context__.paste_endpoint = "/storage/move"
+}
+
+function Copy() {
+    let focusItem = GetFocusItem()
+    window.__context__.paste = {
+        path: GetCurrentPath(),
+        name: focusItem.__custom__.name,
+        url: focusItem.__custom__.storageUrl
+    }
+    window.__context__.paste_endpoint = "/storage/copy"
 }
 
 function Paste() {
-
+    let pasteData = window.__context__.paste
+    let pasteEndpoint = window.__context__.paste_endpoint
+    let response = request("POST",
+        "https://" + pasteData.url + pasteEndpoint,
+        JSON.stringify({
+            old_path: [pasteData.path,pasteData.name].join("/"),
+            new_path: [GetCurrentPath(), pasteData.name].join("/"),
+            src_url: pasteData.url
+        })
+    );
+    console.log(response)
 }
