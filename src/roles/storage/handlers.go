@@ -57,8 +57,8 @@ func handlerSuccess(responseWriter http.ResponseWriter, text string) {
 }
 
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	msgVars := mux.Vars(request)
-	handlerType := msgVars["type"]
+	vars := mux.Vars(request)
+	handlerType := vars["type"]
 
 	data := &connector.ClientRequest{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
@@ -76,13 +76,13 @@ func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	msgPath, err := io.ReadAll(request.Body)
+	data, err := io.ReadAll(request.Body)
 	if err != nil {
 		logger.Error("[SelectHandler] failed read path: %s", err)
 		return
 	}
 
-	if err := utils.Compress(string(msgPath), responseWriter); err != nil {
+	if err := utils.Compress(string(data), responseWriter); err != nil {
 		logger.Error("[SelectHandler] failed zip data: %s", err)
 		return
 	}
@@ -127,6 +127,39 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 	if err := utils.Decompress(response.Body, copyRequest.NewPath); err != nil {
 		handlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed unzip file: %s", err)
+		return
+	}
+
+	handlerSuccess(responseWriter, "Копирование выполнено")
+}
+
+func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	copyRequest := &connector.CopyRequest{}
+	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
+		handlerFailed(responseWriter, err)
+		logger.Error("[MoveHandler] failed decode response: %s", err)
+		return
+	}
+	logger.Debug("[MoveHandler] request: %#v", copyRequest)
+
+	selectResponse, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
+	if err != nil {
+		handlerFailed(responseWriter, err)
+		logger.Error("[MoveHandler] failed send request: %s", err)
+		return
+	}
+	logger.Debug("[MoveHandler] response: %#v", selectResponse)
+
+	if err := utils.Decompress(selectResponse.Body, copyRequest.NewPath); err != nil {
+		handlerFailed(responseWriter, err)
+		logger.Error("[MoveHandler] failed unzip file: %s", err)
+		return
+	}
+
+	_, err = connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.OldPath)
+	if err != nil {
+		handlerFailed(responseWriter, err)
+		logger.Error("[MoveHandler] failed send request: %s", err)
 		return
 	}
 

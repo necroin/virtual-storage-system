@@ -55,6 +55,7 @@ func New() (*Application, error) {
 		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
 		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler, "POST")
 		server.AddHandler(settings.StorageCopyEndpoint, storageRole.CopyHandler, "POST")
+		server.AddHandler(settings.StorageMoveEndpoint, storageRole.MoveHandler, "POST")
 		server.AddHandler(settings.StorageRenameEndpoint, storage.RenameHandler, "POST")
 	}
 
