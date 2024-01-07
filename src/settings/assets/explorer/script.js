@@ -75,7 +75,13 @@ function GetFilesystem(routerUrl, path) {
         tableRow.__custom__ = {}
         tableRow.__custom__["name"] = directory
         tableRow.__custom__["type"] = "dir"
-        tableRow.__custom__["storageUrl"] = info["url"]
+
+        let storageUrl = info["url"]
+        let storageUrlParse = new URL("https://" + storageUrl)
+        if (storageUrlParse.hostname == "localhost") {
+            storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
+        }
+        tableRow.__custom__["storageUrl"] = storageUrl
 
         let nameElement = document.createElement("td")
         let dateElement = document.createElement("td")
@@ -114,7 +120,14 @@ function GetFilesystem(routerUrl, path) {
         tableRow.__custom__ = {}
         tableRow.__custom__["name"] = file
         tableRow.__custom__["type"] = "file"
-        tableRow.__custom__["storageUrl"] = info["url"]
+        
+        let storageUrl = info["url"]
+        let storageUrlParse = new URL("https://" + storageUrl)
+        if (storageUrlParse.hostname == "localhost") {
+            storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
+        }
+        tableRow.__custom__["storageUrl"] = storageUrl
+
         tableRow.__custom__["platform"] = info["platform"]
 
         let nameElement = document.createElement("td")
@@ -156,6 +169,10 @@ function GetDevices(routerUrl) {
 
     for (let device in devices) {
         let deviceUrl = devices[device]
+        let deviceUrlParse = new URL("https://" + deviceUrl)
+        if (deviceUrlParse.hostname == "localhost") {
+            deviceUrl = [location.host, deviceUrlParse.pathname.split("/")[1]].join("/")
+        }
 
         let deviceElement = document.createElement("span")
         deviceElement.innerText = device

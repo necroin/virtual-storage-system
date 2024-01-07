@@ -64,3 +64,138 @@
 2024/01/07 17:05:24 DEBUG: [Observer] connected to 192.168.0.102
 2024/01/07 17:05:34 DEBUG: [Observer] connected to 192.168.0.102
 2024/01/07 17:05:45 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:06:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:06:55 http: TLS handshake error from 192.168.0.102:56600: remote error: tls: unknown certificate
+2024/01/07 17:06:55 http: TLS handshake error from 192.168.0.102:56601: remote error: tls: unknown certificate
+2024/01/07 17:06:55 http: TLS handshake error from 192.168.0.102:56602: remote error: tls: unknown certificate
+2024/01/07 17:06:55 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:06:56 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:06:57 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:06:58 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:06:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:06:59 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:00 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:01 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:02 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:03 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:04 DEBUG: [CopyHandler] request: &connector.CopyRequest{OldPath:"/Test/Новая папка (8)", NewPath:"/Test/Новая папка/Новая папка (8)", SrcUrl:"192.168.0.102:3301/de5b2d7de3ab8ab51439"}
+2024/01/07 17:07:04 DEBUG: [SelectHandler] select path: /Test/Новая папка (8)
+2024/01/07 17:07:04 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Content-Length":[]string{"274"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sun, 07 Jan 2024 14:07:04 GMT"}}, Body:(*http.bodyEOFSignal)(0xc0010808c0), ContentLength:274, TransferEncoding:[]string(nil), Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc00022d100), TLS:(*tls.ConnectionState)(0xc0000f86e0)}
+2024/01/07 17:07:04 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:05 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:06 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:07 DEBUG: [DeleteHandler] delete path: /Test/Новая папка/Новая папка (8)
+2024/01/07 17:07:07 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:09 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:07:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:07:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:07:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:07:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:07:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:07:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:08:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:08:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:08:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:08:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:08:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:08:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:09:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:09:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:09:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:09:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:09:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:09:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:10:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:10:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:10:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:10:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:10:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:10:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:11:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:11:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:11:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:11:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:11:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:11:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:12:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:12:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:12:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:12:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:12:41 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:12:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:12:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:13:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:13:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:13:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:13:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:13:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:13:59 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:14:09 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:14:19 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:14:29 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:14:39 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:14:49 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:15:00 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:15:09 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:15:10 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:15:15 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:15:20 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:15:22 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:15:23 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:15:30 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:15:40 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:15:50 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:15:55 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:16:00 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:16:10 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:16:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/de5b2d7de3ab8ab51439/storage/filesystem
+2024/01/07 17:16:20 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:16:30 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:16:40 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:16:50 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:17:00 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:17:10 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:17:20 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:17:30 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:17:40 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:17:50 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:18:00 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:18:10 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:18:20 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:18:30 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:18:40 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:18:50 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:19:00 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:19:10 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:19:20 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:19:30 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:19:40 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:19:50 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:20:00 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:20:10 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:20:14 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:20:17 http: TLS handshake error from 192.168.0.102:51891: remote error: tls: unknown certificate
+2024/01/07 17:20:17 http: TLS handshake error from 192.168.0.102:51892: remote error: tls: unknown certificate
+2024/01/07 17:20:19 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/ba98ec53d58c2637858a/storage/filesystem
+2024/01/07 17:20:24 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:20:34 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:26:33 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:26:43 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:26:53 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:27:03 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:27:13 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:27:23 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:27:33 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:27:43 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:27:53 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:28:03 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:28:13 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:28:23 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:28:33 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:28:43 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:31:35 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:31:37 http: TLS handshake error from 192.168.0.102:54668: remote error: tls: unknown certificate
+2024/01/07 17:31:37 http: TLS handshake error from 192.168.0.102:54669: remote error: tls: unknown certificate
+2024/01/07 17:31:39 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/e53ae60b08582b85e7d2/storage/filesystem
+2024/01/07 17:31:45 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 17:31:55 DEBUG: [Observer] connected to 192.168.0.102
