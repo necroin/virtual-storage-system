@@ -465,3 +465,22 @@
 2024/01/07 18:31:20 http: TLS handshake error from 192.168.0.102:53790: remote error: tls: unknown certificate
 2024/01/07 18:31:20 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/285677b436fbdeb0721e/storage/filesystem
 2024/01/07 18:31:26 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:36:06 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:36:09 http: TLS handshake error from 192.168.0.102:63752: remote error: tls: unknown certificate
+2024/01/07 18:36:09 http: TLS handshake error from 192.168.0.102:63753: remote error: tls: unknown certificate
+2024/01/07 18:36:09 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/8743355e57e644454014/storage/filesystem
+2024/01/07 18:36:16 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:36:18 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/8743355e57e644454014/storage/filesystem
+2024/01/07 18:36:21 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/8743355e57e644454014/storage/filesystem
+2024/01/07 18:36:21 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/8743355e57e644454014/storage/filesystem
+2024/01/07 18:36:26 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:36:29 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.102:3301/8743355e57e644454014/storage/filesystem
+2024/01/07 18:36:36 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:36:46 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:36:56 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:37:06 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:37:16 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:37:26 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:37:37 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:37:47 DEBUG: [Observer] connected to 192.168.0.102
+2024/01/07 18:37:53 DEBUG: [Observer] connected to 192.168.0.102

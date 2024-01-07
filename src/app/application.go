@@ -105,7 +105,11 @@ func (app *Application) Run() error {
 	fmt.Printf("Server started on https://%s\n", app.config.Url)
 
 	if app.config.Roles.Router.Enable {
+		fmt.Println("---")
 		fmt.Printf("Authenticate on https://%s/auth\n", app.config.Url)
+		fmt.Println("---")
+		fmt.Printf("Explore filesystem on https://%s/%s/router/explorer\n", app.config.Url, app.config.User.Token)
+		fmt.Println("---")
 	}
 
 	if app.storageRole != nil {
