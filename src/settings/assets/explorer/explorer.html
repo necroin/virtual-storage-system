@@ -70,14 +70,14 @@
     <div id="explorer-content">
         <div id="devices"></div>
         <div id="explorer-filesystem-content-wrap">
-            <table id="explorer-filesystem-content" onclick="window.SetFocusItem(this, document.activeElement)">
+            <table id="explorer-filesystem-content">
                 <thead>
                     <th style="padding-right: 200px">Имя</th>
                     <th style="padding-right: 50px">Дата изменения</th>
                     <th style="padding-right: 100px">Тип</th>
                     <th style="padding-right: 100px">Размер</th>
                 </thead>
-                <tbody id="explorer-filesystem-content-body"></tbody>
+                <tbody id="explorer-filesystem-content-body" onclick="window.SetFocusItem(this, document.activeElement)"></tbody>
             </table>
         </div>
     </div>
