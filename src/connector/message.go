@@ -32,9 +32,10 @@ type TopologyMessage struct {
 }
 
 type FileInfo struct {
-	ModTime string `json:"mod_time"`
-	Size    int64  `json:"size"`
-	Url     string `json:"url"`
+	ModTime  string `json:"mod_time"`
+	Size     int64  `json:"size"`
+	Url      string `json:"url"`
+	Platform string `json:"platform"`
 }
 
 type FilesystemDirectory struct {

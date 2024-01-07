@@ -1,11 +1,11 @@
 package observer
 
 import (
-	"fmt"
 	"net"
 	"strconv"
 	"time"
 	"vss/src/config"
+	"vss/src/logger"
 	"vss/src/settings"
 )
 
@@ -27,7 +27,7 @@ func (observer *Observer) Start() chan string {
 			for {
 				conn, err := net.DialTimeout("tcp", ip, settings.DefaultLanTimeout)
 				if err == nil {
-					fmt.Println(addr)
+					logger.Debug("[Observer] connected to %s", addr)
 					result <- addr
 					conn.Close()
 				}

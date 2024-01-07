@@ -115,6 +115,7 @@ function GetFilesystem(routerUrl, path) {
         tableRow.__custom__["name"] = file
         tableRow.__custom__["type"] = "file"
         tableRow.__custom__["storageUrl"] = info["url"]
+        tableRow.__custom__["platform"] = info["platform"]
 
         let nameElement = document.createElement("td")
         let dateElement = document.createElement("td")
@@ -124,7 +125,7 @@ function GetFilesystem(routerUrl, path) {
         nameElement.innerText = file
         dateElement.innerText = info["mod_time"]
         typeElement.innerText = "Файл"
-        sizeElement.innerText = info["size"] + " байт"
+        sizeElement.innerText = info["size"] + " КБ"
 
         tableRow.appendChild(nameElement)
         tableRow.appendChild(dateElement)
@@ -190,7 +191,7 @@ function SetFocusItem(table, item) {
 }
 
 function GetFocusItem() {
-    return document.getElementById("explorer-filesystem-content").focusItem
+    return document.getElementById("explorer-filesystem-content-body").focusItem
 }
 
 function OpenCreateOptions() {
@@ -298,5 +299,4 @@ function Paste() {
         })
     );
     UpdateStatusBar(response)
-    console.log(response)
 }

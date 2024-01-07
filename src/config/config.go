@@ -1,14 +1,12 @@
 package config
 
 import (
-	"fmt"
-	"os"
+	"flag"
+	"runtime"
 	"time"
 	"vss/src/lan"
 	"vss/src/settings"
 	"vss/src/utils"
-
-	"gopkg.in/yaml.v2"
 )
 
 type StorageRole struct {
@@ -16,7 +14,8 @@ type StorageRole struct {
 }
 
 type RunnerRole struct {
-	Enable bool `yaml:"enable"`
+	Enable   bool   `yaml:"enable"`
+	Platform string `yaml:"platform"`
 }
 
 type RouterRole struct {
@@ -49,65 +48,51 @@ type Config struct {
 	User       User   `yaml:"user"`
 }
 
-func (log *Log) setDefaults() {
-	if log.Path == "" {
-		log.Path = "logs/log_" + time.Now().Format("2006-01-02T15:04:05") + ".txt"
-	}
-}
-
-func (user *User) setDefaults() {
-	if user.Username == "" {
-		user.Username = settings.DefaultUsername
-	}
-
-	if user.Password == "" {
-		user.Password = settings.DefaultPassword
-	}
-
-	if user.Token == "" {
-		user.Token = utils.GenerateSecureToken(10)
-	}
-}
-
-func (config *Config) setDefaults() {
-	if config.Url == "" {
-		config.Url = lan.GetMyLanAddr()
-	}
-
-	if config.ListenPort == "" {
-		config.ListenPort = settings.DefaultListenPort
-	}
-
-	config.Log.setDefaults()
-	config.User.setDefaults()
-}
-
 func Load(path string) (*Config, error) {
+	url := flag.String("url", lan.GetMyLanAddr(), "server url")
+	listenPort := flag.String("listen-port", settings.DefaultListenPort, "server topology listen port")
+
+	storageRoleEnable := flag.Bool("storage", true, "enables 'storage' role")
+	runnerRoleEnable := flag.Bool("runner", false, "enables 'runner' role")
+	routerRoleEnable := flag.Bool("router", false, "enables 'router' role")
+	platform := flag.String("platform", runtime.GOOS, "OS platform ('windows', 'linux', 'darwin', etc.)")
+
+	logEnable := flag.Bool("log-enable", false, "enbales logs")
+	logPath := flag.String("log-path", "logs/log_"+time.Now().Format("2006-01-02T15:04:05")+".txt", "path to logs file")
+	logLevel := flag.String("log-level", "info", "logs level (error, info, verbose, debug)")
+
+	username := flag.String("username", settings.DefaultUsername, "authentication username")
+	password := flag.String("password", settings.DefaultPassword, "authentication password")
+	token := flag.String("token", utils.GenerateSecureToken(10), "security token")
+
+	flag.Parse()
+
 	config := &Config{
+		Url:        *url,
+		ListenPort: *listenPort,
 		Roles: Roles{
 			Storage: StorageRole{
-				Enable: true,
+				Enable: *storageRoleEnable,
 			},
 			Runner: RunnerRole{
-				Enable: true,
+				Enable:   *runnerRoleEnable,
+				Platform: *platform,
 			},
 			Router: RouterRole{
-				Enable: true,
+				Enable: *routerRoleEnable,
 			},
 		},
+		Log: Log{
+			Enable: *logEnable,
+			Path:   *logPath,
+			Level:  *logLevel,
+		},
+		User: User{
+			Username: *username,
+			Password: *password,
+			Token:    *token,
+		},
 	}
-	config.setDefaults()
-
-	configFile, err := os.ReadFile(settings.ConfigPath)
-	if err != nil {
-		return config, nil
-	}
-
-	if err := yaml.Unmarshal(configFile, config); err != nil {
-		return nil, fmt.Errorf("[Config] [Error] failed parse config file: %s", err)
-	}
-
-	config.setDefaults()
 
 	return config, nil
 }

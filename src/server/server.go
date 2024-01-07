@@ -12,6 +12,7 @@ import (
 	"time"
 	"vss/src/config"
 	"vss/src/connector"
+	"vss/src/logger"
 	"vss/src/settings"
 
 	"github.com/gorilla/mux"
@@ -61,13 +62,13 @@ func (server *Server) WaitStart() error {
 	for i := 0; i < settings.ServerWaitStartRepeatCount; i++ {
 		response, err := connector.SendRequest(server.url+settings.ServerStatusEndpoint, []byte(""), http.MethodGet)
 		if err != nil {
-			fmt.Println(err)
+			logger.Error("[Server] [WaitStart] failed send request: %s", err)
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
 			continue
 		}
 		data, err := ioutil.ReadAll(response.Body)
 		if err != nil {
-			fmt.Println(err)
+			logger.Error("[Server] [WaitStart] failed read response data: %s", err)
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
 			continue
 		}

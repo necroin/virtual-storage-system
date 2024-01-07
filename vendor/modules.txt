@@ -8,6 +8,3 @@ github.com/mattn/go-sqlite3
 ## explicit; go 1.20
 github.com/necroin/golibs/concurrent
 github.com/necroin/golibs/metrics
-# gopkg.in/yaml.v2 v2.4.0
-## explicit; go 1.15
-gopkg.in/yaml.v2

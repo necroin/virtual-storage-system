@@ -100,19 +100,25 @@ func (app *Application) Run() error {
 	if err := app.server.WaitStart(); err != nil {
 		return err
 	}
-	fmt.Printf("Server started on https://%s/auth\n", app.config.Url)
+
+	fmt.Printf("Platform is on %s\n", app.config.Roles.Runner.Platform)
+	fmt.Printf("Server started on https://%s\n", app.config.Url)
+
+	if app.config.Roles.Router.Enable {
+		fmt.Printf("Authenticate on https://%s/auth\n", app.config.Url)
+	}
 
 	if app.storageRole != nil {
 		if app.config.Url == "localhost"+settings.DefaultPort {
 			if err := app.storageRole.NotifyRouter(app.config.Url); err != nil {
-				fmt.Println(err)
+				logger.Error("[App] failed notify router: %s", err)
 			}
 		}
 		go func() {
 			addrs := app.lanObserver.Start()
 			for {
 				if err := app.storageRole.NotifyRouter(<-addrs + settings.DefaultPort); err != nil {
-					fmt.Println(err)
+					logger.Error("[App] failed notify router: %s", err)
 				}
 			}
 		}()

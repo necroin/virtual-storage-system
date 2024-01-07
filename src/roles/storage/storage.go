@@ -83,10 +83,16 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 			continue
 		}
 
+		size := stat.Size() / 1000
+		if size == 0 {
+			size = 1
+		}
+
 		info := connector.FileInfo{
-			ModTime: stat.ModTime().Format("02.01.2006 15:04"),
-			Size:    stat.Size(),
-			Url:     path.Join(storage.config.Url, storage.config.User.Token),
+			ModTime:  stat.ModTime().Format("02.01.2006 15:04"),
+			Size:     size,
+			Url:      path.Join(storage.config.Url, storage.config.User.Token),
+			Platform: storage.config.Roles.Runner.Platform,
 		}
 
 		if entry.IsDir() {

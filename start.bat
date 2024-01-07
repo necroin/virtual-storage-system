@@ -1,1 +1,1 @@
-bin\vss.exe
+bin\vss.exe -router -log-enable
