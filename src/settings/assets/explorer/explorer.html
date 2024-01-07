@@ -9,7 +9,7 @@
     <title>VSS</title>
 </head>
 
-<body onload="window.Init(); window.GetFilesystem('{{.Url}}'); window.GetDevices('{{.Url}}')">
+<body onload="window.Init(); window.GetFilesystem(location.host+'/{{.Token}}'); window.GetDevices(location.host+'/{{.Token}}')">
     <div id="bar">
         <div class="dropdown" style="border-right: 1px solid white;">
             <!-- Create button -->
@@ -33,14 +33,14 @@
                 <input id="create-dialog-name" type="text"></input>
                 <div class="dialog-buttons">
                     <button onclick="window.CloseDialog('create-dialog', 'create-dialog-overlay')">Отменить</button>
-                    <button onclick="window.Create(window.__context__.createOptionsFocus); window.GetFilesystem('{{.Url}}')">Создать</button>
+                    <button onclick="window.Create(window.__context__.createOptionsFocus); window.GetFilesystem(location.host+'/{{.Token}}')">Создать</button>
                 </div>
             </div>
         </div>
-        <button class="bar-symbol-button" onclick="window.Cut(); window.GetFilesystem('{{.Url}}')">{{.IconCut}}</button>
-        <button class="bar-symbol-button" onclick="window.Copy(); window.GetFilesystem('{{.Url}}')">{{.IconCopy}}</button>
-        <button class="bar-symbol-button" onclick="window.Paste(); window.GetFilesystem('{{.Url}}')">{{.IconPaste}}</button>
-        <button class="bar-symbol-button" onclick="window.Remove(); window.GetFilesystem('{{.Url}}')">{{.IconDelete}}</button>
+        <button class="bar-symbol-button" onclick="window.Cut(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconCut}}</button>
+        <button class="bar-symbol-button" onclick="window.Copy(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconCopy}}</button>
+        <button class="bar-symbol-button" onclick="window.Paste(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconPaste}}</button>
+        <button class="bar-symbol-button" onclick="window.Remove(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconDelete}}</button>
         <div class="dropdown" onclick="window.OpenOptions()" style="border-left: 1px solid white;">
             <!-- Options button -->
             <button id="bar-options-button" class="bar-symbol-button" style="margin-left: 10px;">
@@ -48,7 +48,7 @@
             </button>
             <div id="options" class="dropdown-content">
                 <button onclick="window.OpenDialog('rename-dialog', 'rename-dialog-overlay')">Переименовать</button>
-                <button onclick="window.Remove(); window.GetFilesystem('{{.Url}}')">Удалить</button>
+                <button onclick="window.Remove(); window.GetFilesystem(location.host+'/{{.Token}}')">Удалить</button>
             </div>
         </div>
         <div id="rename-dialog-overlay" class="dialog-overlay">
@@ -57,13 +57,13 @@
                 <input id="rename-dialog-name" type="text"></input>
                 <div class="dialog-buttons">
                     <button onclick="window.CloseDialog('rename-dialog', 'rename-dialog-overlay')">Отменить</button>
-                    <button onclick="window.Rename(); window.GetFilesystem('{{.Url}}')">Изменить</button>
+                    <button onclick="window.Rename(); window.GetFilesystem(location.host+'/{{.Token}}')">Изменить</button>
                 </div>
             </div>
         </div>
     </div>
     <div id="explorer-address">
-        <button id="explorer-back-button" onclick="window.Back('{{.Url}}')">{{.IconArrowLeft}}</button>
+        <button id="explorer-back-button" onclick="window.Back(location.host+'/{{.Token}}')">{{.IconArrowLeft}}</button>
         <input id="explorer-address-line" type="text" value="/">
         <input id="explorer-find-line" type="text" placeholder="Поиск">
     </div>

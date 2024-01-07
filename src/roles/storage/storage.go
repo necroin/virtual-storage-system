@@ -106,7 +106,7 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 }
 
 func (storage *Storage) GetUrl() string {
-	return storage.config.Url
+	return storage.config.Url + "/" + storage.config.User.Token
 }
 
 func (storage *Storage) GetHostnames() map[string]string {

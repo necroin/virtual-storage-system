@@ -41,6 +41,7 @@ func New(config *config.Config) *Server {
 		},
 	}
 }
+
 func (server *Server) Start() {
 	go func() {
 		sigint := make(chan os.Signal, 1)

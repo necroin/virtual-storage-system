@@ -7,6 +7,7 @@ const (
 
 type PageInfo struct {
 	Url           string
+	Token         string
 	Style         string
 	Script        string
 	IconCreate    string
