@@ -75,3 +75,9 @@ func CopyFile(srcPath string, dstPath string) error {
 func Rename(srcPath string, oldName string, newName string) error {
 	return os.Rename(path.Join(srcPath, oldName), path.Join(srcPath, newName))
 }
+
+func HandleFilesystemPath(value string) string {
+	value = strings.Trim(value, "\"")
+	value = path.Clean(value)
+	return value
+}

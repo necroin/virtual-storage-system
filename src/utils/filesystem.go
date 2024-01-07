@@ -6,15 +6,10 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"path"
 	"path/filepath"
-	"strings"
 )
 
 func Compress(archivePath string, buffer io.Writer) error {
-	archivePath = strings.Trim(archivePath, "\"")
-	archivePath = path.Clean(archivePath)
-
 	gzipWriter := gzip.NewWriter(buffer)
 	tarWriter := tar.NewWriter(gzipWriter)
 
@@ -38,6 +33,7 @@ func Compress(archivePath string, buffer io.Writer) error {
 		if err != nil {
 			return fmt.Errorf("[Compress] failed open file: %s", err)
 		}
+		defer data.Close()
 
 		if _, err := io.Copy(tarWriter, data); err != nil {
 			return fmt.Errorf("[Compress] failed copy file data: %s", err)
@@ -64,6 +60,8 @@ func Compress(archivePath string, buffer io.Writer) error {
 				if err != nil {
 					return fmt.Errorf("[Compress] failed open file: %s", err)
 				}
+				defer data.Close()
+
 				if _, err := io.Copy(tarWriter, data); err != nil {
 					return fmt.Errorf("[Compress] failed copy file data: %s", err)
 				}
@@ -90,6 +88,7 @@ func Decompress(src io.Reader, dst string) error {
 	if err != nil {
 		return fmt.Errorf("[Decompress] failed get gzip reader: %s", err)
 	}
+	defer gzipReader.Close()
 
 	tarReader := tar.NewReader(gzipReader)
 
@@ -115,11 +114,11 @@ func Decompress(src io.Reader, dst string) error {
 			if err != nil {
 				return fmt.Errorf("[Decompress] failed create file: %s", err)
 			}
+			defer fileToWrite.Close()
 
 			if _, err := io.Copy(fileToWrite, tarReader); err != nil {
 				return fmt.Errorf("[Decompress] failed copy file data: %s", err)
 			}
-			fileToWrite.Close()
 		}
 	}
 

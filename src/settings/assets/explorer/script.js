@@ -268,9 +268,10 @@ function Cut() {
     window.__context__.paste = {
         path: GetCurrentPath(),
         name: focusItem.__custom__.name,
+        type: focusItem.__custom__.type,
         url: focusItem.__custom__.storageUrl
     }
-    window.__context__.paste_endpoint = "/storage/move"
+    window.__context__.paste_endpoint = "/storage/move/"
 }
 
 function Copy() {
@@ -278,21 +279,24 @@ function Copy() {
     window.__context__.paste = {
         path: GetCurrentPath(),
         name: focusItem.__custom__.name,
+        type: focusItem.__custom__.type,
         url: focusItem.__custom__.storageUrl
     }
-    window.__context__.paste_endpoint = "/storage/copy"
+    window.__context__.paste_endpoint = "/storage/copy/"
 }
 
 function Paste() {
     let pasteData = window.__context__.paste
     let pasteEndpoint = window.__context__.paste_endpoint
+    let pasteType = window.__context__.paste.type
     let response = request("POST",
-        "https://" + pasteData.url + pasteEndpoint,
+        "https://" + pasteData.url + pasteEndpoint + pasteType,
         JSON.stringify({
-            old_path: [pasteData.path,pasteData.name].join("/"),
+            old_path: [pasteData.path, pasteData.name].join("/"),
             new_path: [GetCurrentPath(), pasteData.name].join("/"),
             src_url: pasteData.url
         })
     );
+    UpdateStatusBar(response)
     console.log(response)
 }

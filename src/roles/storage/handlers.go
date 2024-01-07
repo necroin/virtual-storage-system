@@ -82,7 +82,11 @@ func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, reques
 		return
 	}
 
-	if err := utils.Compress(string(data), responseWriter); err != nil {
+	selectPath := string(data)
+	selectPath = utils.HandleFilesystemPath(selectPath)
+	logger.Debug("[SelectHandler] select path: %s", selectPath)
+
+	if err := utils.Compress(selectPath, responseWriter); err != nil {
 		logger.Error("[SelectHandler] failed zip data: %s", err)
 		return
 	}
@@ -95,26 +99,41 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	data, err := ioutil.ReadAll(request.Body)
 	if err != nil {
+		logger.Error("[DeleteHandler] failed read data: %s", err)
 		handlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
 		return
 	}
 
 	deletePath := string(data)
+	deletePath = utils.HandleFilesystemPath(deletePath)
+	logger.Debug("[DeleteHandler] delete path: %s", deletePath)
+
 	if err := utils.RemoveFile(deletePath); err != nil {
-		handlerFailed(responseWriter, err)
+		logger.Error("[DeleteHandler] failed delete: %s", err)
+		handlerFailed(responseWriter, fmt.Errorf("Не удалось выполнить удаление"))
 		return
 	}
 	handlerSuccess(responseWriter, fmt.Sprintf("%s удалено", path.Base(deletePath)))
 }
 
 func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	vars := mux.Vars(request)
+	handlerType := vars["type"]
+
 	copyRequest := &connector.CopyRequest{}
+	copyRequest.NewPath = utils.HandleFilesystemPath(copyRequest.NewPath)
+	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
+
 	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
 		handlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed decode response: %s", err)
 		return
 	}
 	logger.Debug("[CopyHandler] request: %#v", copyRequest)
+
+	if handlerType != "dir" {
+		copyRequest.NewPath = path.Dir(copyRequest.NewPath)
+	}
 
 	response, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
 	if err != nil {
@@ -134,7 +153,13 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 }
 
 func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	vars := mux.Vars(request)
+	handlerType := vars["type"]
+
 	copyRequest := &connector.CopyRequest{}
+	copyRequest.NewPath = utils.HandleFilesystemPath(copyRequest.NewPath)
+	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
+
 	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
 		handlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed decode response: %s", err)
@@ -142,13 +167,17 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 	}
 	logger.Debug("[MoveHandler] request: %#v", copyRequest)
 
+	if handlerType != "dir" {
+		copyRequest.NewPath = path.Dir(copyRequest.NewPath)
+	}
+
 	selectResponse, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
 	if err != nil {
 		handlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
 		return
 	}
-	logger.Debug("[MoveHandler] response: %#v", selectResponse)
+	logger.Debug("[MoveHandler] select response: %#v", selectResponse)
 
 	if err := utils.Decompress(selectResponse.Body, copyRequest.NewPath); err != nil {
 		handlerFailed(responseWriter, err)
@@ -156,14 +185,15 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 		return
 	}
 
-	_, err = connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.OldPath)
+	deleteResponse, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.OldPath)
 	if err != nil {
 		handlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
 		return
 	}
+	logger.Debug("[MoveHandler] delete response: %#v", deleteResponse)
 
-	handlerSuccess(responseWriter, "Копирование выполнено")
+	handlerSuccess(responseWriter, "Перемещение выполнено")
 }
 
 func RenameHandler(responseWriter http.ResponseWriter, request *http.Request) {
