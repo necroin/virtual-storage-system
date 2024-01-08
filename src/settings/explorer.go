@@ -7,6 +7,15 @@ import (
 )
 
 var (
+	//go:embed assets/icons/home.svg
+	BarHomeIcon string
+	//go:embed assets/icons/filesystem.svg
+	BarFilesystemIcon string
+	//go:embed assets/icons/settings.svg
+	BarSettingsIcon string
+)
+
+var (
 	//go:embed assets/explorer/explorer.html
 	ExplorerTemlate string
 	//go:embed assets/explorer/explorer.css

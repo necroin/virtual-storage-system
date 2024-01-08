@@ -46,18 +46,21 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 
 func (router *Router) ExplorerHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	pageInfo := connector.PageInfo{
-		Url:           router.GetUrl(),
-		Token:         router.config.User.Token,
-		Style:         settings.GetExplorerStyle(),
-		Script:        settings.GetExplorerScript(),
-		IconCreate:    settings.ExplorerIconCreate,
-		IconCut:       settings.ExplorerIconCut,
-		IconCopy:      settings.ExplorerIconCopy,
-		IconPaste:     settings.ExplorerIconPaste,
-		IconDelete:    settings.ExplorerIconDelete,
-		IconOptions:   settings.ExplorerIconOptions,
-		IconArrowLeft: settings.ExplorerIconArrowLeft,
-		StatusBarIcon: settings.ExplorerStatusBarSuccess,
+		Url:               router.GetUrl(),
+		Token:             router.config.User.Token,
+		Style:             settings.GetExplorerStyle(),
+		Script:            settings.GetExplorerScript(),
+		IconCreate:        settings.ExplorerIconCreate,
+		IconCut:           settings.ExplorerIconCut,
+		IconCopy:          settings.ExplorerIconCopy,
+		IconPaste:         settings.ExplorerIconPaste,
+		IconDelete:        settings.ExplorerIconDelete,
+		IconOptions:       settings.ExplorerIconOptions,
+		IconArrowLeft:     settings.ExplorerIconArrowLeft,
+		StatusBarIcon:     settings.ExplorerStatusBarSuccess,
+		BarHomeIcon:       settings.BarHomeIcon,
+		BarFilesystemIcon: settings.BarFilesystemIcon,
+		BarSettingsIcon:   settings.BarSettingsIcon,
 	}
 	pageTemplate, _ := template.New("ExplorerPage").Parse(settings.GetExplorerPage())
 	pageTemplate.Execute(responseWriter, pageInfo)

@@ -6,18 +6,21 @@ const (
 )
 
 type PageInfo struct {
-	Url           string
-	Token         string
-	Style         string
-	Script        string
-	IconCreate    string
-	IconCut       string
-	IconCopy      string
-	IconPaste     string
-	IconDelete    string
-	IconOptions   string
-	IconArrowLeft string
-	StatusBarIcon string
+	Url               string
+	Token             string
+	Style             string
+	Script            string
+	IconCreate        string
+	IconCut           string
+	IconCopy          string
+	IconPaste         string
+	IconDelete        string
+	IconOptions       string
+	IconArrowLeft     string
+	StatusBarIcon     string
+	BarHomeIcon       string
+	BarFilesystemIcon string
+	BarSettingsIcon   string
 }
 
 type NotifyMessage struct {

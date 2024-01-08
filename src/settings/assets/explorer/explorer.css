@@ -9,7 +9,6 @@
 
 html,
 body {
-    height: 100vh;
     min-height: 100vh;
     max-height: 100vh;
     margin: 0;
@@ -18,10 +17,20 @@ body {
 
 body {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: var(--backgroud-color);
     color: var(--elements-bg-color);
     overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    background-color: var(--backgroud-color);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: gray;
 }
 
 .dropdown {
@@ -124,6 +133,35 @@ body {
     background-color: var(--elements-bg-color);
 }
 
+#global-bar {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    background-color: rgb(45, 45, 45);
+    border-right: 5px solid gray;
+    gap: 10px;
+}
+
+#global-bar button {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: rgb(45, 45, 45);
+    padding: 10px;
+}
+
+#global-bar button:hover {
+    background-color: var(--elements-bg-color);
+}
+
+#main-area {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 #bar {
     display: flex;
     flex-direction: row;
@@ -182,6 +220,7 @@ body {
     margin: var(--margin);
     background-color: inherit;
     height: var(--default-height);
+    gap: 10px;
 }
 
 #explorer-back-button {
@@ -189,7 +228,6 @@ body {
     background-color: var(--backgroud-color);
     width: 30px;
     height: var(--default-height);
-    margin-right: var(--margin);
     border: none;
 
     :hover {
@@ -198,16 +236,15 @@ body {
 }
 
 #explorer-address-line {
-    flex: 2;
+    flex-grow: 2;
     background-color: var(--backgroud-color);
     border-color: var(--default-color);
     color: var(--default-color);
-    margin-right: var(--margin);
     border: 1px solid;
 }
 
 #explorer-find-line {
-    flex: 1;
+    flex-grow: 1;
     background-color: var(--backgroud-color);
     border-color: var(--default-color);
     color: var(--default-color);
@@ -229,17 +266,17 @@ body {
     -ms-user-select: none;
     user-select: none;
 
-    flex-grow: 10;
+    flex-grow: 1;
 }
 
 #devices {
+    display: flex;
+    flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
 }
 
 #devices span {
-    display: flex;
-    flex-direction: column;
     padding: 10px;
 }
 
@@ -250,7 +287,7 @@ body {
 #explorer-filesystem-content-wrap {
     display: flex;
     flex-direction: column;
-    flex-grow: 10;
+    flex-grow: 1;
     box-shadow: -2px 0 0 gray;
     overflow-y: auto;
 }

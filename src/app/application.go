@@ -101,7 +101,8 @@ func (app *Application) Run() error {
 		return err
 	}
 
-	fmt.Printf("Platform is on %s\n", app.config.Roles.Runner.Platform)
+	fmt.Printf("Platform is %s\n", app.config.Roles.Runner.Platform)
+	fmt.Println("---")
 	fmt.Printf("Server started on https://%s\n", app.config.Url)
 
 	if app.config.Roles.Router.Enable {
