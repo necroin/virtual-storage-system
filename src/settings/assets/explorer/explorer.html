@@ -12,8 +12,11 @@
 <body
     onload="window.Init(); window.GetFilesystem(location.host+'/{{.Token}}'); window.GetDevices(location.host+'/{{.Token}}')">
     <div id="global-bar">
-        <button>{{.BarHomeIcon}}</button>
-        <button>{{.BarFilesystemIcon}}</button>
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/home'">{{.BarHomeIcon}}</button>
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/router/explorer'"
+            style="background-color: rgb(90, 90, 90);">
+            {{.BarFilesystemIcon}}
+        </button>
         <button>{{.BarSettingsIcon}}</button>
     </div>
     <div id="main-area">

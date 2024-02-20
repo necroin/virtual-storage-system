@@ -48,7 +48,7 @@ type Config struct {
 	User       User   `yaml:"user"`
 }
 
-func Load(path string) (*Config, error) {
+func Load() (*Config, error) {
 	url := flag.String("url", lan.GetMyLanAddr(), "server url")
 	listenPort := flag.String("listen-port", settings.DefaultListenPort, "server topology listen port")
 

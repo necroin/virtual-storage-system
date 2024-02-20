@@ -10,13 +10,13 @@ import (
 type Runner struct {
 	url       string
 	routerUrl string
-	storages  []string
+	storages  []connector.NotifyMessage
 }
 
 func New(config *config.Config) (*Runner, error) {
 	return &Runner{
 		url:      config.Url,
-		storages: []string{},
+		storages: []connector.NotifyMessage{},
 	}, nil
 }
 

@@ -26,22 +26,15 @@ type Application struct {
 	lanObserver *observer.Observer
 }
 
-func New() (*Application, error) {
-	config, err := config.Load(settings.ConfigPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if err := logger.Configure(config.Log.Enable, config.Log.Path, config.Log.Level); err != nil {
-		return nil, err
-	}
-
+func New(config *config.Config) (*Application, error) {
 	server := server.New(config)
 
 	server.AddHandler(settings.ServerStatusEndpoint, server.StatusHandler, "GET")
 	server.AddHandler(settings.ServerAuthEndpoint, server.AuthHandler, "GET")
 	server.AddHandler(settings.ServerAuthTokenEndpoint, server.AuthTokenHandler, "POST")
+	server.AddHandler(settings.ServerHomeEndpoint, server.HomeHandler, "GET")
 
+	var err error
 	var storageRole *storage.Storage = nil
 	if config.Roles.Storage.Enable {
 		storageRole, err = storage.New(config)
@@ -49,14 +42,14 @@ func New() (*Application, error) {
 			return nil, err
 		}
 
-		server.AddHandler(settings.StorageFilesystemEndpoint, storageRole.FilesystemHandler, "POST", "GET")
-		server.AddHandler(settings.StorageInsertEndpoint, storageRole.InsertHandler, "POST")
-		server.AddHandler(settings.StorageSelectEndpoint, storageRole.SelectHandler, "POST")
-		server.AddHandler(settings.StorageUpdateEndpoint, storageRole.UpdateHandler, "POST")
-		server.AddHandler(settings.StorageDeleteEndpoint, storageRole.DeleteHandler, "POST")
-		server.AddHandler(settings.StorageCopyEndpoint, storageRole.CopyHandler, "POST")
-		server.AddHandler(settings.StorageMoveEndpoint, storageRole.MoveHandler, "POST")
-		server.AddHandler(settings.StorageRenameEndpoint, storage.RenameHandler, "POST")
+		server.AddHandler(settings.StorageFilesystemEndpoint, server.TokenizedHandler(storageRole.FilesystemHandler), "POST", "GET")
+		server.AddHandler(settings.StorageInsertEndpoint, server.TokenizedHandler(storageRole.InsertHandler), "POST")
+		server.AddHandler(settings.StorageSelectEndpoint, server.TokenizedHandler(storageRole.SelectHandler), "POST")
+		server.AddHandler(settings.StorageUpdateEndpoint, server.TokenizedHandler(storageRole.UpdateHandler), "POST")
+		server.AddHandler(settings.StorageDeleteEndpoint, server.TokenizedHandler(storageRole.DeleteHandler), "POST")
+		server.AddHandler(settings.StorageCopyEndpoint, server.TokenizedHandler(storageRole.CopyHandler), "POST")
+		server.AddHandler(settings.StorageMoveEndpoint, server.TokenizedHandler(storageRole.MoveHandler), "POST")
+		server.AddHandler(settings.StorageRenameEndpoint, server.TokenizedHandler(storage.RenameHandler), "POST")
 	}
 
 	var routerRole *router.Router = nil
@@ -91,8 +84,8 @@ func New() (*Application, error) {
 func (app *Application) Run() error {
 	wg := sync.WaitGroup{}
 
+	wg.Add(1)
 	go func() {
-		wg.Add(1)
 		defer wg.Done()
 		app.server.Start()
 	}()
@@ -108,6 +101,8 @@ func (app *Application) Run() error {
 	if app.config.Roles.Router.Enable {
 		fmt.Println("---")
 		fmt.Printf("Authenticate on https://%s/auth\n", app.config.Url)
+		fmt.Println("---")
+		fmt.Printf("Home on https://%s/%s/home\n", app.config.Url, app.config.User.Token)
 		fmt.Println("---")
 		fmt.Printf("Explore filesystem on https://%s/%s/router/explorer\n", app.config.Url, app.config.User.Token)
 		fmt.Println("---")

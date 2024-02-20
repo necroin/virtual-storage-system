@@ -31,8 +31,8 @@ type NotifyMessage struct {
 }
 
 type TopologyMessage struct {
-	Storages []string `json:"storages"`
-	Runners  []string `json:"runners"`
+	Storages []NotifyMessage `json:"storages"`
+	Runners  []NotifyMessage `json:"runners"`
 }
 
 type FileInfo struct {

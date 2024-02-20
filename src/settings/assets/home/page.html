@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{.Style}}
+    {{.Script}}
+    <title>VSS</title>
+</head>
+<body onload="window.GetTopology(location.host+'/{{.Token}}')">
+    <div id="global-bar">
+        <button style="background-color: rgb(90, 90, 90);">{{.BarHomeIcon}}</button>
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/router/explorer'">{{.BarFilesystemIcon}}</button>
+        <button>{{.BarSettingsIcon}}</button>
+    </div>
+    <div id="main-area">
+        <div class="topology-list">
+            <span class="headline">Storages</span>
+            <div id="storages" class="list"></div>
+        </div>
+        <div class="topology-list">
+            <span class="headline">Runners</span>
+            <div id="runners" class="list"></div>
+        </div>
+    </div>
+</body>

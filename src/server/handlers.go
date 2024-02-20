@@ -16,6 +16,9 @@ func (server *Server) StatusHandler(responseWriter http.ResponseWriter, request 
 
 func (server *Server) PageHandler(responseWriter http.ResponseWriter, htmlPage string, pageInfo connector.PageInfo) {
 	pageInfo.Url = server.url
+	pageInfo.BarHomeIcon = settings.BarHomeIcon
+	pageInfo.BarFilesystemIcon = settings.BarFilesystemIcon
+	pageInfo.BarSettingsIcon = settings.BarSettingsIcon
 	pageTemplate, _ := template.New("HtmlPage").Parse(htmlPage)
 	pageTemplate.Execute(responseWriter, pageInfo)
 }
@@ -55,4 +58,16 @@ func (server *Server) TokenizedHandler(handler func(http.ResponseWriter, *http.R
 			handler(responseWriter, request)
 		}
 	}
+}
+
+func (server *Server) HomeHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	server.PageHandler(
+		responseWriter,
+		settings.GetHomeTemplate(),
+		connector.PageInfo{
+			Style:  settings.GetHomeStyle(),
+			Script: settings.GetHomeScript(),
+			Token:  server.config.User.Token,
+		},
+	)
 }

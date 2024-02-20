@@ -10,21 +10,27 @@ import (
 	_ "embed"
 
 	"vss/src/connector"
+	"vss/src/logger"
 	"vss/src/roles"
 	"vss/src/settings"
 )
 
-var (
-	//go:embed assets/topology.html
-	topologyHandlerResponseTemplate string
-)
-
-func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {}
+func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	response := &connector.TopologyMessage{}
+	for _, storage := range router.storages {
+		response.Storages = append(response.Storages, storage)
+	}
+	for _, runner := range router.runners {
+		response.Runners = append(response.Runners, runner)
+	}
+	json.NewEncoder(responseWriter).Encode(response)
+}
 
 func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	message := &connector.NotifyMessage{}
 	if err := json.NewDecoder(request.Body).Decode(message); err != nil {
-		// TODO: handle error
+		logger.Error("[Router] [NotifyHandler] failed decode message: %s", err)
+		return
 	}
 
 	message.Url = strings.Split(request.RemoteAddr, ":")[0] + settings.DefaultPort
