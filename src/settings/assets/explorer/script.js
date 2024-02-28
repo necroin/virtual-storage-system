@@ -38,7 +38,7 @@ function GetRequestUrl(routerUrl) {
 }
 
 function GetRequestRole() {
-    if (window.storageUrl != null) {
+    if ( window.__context__.storageUrl != null) {
         return "/storage"
     }
     return "/router"
@@ -303,12 +303,12 @@ function Copy() {
     window.__context__.paste_endpoint = "/storage/copy/"
 }
 
-function Paste() {
+function Paste(routerUrl) {
     let pasteData = window.__context__.paste
     let pasteEndpoint = window.__context__.paste_endpoint
     let pasteType = window.__context__.paste.type
     let response = request("POST",
-        "https://" + pasteData.url + pasteEndpoint + pasteType,
+        "https://" + GetRequestUrl(routerUrl) + pasteEndpoint + pasteType,
         JSON.stringify({
             old_path: [pasteData.path, pasteData.name].join("/"),
             new_path: [GetCurrentPath(), pasteData.name].join("/"),
