@@ -13,17 +13,35 @@ function GetTopology(url) {
     for (index in data.storages) {
         let storage = data.storages[index]
 
-        let storageElement = document.createElement("div")
-        storageElement.className = "list-item"
-        let storageName = document.createElement("span")
-        storageName.innerText = storage.hostname
+        let item = document.createElement("div")
+        item.className = "list-item"
+        let nameItemElement = document.createElement("span")
+        nameItemElement.innerText = storage.hostname
 
-        let storageUrl = document.createElement("span")
-        storageUrl.innerText = storage.url
+        let urlItemElement = document.createElement("span")
+        urlItemElement.innerText = storage.url
 
-        storageElement.appendChild(storageName)
-        storageElement.appendChild(storageUrl)
+        item.appendChild(nameItemElement)
+        item.appendChild(urlItemElement)
 
-        storagesList.appendChild(storageElement)
+        storagesList.appendChild(item)
+    }
+
+    let runnersList = document.getElementById("runners")
+    for (index in data.runners) {
+        let runner = data.runners[index]
+
+        let item = document.createElement("div")
+        item.className = "list-item"
+        let nameItemElement = document.createElement("span")
+        nameItemElement.innerText = runner.hostname
+
+        let urlItemElement = document.createElement("span")
+        urlItemElement.innerText = runner.url
+
+        item.appendChild(nameItemElement)
+        item.appendChild(urlItemElement)
+
+        runnersList.appendChild(item)
     }
 }

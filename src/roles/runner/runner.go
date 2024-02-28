@@ -4,31 +4,43 @@ import (
 	"os"
 	"vss/src/config"
 	"vss/src/connector"
+	"vss/src/roles"
 	"vss/src/settings"
+	"vss/src/utils"
 )
 
 type Runner struct {
-	url       string
-	routerUrl string
-	storages  []connector.NotifyMessage
+	config   *config.Config
+	hostname string
+	storages []connector.NotifyMessage
 }
 
 func New(config *config.Config) (*Runner, error) {
+	hostname, _ := os.Hostname()
+
 	return &Runner{
-		url:      config.Url,
+		config:   config,
+		hostname: hostname,
 		storages: []connector.NotifyMessage{},
 	}, nil
 }
 
-func (runner *Runner) NotifyRouter() error {
-	hostname, _ := os.Hostname()
+func (runner *Runner) NotifyRouter(url string) error {
+	token, err := roles.GetRouterToken(url, runner.config.User.Username, runner.config.User.Password)
+	if err != nil {
+		return err
+	}
 
 	message := connector.NotifyMessage{
 		Type:     connector.NotifyMessageRunnerType,
-		Url:      runner.url,
-		Hostname: hostname,
+		Url:      runner.config.Url,
+		Hostname: runner.hostname,
+		Token:    runner.config.User.Token,
 	}
 
-	_, err := connector.SendPostRequest(runner.routerUrl+settings.RouterNotifyEndpoint, message)
+	_, err = connector.SendPostRequest(
+		url+utils.FormatTokemizedEndpoint(settings.RouterNotifyEndpoint, token),
+		message,
+	)
 	return err
 }

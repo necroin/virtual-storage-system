@@ -12,6 +12,7 @@ import (
 	"vss/src/roles/storage"
 	"vss/src/server"
 	"vss/src/settings"
+	"vss/src/utils"
 
 	"github.com/necroin/golibs/metrics"
 )
@@ -39,7 +40,7 @@ func New(config *config.Config) (*Application, error) {
 	if config.Roles.Storage.Enable {
 		storageRole, err = storage.New(config)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("[App] failed create storage role: %s", err)
 		}
 
 		server.AddHandler(settings.StorageFilesystemEndpoint, server.TokenizedHandler(storageRole.FilesystemHandler), "POST", "GET")
@@ -52,11 +53,19 @@ func New(config *config.Config) (*Application, error) {
 		server.AddHandler(settings.StorageRenameEndpoint, server.TokenizedHandler(storage.RenameHandler), "POST")
 	}
 
+	var runnerRole *runner.Runner = nil
+	if config.Roles.Runner.Enable {
+		runnerRole, err = runner.New(config)
+		if err != nil {
+			return nil, fmt.Errorf("[App] failed create runner role: %s", err)
+		}
+	}
+
 	var routerRole *router.Router = nil
 	if config.Roles.Router.Enable {
 		routerRole, err = router.New(config, server)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("[App] failed create router role: %s", err)
 		}
 
 		server.AddHandler(settings.RouterExplorerEndpoint, server.TokenizedHandler(routerRole.ExplorerHandler), "POST", "GET")
@@ -72,7 +81,7 @@ func New(config *config.Config) (*Application, error) {
 
 	return &Application{
 		storageRole: storageRole,
-		runnerRole:  nil,
+		runnerRole:  runnerRole,
 		routerRole:  routerRole,
 		config:      config,
 		server:      server,
@@ -94,6 +103,49 @@ func (app *Application) Run() error {
 		return err
 	}
 
+	if app.storageRole != nil || app.runnerRole != nil {
+		if app.config.Url == "localhost"+settings.DefaultPort {
+			if err := utils.IfNotNil(
+				app.storageRole,
+				func(object *storage.Storage) error { return object.NotifyRouter(app.config.Url) },
+			); err != nil {
+				logger.Error("[App] failed notify router by storage: %s", err)
+			}
+
+			if err := utils.IfNotNil(
+				app.runnerRole,
+				func(object *runner.Runner) error { return object.NotifyRouter(app.config.Url) },
+			); err != nil {
+				logger.Error("[App] failed notify router by runner: %s", err)
+			}
+		}
+
+		go func() {
+			addrs := app.lanObserver.Start()
+			for {
+				notifyAddr := <-addrs + settings.DefaultPort
+
+				if err := utils.IfNotNil(
+					app.storageRole,
+					func(object *storage.Storage) error { return object.NotifyRouter(notifyAddr) },
+				); err != nil {
+					logger.Error("[App] failed notify router by storage: %s", err)
+				}
+
+				if err := utils.IfNotNil(
+					app.runnerRole,
+					func(object *runner.Runner) error { return object.NotifyRouter(notifyAddr) },
+				); err != nil {
+					logger.Error("[App] failed notify router by runner: %s", err)
+				}
+			}
+		}()
+	}
+
+	if app.routerRole != nil {
+		app.lanListener.Start()
+	}
+
 	fmt.Printf("Platform is %s\n", app.config.Roles.Runner.Platform)
 	fmt.Println("---")
 	fmt.Printf("Server started on https://%s\n", app.config.Url)
@@ -106,25 +158,6 @@ func (app *Application) Run() error {
 		fmt.Println("---")
 		fmt.Printf("Explore filesystem on https://%s/%s/router/explorer\n", app.config.Url, app.config.User.Token)
 		fmt.Println("---")
-	}
-
-	if app.storageRole != nil {
-		if app.config.Url == "localhost"+settings.DefaultPort {
-			if err := app.storageRole.NotifyRouter(app.config.Url); err != nil {
-				logger.Error("[App] failed notify router: %s", err)
-			}
-		}
-		go func() {
-			addrs := app.lanObserver.Start()
-			for {
-				if err := app.storageRole.NotifyRouter(<-addrs + settings.DefaultPort); err != nil {
-					logger.Error("[App] failed notify router: %s", err)
-				}
-			}
-		}()
-	}
-	if app.routerRole != nil {
-		app.lanListener.Start()
 	}
 
 	wg.Wait()

@@ -81,3 +81,10 @@ func HandleFilesystemPath(value string) string {
 	value = path.Clean(value)
 	return value
 }
+
+func IfNotNil[T any](object *T, handler func(object *T) error) error {
+	if object != nil {
+		return handler(object)
+	}
+	return nil
+}

@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"vss/src/connector"
+	"vss/src/settings"
 )
 
 type Role interface {
@@ -23,4 +24,23 @@ func FilesystemHandler(role Role, responseWriter http.ResponseWriter, request *h
 func DevicesHandler(role Role, responseWriter http.ResponseWriter, request *http.Request) {
 	hostnames := role.GetHostnames()
 	json.NewEncoder(responseWriter).Encode(hostnames)
+}
+
+func GetRouterToken(url string, username string, password string) (string, error) {
+	message := connector.ClientAuth{
+		Username: username,
+		Password: password,
+	}
+
+	response, err := connector.SendPostRequest(url+settings.ServerAuthTokenEndpoint, message)
+	if err != nil {
+		return "", err
+	}
+	tokenData, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return "", err
+	}
+	token := string(tokenData)
+
+	return token, nil
 }

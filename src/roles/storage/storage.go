@@ -1,11 +1,11 @@
 package storage
 
 import (
-	"io/ioutil"
 	"os"
 	"path"
 	"vss/src/config"
 	"vss/src/connector"
+	"vss/src/roles"
 	"vss/src/settings"
 	"vss/src/utils"
 )
@@ -24,27 +24,8 @@ func New(config *config.Config) (*Storage, error) {
 	}, nil
 }
 
-func (storage *Storage) GetRouterToken(url string) (string, error) {
-	message := connector.ClientAuth{
-		Username: storage.config.User.Username,
-		Password: storage.config.User.Password,
-	}
-
-	response, err := connector.SendPostRequest(url+settings.ServerAuthTokenEndpoint, message)
-	if err != nil {
-		return "", err
-	}
-	tokenData, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return "", err
-	}
-	token := string(tokenData)
-
-	return token, nil
-}
-
 func (storage *Storage) NotifyRouter(url string) error {
-	token, err := storage.GetRouterToken(url)
+	token, err := roles.GetRouterToken(url, storage.config.User.Username, storage.config.User.Password)
 	if err != nil {
 		return err
 	}
