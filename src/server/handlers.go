@@ -55,8 +55,10 @@ func (server *Server) TokenizedHandler(handler func(http.ResponseWriter, *http.R
 		}
 
 		if token == server.config.User.Token {
+			responseWriter.Header().Set("Access-Control-Allow-Origin", "*")
 			handler(responseWriter, request)
 		}
+
 	}
 }
 

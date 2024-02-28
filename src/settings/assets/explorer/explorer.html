@@ -53,7 +53,7 @@
             <button class="bar-symbol-button"
                 onclick="window.Copy(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconCopy}}</button>
             <button class="bar-symbol-button"
-                onclick="window.Paste(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconPaste}}</button>
+                onclick="window.Paste(location.host+'/{{.Token}}'); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconPaste}}</button>
             <button class="bar-symbol-button"
                 onclick="window.Remove(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconDelete}}</button>
             <div class="dropdown" onclick="window.OpenOptions()" style="border-left: 1px solid white;">

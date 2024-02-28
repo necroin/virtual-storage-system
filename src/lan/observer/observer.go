@@ -2,7 +2,6 @@ package observer
 
 import (
 	"net"
-	"strconv"
 	"time"
 	"vss/src/config"
 	"vss/src/logger"
@@ -19,22 +18,31 @@ func New(config *config.Config) *Observer {
 	}
 }
 
-func (observer *Observer) Start() chan string {
-	result := make(chan string)
-	for i := 0; i < 256; i++ {
-		go func(addr string, port string) {
-			ip := addr + port
-			for {
-				conn, err := net.DialTimeout("tcp", ip, settings.DefaultLanTimeout)
-				if err == nil {
-					logger.Debug("[Observer] connected to %s", addr)
-					result <- addr
-					conn.Close()
-				}
-				time.Sleep(settings.DefaultLanTimeout)
-			}
-
-		}(settings.DefaultLanIP+strconv.Itoa(i), settings.DefaultListenPort)
+func (observer *Observer) Start() error {
+	local, err := net.ResolveUDPAddr("udp4", observer.config.Url)
+	if err != nil {
+		return err
 	}
-	return result
+
+	remote, err := net.ResolveUDPAddr("udp4", "192.168.0.255"+observer.config.ListenPort)
+	if err != nil {
+		return err
+	}
+
+	conn, err := net.DialUDP("udp4", local, remote)
+	if err != nil {
+		return err
+	}
+
+	go func() {
+		for {
+			_, err = conn.Write([]byte("observer"))
+			if err != nil {
+				logger.Debug("%s", err)
+			}
+			time.Sleep(settings.DefaultLanTimeout)
+		}
+	}()
+
+	return nil
 }

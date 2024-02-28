@@ -121,9 +121,10 @@ func (app *Application) Run() error {
 		}
 
 		go func() {
-			addrs := app.lanObserver.Start()
+			addrs, _ := app.lanListener.Start()
+
 			for {
-				notifyAddr := <-addrs + settings.DefaultPort
+				notifyAddr := <-addrs
 
 				if err := utils.IfNotNil(
 					app.storageRole,
@@ -143,7 +144,7 @@ func (app *Application) Run() error {
 	}
 
 	if app.routerRole != nil {
-		app.lanListener.Start()
+		app.lanObserver.Start()
 	}
 
 	fmt.Printf("Platform is %s\n", app.config.Roles.Runner.Platform)
