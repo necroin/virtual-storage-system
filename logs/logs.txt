@@ -348,3 +348,11 @@
 2024/02/29 02:40:21 http: TLS handshake error from 192.168.0.103:55962: remote error: tls: unknown certificate
 2024/02/29 02:40:26 DEBUG: [CopyHandler] request: &connector.CopyRequest{OldPath:"/Games/golibs", NewPath:"/Games/golibs", SrcUrl:"192.168.0.103:3301/d97c707e409ac1dc1a58"}
 2024/02/29 02:40:26 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Wed, 28 Feb 2024 23:40:22 GMT"}}, Body:(*http.bodyEOFSignal)(0xc0002a2040), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc000591300), TLS:(*tls.ConnectionState)(0xc000250160)}
+2024/02/29 18:47:56 DEBUG: [Lan Listener] 192.168.0.105:3301
+
+2024/02/29 18:48:06 DEBUG: [Lan Listener] 192.168.0.105:3301
+
+2024/02/29 18:48:16 DEBUG: [Lan Listener] 192.168.0.105:3301
+
+2024/02/29 18:48:26 DEBUG: [Lan Listener] 192.168.0.105:3301
+

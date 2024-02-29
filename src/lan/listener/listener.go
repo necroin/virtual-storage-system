@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
 	"vss/src/config"
+	"vss/src/logger"
 )
 
 type Listener struct {
@@ -19,7 +20,7 @@ func New(config *config.Config) *Listener {
 func (listener *Listener) Start() (chan string, error) {
 	result := make(chan string)
 
-	udpAddr, err := net.ResolveUDPAddr("udp4", listener.config.ListenPort)
+	udpAddr, err := net.ResolveUDPAddr("udp4", fmt.Sprintf(":%s", listener.config.ListenPort))
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +36,7 @@ func (listener *Listener) Start() (chan string, error) {
 			if err != nil {
 				panic(err)
 			}
-			fmt.Printf("[Listener] %s\n", addr.String())
+			logger.Debug("[Lan Listener] %s", addr.String())
 			result <- addr.String()
 		}
 	}()
