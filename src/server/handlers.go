@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"text/template"
 	"vss/src/connector"
+	"vss/src/logger"
 	"vss/src/settings"
 
 	"github.com/gorilla/mux"
@@ -37,7 +38,7 @@ func (server *Server) AuthHandler(responseWriter http.ResponseWriter, request *h
 func (server *Server) AuthTokenHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	data := &connector.ClientAuth{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
-		responseWriter.Write([]byte(err.Error()))
+		logger.Error("[Server] [AuthTokenHandler] failed decode message: %s", err)
 		return
 	}
 

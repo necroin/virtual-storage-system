@@ -44,3 +44,17 @@ func GetRouterToken(url string, username string, password string) (string, error
 
 	return token, nil
 }
+
+func HandlerFailed(responseWriter http.ResponseWriter, err error) {
+	json.NewEncoder(responseWriter).Encode(connector.StatusBarResponse{
+		Status: settings.ExplorerStatusBarFail,
+		Text:   err.Error(),
+	})
+}
+
+func HandlerSuccess(responseWriter http.ResponseWriter, text string) {
+	json.NewEncoder(responseWriter).Encode(connector.StatusBarResponse{
+		Status: settings.ExplorerStatusBarSuccess,
+		Text:   text,
+	})
+}

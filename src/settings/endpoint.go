@@ -20,8 +20,8 @@ const (
 )
 
 const (
-	RunnerOpenEndpoint   = "/runner/open"
-	RunnerNotifyEndpoint = "/runner/notify"
+	RunnerOpenEndpoint   = "/{token}/runner/open"
+	RunnerNotifyEndpoint = "/{token}/runner/notify"
 )
 
 const (
@@ -30,4 +30,5 @@ const (
 	RouterDevicesEndpoint    = "/{token}/router/devices"
 	RouterTopologyEndpoint   = "/{token}/router/topology"
 	RouterNotifyEndpoint     = "/{token}/router/notify"
+	RouterOpenEndpoint       = "/{token}/router/open"
 )

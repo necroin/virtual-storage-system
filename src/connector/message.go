@@ -28,6 +28,7 @@ type NotifyMessage struct {
 	Url      string `json:"url"`
 	Hostname string `json:"hostname"`
 	Token    string `json:"token"`
+	Platform string `json:"platform"`
 }
 
 type TopologyMessage struct {
@@ -73,4 +74,14 @@ type CopyRequest struct {
 	OldPath string `json:"old_path"`
 	NewPath string `json:"new_path"`
 	SrcUrl  string `json:"src_url"`
+}
+
+type OpenRequest struct {
+	Platform string `json:"platform"`
+	Path     string `json:"path"`
+}
+
+type OpenResponse struct {
+	Message string `json:"message"`
+	Error   error  `json:"error"`
 }

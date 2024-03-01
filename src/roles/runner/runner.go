@@ -36,6 +36,7 @@ func (runner *Runner) NotifyRouter(url string) error {
 		Url:      runner.config.Url,
 		Hostname: runner.hostname,
 		Token:    runner.config.User.Token,
+		Platform: runner.config.Roles.Runner.Platform,
 	}
 
 	_, err = connector.SendPostRequest(

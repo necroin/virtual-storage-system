@@ -145,6 +145,8 @@ function GetFilesystem(routerUrl, path) {
         tableRow.appendChild(typeElement)
         tableRow.appendChild(sizeElement)
 
+        tableRow.ondblclick = () => OpenFile(routerUrl, tableRow)
+
         filesystemTable.appendChild(tableRow)
 
         rowsCount = rowsCount + 1
@@ -313,6 +315,17 @@ function Paste(routerUrl) {
             old_path: [pasteData.path, pasteData.name].join("/"),
             new_path: [GetCurrentPath(), pasteData.name].join("/"),
             src_url: pasteData.url
+        })
+    );
+    UpdateStatusBar(response)
+}
+
+function OpenFile(routerUrl, item) {
+    let response = request("POST",
+        "https://" + routerUrl + "/router/open",
+        JSON.stringify({
+            platform: item.__custom__["platform"],
+            path: [GetCurrentPath(), item.__custom__["name"]].join("/"),
         })
     );
     UpdateStatusBar(response)

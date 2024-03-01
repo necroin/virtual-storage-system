@@ -3,6 +3,7 @@ package runner
 import (
 	"encoding/json"
 	"net/http"
+	"os/exec"
 
 	_ "embed"
 
@@ -20,5 +21,23 @@ func (runner *Runner) NotifyHandler(responseWriter http.ResponseWriter, request 
 }
 
 func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	// TODO: OpenFileHandler
+	openResponse := &connector.OpenResponse{}
+	defer json.NewEncoder(responseWriter).Encode(openResponse)
+
+	openRequest := &connector.OpenRequest{}
+	if err := json.NewDecoder(request.Body).Decode(openRequest); err != nil {
+		openResponse.Error = err
+		logger.Error("[Runner] [OpenFileHandler] failed decode message: %s", err)
+		return
+	}
+	logger.Info("[Runner] [OpenFileHandler] open %s", openRequest.Path)
+
+	cmd := exec.Command("open", openRequest.Path)
+	if err := cmd.Start(); err != nil {
+		openResponse.Error = err
+		logger.Error("[Runner] [OpenFileHandler] failed start process: %s", err)
+		return
+	}
+
+	openResponse.Message = "Файл открыт"
 }

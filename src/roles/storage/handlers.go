@@ -4,13 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"path"
 	"vss/src/connector"
 	"vss/src/logger"
 	"vss/src/roles"
-	"vss/src/settings"
 	"vss/src/utils"
 
 	"github.com/gorilla/mux"
@@ -42,37 +40,23 @@ var (
 	}
 )
 
-func handlerFailed(responseWriter http.ResponseWriter, err error) {
-	json.NewEncoder(responseWriter).Encode(connector.StatusBarResponse{
-		Status: settings.ExplorerStatusBarFail,
-		Text:   err.Error(),
-	})
-}
-
-func handlerSuccess(responseWriter http.ResponseWriter, text string) {
-	json.NewEncoder(responseWriter).Encode(connector.StatusBarResponse{
-		Status: settings.ExplorerStatusBarSuccess,
-		Text:   text,
-	})
-}
-
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	vars := mux.Vars(request)
 	handlerType := vars["type"]
 
 	data := &connector.ClientRequest{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		return
 	}
 
 	insertHandler := insertHandlers[handlerType]
 	if err := insertHandler(data.Path, data.Name); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		return
 	}
 
-	handlerSuccess(responseWriter, "Добавлено")
+	roles.HandlerSuccess(responseWriter, "Добавлено")
 }
 
 func (storage *Storage) SelectHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -97,10 +81,10 @@ func (storage *Storage) UpdateHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	data, err := ioutil.ReadAll(request.Body)
+	data, err := io.ReadAll(request.Body)
 	if err != nil {
 		logger.Error("[DeleteHandler] failed read data: %s", err)
-		handlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
+		roles.HandlerFailed(responseWriter, fmt.Errorf("Ошибка чтения данных запроса"))
 		return
 	}
 
@@ -110,10 +94,10 @@ func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, reques
 
 	if err := utils.RemoveFile(deletePath); err != nil {
 		logger.Error("[DeleteHandler] failed delete: %s", err)
-		handlerFailed(responseWriter, fmt.Errorf("Не удалось выполнить удаление"))
+		roles.HandlerFailed(responseWriter, fmt.Errorf("Не удалось выполнить удаление"))
 		return
 	}
-	handlerSuccess(responseWriter, fmt.Sprintf("%s удалено", path.Base(deletePath)))
+	roles.HandlerSuccess(responseWriter, fmt.Sprintf("%s удалено", path.Base(deletePath)))
 }
 
 func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -125,7 +109,7 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
 
 	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed decode response: %s", err)
 		return
 	}
@@ -137,19 +121,19 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 
 	response, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
 	if err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed send request: %s", err)
 		return
 	}
 	logger.Debug("[CopyHandler] response: %#v", response)
 
 	if err := utils.Decompress(response.Body, copyRequest.NewPath); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed unzip file: %s", err)
 		return
 	}
 
-	handlerSuccess(responseWriter, "Копирование выполнено")
+	roles.HandlerSuccess(responseWriter, "Копирование выполнено")
 }
 
 func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -161,7 +145,7 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
 
 	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed decode response: %s", err)
 		return
 	}
@@ -173,48 +157,48 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 
 	selectResponse, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
 	if err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
 		return
 	}
 	logger.Debug("[MoveHandler] select response: %#v", selectResponse)
 
 	if err := utils.Decompress(selectResponse.Body, copyRequest.NewPath); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed unzip file: %s", err)
 		return
 	}
 
 	deleteResponse, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.OldPath)
 	if err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
 		return
 	}
 	logger.Debug("[MoveHandler] delete response: %#v", deleteResponse)
 
-	handlerSuccess(responseWriter, "Перемещение выполнено")
+	roles.HandlerSuccess(responseWriter, "Перемещение выполнено")
 }
 
 func RenameHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	data := &connector.RenameRequest{}
 
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		return
 	}
 
 	if data.NewName == "" {
-		handlerFailed(responseWriter, fmt.Errorf("Не указано новое имя"))
+		roles.HandlerFailed(responseWriter, fmt.Errorf("Не указано новое имя"))
 		return
 	}
 
 	if err := utils.Rename(data.Path, data.OldName, data.NewName); err != nil {
-		handlerFailed(responseWriter, err)
+		roles.HandlerFailed(responseWriter, err)
 		return
 	}
 
-	handlerSuccess(responseWriter, "Переименование выполнено")
+	roles.HandlerSuccess(responseWriter, "Переименование выполнено")
 }
 
 func (storage *Storage) FilesystemHandler(responseWriter http.ResponseWriter, request *http.Request) {

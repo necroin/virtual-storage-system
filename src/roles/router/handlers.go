@@ -13,6 +13,7 @@ import (
 	"vss/src/logger"
 	"vss/src/roles"
 	"vss/src/settings"
+	"vss/src/utils"
 )
 
 func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -78,4 +79,39 @@ func (router *Router) FilesystemHandler(responseWriter http.ResponseWriter, requ
 
 func (router *Router) DevicesHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	roles.DevicesHandler(router, responseWriter, request)
+}
+
+func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	openRequest := &connector.OpenRequest{}
+	if err := json.NewDecoder(request.Body).Decode(openRequest); err != nil {
+		roles.HandlerFailed(responseWriter, err)
+		logger.Error("[Router] [OpenFileHandler] failed decode message: %s", err)
+		return
+	}
+
+	for _, runner := range router.runners {
+		if runner.Platform == openRequest.Platform {
+			logger.Info("[Router] [OpenFileHandler] send open request to %s runner on %s platform", runner.Hostname, runner.Platform)
+			response, err := connector.SendPostRequest(runner.Url+utils.FormatTokemizedEndpoint(settings.RunnerOpenEndpoint, runner.Token), openRequest)
+			if err != nil {
+				logger.Error("[Router] [OpenFileHandler] selected runner failed execute: %s", err)
+				continue
+			}
+
+			openResponse := &connector.OpenResponse{}
+			if err := json.NewDecoder(response.Body).Decode(openResponse); err != nil {
+				logger.Error("[Router] [OpenFileHandler] failed decode open response: %s", err)
+				continue
+			}
+
+			if openResponse.Error != nil {
+				logger.Error("[Router] [OpenFileHandler] failed decode open response: %s", err)
+				continue
+			}
+
+			roles.HandlerSuccess(responseWriter, openResponse.Message)
+			break
+		}
+	}
+	roles.HandlerSuccess(responseWriter, "Нет возможности запустить/открыть файл")
 }

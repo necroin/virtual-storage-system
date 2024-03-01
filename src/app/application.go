@@ -2,7 +2,10 @@ package app
 
 import (
 	"fmt"
+	"os"
+	"os/signal"
 	"sync"
+	"syscall"
 	"vss/src/config"
 	"vss/src/lan/listener"
 	"vss/src/lan/observer"
@@ -59,6 +62,8 @@ func New(config *config.Config) (*Application, error) {
 		if err != nil {
 			return nil, fmt.Errorf("[App] failed create runner role: %s", err)
 		}
+
+		server.AddHandler(settings.RunnerOpenEndpoint, server.TokenizedHandler(runnerRole.OpenFileHandler), "POST")
 	}
 
 	var routerRole *router.Router = nil
@@ -74,6 +79,9 @@ func New(config *config.Config) (*Application, error) {
 
 		server.AddHandler(settings.RouterTopologyEndpoint, server.TokenizedHandler(routerRole.GetTopologyHandler), "GET")
 		server.AddHandler(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
+
+		server.AddHandler(settings.RouterOpenEndpoint, server.TokenizedHandler(routerRole.OpenFileHandler), "POST")
+
 	}
 
 	metricsRegistry := metrics.NewRegistry()
@@ -160,6 +168,15 @@ func (app *Application) Run() error {
 		fmt.Printf("Explore filesystem on https://%s/%s/router/explorer\n", app.config.Url, app.config.User.Token)
 		fmt.Println("---")
 	}
+
+	go func() {
+		var status *syscall.WaitStatus
+		SIGCHLD := make(chan os.Signal, 1)
+		signal.Notify(SIGCHLD, syscall.SIGCHLD)
+		for {
+			syscall.Wait4(0, status, 0, nil)
+		}
+	}()
 
 	wg.Wait()
 
