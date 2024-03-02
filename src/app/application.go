@@ -2,10 +2,7 @@ package app
 
 import (
 	"fmt"
-	"os"
-	"os/signal"
 	"sync"
-	"syscall"
 	"vss/src/config"
 	"vss/src/lan/listener"
 	"vss/src/lan/observer"
@@ -168,15 +165,6 @@ func (app *Application) Run() error {
 		fmt.Printf("Explore filesystem on https://%s/%s/router/explorer\n", app.config.Url, app.config.User.Token)
 		fmt.Println("---")
 	}
-
-	go func() {
-		var status *syscall.WaitStatus
-		SIGCHLD := make(chan os.Signal, 1)
-		signal.Notify(SIGCHLD, syscall.SIGCHLD)
-		for {
-			syscall.Wait4(0, status, 0, nil)
-		}
-	}()
 
 	wg.Wait()
 

@@ -45,3 +45,10 @@ func (runner *Runner) NotifyRouter(url string) error {
 	)
 	return err
 }
+
+func (runner *Runner) GetRunCommand(path string) (string, []string) {
+	if runner.config.Roles.Runner.Platform == "windows" {
+		return "cmd", []string{"/C", path}
+	}
+	return "open", []string{path}
+}

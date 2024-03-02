@@ -5,8 +5,6 @@ import (
 	"net/http"
 	"os/exec"
 
-	_ "embed"
-
 	"vss/src/connector"
 	"vss/src/logger"
 )
@@ -30,14 +28,18 @@ func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, reques
 		logger.Error("[Runner] [OpenFileHandler] failed decode message: %s", err)
 		return
 	}
+
+	// openRequest.Path = filepath.Join(strings.Split(openRequest.Path, "/")...)
 	logger.Info("[Runner] [OpenFileHandler] open %s", openRequest.Path)
 
-	cmd := exec.Command("open", openRequest.Path)
-	if err := cmd.Start(); err != nil {
-		openResponse.Error = err
-		logger.Error("[Runner] [OpenFileHandler] failed start process: %s", err)
-		return
-	}
+	execTool, execArgs := runner.GetRunCommand(openRequest.Path)
 
-	openResponse.Message = "Файл открыт"
+	go func() {
+		cmd := exec.Command(execTool, execArgs...)
+		if err := cmd.Run(); err != nil {
+			openResponse.Error = err
+			logger.Error("[Runner] [OpenFileHandler] failed start process: %s", err)
+			return
+		}
+	}()
 }
