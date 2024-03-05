@@ -2604,3 +2604,212 @@
 2024/03/03 02:03:34 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
 2024/03/03 02:03:34 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/tests/lan_test.go
 2024/03/03 02:03:41 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/05 19:14:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:14:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:14:38 http: TLS handshake error from 192.168.0.100:64829: remote error: tls: unknown certificate
+2024/03/05 19:14:38 http: TLS handshake error from 192.168.0.100:64830: remote error: tls: unknown certificate
+2024/03/05 19:14:38 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.100:3301/2c28647f2ab6d03b182c/storage/filesystem
+2024/03/05 19:14:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:14:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:15:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:15:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:15:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:15:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:15:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:15:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:16:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:16:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:16:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:16:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:16:44 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:16:44 INFO: [Runner] [OpenFileHandler] open /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/.DS_Store
+2024/03/05 19:16:44 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/05 19:16:46 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:16:46 INFO: [Runner] [OpenFileHandler] open /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/.gitignore
+2024/03/05 19:16:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:16:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:17:00 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:17:00 INFO: [Runner] [OpenFileHandler] open /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md
+2024/03/05 19:17:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:17:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:17:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:17:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:17:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:17:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:18:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:18:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:18:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:18:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:18:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:18:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:19:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:19:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:19:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:19:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:19:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:19:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:20:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:20:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:20:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:20:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:20:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:20:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:21:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:21:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:21:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:21:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:21:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:21:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:22:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:22:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:22:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:22:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:22:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:22:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:23:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:23:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:23:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:23:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:23:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:23:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:24:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:24:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:24:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:24:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:24:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:24:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:25:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:25:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:25:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:25:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:25:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:25:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:26:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:26:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:26:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:26:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:26:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:26:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:27:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:27:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:27:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:27:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:27:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:27:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:28:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:28:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:28:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:28:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:28:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:28:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:29:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:29:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:29:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:29:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:29:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:29:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:30:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:30:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:30:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:30:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:30:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:30:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:31:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:31:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:31:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:31:36 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:31:46 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:31:56 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:32:06 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:32:16 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:32:26 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:32:35 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:32:45 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:32:55 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:33:05 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:33:15 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:33:28 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:33:32 http: TLS handshake error from 192.168.0.100:55004: remote error: tls: unknown certificate
+2024/03/05 19:33:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.100:3301/4d86f4d73b1981034495/storage/filesystem
+2024/03/05 19:33:34 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:33:34 INFO: [Runner] [OpenFileHandler] open /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md
+2024/03/05 19:33:38 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:33:48 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:33:58 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:34:08 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:34:19 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:34:21 http: TLS handshake error from 192.168.0.100:55305: remote error: tls: unknown certificate
+2024/03/05 19:34:21 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.100:3301/10835f8431c1d8fec04b/storage/filesystem
+2024/03/05 19:34:23 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:34:23 DEBUG: [CopyHandler] request: &connector.CopyRequest{OldPath:"/Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md", NewPath:".tmp/README.md", SrcUrl:"192.168.0.100:3301/10835f8431c1d8fec04b"}
+2024/03/05 19:34:23 DEBUG: [SelectHandler] select path: /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md
+2024/03/05 19:34:23 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Length":[]string{"1958"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Tue, 05 Mar 2024 16:34:23 GMT"}}, Body:(*http.bodyEOFSignal)(0xc00003e500), ContentLength:1958, TransferEncoding:[]string(nil), Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0001e6800), TLS:(*tls.ConnectionState)(0xc0001b8580)}
+2024/03/05 19:34:23 ERROR: [CopyHandler] failed unzip file: [Decompress] failed create file: open .tmp/README.md: no such file or directory
+2024/03/05 19:34:23 INFO: [Runner] [OpenFileHandler] open .tmp/README.md
+2024/03/05 19:34:23 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/05 19:34:29 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:34:39 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:34:48 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:34:50 http: TLS handshake error from 192.168.0.100:55473: remote error: tls: unknown certificate
+2024/03/05 19:34:50 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.100:3301/9c1170797fdecf149ba3/storage/filesystem
+2024/03/05 19:34:52 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:34:52 DEBUG: [CopyHandler] request: &connector.CopyRequest{OldPath:"/Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md", NewPath:"./tmp/README.md", SrcUrl:"192.168.0.100:3301/9c1170797fdecf149ba3"}
+2024/03/05 19:34:52 DEBUG: [SelectHandler] select path: /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md
+2024/03/05 19:34:52 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Length":[]string{"1958"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Tue, 05 Mar 2024 16:34:52 GMT"}}, Body:(*http.bodyEOFSignal)(0xc0001254c0), ContentLength:1958, TransferEncoding:[]string(nil), Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0004e0900), TLS:(*tls.ConnectionState)(0xc0002ca2c0)}
+2024/03/05 19:34:52 ERROR: [CopyHandler] failed unzip file: [Decompress] failed create file: open tmp/README.md: no such file or directory
+2024/03/05 19:34:52 INFO: [Runner] [OpenFileHandler] open ./tmp/README.md
+2024/03/05 19:34:52 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/05 19:34:58 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:35:08 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:35:18 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:35:28 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:35:38 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:35:48 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:35:58 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:36:08 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:36:18 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:36:20 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:36:20 DEBUG: [CopyHandler] request: &connector.CopyRequest{OldPath:"/Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md", NewPath:"./tmp/README.md", SrcUrl:"192.168.0.100:3301/9c1170797fdecf149ba3"}
+2024/03/05 19:36:20 DEBUG: [SelectHandler] select path: /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md
+2024/03/05 19:36:20 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Length":[]string{"1958"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Tue, 05 Mar 2024 16:36:20 GMT"}}, Body:(*http.bodyEOFSignal)(0xc00003ef40), ContentLength:1958, TransferEncoding:[]string(nil), Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0000dcb00), TLS:(*tls.ConnectionState)(0xc0000b3810)}
+2024/03/05 19:36:20 INFO: [Runner] [OpenFileHandler] open ./tmp/README.md
+2024/03/05 19:36:28 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:36:38 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:36:48 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:36:58 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:37:08 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:37:18 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:37:28 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:37:38 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:37:48 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:37:58 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:38:08 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:38:18 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:38:28 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:38:38 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:38:48 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:39:14 ERROR: [Server] [WaitStart] failed send request: Get "https://192.168.0.100:3301/status": dial tcp 192.168.0.100:3301: connect: connection refused
+2024/03/05 19:39:15 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:39:18 http: TLS handshake error from 192.168.0.100:56990: remote error: tls: unknown certificate
+2024/03/05 19:39:18 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.100:3301/f91a7c8b0570b25f29ff/storage/filesystem
+2024/03/05 19:39:19 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:39:19 DEBUG: [CopyHandler] request: &connector.CopyRequest{OldPath:"/Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md", NewPath:"./tmp/README.md", SrcUrl:"192.168.0.100:3301/f91a7c8b0570b25f29ff"}
+2024/03/05 19:39:19 DEBUG: [SelectHandler] select path: /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md
+2024/03/05 19:39:19 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Length":[]string{"1958"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Tue, 05 Mar 2024 16:39:19 GMT"}}, Body:(*http.bodyEOFSignal)(0xc000318cc0), ContentLength:1958, TransferEncoding:[]string(nil), Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc000324b00), TLS:(*tls.ConnectionState)(0xc000328420)}
+2024/03/05 19:39:19 INFO: [Runner] [OpenFileHandler] open ./tmp/README.md
+2024/03/05 19:39:25 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:39:35 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:39:45 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:39:53 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:39:55 http: TLS handshake error from 192.168.0.100:57246: remote error: tls: unknown certificate
+2024/03/05 19:39:55 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.100:3301/ea05deeef6e11e872e8a/storage/filesystem
+2024/03/05 19:39:56 INFO: [Router] [OpenFileHandler] send open request to kirill-churkin runner on darwin platform
+2024/03/05 19:39:56 INFO: [Runner] [OpenFileHandler] open /Users/kirill.churkin/Storage/tarantool/spimex/spimex-robots/README.md
+2024/03/05 19:40:03 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:40:13 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:40:23 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:40:33 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:40:43 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:40:53 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:41:03 DEBUG: [Lan Listener] 192.168.0.100:3301
+2024/03/05 19:41:13 DEBUG: [Lan Listener] 192.168.0.100:3301

@@ -79,6 +79,8 @@ type CopyRequest struct {
 type OpenRequest struct {
 	Platform string `json:"platform"`
 	Path     string `json:"path"`
+	SrcUrl   string `json:"src_url"`
+	Type     string `json:"type"`
 }
 
 type OpenResponse struct {

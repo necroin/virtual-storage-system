@@ -326,6 +326,8 @@ function OpenFile(routerUrl, item) {
         JSON.stringify({
             platform: item.__custom__["platform"],
             path: [GetCurrentPath(), item.__custom__["name"]].join("/"),
+            src_url: item.__custom__["storageUrl"],
+            type: item.__custom__["type"]
         })
     );
     UpdateStatusBar(response)
