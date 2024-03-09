@@ -84,6 +84,10 @@ func Compress(archivePath string, buffer io.Writer) error {
 }
 
 func Decompress(src io.Reader, dst string) error {
+	if err := os.MkdirAll(dst, os.ModePerm); err != nil {
+		return fmt.Errorf("[Decompress] failed create output dir: %s", err)
+	}
+
 	gzipReader, err := gzip.NewReader(src)
 	if err != nil {
 		return fmt.Errorf("[Decompress] failed get gzip reader: %s", err)
