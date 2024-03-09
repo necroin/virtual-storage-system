@@ -23,3 +23,8 @@ go.work
 
 # VS Code
 .vscode/
+
+#Python
+.*venv
+.pytest_cache
+__pycache__
