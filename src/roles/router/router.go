@@ -1,6 +1,7 @@
 package router
 
 import (
+	"time"
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/logger"
@@ -18,13 +19,43 @@ type Router struct {
 }
 
 func New(config *config.Config, server *server.Server) (*Router, error) {
-	return &Router{
+	router := &Router{
 		config:    config,
 		server:    server,
 		storages:  map[string]connector.NotifyMessage{},
 		runners:   map[string]connector.NotifyMessage{},
 		hostnames: map[string]string{},
-	}, nil
+	}
+
+	go func() {
+		time.Sleep(time.Second * 30)
+		currentTime := time.Now().UnixNano()
+		currentTimeSeconds := time.Duration(currentTime).Seconds()
+
+		deleteStorages := []string{}
+		deleteRunners := []string{}
+
+		for hostname, storage := range router.storages {
+			timestampSeconds := time.Duration(storage.Timestamp).Seconds()
+			if currentTimeSeconds-timestampSeconds > settings.DefaultInstanceRemoveSeconds {
+				deleteStorages = append(deleteStorages, hostname)
+			}
+		}
+		for hostname, runner := range router.runners {
+			timestampSeconds := time.Duration(runner.Timestamp).Seconds()
+			if currentTimeSeconds-timestampSeconds > settings.DefaultInstanceRemoveSeconds {
+				deleteRunners = append(deleteRunners, hostname)
+			}
+		}
+
+		for _, hostname := range deleteStorages {
+			delete(router.storages, hostname)
+		}
+		for _, hostname := range deleteRunners {
+			delete(router.runners, hostname)
+		}
+	}()
+	return router, nil
 }
 
 func (router *Router) NotifyRunner(instance connector.NotifyMessage) {

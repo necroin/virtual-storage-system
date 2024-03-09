@@ -2604,3 +2604,107 @@
 2024/03/03 02:03:34 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
 2024/03/03 02:03:34 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/tests/lan_test.go
 2024/03/03 02:03:41 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:41:29 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:41:31 http: TLS handshake error from 192.168.0.105:57633: remote error: tls: unknown certificate
+2024/03/09 21:41:31 http: TLS handshake error from 192.168.0.105:57634: remote error: tls: unknown certificate
+2024/03/09 21:41:33 http: TLS handshake error from 192.168.0.105:57636: remote error: tls: unknown certificate
+2024/03/09 21:41:33 http: TLS handshake error from 192.168.0.105:57637: remote error: tls: unknown certificate
+2024/03/09 21:41:33 http: TLS handshake error from 192.168.0.105:57638: remote error: tls: unknown certificate
+2024/03/09 21:41:33 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:41:36 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:41:37 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:41:39 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:41:39 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:41:42 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:41:49 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:41:59 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:42:09 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:42:19 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:42:21 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:42:24 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:42:24 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/README.md
+2024/03/09 21:42:29 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:42:39 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:42:49 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:42:54 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:42:55 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:42:59 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:43:00 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:43:03 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:43:09 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:43:14 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:43:19 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:43:27 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:43:28 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:43:28 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:43:28 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:43:29 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:43:30 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:43:30 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:43:30 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:43:39 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:43:42 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:43:42 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:43:42 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:43:45 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:43:45 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:43:45 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:43:49 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:43:51 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:43:54 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:43:54 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/README.md
+2024/03/09 21:43:59 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:44:00 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:44:01 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:44:01 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:44:01 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:44:09 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:44:19 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:44:29 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:44:39 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:44:49 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:44:59 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:45:09 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:45:19 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:45:19 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:45:29 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:45:39 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:45:49 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:45:56 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:45:59 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:46:02 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:46:02 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:46:02 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:46:03 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:46:03 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:46:03 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:46:09 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:46:19 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:46:29 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:46:39 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:46:49 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:46:51 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:46:54 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:46:54 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/LICENSE
+2024/03/09 21:46:54 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:46:59 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:47:03 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:47:03 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/LICENSE
+2024/03/09 21:47:03 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:47:08 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:47:09 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:47:09 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:47:09 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/logs/logs.txt
+2024/03/09 21:47:09 ERROR: [Runner] [OpenFileHandler] failed start process: exit status 1
+2024/03/09 21:47:19 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:47:25 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:47:27 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/09 21:47:27 INFO: [Runner] [OpenFileHandler] open /projects/my/virtual-storage-system/README.md
+2024/03/09 21:47:29 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:47:39 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:47:46 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:47:47 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:47:49 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:47:59 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/09 21:48:06 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
+2024/03/09 21:48:09 DEBUG: [Lan Listener] 192.168.0.105:3301

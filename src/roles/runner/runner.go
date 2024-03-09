@@ -2,6 +2,7 @@ package runner
 
 import (
 	"os"
+	"time"
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/roles"
@@ -32,11 +33,12 @@ func (runner *Runner) NotifyRouter(url string) error {
 	}
 
 	message := connector.NotifyMessage{
-		Type:     connector.NotifyMessageRunnerType,
-		Url:      runner.config.Url,
-		Hostname: runner.hostname,
-		Token:    runner.config.User.Token,
-		Platform: runner.config.Roles.Runner.Platform,
+		Type:      connector.NotifyMessageRunnerType,
+		Url:       runner.config.Url,
+		Hostname:  runner.hostname,
+		Token:     runner.config.User.Token,
+		Platform:  runner.config.Roles.Runner.Platform,
+		Timestamp: time.Now().UnixNano(),
 	}
 
 	_, err = connector.SendPostRequest(

@@ -3,6 +3,7 @@ package storage
 import (
 	"os"
 	"path"
+	"time"
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/roles"
@@ -31,10 +32,12 @@ func (storage *Storage) NotifyRouter(url string) error {
 	}
 
 	message := connector.NotifyMessage{
-		Type:     connector.NotifyMessageStorageType,
-		Url:      storage.config.Url,
-		Hostname: storage.hostname,
-		Token:    storage.config.User.Token,
+		Type:      connector.NotifyMessageStorageType,
+		Url:       storage.config.Url,
+		Hostname:  storage.hostname,
+		Token:     storage.config.User.Token,
+		Platform:  storage.config.Roles.Runner.Platform,
+		Timestamp: time.Now().UnixNano(),
 	}
 	_, err = connector.SendPostRequest(
 		url+utils.FormatTokemizedEndpoint(settings.RouterNotifyEndpoint, token),

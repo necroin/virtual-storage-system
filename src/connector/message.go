@@ -24,11 +24,12 @@ type PageInfo struct {
 }
 
 type NotifyMessage struct {
-	Type     string `json:"type"`
-	Url      string `json:"url"`
-	Hostname string `json:"hostname"`
-	Token    string `json:"token"`
-	Platform string `json:"platform"`
+	Type      string `json:"type"`
+	Url       string `json:"url"`
+	Hostname  string `json:"hostname"`
+	Token     string `json:"token"`
+	Platform  string `json:"platform"`
+	Timestamp int64  `json:"timestamp"`
 }
 
 type TopologyMessage struct {
