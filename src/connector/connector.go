@@ -7,33 +7,39 @@ import (
 	"net/http"
 )
 
-func SendPostRequest(url string, data any) (*http.Response, error) {
-	return SendRequestWithDataEncode(url, data, http.MethodPost)
+type Connector struct {
+	certificate *tls.Certificate
 }
 
-func SendGetRequest[T any](url string, data []byte) (*T, error) {
-	result := new(T)
+func NewConnector(certificate *tls.Certificate) (*Connector, error) {
+	return &Connector{
+		certificate: certificate,
+	}, nil
+}
 
-	response, err := SendRequest(url, data, http.MethodGet)
+func (connector *Connector) SendPostRequest(url string, data any) (*http.Response, error) {
+	return connector.SendRequestWithDataEncode(url, data, http.MethodPost)
+}
+
+func (connector *Connector) SendGetRequest(url string, data []byte, result any) error {
+	response, err := connector.SendRequest(url, data, http.MethodGet)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	json.NewDecoder(response.Body).Decode(result)
-
-	return result, nil
+	return json.NewDecoder(response.Body).Decode(result)
 }
 
-func SendRequestWithDataEncode(url string, data any, method string) (*http.Response, error) {
+func (connector *Connector) SendRequestWithDataEncode(url string, data any, method string) (*http.Response, error) {
 	encodedMessage, err := json.Marshal(data)
 	if err != nil {
 		return nil, err
 	}
 
-	return SendRequest(url, encodedMessage, method)
+	return connector.SendRequest(url, encodedMessage, method)
 }
 
-func SendRequest(url string, data []byte, method string) (*http.Response, error) {
+func (connector *Connector) SendRequest(url string, data []byte, method string) (*http.Response, error) {
 	client := http.Client{
 		Transport: &http.Transport{
 			TLSClientConfig: &tls.Config{

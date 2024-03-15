@@ -9,15 +9,15 @@ import (
 
 	_ "embed"
 
-	"vss/src/connector"
 	"vss/src/logger"
+	"vss/src/message"
 	"vss/src/roles"
 	"vss/src/settings"
 	"vss/src/utils"
 )
 
 func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	response := &connector.TopologyMessage{}
+	response := &message.TopologyMessage{}
 	for _, storage := range router.storages {
 		response.Storages = append(response.Storages, storage)
 	}
@@ -28,31 +28,31 @@ func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, req
 }
 
 func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	message := &connector.NotifyMessage{}
-	if err := json.NewDecoder(request.Body).Decode(message); err != nil {
+	notifyMessage := &message.NotifyMessage{}
+	if err := json.NewDecoder(request.Body).Decode(notifyMessage); err != nil {
 		logger.Error("[Router] [NotifyHandler] failed decode message: %s", err)
 		return
 	}
 
-	message.Url = strings.Split(request.RemoteAddr, ":")[0] + settings.DefaultPort
-	if message.Url == ("127.0.0.1" + settings.DefaultPort) {
-		message.Url = "localhost" + settings.DefaultPort
+	notifyMessage.Url = strings.Split(request.RemoteAddr, ":")[0] + settings.DefaultPort
+	if notifyMessage.Url == ("127.0.0.1" + settings.DefaultPort) {
+		notifyMessage.Url = "localhost" + settings.DefaultPort
 	}
 
-	if message.Type == connector.NotifyMessageStorageType {
-		router.storages[message.Hostname] = *message
-		router.hostnames[message.Hostname] = path.Join(message.Url, message.Token)
+	if notifyMessage.Type == message.NotifyMessageStorageType {
+		router.storages[notifyMessage.Hostname] = *notifyMessage
+		router.hostnames[notifyMessage.Hostname] = path.Join(notifyMessage.Url, notifyMessage.Token)
 		router.NotifyRunners()
 	}
 
-	if message.Type == connector.NotifyMessageRunnerType {
-		router.runners[message.Hostname] = *message
-		router.NotifyRunner(*message)
+	if notifyMessage.Type == message.NotifyMessageRunnerType {
+		router.runners[notifyMessage.Hostname] = *notifyMessage
+		router.NotifyRunner(*notifyMessage)
 	}
 }
 
 func (router *Router) ExplorerHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	pageInfo := connector.PageInfo{
+	pageInfo := message.PageInfo{
 		Url:               router.GetUrl(),
 		Token:             router.config.User.Token,
 		Style:             settings.GetExplorerStyle(),
@@ -82,7 +82,7 @@ func (router *Router) DevicesHandler(responseWriter http.ResponseWriter, request
 }
 
 func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	openRequest := &connector.OpenRequest{}
+	openRequest := &message.OpenRequest{}
 	if err := json.NewDecoder(request.Body).Decode(openRequest); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[Router] [OpenFileHandler] failed decode message: %s", err)
@@ -92,13 +92,13 @@ func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, reques
 	for _, runner := range router.runners {
 		if runner.Platform == openRequest.Platform {
 			logger.Info("[Router] [OpenFileHandler] send open request to %s runner on %s platform", runner.Hostname, runner.Platform)
-			response, err := connector.SendPostRequest(runner.Url+utils.FormatTokemizedEndpoint(settings.RunnerOpenEndpoint, runner.Token), openRequest)
+			response, err := router.connector.SendPostRequest(runner.Url+utils.FormatTokemizedEndpoint(settings.RunnerOpenEndpoint, runner.Token), openRequest)
 			if err != nil {
 				logger.Error("[Router] [OpenFileHandler] selected runner failed execute: %s", err)
 				continue
 			}
 
-			openResponse := &connector.OpenResponse{}
+			openResponse := &message.OpenResponse{}
 			if err := json.NewDecoder(response.Body).Decode(openResponse); err != nil {
 				logger.Error("[Router] [OpenFileHandler] failed decode open response: %s", err)
 				continue

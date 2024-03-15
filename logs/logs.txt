@@ -2718,3 +2718,45 @@
 2024/03/10 00:58:25 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/1b4eb61ec6e3a75d047e/storage/filesystem
 2024/03/10 00:58:27 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/1b4eb61ec6e3a75d047e/storage/filesystem
 2024/03/10 00:58:52 http: TLS handshake error from 127.0.0.1:50998: remote error: tls: unknown certificate
+2024/03/15 23:37:22 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:23 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:23 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:23 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:24 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:33 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:33 http: TLS handshake error from 127.0.0.1:50162: remote error: tls: unknown certificate
+2024/03/15 23:37:33 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:33 http: TLS handshake error from 127.0.0.1:50165: remote error: tls: unknown certificate
+2024/03/15 23:37:33 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:33 http: TLS handshake error from 127.0.0.1:50167: remote error: tls: unknown certificate
+2024/03/15 23:37:34 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:34 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:34 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:36 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/03/15 23:37:37 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:37 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/ПРФС_уч_практика.pptx
+2024/03/15 23:37:44 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:44 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:45 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:46 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:46 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:46 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:48 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:48 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:49 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:49 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:50 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:51 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:52 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:52 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:54 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:54 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:54 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:54 DEBUG: [Server] client requested certificate
+2024/03/15 23:37:59 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:37:59 DEBUG: [Server] client requested certificate
+2024/03/15 23:38:01 DEBUG: [DeleteHandler] delete path: /projects/virtual-storage-system
+2024/03/15 23:38:04 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:38:05 DEBUG: [Server] client requested certificate
+2024/03/15 23:38:07 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/46e7306208efef3fce96/storage/filesystem
+2024/03/15 23:38:08 DEBUG: [Server] client requested certificate

@@ -6,50 +6,53 @@ import (
 	"time"
 	"vss/src/config"
 	"vss/src/connector"
+	"vss/src/message"
 	"vss/src/roles"
 	"vss/src/settings"
 	"vss/src/utils"
 )
 
 type Storage struct {
-	config   *config.Config
-	hostname string
+	config    *config.Config
+	connector *connector.Connector
+	hostname  string
 }
 
-func New(config *config.Config) (*Storage, error) {
+func New(config *config.Config, connector *connector.Connector) (*Storage, error) {
 	hostname, _ := os.Hostname()
 
 	return &Storage{
-		config:   config,
-		hostname: hostname,
+		config:    config,
+		connector: connector,
+		hostname:  hostname,
 	}, nil
 }
 
 func (storage *Storage) NotifyRouter(url string) error {
-	token, err := roles.GetRouterToken(url, storage.config.User.Username, storage.config.User.Password)
+	token, err := roles.GetRouterToken(storage.connector, url, storage.config.User.Username, storage.config.User.Password)
 	if err != nil {
 		return err
 	}
 
-	message := connector.NotifyMessage{
-		Type:      connector.NotifyMessageStorageType,
+	message := message.NotifyMessage{
+		Type:      message.NotifyMessageStorageType,
 		Url:       storage.config.Url,
 		Hostname:  storage.hostname,
 		Token:     storage.config.User.Token,
 		Platform:  storage.config.Roles.Runner.Platform,
 		Timestamp: time.Now().UnixNano(),
 	}
-	_, err = connector.SendPostRequest(
+	_, err = storage.connector.SendPostRequest(
 		url+utils.FormatTokemizedEndpoint(settings.RouterNotifyEndpoint, token),
 		message,
 	)
 	return err
 }
 
-func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemDirectory {
-	fileSystemDirectory := connector.FilesystemDirectory{
-		Directories: map[string]connector.FileInfo{},
-		Files:       map[string]connector.FileInfo{},
+func (storage *Storage) CollectFileSystem(walkPath string) message.FilesystemDirectory {
+	fileSystemDirectory := message.FilesystemDirectory{
+		Directories: map[string]message.FileInfo{},
+		Files:       map[string]message.FileInfo{},
 	}
 
 	if walkPath == "" {
@@ -72,7 +75,7 @@ func (storage *Storage) CollectFileSystem(walkPath string) connector.FilesystemD
 			size = 1
 		}
 
-		info := connector.FileInfo{
+		info := message.FileInfo{
 			ModTime:  stat.ModTime().Format("02.01.2006 15:04"),
 			Size:     size,
 			Url:      path.Join(storage.config.Url, storage.config.User.Token),

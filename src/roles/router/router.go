@@ -5,6 +5,7 @@ import (
 	"vss/src/config"
 	"vss/src/connector"
 	"vss/src/logger"
+	"vss/src/message"
 	"vss/src/server"
 	"vss/src/settings"
 	"vss/src/utils"
@@ -12,9 +13,10 @@ import (
 
 type Router struct {
 	config    *config.Config
+	connector *connector.Connector
 	server    *server.Server
-	storages  map[string]connector.NotifyMessage
-	runners   map[string]connector.NotifyMessage
+	storages  map[string]message.NotifyMessage
+	runners   map[string]message.NotifyMessage
 	hostnames map[string]string
 }
 
@@ -22,8 +24,8 @@ func New(config *config.Config, server *server.Server) (*Router, error) {
 	router := &Router{
 		config:    config,
 		server:    server,
-		storages:  map[string]connector.NotifyMessage{},
-		runners:   map[string]connector.NotifyMessage{},
+		storages:  map[string]message.NotifyMessage{},
+		runners:   map[string]message.NotifyMessage{},
 		hostnames: map[string]string{},
 	}
 
@@ -58,7 +60,7 @@ func New(config *config.Config, server *server.Server) (*Router, error) {
 	return router, nil
 }
 
-func (router *Router) NotifyRunner(instance connector.NotifyMessage) {
+func (router *Router) NotifyRunner(instance message.NotifyMessage) {
 	// topology := connector.TopologyMessage{
 	// 	Storages: router.storages,
 	// 	Runners:  router.runners,
@@ -72,26 +74,25 @@ func (router *Router) NotifyRunners() {
 	}
 }
 
-func (router *Router) CollectStorageFileSystem(url string, token string, walkPath string) connector.FilesystemDirectory {
+func (router *Router) CollectStorageFileSystem(url string, token string, walkPath string) message.FilesystemDirectory {
 	logger.Debug("[Router] [CollectStorageFileSystem] collect on %s", url+utils.FormatTokemizedEndpoint(settings.StorageFilesystemEndpoint, token))
 
-	result, err := connector.SendGetRequest[connector.FilesystemDirectory](
+	result := &message.FilesystemDirectory{}
+	if err := router.connector.SendGetRequest(
 		url+utils.FormatTokemizedEndpoint(settings.StorageFilesystemEndpoint, token),
 		[]byte(walkPath),
-	)
-	if err != nil {
-		return connector.FilesystemDirectory{}
+		result,
+	); err != nil {
+		return message.FilesystemDirectory{}
 	}
-	if result == nil {
-		return connector.FilesystemDirectory{}
-	}
+
 	return *result
 }
 
-func (router *Router) CollectFileSystem(walkPath string) connector.FilesystemDirectory {
-	fileSystemDirectory := connector.FilesystemDirectory{
-		Directories: map[string]connector.FileInfo{},
-		Files:       map[string]connector.FileInfo{},
+func (router *Router) CollectFileSystem(walkPath string) message.FilesystemDirectory {
+	fileSystemDirectory := message.FilesystemDirectory{
+		Directories: map[string]message.FileInfo{},
+		Files:       map[string]message.FileInfo{},
 	}
 
 	for _, storage := range router.storages {

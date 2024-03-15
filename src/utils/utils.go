@@ -2,7 +2,9 @@ package utils
 
 import (
 	"crypto/rand"
+	"crypto/x509"
 	"encoding/hex"
+	"fmt"
 	"io"
 	"os"
 	"path"
@@ -87,4 +89,16 @@ func IfNotNil[T any](object *T, handler func(object *T) error) error {
 		return handler(object)
 	}
 	return nil
+}
+
+func CertificateInfo(cert *x509.Certificate) string {
+	if cert.Subject.CommonName == cert.Issuer.CommonName {
+		return fmt.Sprintf("\tSelf-signed certificate %v\n", cert.Issuer.CommonName)
+	}
+
+	result := fmt.Sprintf("\tSubject %v\n", cert.DNSNames)
+	result += fmt.Sprintf("\tUsage %v\n", cert.ExtKeyUsage)
+	result += fmt.Sprintf("\tIssued by %s\n", cert.Issuer.CommonName)
+	result += fmt.Sprintf("\tIssued by %s\n", cert.Issuer.SerialNumber)
+	return result
 }

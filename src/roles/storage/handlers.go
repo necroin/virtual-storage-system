@@ -6,8 +6,8 @@ import (
 	"io"
 	"net/http"
 	"path"
-	"vss/src/connector"
 	"vss/src/logger"
+	"vss/src/message"
 	"vss/src/roles"
 	"vss/src/utils"
 
@@ -44,7 +44,7 @@ func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, reques
 	vars := mux.Vars(request)
 	handlerType := vars["type"]
 
-	data := &connector.ClientRequest{}
+	data := &message.ClientRequest{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		return
@@ -104,7 +104,7 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 	vars := mux.Vars(request)
 	handlerType := vars["type"]
 
-	copyRequest := &connector.CopyRequest{}
+	copyRequest := &message.CopyRequest{}
 	copyRequest.NewPath = utils.HandleFilesystemPath(copyRequest.NewPath)
 	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
 
@@ -119,7 +119,7 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 		copyRequest.NewPath = path.Dir(copyRequest.NewPath)
 	}
 
-	response, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
+	response, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed send request: %s", err)
@@ -140,7 +140,7 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 	vars := mux.Vars(request)
 	handlerType := vars["type"]
 
-	copyRequest := &connector.CopyRequest{}
+	copyRequest := &message.CopyRequest{}
 	copyRequest.NewPath = utils.HandleFilesystemPath(copyRequest.NewPath)
 	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
 
@@ -155,7 +155,7 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 		copyRequest.NewPath = path.Dir(copyRequest.NewPath)
 	}
 
-	selectResponse, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
+	selectResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
@@ -169,7 +169,7 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 		return
 	}
 
-	deleteResponse, err := connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.OldPath)
+	deleteResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.OldPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
@@ -181,7 +181,7 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 }
 
 func RenameHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	data := &connector.RenameRequest{}
+	data := &message.RenameRequest{}
 
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
 		roles.HandlerFailed(responseWriter, err)

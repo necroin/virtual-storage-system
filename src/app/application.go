@@ -1,9 +1,11 @@
 package app
 
 import (
+	"crypto/tls"
 	"fmt"
 	"sync"
 	"vss/src/config"
+	"vss/src/connector"
 	"vss/src/lan/listener"
 	"vss/src/lan/observer"
 	"vss/src/logger"
@@ -28,17 +30,25 @@ type Application struct {
 }
 
 func New(config *config.Config) (*Application, error) {
-	server := server.New(config)
+	certificate, err := tls.LoadX509KeyPair("certificates/vss.crt", "certificates/vss.key")
+	if err != nil {
+		return nil, fmt.Errorf("[Server] failed load certificate: %s", err)
+	}
+	connector, err := connector.NewConnector(&certificate)
+
+	server, err := server.New(config, connector, &certificate)
+	if err != nil {
+		return nil, err
+	}
 
 	server.AddHandler(settings.ServerStatusEndpoint, server.StatusHandler, "GET")
 	server.AddHandler(settings.ServerAuthEndpoint, server.AuthHandler, "GET")
 	server.AddHandler(settings.ServerAuthTokenEndpoint, server.AuthTokenHandler, "POST")
 	server.AddHandler(settings.ServerHomeEndpoint, server.HomeHandler, "GET")
 
-	var err error
 	var storageRole *storage.Storage = nil
 	if config.Roles.Storage.Enable {
-		storageRole, err = storage.New(config)
+		storageRole, err = storage.New(config, connector)
 		if err != nil {
 			return nil, fmt.Errorf("[App] failed create storage role: %s", err)
 		}
@@ -55,7 +65,7 @@ func New(config *config.Config) (*Application, error) {
 
 	var runnerRole *runner.Runner = nil
 	if config.Roles.Runner.Enable {
-		runnerRole, err = runner.New(config)
+		runnerRole, err = runner.New(config, connector)
 		if err != nil {
 			return nil, fmt.Errorf("[App] failed create runner role: %s", err)
 		}

@@ -3,6 +3,7 @@ package server
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -14,32 +15,51 @@ import (
 	"vss/src/connector"
 	"vss/src/logger"
 	"vss/src/settings"
+	"vss/src/utils"
 
 	"github.com/gorilla/mux"
 )
 
 type Server struct {
-	config   *config.Config
-	url      string
-	router   *mux.Router
-	instance *http.Server
+	config    *config.Config
+	router    *mux.Router
+	instance  *http.Server
+	connector *connector.Connector
 }
 
-func New(config *config.Config) *Server {
+func New(config *config.Config, connector *connector.Connector, certificate *tls.Certificate) (*Server, error) {
 	router := mux.NewRouter()
 
-	return &Server{
-		config: config,
-		url:    config.Url,
-		router: router,
-		instance: &http.Server{
-			Addr:    config.Url,
-			Handler: router,
-			TLSConfig: &tls.Config{
-				ServerName: "localhost",
+	instance := &http.Server{
+		Addr:    config.Url,
+		Handler: router,
+		TLSConfig: &tls.Config{
+			ServerName: "vss",
+			GetCertificate: func(chi *tls.ClientHelloInfo) (*tls.Certificate, error) {
+				logger.Debug("[Server] client requested certificate")
+				return certificate, nil
+			},
+			VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
+				if len(verifiedChains) > 0 {
+					logger.Debug("[Server] Verified certificate chain from peer:")
+					for _, certificate := range verifiedChains {
+						for i, cert := range certificate {
+							logger.Debug("[Server] Cert %d:\n", i)
+							logger.Debug(fmt.Sprintf("[Server] %s", utils.CertificateInfo(cert)))
+						}
+					}
+				}
+				return nil
 			},
 		},
 	}
+
+	return &Server{
+		config:    config,
+		router:    router,
+		instance:  instance,
+		connector: connector,
+	}, nil
 }
 
 func (server *Server) Start() {
@@ -61,7 +81,7 @@ func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, 
 
 func (server *Server) WaitStart() error {
 	for i := 0; i < settings.ServerWaitStartRepeatCount; i++ {
-		response, err := connector.SendRequest(server.url+settings.ServerStatusEndpoint, []byte(""), http.MethodGet)
+		response, err := server.connector.SendRequest(server.config.Url+settings.ServerStatusEndpoint, []byte(""), http.MethodGet)
 		if err != nil {
 			logger.Error("[Server] [WaitStart] failed send request: %s", err)
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)

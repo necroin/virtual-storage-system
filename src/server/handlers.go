@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 	"text/template"
-	"vss/src/connector"
 	"vss/src/logger"
+	"vss/src/message"
 	"vss/src/settings"
 
 	"github.com/gorilla/mux"
@@ -15,8 +15,8 @@ func (server *Server) StatusHandler(responseWriter http.ResponseWriter, request 
 	responseWriter.Write([]byte(settings.ServerStatusResponse))
 }
 
-func (server *Server) PageHandler(responseWriter http.ResponseWriter, htmlPage string, pageInfo connector.PageInfo) {
-	pageInfo.Url = server.url
+func (server *Server) PageHandler(responseWriter http.ResponseWriter, htmlPage string, pageInfo message.PageInfo) {
+	pageInfo.Url = server.config.Url
 	pageInfo.BarHomeIcon = settings.BarHomeIcon
 	pageInfo.BarFilesystemIcon = settings.BarFilesystemIcon
 	pageInfo.BarSettingsIcon = settings.BarSettingsIcon
@@ -28,7 +28,7 @@ func (server *Server) AuthHandler(responseWriter http.ResponseWriter, request *h
 	server.PageHandler(
 		responseWriter,
 		settings.GetAuthenticationTemlate(),
-		connector.PageInfo{
+		message.PageInfo{
 			Style:  settings.GetAuthenticationStyle(),
 			Script: settings.GetAuthenticationScript(),
 		},
@@ -36,7 +36,7 @@ func (server *Server) AuthHandler(responseWriter http.ResponseWriter, request *h
 }
 
 func (server *Server) AuthTokenHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	data := &connector.ClientAuth{}
+	data := &message.ClientAuth{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
 		logger.Error("[Server] [AuthTokenHandler] failed decode message: %s", err)
 		return
@@ -67,7 +67,7 @@ func (server *Server) HomeHandler(responseWriter http.ResponseWriter, request *h
 	server.PageHandler(
 		responseWriter,
 		settings.GetHomeTemplate(),
-		connector.PageInfo{
+		message.PageInfo{
 			Style:  settings.GetHomeStyle(),
 			Script: settings.GetHomeScript(),
 			Token:  server.config.User.Token,
