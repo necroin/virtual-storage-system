@@ -27,7 +27,7 @@ type Server struct {
 	connector *connector.Connector
 }
 
-func New(config *config.Config, connector *connector.Connector, certificate *tls.Certificate) (*Server, error) {
+func New(config *config.Config, connector *connector.Connector) (*Server, error) {
 	router := mux.NewRouter()
 
 	instance := &http.Server{
@@ -37,7 +37,7 @@ func New(config *config.Config, connector *connector.Connector, certificate *tls
 			ServerName: "vss",
 			GetCertificate: func(chi *tls.ClientHelloInfo) (*tls.Certificate, error) {
 				logger.Debug("[Server] client requested certificate")
-				return certificate, nil
+				return &config.Certificate, nil
 			},
 			VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
 				if len(verifiedChains) > 0 {
@@ -72,7 +72,7 @@ func (server *Server) Start() {
 		server.instance.Shutdown(ctx)
 	}()
 
-	server.instance.ListenAndServeTLS("certificates/vss.crt", "certificates/vss.key")
+	server.instance.ListenAndServeTLS("", "")
 }
 
 func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), methods ...string) {

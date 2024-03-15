@@ -20,10 +20,11 @@ type Router struct {
 	hostnames map[string]string
 }
 
-func New(config *config.Config, server *server.Server) (*Router, error) {
+func New(config *config.Config, server *server.Server, connector *connector.Connector) (*Router, error) {
 	router := &Router{
 		config:    config,
 		server:    server,
+		connector: connector,
 		storages:  map[string]message.NotifyMessage{},
 		runners:   map[string]message.NotifyMessage{},
 		hostnames: map[string]string{},

@@ -3,17 +3,22 @@ package connector
 import (
 	"bytes"
 	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
+	"fmt"
 	"net/http"
+	"vss/src/config"
+	"vss/src/logger"
+	"vss/src/utils"
 )
 
 type Connector struct {
-	certificate *tls.Certificate
+	config *config.Config
 }
 
-func NewConnector(certificate *tls.Certificate) (*Connector, error) {
+func NewConnector(config *config.Config) (*Connector, error) {
 	return &Connector{
-		certificate: certificate,
+		config: config,
 	}, nil
 }
 
@@ -43,8 +48,20 @@ func (connector *Connector) SendRequest(url string, data []byte, method string) 
 	client := http.Client{
 		Transport: &http.Transport{
 			TLSClientConfig: &tls.Config{
-				ServerName:         "localhost",
-				InsecureSkipVerify: true,
+				RootCAs:    connector.config.RootCAs,
+				ServerName: "vss",
+				VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
+					if len(verifiedChains) > 0 {
+						logger.Debug("[Connector] Verified certificate chain from peer:")
+						for _, certificate := range verifiedChains {
+							for i, cert := range certificate {
+								logger.Debug("[Connector] Cert %d:\n", i)
+								logger.Debug(fmt.Sprintf("[Connector] %s", utils.CertificateInfo(cert)))
+							}
+						}
+					}
+					return nil
+				},
 			},
 		},
 	}

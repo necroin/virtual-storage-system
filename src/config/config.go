@@ -1,7 +1,10 @@
 package config
 
 import (
+	"crypto/tls"
+	"crypto/x509"
 	"flag"
+	"fmt"
 	"runtime"
 	"time"
 	"vss/src/lan"
@@ -41,11 +44,13 @@ type User struct {
 }
 
 type Config struct {
-	Url        string `yaml:"url"`
-	ListenPort string `yaml:"listen_port"`
-	Roles      Roles  `yaml:"roles"`
-	Log        Log    `yaml:"log"`
-	User       User   `yaml:"user"`
+	Url         string `yaml:"url"`
+	ListenPort  string `yaml:"listen_port"`
+	Roles       Roles  `yaml:"roles"`
+	Log         Log    `yaml:"log"`
+	User        User   `yaml:"user"`
+	Certificate tls.Certificate
+	RootCAs     *x509.CertPool
 }
 
 func Load() (*Config, error) {
@@ -65,7 +70,22 @@ func Load() (*Config, error) {
 	password := flag.String("password", settings.DefaultPassword, "authentication password")
 	token := flag.String("token", utils.GenerateSecureToken(10), "security token")
 
+	certificateCrt := flag.String("cert-crt", "certificates/vss.crt", "path to vss.crt")
+	certificateKey := flag.String("cert-key", "certificates/vss.key", "path to vss.key")
+
 	flag.Parse()
+
+	certificate, err := tls.LoadX509KeyPair(*certificateCrt, *certificateKey)
+	if err != nil {
+		return nil, fmt.Errorf("[Config] failed load certificate: %s", err)
+	}
+
+	rootCAs := x509.NewCertPool()
+	certificateAuthority, err := x509.ParseCertificate(certificate.Certificate[0])
+	if err != nil {
+		return nil, fmt.Errorf("[Config] failed parse certificate: %s", err)
+	}
+	rootCAs.AddCert(certificateAuthority)
 
 	config := &Config{
 		Url:        *url,
@@ -92,6 +112,8 @@ func Load() (*Config, error) {
 			Password: *password,
 			Token:    *token,
 		},
+		Certificate: certificate,
+		RootCAs:     rootCAs,
 	}
 
 	return config, nil

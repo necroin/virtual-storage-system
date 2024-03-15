@@ -1,7 +1,6 @@
 package app
 
 import (
-	"crypto/tls"
 	"fmt"
 	"sync"
 	"vss/src/config"
@@ -30,13 +29,12 @@ type Application struct {
 }
 
 func New(config *config.Config) (*Application, error) {
-	certificate, err := tls.LoadX509KeyPair("certificates/vss.crt", "certificates/vss.key")
+	connector, err := connector.NewConnector(config)
 	if err != nil {
-		return nil, fmt.Errorf("[Server] failed load certificate: %s", err)
+		return nil, err
 	}
-	connector, err := connector.NewConnector(&certificate)
 
-	server, err := server.New(config, connector, &certificate)
+	server, err := server.New(config, connector)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +73,7 @@ func New(config *config.Config) (*Application, error) {
 
 	var routerRole *router.Router = nil
 	if config.Roles.Router.Enable {
-		routerRole, err = router.New(config, server)
+		routerRole, err = router.New(config, server, connector)
 		if err != nil {
 			return nil, fmt.Errorf("[App] failed create router role: %s", err)
 		}
