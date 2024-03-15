@@ -1,2 +1,2 @@
 go build -o bin\vss.exe src\main.go
-bin\vss.exe -router -runner -log-enable -log-path="logs/logs.txt" -log-level=debug
+bin\vss.exe -router -runner -log-enable -log-path="logs/logs.txt" -log-level=debug -url=localhost:3301

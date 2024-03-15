@@ -1,0 +1,1 @@
+python -m pytest --disable-pytest-warnings -x -v tests

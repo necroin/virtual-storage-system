@@ -2708,3 +2708,13 @@
 2024/03/09 21:47:59 DEBUG: [Lan Listener] 192.168.0.105:3301
 2024/03/09 21:48:06 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.105:3301/1cffc513e77507d968e7/storage/filesystem
 2024/03/09 21:48:09 DEBUG: [Lan Listener] 192.168.0.105:3301
+2024/03/10 00:58:08 http: TLS handshake error from 127.0.0.1:50962: remote error: tls: unknown certificate
+2024/03/10 00:58:08 http: TLS handshake error from 127.0.0.1:50963: remote error: tls: unknown certificate
+2024/03/10 00:58:09 http: TLS handshake error from 127.0.0.1:50965: remote error: tls: unknown certificate
+2024/03/10 00:58:11 http: TLS handshake error from 127.0.0.1:50969: remote error: tls: unknown certificate
+2024/03/10 00:58:11 http: TLS handshake error from 127.0.0.1:50970: remote error: tls: unknown certificate
+2024/03/10 00:58:11 http: TLS handshake error from 127.0.0.1:50972: remote error: tls: unknown certificate
+2024/03/10 00:58:11 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/1b4eb61ec6e3a75d047e/storage/filesystem
+2024/03/10 00:58:25 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/1b4eb61ec6e3a75d047e/storage/filesystem
+2024/03/10 00:58:27 DEBUG: [Router] [CollectStorageFileSystem] collect on localhost:3301/1b4eb61ec6e3a75d047e/storage/filesystem
+2024/03/10 00:58:52 http: TLS handshake error from 127.0.0.1:50998: remote error: tls: unknown certificate
