@@ -91,14 +91,17 @@ func IfNotNil[T any](object *T, handler func(object *T) error) error {
 	return nil
 }
 
-func CertificateInfo(cert *x509.Certificate) string {
+func CertificateInfo(cert *x509.Certificate) []string {
+	result := []string{}
 	if cert.Subject.CommonName == cert.Issuer.CommonName {
-		return fmt.Sprintf("\tSelf-signed certificate %v\n", cert.Issuer.CommonName)
+		result = append(result, fmt.Sprintf("(Self-signed certificate) %v", cert.Issuer.CommonName))
+		return result
 	}
 
-	result := fmt.Sprintf("\tSubject %v\n", cert.DNSNames)
-	result += fmt.Sprintf("\tUsage %v\n", cert.ExtKeyUsage)
-	result += fmt.Sprintf("\tIssued by %s\n", cert.Issuer.CommonName)
-	result += fmt.Sprintf("\tIssued by %s\n", cert.Issuer.SerialNumber)
+	result = append(result, fmt.Sprintf("(Subject) %v", cert.DNSNames))
+	result = append(result, fmt.Sprintf("(Usage) %v", cert.ExtKeyUsage))
+	result = append(result, fmt.Sprintf("(Issued by) %s", cert.Issuer.CommonName))
+	result = append(result, fmt.Sprintf("(Issued by) %s", cert.Issuer.SerialNumber))
+
 	return result
 }

@@ -1320,3 +1320,220 @@ created by net/http.(*http2serverConn).processHeaders
 2024/03/16 02:11:00 DEBUG: [Connector] 	Self-signed certificate vss
 
 2024/03/16 02:11:00 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/ПРФС_уч_практика.pptx
+2024/03/16 15:01:26 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:26 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:26 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:26 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:26 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:01:26 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:26 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:26 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:26 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:26 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:26 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:26 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:26 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:26 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:26 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:26 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:26 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:26 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:26 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:26 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:26 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:36 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:01:36 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:36 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:36 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:36 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:36 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:36 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:36 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:36 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:36 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:36 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:36 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:36 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:36 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:36 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:36 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:36 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:46 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:01:46 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:46 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:46 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:46 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:46 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:46 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:46 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:46 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:46 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:46 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:46 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:46 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:46 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:46 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:46 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:46 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:51 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:51 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:51 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:51 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:51 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:01:51 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:51 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:51 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:51 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:51 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:51 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:51 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:51 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:51 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:51 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:51 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:51 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:01:51 DEBUG: [Server] client requested certificate
+2024/03/16 15:01:51 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:01:51 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:01:51 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:01 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:02:01 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:01 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:01 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:01 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:01 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:01 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:01 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:01 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:01 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:01 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:01 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:01 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:01 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:01 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:01 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:01 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:11 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:02:11 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:11 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:11 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:11 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:11 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:11 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:11 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:11 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:11 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:11 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:11 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:11 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:11 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:11 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:11 DEBUG: [Connector] Cert 0:
+
+2024/03/16 15:02:11 DEBUG: [Connector] [(Self-signed certificate) vss]
+2024/03/16 15:02:22 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:22 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:22 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:22 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:02:22 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:22 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:22 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:22 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:22 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:22 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:22 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:22 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:22 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:22 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:22 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:22 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:32 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:02:32 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:32 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:32 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:32 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:32 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:32 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:32 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:32 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:32 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:32 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:32 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:32 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:42 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:02:42 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:42 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:42 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:42 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:42 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:42 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:42 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:42 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:42 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:42 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:42 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:42 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:52 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:02:52 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:52 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:52 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:52 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:52 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:52 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:52 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:52 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:52 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:02:52 DEBUG: [Server] client requested certificate
+2024/03/16 15:02:52 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:02:52 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:02 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:03:02 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:02 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:02 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:02 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:02 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:02 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:02 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:02 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:02 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:02 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:02 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:02 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:12 DEBUG: [Lan Listener] 192.168.0.102:3301
+2024/03/16 15:03:12 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:12 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:12 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:12 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:12 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:12 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:12 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:12 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:12 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]
+2024/03/16 15:03:12 DEBUG: [Server] client requested certificate
+2024/03/16 15:03:12 DEBUG: [Connector] Verified certificate chain from peer:
+2024/03/16 15:03:12 DEBUG: [Connector] [Cert 0] [(Self-signed certificate) vss]

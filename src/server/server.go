@@ -44,8 +44,7 @@ func New(config *config.Config, connector *connector.Connector) (*Server, error)
 					logger.Debug("[Server] Verified certificate chain from peer:")
 					for _, certificate := range verifiedChains {
 						for i, cert := range certificate {
-							logger.Debug("[Server] Cert %d:\n", i)
-							logger.Debug(fmt.Sprintf("[Server] %s", utils.CertificateInfo(cert)))
+							logger.Debug(fmt.Sprintf("[Server] [Cert %d] %s", i, utils.CertificateInfo(cert)))
 						}
 					}
 				}

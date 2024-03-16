@@ -55,8 +55,7 @@ func (connector *Connector) SendRequest(url string, data []byte, method string) 
 						logger.Debug("[Connector] Verified certificate chain from peer:")
 						for _, certificate := range verifiedChains {
 							for i, cert := range certificate {
-								logger.Debug("[Connector] Cert %d:\n", i)
-								logger.Debug(fmt.Sprintf("[Connector] %s", utils.CertificateInfo(cert)))
+								logger.Debug(fmt.Sprintf("[Connector] [Cert %d] %s", i, utils.CertificateInfo(cert)))
 							}
 						}
 					}
