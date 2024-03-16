@@ -49,13 +49,13 @@
                 </div>
             </div>
             <button class="bar-symbol-button"
-                onclick="window.Cut(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconCut}}</button>
+                onclick="window.Cut()">{{.IconCut}}</button>
             <button class="bar-symbol-button"
-                onclick="window.Copy(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconCopy}}</button>
+                onclick="window.Copy()">{{.IconCopy}}</button>
             <button class="bar-symbol-button"
-                onclick="window.Paste(location.host+'/{{.Token}}'); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconPaste}}</button>
+                onclick="window.Paste(location.host+'/{{.Token}}')">{{.IconPaste}}</button>
             <button class="bar-symbol-button"
-                onclick="window.Remove(); window.GetFilesystem(location.host+'/{{.Token}}')">{{.IconDelete}}</button>
+                onclick="window.Remove(location.host+'/{{.Token}}')">{{.IconDelete}}</button>
             <div class="dropdown" onclick="window.OpenOptions()" style="border-left: 1px solid white;">
                 <!-- Options button -->
                 <button id="bar-options-button" class="bar-symbol-button" style="margin-left: 10px;">
@@ -64,7 +64,7 @@
                 <div id="options" class="dropdown-content">
                     <button onclick="window.OpenDialog('rename-dialog', 'rename-dialog-overlay')">Переименовать</button>
                     <button
-                        onclick="window.Remove(); window.GetFilesystem(location.host+'/{{.Token}}')">Удалить</button>
+                        onclick="window.Remove(location.host+'/{{.Token}}')">Удалить</button>
                 </div>
             </div>
             <div id="rename-dialog-overlay" class="dialog-overlay">
@@ -74,7 +74,7 @@
                     <div class="dialog-buttons">
                         <button onclick="window.CloseDialog('rename-dialog', 'rename-dialog-overlay')">Отменить</button>
                         <button
-                            onclick="window.Rename(); window.GetFilesystem(location.host+'/{{.Token}}')">Изменить</button>
+                            onclick="window.Rename(location.host+'/{{.Token}}')">Изменить</button>
                     </div>
                 </div>
             </div>

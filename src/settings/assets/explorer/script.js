@@ -19,6 +19,17 @@ window.onclick = function (event) {
     remove_dropdown(event, "bar-options-button", "options")
 }
 
+function async_request(methood, url, data, callback) {
+    var req = new XMLHttpRequest();
+    req.onload = () => {
+        if (req.readyState === XMLHttpRequest.DONE) {
+            callback(req.responseText)
+        }
+    }
+    req.open(methood, url, true);
+    req.send(data);
+}
+
 function request(methood, url, data) {
     var req = new XMLHttpRequest();
     req.open(methood, url, false);
@@ -38,7 +49,7 @@ function GetRequestUrl(routerUrl) {
 }
 
 function GetRequestRole() {
-    if ( window.__context__.storageUrl != null) {
+    if (window.__context__.storageUrl != null) {
         return "/storage"
     }
     return "/router"
@@ -59,137 +70,141 @@ function GetFilesystem(routerUrl, path) {
         SetCurrentPath(path)
     }
     path = GetCurrentPath()
-    let filesystemResponse = request("POST", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/filesystem", path)
-    let filesystem = JSON.parse(filesystemResponse)
+    callback = (responseText) => {
+        let filesystem = JSON.parse(responseText)
 
-    let filesystemTable = document.getElementById("explorer-filesystem-content-body")
-    filesystemTable.replaceChildren()
-    filesystemTable.focusItem = null
+        let filesystemTable = document.getElementById("explorer-filesystem-content-body")
+        filesystemTable.replaceChildren()
+        filesystemTable.focusItem = null
 
-    let directories = filesystem.directories
-    for (let directory in directories) {
-        let info = directories[directory]
+        let directories = filesystem.directories
+        for (let directory in directories) {
+            let info = directories[directory]
 
-        let tableRow = document.createElement("tr")
-        tableRow.tabIndex = String(rowsCount)
-        tableRow.__custom__ = {}
-        tableRow.__custom__["name"] = directory
-        tableRow.__custom__["type"] = "dir"
+            let tableRow = document.createElement("tr")
+            tableRow.tabIndex = String(rowsCount)
+            tableRow.__custom__ = {}
+            tableRow.__custom__["name"] = directory
+            tableRow.__custom__["type"] = "dir"
 
-        let storageUrl = info["url"]
-        let storageUrlParse = new URL("https://" + storageUrl)
-        if (storageUrlParse.hostname == "localhost") {
-            storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
+            let storageUrl = info["url"]
+            let storageUrlParse = new URL("https://" + storageUrl)
+            if (storageUrlParse.hostname == "localhost") {
+                storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
+            }
+            tableRow.__custom__["storageUrl"] = storageUrl
+
+            let nameElement = document.createElement("td")
+            let dateElement = document.createElement("td")
+            let typeElement = document.createElement("td")
+            let sizeElement = document.createElement("td")
+
+            nameElement.innerText = "📁 " + directory
+            dateElement.innerText = info["mod_time"]
+            typeElement.innerText = "Папка с файлами"
+            sizeElement.innerText = ""
+
+            tableRow.appendChild(nameElement)
+            tableRow.appendChild(dateElement)
+            tableRow.appendChild(typeElement)
+            tableRow.appendChild(sizeElement)
+
+            let openPath = "/" + directory
+            if (path == "/") {
+                openPath = directory
+            }
+            openPath = path + openPath
+
+            tableRow.ondblclick = () => GetFilesystem(GetRequestUrl(routerUrl), openPath)
+
+            filesystemTable.appendChild(tableRow)
+
+            rowsCount = rowsCount + 1
         }
-        tableRow.__custom__["storageUrl"] = storageUrl
 
-        let nameElement = document.createElement("td")
-        let dateElement = document.createElement("td")
-        let typeElement = document.createElement("td")
-        let sizeElement = document.createElement("td")
+        let files = filesystem.files
+        for (let file in files) {
+            let info = files[file]
 
-        nameElement.innerText = "📁 " + directory
-        dateElement.innerText = info["mod_time"]
-        typeElement.innerText = "Папка с файлами"
-        sizeElement.innerText = ""
+            let tableRow = document.createElement("tr")
+            tableRow.tabIndex = String(rowsCount)
+            tableRow.__custom__ = {}
+            tableRow.__custom__["name"] = file
+            tableRow.__custom__["type"] = "file"
 
-        tableRow.appendChild(nameElement)
-        tableRow.appendChild(dateElement)
-        tableRow.appendChild(typeElement)
-        tableRow.appendChild(sizeElement)
+            let storageUrl = info["url"]
+            let storageUrlParse = new URL("https://" + storageUrl)
+            if (storageUrlParse.hostname == "localhost") {
+                storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
+            }
+            tableRow.__custom__["storageUrl"] = storageUrl
 
-        let openPath = "/" + directory
-        if (path == "/") {
-            openPath = directory
+            tableRow.__custom__["platform"] = info["platform"]
+
+            let nameElement = document.createElement("td")
+            let dateElement = document.createElement("td")
+            let typeElement = document.createElement("td")
+            let sizeElement = document.createElement("td")
+
+            nameElement.innerText = file
+            dateElement.innerText = info["mod_time"]
+            typeElement.innerText = "Файл"
+            sizeElement.innerText = info["size"] + " КБ"
+
+            tableRow.appendChild(nameElement)
+            tableRow.appendChild(dateElement)
+            tableRow.appendChild(typeElement)
+            tableRow.appendChild(sizeElement)
+
+            tableRow.ondblclick = () => OpenFile(routerUrl, tableRow)
+
+            filesystemTable.appendChild(tableRow)
+
+            rowsCount = rowsCount + 1
         }
-        openPath = path + openPath
-
-        tableRow.ondblclick = () => GetFilesystem(GetRequestUrl(routerUrl), openPath)
-
-        filesystemTable.appendChild(tableRow)
-
-        rowsCount = rowsCount + 1
     }
-
-    let files = filesystem.files
-    for (let file in files) {
-        let info = files[file]
-
-        let tableRow = document.createElement("tr")
-        tableRow.tabIndex = String(rowsCount)
-        tableRow.__custom__ = {}
-        tableRow.__custom__["name"] = file
-        tableRow.__custom__["type"] = "file"
-        
-        let storageUrl = info["url"]
-        let storageUrlParse = new URL("https://" + storageUrl)
-        if (storageUrlParse.hostname == "localhost") {
-            storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
-        }
-        tableRow.__custom__["storageUrl"] = storageUrl
-
-        tableRow.__custom__["platform"] = info["platform"]
-
-        let nameElement = document.createElement("td")
-        let dateElement = document.createElement("td")
-        let typeElement = document.createElement("td")
-        let sizeElement = document.createElement("td")
-
-        nameElement.innerText = file
-        dateElement.innerText = info["mod_time"]
-        typeElement.innerText = "Файл"
-        sizeElement.innerText = info["size"] + " КБ"
-
-        tableRow.appendChild(nameElement)
-        tableRow.appendChild(dateElement)
-        tableRow.appendChild(typeElement)
-        tableRow.appendChild(sizeElement)
-
-        tableRow.ondblclick = () => OpenFile(routerUrl, tableRow)
-
-        filesystemTable.appendChild(tableRow)
-
-        rowsCount = rowsCount + 1
-    }
+    async_request("POST", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/filesystem", path, callback)
 }
 
 function GetDevices(routerUrl) {
-    let devicesResponse = request("GET", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/devices")
-    let devices = JSON.parse(devicesResponse)
+    callback = (devicesResponse) => {
+        let devices = JSON.parse(devicesResponse)
 
-    let devicesList = document.getElementById("devices")
-    devicesList.replaceChildren()
-    let allDevicesElement = document.createElement("span")
-    allDevicesElement.innerText = "Все"
-    allDevicesElement.onclick = () => {
-        SetStorage(null)
-        GetFilesystem(routerUrl)
-    }
-    devicesList.appendChild(allDevicesElement)
-
-    let createOptions = document.getElementById("create-storage-select")
-
-    for (let device in devices) {
-        let deviceUrl = devices[device]
-        let deviceUrlParse = new URL("https://" + deviceUrl)
-        if (deviceUrlParse.hostname == "localhost") {
-            deviceUrl = [location.host, deviceUrlParse.pathname.split("/")[1]].join("/")
-        }
-
-        let deviceElement = document.createElement("span")
-        deviceElement.innerText = device
-        deviceElement.onclick = () => {
-            SetStorage(deviceUrl)
+        let devicesList = document.getElementById("devices")
+        devicesList.replaceChildren()
+        let allDevicesElement = document.createElement("span")
+        allDevicesElement.innerText = "Все"
+        allDevicesElement.onclick = () => {
+            SetStorage(null)
             GetFilesystem(routerUrl)
         }
-        devicesList.appendChild(deviceElement)
+        devicesList.appendChild(allDevicesElement)
 
-        let createOptionDeviceElement = document.createElement("option")
-        createOptionDeviceElement.innerText = device
-        createOptionDeviceElement.__custom__ = {}
-        createOptionDeviceElement.__custom__.storageUrl = deviceUrl
-        createOptions.appendChild(createOptionDeviceElement)
+        let createOptions = document.getElementById("create-storage-select")
+
+        for (let device in devices) {
+            let deviceUrl = devices[device]
+            let deviceUrlParse = new URL("https://" + deviceUrl)
+            if (deviceUrlParse.hostname == "localhost") {
+                deviceUrl = [location.host, deviceUrlParse.pathname.split("/")[1]].join("/")
+            }
+
+            let deviceElement = document.createElement("span")
+            deviceElement.innerText = device
+            deviceElement.onclick = () => {
+                SetStorage(deviceUrl)
+                GetFilesystem(routerUrl)
+            }
+            devicesList.appendChild(deviceElement)
+
+            let createOptionDeviceElement = document.createElement("option")
+            createOptionDeviceElement.innerText = device
+            createOptionDeviceElement.__custom__ = {}
+            createOptionDeviceElement.__custom__.storageUrl = deviceUrl
+            createOptions.appendChild(createOptionDeviceElement)
+        }
     }
+    async_request("GET", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/devices", null, callback)
 }
 
 function Back(url) {
@@ -252,7 +267,7 @@ function Create(type) {
     UpdateStatusBar(response)
 }
 
-function Remove() {
+function Remove(routerUrl) {
     let focusItem = GetFocusItem()
     if (focusItem != null) {
         let focusItemName = focusItem.__custom__.name
@@ -261,12 +276,19 @@ function Remove() {
         if (GetCurrentPath() == "/") {
             path = "/" + focusItemName
         }
-        let response = request("POST", "https://" + focusItemStorageUrl + "/storage/delete", path);
-        UpdateStatusBar(response)
+        async_request(
+            "POST",
+            "https://" + focusItemStorageUrl + "/storage/delete",
+            path,
+            (response) => {
+                GetFilesystem(routerUrl)
+                UpdateStatusBar(response)
+            }
+        );
     }
 }
 
-function Rename() {
+function Rename(routerUrl) {
     let focusItem = GetFocusItem()
     if (focusItem != null) {
         let focusItemStorageUrl = focusItem.__custom__.storageUrl
@@ -277,8 +299,15 @@ function Rename() {
             "old_name": oldName,
             "new_name": newName
         })
-        let response = request("POST", "https://" + focusItemStorageUrl + "/storage/rename", data);
-        UpdateStatusBar(response)
+        async_request(
+            "POST",
+            "https://" + focusItemStorageUrl + "/storage/rename",
+            data,
+            (response) => {
+                GetFilesystem(routerUrl)
+                UpdateStatusBar(response)
+            }
+        );
         CloseDialog('rename-dialog', 'rename-dialog-overlay')
     }
 }
@@ -309,26 +338,31 @@ function Paste(routerUrl) {
     let pasteData = window.__context__.paste
     let pasteEndpoint = window.__context__.paste_endpoint
     let pasteType = window.__context__.paste.type
-    let response = request("POST",
+    async_request("POST",
         "https://" + GetRequestUrl(routerUrl) + pasteEndpoint + pasteType,
         JSON.stringify({
             old_path: [pasteData.path, pasteData.name].join("/"),
             new_path: [GetCurrentPath(), pasteData.name].join("/"),
             src_url: pasteData.url
-        })
+        }),
+        (response) => {
+            GetFilesystem(routerUrl)
+            UpdateStatusBar(response)
+        }
     );
-    UpdateStatusBar(response)
 }
 
 function OpenFile(routerUrl, item) {
-    let response = request("POST",
+    async_request("POST",
         "https://" + routerUrl + "/router/open",
         JSON.stringify({
             platform: item.__custom__["platform"],
             path: [GetCurrentPath(), item.__custom__["name"]].join("/"),
             src_url: item.__custom__["storageUrl"],
             type: item.__custom__["type"]
-        })
+        }),
+        (response) => {
+            UpdateStatusBar(response)
+        }
     );
-    UpdateStatusBar(response)
 }
