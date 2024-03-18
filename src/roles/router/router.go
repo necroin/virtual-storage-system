@@ -93,7 +93,7 @@ func (router *Router) CollectStorageFileSystem(url string, token string, walkPat
 func (router *Router) CollectFileSystem(walkPath string) message.FilesystemDirectory {
 	fileSystemDirectory := message.FilesystemDirectory{
 		Directories: map[string]message.FileInfo{},
-		Files:       map[string]message.FileInfo{},
+		Files:       map[string][]message.FileInfo{},
 	}
 
 	for _, storage := range router.storages {
@@ -107,7 +107,7 @@ func (router *Router) CollectFileSystem(walkPath string) message.FilesystemDirec
 		}
 
 		for file, info := range storageFilesystem.Files {
-			fileSystemDirectory.Files[file] = info
+			fileSystemDirectory.Files[file] = append(fileSystemDirectory.Files[file], info...)
 		}
 	}
 	return fileSystemDirectory

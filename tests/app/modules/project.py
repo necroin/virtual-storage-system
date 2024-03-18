@@ -14,7 +14,7 @@ class Project:
         self.server: Server = Server(self.url)
 
         self.process = subprocess.Popen(
-            "make.bat",
+            "make.bat -url=localhost:3301",
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
         )

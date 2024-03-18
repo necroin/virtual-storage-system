@@ -2,7 +2,7 @@ package roles
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"vss/src/connector"
 	"vss/src/message"
@@ -16,7 +16,7 @@ type Role interface {
 }
 
 func FilesystemHandler(role Role, responseWriter http.ResponseWriter, request *http.Request) {
-	msgPath, _ := ioutil.ReadAll(request.Body)
+	msgPath, _ := io.ReadAll(request.Body)
 
 	fileSystemMessage := role.CollectFileSystem(string(msgPath))
 	json.NewEncoder(responseWriter).Encode(fileSystemMessage)
@@ -37,7 +37,7 @@ func GetRouterToken(connector *connector.Connector, url string, username string,
 	if err != nil {
 		return "", err
 	}
-	tokenData, err := ioutil.ReadAll(response.Body)
+	tokenData, err := io.ReadAll(response.Body)
 	if err != nil {
 		return "", err
 	}

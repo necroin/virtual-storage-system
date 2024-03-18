@@ -52,7 +52,7 @@ func (storage *Storage) NotifyRouter(url string) error {
 func (storage *Storage) CollectFileSystem(walkPath string) message.FilesystemDirectory {
 	fileSystemDirectory := message.FilesystemDirectory{
 		Directories: map[string]message.FileInfo{},
-		Files:       map[string]message.FileInfo{},
+		Files:       map[string][]message.FileInfo{},
 	}
 
 	if walkPath == "" {
@@ -80,12 +80,13 @@ func (storage *Storage) CollectFileSystem(walkPath string) message.FilesystemDir
 			Size:     size,
 			Url:      path.Join(storage.config.Url, storage.config.User.Token),
 			Platform: storage.config.Roles.Runner.Platform,
+			Hostname: storage.hostname,
 		}
 
 		if entry.IsDir() {
 			fileSystemDirectory.Directories[entry.Name()] = info
 		} else {
-			fileSystemDirectory.Files[entry.Name()] = info
+			fileSystemDirectory.Files[entry.Name()] = append(fileSystemDirectory.Files[entry.Name()], info)
 		}
 	}
 

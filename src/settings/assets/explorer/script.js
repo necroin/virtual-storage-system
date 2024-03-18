@@ -95,6 +95,7 @@ function GetFilesystem(routerUrl, path) {
             tableRow.__custom__["storageUrl"] = storageUrl
 
             let nameElement = document.createElement("td")
+            let storageElement = document.createElement("td")
             let dateElement = document.createElement("td")
             let typeElement = document.createElement("td")
             let sizeElement = document.createElement("td")
@@ -105,6 +106,7 @@ function GetFilesystem(routerUrl, path) {
             sizeElement.innerText = ""
 
             tableRow.appendChild(nameElement)
+            tableRow.appendChild(storageElement)
             tableRow.appendChild(dateElement)
             tableRow.appendChild(typeElement)
             tableRow.appendChild(sizeElement)
@@ -124,43 +126,49 @@ function GetFilesystem(routerUrl, path) {
 
         let files = filesystem.files
         for (let file in files) {
-            let info = files[file]
+            let infos = files[file]
+            for (infoIndex in infos) {
+                let info = infos[infoIndex]
 
-            let tableRow = document.createElement("tr")
-            tableRow.tabIndex = String(rowsCount)
-            tableRow.__custom__ = {}
-            tableRow.__custom__["name"] = file
-            tableRow.__custom__["type"] = "file"
+                let tableRow = document.createElement("tr")
+                tableRow.tabIndex = String(rowsCount)
+                tableRow.__custom__ = {}
+                tableRow.__custom__["name"] = file
+                tableRow.__custom__["type"] = "file"
 
-            let storageUrl = info["url"]
-            let storageUrlParse = new URL("https://" + storageUrl)
-            if (storageUrlParse.hostname == "localhost") {
-                storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
+                let storageUrl = info["url"]
+                let storageUrlParse = new URL("https://" + storageUrl)
+                if (storageUrlParse.hostname == "localhost") {
+                    storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
+                }
+                tableRow.__custom__["storageUrl"] = storageUrl
+
+                tableRow.__custom__["platform"] = info["platform"]
+
+                let nameElement = document.createElement("td")
+                let storageElement = document.createElement("td")
+                let dateElement = document.createElement("td")
+                let typeElement = document.createElement("td")
+                let sizeElement = document.createElement("td")
+
+                nameElement.innerText = file
+                storageElement.innerText = info["hostname"]
+                dateElement.innerText = info["mod_time"]
+                typeElement.innerText = "Файл"
+                sizeElement.innerText = info["size"] + " КБ"
+
+                tableRow.appendChild(nameElement)
+                tableRow.appendChild(storageElement)
+                tableRow.appendChild(dateElement)
+                tableRow.appendChild(typeElement)
+                tableRow.appendChild(sizeElement)
+
+                tableRow.ondblclick = () => OpenFile(routerUrl, tableRow)
+
+                filesystemTable.appendChild(tableRow)
+
+                rowsCount = rowsCount + 1
             }
-            tableRow.__custom__["storageUrl"] = storageUrl
-
-            tableRow.__custom__["platform"] = info["platform"]
-
-            let nameElement = document.createElement("td")
-            let dateElement = document.createElement("td")
-            let typeElement = document.createElement("td")
-            let sizeElement = document.createElement("td")
-
-            nameElement.innerText = file
-            dateElement.innerText = info["mod_time"]
-            typeElement.innerText = "Файл"
-            sizeElement.innerText = info["size"] + " КБ"
-
-            tableRow.appendChild(nameElement)
-            tableRow.appendChild(dateElement)
-            tableRow.appendChild(typeElement)
-            tableRow.appendChild(sizeElement)
-
-            tableRow.ondblclick = () => OpenFile(routerUrl, tableRow)
-
-            filesystemTable.appendChild(tableRow)
-
-            rowsCount = rowsCount + 1
         }
     }
     async_request("POST", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/filesystem", path, callback)

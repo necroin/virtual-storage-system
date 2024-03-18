@@ -42,11 +42,12 @@ type FileInfo struct {
 	Size     int64  `json:"size"`
 	Url      string `json:"url"`
 	Platform string `json:"platform"`
+	Hostname string `json:"hostname"`
 }
 
 type FilesystemDirectory struct {
-	Directories map[string]FileInfo `json:"directories"`
-	Files       map[string]FileInfo `json:"files"`
+	Directories map[string]FileInfo   `json:"directories"`
+	Files       map[string][]FileInfo `json:"files"`
 }
 
 type ClientRequest struct {
