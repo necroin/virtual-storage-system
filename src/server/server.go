@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"os/signal"
@@ -86,7 +86,7 @@ func (server *Server) WaitStart() error {
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)
 			continue
 		}
-		data, err := ioutil.ReadAll(response.Body)
+		data, err := io.ReadAll(response.Body)
 		if err != nil {
 			logger.Error("[Server] [WaitStart] failed read response data: %s", err)
 			time.Sleep(settings.ServerWaitStartSleepSeconds * time.Second)

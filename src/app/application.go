@@ -43,6 +43,7 @@ func New(config *config.Config) (*Application, error) {
 	server.AddHandler(settings.ServerAuthEndpoint, server.AuthHandler, "GET")
 	server.AddHandler(settings.ServerAuthTokenEndpoint, server.AuthTokenHandler, "POST")
 	server.AddHandler(settings.ServerHomeEndpoint, server.HomeHandler, "GET")
+	server.AddHandler(settings.ServerSettingsEndpoint, server.SettingsHandler, "GET")
 
 	var storageRole *storage.Storage = nil
 	if config.Roles.Storage.Enable {
@@ -86,7 +87,6 @@ func New(config *config.Config) (*Application, error) {
 		server.AddHandler(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
 
 		server.AddHandler(settings.RouterOpenEndpoint, server.TokenizedHandler(routerRole.OpenFileHandler), "POST")
-
 	}
 
 	metricsRegistry := metrics.NewRegistry()

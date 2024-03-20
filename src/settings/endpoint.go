@@ -6,6 +6,7 @@ const (
 	ServerAuthEndpoint      = "/auth"
 	ServerAuthTokenEndpoint = "/auth/token"
 	ServerHomeEndpoint      = "/{token}/home"
+	ServerSettingsEndpoint  = "/{token}/settings"
 )
 
 const (

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{.Style}}
+    {{.Script}}
+    <title>VSS</title>
+</head>
+
+<body onload="window.GetSettings(location.host+'/{{.Token}}')">
+    <div id="global-bar">
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/home'">
+            {{.BarHomeIcon}}
+        </button>
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/router/explorer'">
+            {{.BarFilesystemIcon}}
+        </button>
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/settings'"
+            style="background-color: rgb(90, 90, 90);">
+            {{.BarSettingsIcon}}
+        </button>
+    </div>
+    <div id="main-area">
+        <span id="headline">Settings</span>
+        <div id="settings">
+            <div id="settings-item">
+                <span class="settings-item-headline">Filters</span>
+                <div>
+                    
+                </div>
+            </div>
+            <div id="settings-item">
+                <span class="settings-item-headline">Replication</span>
+            </div>
+        </div>
+    </div>
+</body>

@@ -66,10 +66,22 @@ func (server *Server) TokenizedHandler(handler func(http.ResponseWriter, *http.R
 func (server *Server) HomeHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	server.PageHandler(
 		responseWriter,
-		settings.GetHomeTemplate(),
+		settings.GetHomePage(),
 		message.PageInfo{
-			Style:  settings.GetHomeStyle(),
-			Script: settings.GetHomeScript(),
+			Style:  settings.GetHomePageStyle(),
+			Script: settings.GetHomePageScript(),
+			Token:  server.config.User.Token,
+		},
+	)
+}
+
+func (server *Server) SettingsHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	server.PageHandler(
+		responseWriter,
+		settings.GetSettingsPage(),
+		message.PageInfo{
+			Style:  settings.GetSettingsPageStyle(),
+			Script: settings.GetSettingsPageScript(),
 			Token:  server.config.User.Token,
 		},
 	)

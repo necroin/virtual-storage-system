@@ -1,0 +1,81 @@
+:root {
+    --backgroud-color: rgb(30, 30, 30);
+    --elements-bg-color: rgba(60, 60, 60, 1);
+    --focus-bg-color: rgba(90, 90, 90, 1);
+    --default-color: white;
+    --default-height: 30px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--backgroud-color);
+    color: var(--elements-bg-color);
+}
+
+::-webkit-scrollbar {
+    background-color: var(--backgroud-color);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+#global-bar {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    background-color: rgb(45, 45, 45);
+    border-right: 5px solid gray;
+    gap: 10px;
+    height: 100vh;
+}
+
+#global-bar button {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: rgb(45, 45, 45);
+    padding: 10px;
+}
+
+#global-bar button:hover {
+    background-color: var(--elements-bg-color);
+}
+
+#main-area {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#headline{
+    font-size: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: white;
+    border-bottom: 1px gray solid;
+}
+
+.settings-item-headline {
+    font-size: xx-large;
+    color: white;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    padding: 10px;
+    gap: 10px;
+}

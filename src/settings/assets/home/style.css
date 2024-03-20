@@ -53,6 +53,11 @@ body {
     background-color: var(--elements-bg-color);
 }
 
+#main-area{
+    display: flex;
+    flex-direction: row;
+}
+
 .topology-list{
     color: white;
     margin: 10px;
@@ -68,9 +73,6 @@ body {
     border: 2px solid gray;
     padding: 10px;
     gap: 10px;
-}
-
-.list .list-item{
 }
 
 .list .list-item span{

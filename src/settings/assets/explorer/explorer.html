@@ -12,12 +12,16 @@
 <body
     onload="window.Init(); window.GetFilesystem(location.host+'/{{.Token}}'); window.GetDevices(location.host+'/{{.Token}}')">
     <div id="global-bar">
-        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/home'">{{.BarHomeIcon}}</button>
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/home'">
+            {{.BarHomeIcon}}
+        </button>
         <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/router/explorer'"
             style="background-color: rgb(90, 90, 90);">
             {{.BarFilesystemIcon}}
         </button>
-        <button>{{.BarSettingsIcon}}</button>
+        <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/settings'">
+            {{.BarSettingsIcon}}
+        </button>
     </div>
     <div id="main-area">
         <div id="bar">
@@ -48,10 +52,8 @@
                     </div>
                 </div>
             </div>
-            <button class="bar-symbol-button"
-                onclick="window.Cut()">{{.IconCut}}</button>
-            <button class="bar-symbol-button"
-                onclick="window.Copy()">{{.IconCopy}}</button>
+            <button class="bar-symbol-button" onclick="window.Cut()">{{.IconCut}}</button>
+            <button class="bar-symbol-button" onclick="window.Copy()">{{.IconCopy}}</button>
             <button class="bar-symbol-button"
                 onclick="window.Paste(location.host+'/{{.Token}}')">{{.IconPaste}}</button>
             <button class="bar-symbol-button"
@@ -63,8 +65,7 @@
                 </button>
                 <div id="options" class="dropdown-content">
                     <button onclick="window.OpenDialog('rename-dialog', 'rename-dialog-overlay')">Переименовать</button>
-                    <button
-                        onclick="window.Remove(location.host+'/{{.Token}}')">Удалить</button>
+                    <button onclick="window.Remove(location.host+'/{{.Token}}')">Удалить</button>
                 </div>
             </div>
             <div id="rename-dialog-overlay" class="dialog-overlay">
@@ -73,8 +74,7 @@
                     <input id="rename-dialog-name" type="text"></input>
                     <div class="dialog-buttons">
                         <button onclick="window.CloseDialog('rename-dialog', 'rename-dialog-overlay')">Отменить</button>
-                        <button
-                            onclick="window.Rename(location.host+'/{{.Token}}')">Изменить</button>
+                        <button onclick="window.Rename(location.host+'/{{.Token}}')">Изменить</button>
                     </div>
                 </div>
             </div>

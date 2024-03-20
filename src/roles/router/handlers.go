@@ -55,8 +55,8 @@ func (router *Router) ExplorerHandler(responseWriter http.ResponseWriter, reques
 	pageInfo := message.PageInfo{
 		Url:               router.GetUrl(),
 		Token:             router.config.User.Token,
-		Style:             settings.GetExplorerStyle(),
-		Script:            settings.GetExplorerScript(),
+		Style:             settings.GetExplorerPageStyle(),
+		Script:            settings.GetExplorerPageScript(),
 		IconCreate:        settings.ExplorerIconCreate,
 		IconCut:           settings.ExplorerIconCut,
 		IconCopy:          settings.ExplorerIconCopy,
