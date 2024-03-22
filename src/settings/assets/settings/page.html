@@ -9,7 +9,7 @@
     <title>VSS</title>
 </head>
 
-<body onload="window.GetSettings(location.host+'/{{.Token}}')">
+<body onload="window.Init(); window.GetSettings(location.host+'/{{.Token}}')">
     <div id="global-bar">
         <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/home'">
             {{.BarHomeIcon}}
@@ -25,13 +25,17 @@
     <div id="main-area">
         <span id="headline">Settings</span>
         <div id="settings">
-            <div id="settings-item">
-                <span class="settings-item-headline">Filters</span>
+            <div class="settings-item">
+                <span class="settings-item-headline">Filters
+                    <button id="settings-filters-list-button" onclick="window.SwapFiltersListType(this)"></button>
+                </span>
                 <div>
-                    
+                    <input id="settings-filters-input" type="text">
+                    <button onclick="window.AddFiler(document.getElementById('settings-filters-input').value)">Добавить</button>
                 </div>
+                <div id="settings-filters-list" class="list"></div>
             </div>
-            <div id="settings-item">
+            <div class="settings-item">
                 <span class="settings-item-headline">Replication</span>
             </div>
         </div>
