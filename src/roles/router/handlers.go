@@ -115,3 +115,15 @@ func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, reques
 	}
 	roles.HandlerSuccess(responseWriter, "Нет возможности запустить/открыть файл")
 }
+
+func (router *Router) FiltersGetHandler(responseWriter http.ResponseWriter, request *http.Request) {
+
+}
+
+func (router *Router) FiltersAddHandler(responseWriter http.ResponseWriter, request *http.Request) {
+
+}
+
+func (router *Router) FiltersRemoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
+
+}

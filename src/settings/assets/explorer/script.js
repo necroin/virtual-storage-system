@@ -102,7 +102,7 @@ function GetFilesystem(routerUrl, path) {
 
             nameElement.innerText = "📁 " + directory
             dateElement.innerText = info["mod_time"]
-            typeElement.innerText = "Папка с файлами"
+            typeElement.innerText = "Directory"
             sizeElement.innerText = ""
 
             tableRow.appendChild(nameElement)
@@ -154,8 +154,8 @@ function GetFilesystem(routerUrl, path) {
                 nameElement.innerText = file
                 storageElement.innerText = info["hostname"]
                 dateElement.innerText = info["mod_time"]
-                typeElement.innerText = "Файл"
-                sizeElement.innerText = info["size"] + " КБ"
+                typeElement.innerText = "File"
+                sizeElement.innerText = info["size"] + " KB"
 
                 tableRow.appendChild(nameElement)
                 tableRow.appendChild(storageElement)
@@ -181,7 +181,7 @@ function GetDevices(routerUrl) {
         let devicesList = document.getElementById("devices")
         devicesList.replaceChildren()
         let allDevicesElement = document.createElement("span")
-        allDevicesElement.innerText = "Все"
+        allDevicesElement.innerText = "All"
         allDevicesElement.onclick = () => {
             SetStorage(null)
             GetFilesystem(routerUrl)

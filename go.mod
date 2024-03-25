@@ -8,3 +8,5 @@ require (
 )
 
 require github.com/necroin/golibs v0.0.0-20230926094109-05353db26fe2
+
+require gopkg.in/ini.v1 v1.67.0 // indirect

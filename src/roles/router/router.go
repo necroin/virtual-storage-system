@@ -1,6 +1,7 @@
 package router
 
 import (
+	"fmt"
 	"time"
 	"vss/src/config"
 	"vss/src/connector"
@@ -9,6 +10,8 @@ import (
 	"vss/src/server"
 	"vss/src/settings"
 	"vss/src/utils"
+
+	"gopkg.in/ini.v1"
 )
 
 type Router struct {
@@ -18,9 +21,15 @@ type Router struct {
 	storages  map[string]message.NotifyMessage
 	runners   map[string]message.NotifyMessage
 	hostnames map[string]string
+	filters   *ini.File
 }
 
 func New(config *config.Config, server *server.Server, connector *connector.Connector) (*Router, error) {
+	filters, err := ini.LooseLoad("filters.ini")
+	if err != nil {
+		return nil, fmt.Errorf("[Router] failed create filters file")
+	}
+
 	router := &Router{
 		config:    config,
 		server:    server,
@@ -28,6 +37,7 @@ func New(config *config.Config, server *server.Server, connector *connector.Conn
 		storages:  map[string]message.NotifyMessage{},
 		runners:   map[string]message.NotifyMessage{},
 		hostnames: map[string]string{},
+		filters:   filters,
 	}
 
 	go func() {

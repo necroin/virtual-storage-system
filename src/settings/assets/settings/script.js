@@ -2,8 +2,8 @@ const filtersBlackListStorageName = "vss-settings-filters-black-list"
 const filtersWhiteListStorageName = "vss-settings-filters-white-list"
 const filtersCurrentListStorageName = "vss-settings-filters-current-list"
 
-const filtersBlackListType = "Чёрный список"
-const filtersWhiteListType = "Белый список"
+const filtersBlackListType = "Black list"
+const filtersWhiteListType = "White list"
 const filtersCurrentListType = "Current List"
 
 function request(methood, url, data) {

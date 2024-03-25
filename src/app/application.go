@@ -87,6 +87,10 @@ func New(config *config.Config) (*Application, error) {
 		server.AddHandler(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
 
 		server.AddHandler(settings.RouterOpenEndpoint, server.TokenizedHandler(routerRole.OpenFileHandler), "POST")
+
+		server.AddHandler(settings.RouterFiltersGetEndpoint, server.TokenizedHandler(routerRole.FiltersGetHandler), "GET")
+		server.AddHandler(settings.RouterFiltersAddEndpoint, server.TokenizedHandler(routerRole.FiltersAddHandler), "POST")
+		server.AddHandler(settings.RouterFiltersRemoveEndpoint, server.TokenizedHandler(routerRole.FiltersRemoveHandler), "POST")
 	}
 
 	metricsRegistry := metrics.NewRegistry()

@@ -23,7 +23,9 @@ input {
     background-color: var(--backgroud-color);
     color: var(--default-color);
     border: 2px gray solid;
-    width: 30%;
+    width: 80%;
+    height: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -83,9 +85,14 @@ button:hover {
 #headline {
     font-size: 50px;
     padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 10px;
     color: white;
     border-bottom: 1px gray solid;
+}
+
+.spacer {
+    flex-grow: 1;
 }
 
 .settings-item {
@@ -127,8 +134,7 @@ button:hover {
     color: var(--default-color);
     border: 1px gray solid;
     border-radius: 30px;
-    min-width: 30%;
-    max-width: 30%;
+    min-width: 80%;
     padding: 10px;
 }
 

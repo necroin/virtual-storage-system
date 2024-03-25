@@ -30,25 +30,25 @@
                 <button id="bar-create-button" class="bar-text-button" onclick="window.OpenCreateOptions()"
                     style="margin-right: 10px;">
                     <div class="pointer-events-none">{{.IconCreate}}</div>
-                    Создать ˇ
+                    Create ˇ
                 </button>
                 <div id="create-options" class="dropdown-content"
                     onclick="window.OpenDialog('create-dialog', 'create-dialog-overlay')">
-                    <button onclick="window.__context__.createOptionsFocus='dir'">Папку</button>
-                    <button onclick="window.__context__.createOptionsFocus='file'">Файл</button>
-                    <button onclick="window.__context__.createOptionsFocus='textFile'">Текстовый файл</button>
+                    <button onclick="window.__context__.createOptionsFocus='dir'">Directory</button>
+                    <button onclick="window.__context__.createOptionsFocus='file'">File</button>
+                    <button onclick="window.__context__.createOptionsFocus='textFile'">Text File</button>
                 </div>
             </div>
             <div id="create-dialog-overlay" class="dialog-overlay">
                 <div id="create-dialog" class="dialog">
-                    <span>Хранилище</span>
+                    <span>Storage</span>
                     <select id="create-storage-select"></select>
-                    <span>Имя</span>
+                    <span>Name</span>
                     <input id="create-dialog-name" type="text"></input>
                     <div class="dialog-buttons">
-                        <button onclick="window.CloseDialog('create-dialog', 'create-dialog-overlay')">Отменить</button>
+                        <button onclick="window.CloseDialog('create-dialog', 'create-dialog-overlay')">Cancel</button>
                         <button
-                            onclick="window.Create(window.__context__.createOptionsFocus); window.GetFilesystem(location.host+'/{{.Token}}')">Создать</button>
+                            onclick="window.Create(window.__context__.createOptionsFocus); window.GetFilesystem(location.host+'/{{.Token}}')">Create</button>
                     </div>
                 </div>
             </div>
@@ -64,17 +64,17 @@
                     <div class="pointer-events-none">{{.IconOptions}}</div>
                 </button>
                 <div id="options" class="dropdown-content">
-                    <button onclick="window.OpenDialog('rename-dialog', 'rename-dialog-overlay')">Переименовать</button>
-                    <button onclick="window.Remove(location.host+'/{{.Token}}')">Удалить</button>
+                    <button onclick="window.OpenDialog('rename-dialog', 'rename-dialog-overlay')">Rename</button>
+                    <button onclick="window.Remove(location.host+'/{{.Token}}')">Delete</button>
                 </div>
             </div>
             <div id="rename-dialog-overlay" class="dialog-overlay">
                 <div id="rename-dialog" class="dialog">
-                    <span>Новое имя</span>
+                    <span>New name</span>
                     <input id="rename-dialog-name" type="text"></input>
                     <div class="dialog-buttons">
-                        <button onclick="window.CloseDialog('rename-dialog', 'rename-dialog-overlay')">Отменить</button>
-                        <button onclick="window.Rename(location.host+'/{{.Token}}')">Изменить</button>
+                        <button onclick="window.CloseDialog('rename-dialog', 'rename-dialog-overlay')">Cancel</button>
+                        <button onclick="window.Rename(location.host+'/{{.Token}}')">Rename</button>
                     </div>
                 </div>
             </div>
@@ -83,18 +83,18 @@
             <button id="explorer-back-button"
                 onclick="window.Back(location.host+'/{{.Token}}')">{{.IconArrowLeft}}</button>
             <input id="explorer-address-line" type="text" value="/">
-            <input id="explorer-find-line" type="text" placeholder="Поиск">
+            <input id="explorer-find-line" type="text" placeholder="Search">
         </div>
         <div id="explorer-content">
             <div id="devices"></div>
             <div id="explorer-filesystem-content-wrap">
                 <table id="explorer-filesystem-content">
                     <thead>
-                        <th style="padding-right: 200px">Имя</th>
-                        <th style="padding-right: 100px">Хранилище</th>
-                        <th style="padding-right: 50px">Дата изменения</th>
-                        <th style="padding-right: 100px">Тип</th>
-                        <th style="padding-right: 100px">Размер</th>
+                        <th style="padding-right: 200px">Name</th>
+                        <th style="padding-right: 100px">Storage</th>
+                        <th style="padding-right: 50px">Change Date</th>
+                        <th style="padding-right: 100px">Type</th>
+                        <th style="padding-right: 100px">Size</th>
                     </thead>
                     <tbody id="explorer-filesystem-content-body"
                         onclick="window.SetFocusItem(this, document.activeElement)"></tbody>
@@ -104,7 +104,7 @@
         <div id="status-bar">
             <div id="status-bar-progress">{{.StatusBarIcon}}</div>
             <div id="status-bar-text">
-                <span>Нет задач</span>
+                <span>No tasks</span>
             </div>
         </div>
     </div>
