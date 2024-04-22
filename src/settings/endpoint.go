@@ -35,4 +35,5 @@ const (
 	RouterFiltersGetEndpoint    = "/{token}/router/filters/get"
 	RouterFiltersAddEndpoint    = "/{token}/router/filters/add"
 	RouterFiltersRemoveEndpoint = "/{token}/router/filters/remove"
+	RouterFiltersSwapEndpoint   = "/{token}/router/filters/swap"
 )

@@ -10,7 +10,7 @@ import (
 )
 
 func TestLan(t *testing.T) {
-	config, _ := config.Load()
+	config, _ := config.LoadConfig()
 	listener := listener.New(config)
 	addrs, err := listener.Start()
 	if err != nil {

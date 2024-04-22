@@ -72,6 +72,7 @@ function GetFilesystem(routerUrl, path) {
     path = GetCurrentPath()
     callback = (responseText) => {
         let filesystem = JSON.parse(responseText)
+        let filters = GetFilers(routerUrl)
 
         let filesystemTable = document.getElementById("explorer-filesystem-content-body")
         filesystemTable.replaceChildren()
@@ -79,6 +80,10 @@ function GetFilesystem(routerUrl, path) {
 
         let directories = filesystem.directories
         for (let directory in directories) {
+            if (!IsPassFilter(filters, path, directory)) {
+                continue
+            }
+
             let info = directories[directory]
 
             let tableRow = document.createElement("tr")
@@ -126,6 +131,10 @@ function GetFilesystem(routerUrl, path) {
 
         let files = filesystem.files
         for (let file in files) {
+            if (!IsPassFilter(filters, path, file)) {
+                continue
+            }
+
             let infos = files[file]
             for (infoIndex in infos) {
                 let info = infos[infoIndex]
@@ -373,4 +382,42 @@ function OpenFile(routerUrl, item) {
             UpdateStatusBar(response)
         }
     );
+}
+
+function GetFilers(routerUrl) {
+    let data = request("GET", 'https://' + routerUrl + "/router/filters/get")
+    let filters = JSON.parse(data)
+    return filters
+}
+
+function IsPassFilter(filters, path, name) {
+    console.log(filters)
+    console.log(path)
+    console.log(name)
+
+    if (filters.current_list == "Black list") {
+        for (patternIndex in filters.black_list) {
+            let pattern = filters.black_list[patternIndex]
+            if (pattern == [path, name].join("/")) {
+                return false
+            }
+            if (new RegExp(pattern).test(name)) {
+                return false
+            }
+        }
+        return true
+    }
+    if (filters.current_list == "White list") {
+        for (patternIndex in filters.white_list) {
+            let pattern = filters.white_list[patternIndex]
+            if (pattern == [path, name].join("/")) {
+                return true
+            }
+            if (new RegExp(pattern).test(name)) {
+                return true
+            }
+        }
+        return false
+    }
+    return false
 }

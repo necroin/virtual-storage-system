@@ -9,7 +9,7 @@
     <title>VSS</title>
 </head>
 
-<body onload="window.Init(); window.GetSettings(location.host+'/{{.Token}}')">
+<body onload="window.GetSettings(location.host+'/{{.Token}}')">
     <div id="global-bar">
         <button onclick="window.location.href = 'https://'+location.host+'/{{.Token}}/home'">
             {{.BarHomeIcon}}
@@ -27,13 +27,13 @@
         <div id="settings">
             <div class="settings-item">
                 <span class="settings-item-headline">Filters
-                    <button id="settings-filters-list-button" onclick="window.SwapFiltersListType(this)"></button>
+                    <button id="settings-filters-list-button" onclick="window.SwapFiltersListType(location.host+'/{{.Token}}')"></button>
                     <div class="spacer"></div>
                     <button onclick="">Collapse</button>
                 </span>
                 <div>
                     <input id="settings-filters-input" type="text">
-                    <button onclick="window.AddFiler(document.getElementById('settings-filters-input').value)">Apply</button>
+                    <button onclick="window.AddFiler(location.host+'/{{.Token}}', document.getElementById('settings-filters-input').value)">Apply</button>
                 </div>
                 <div id="settings-filters-list" class="list"></div>
             </div>

@@ -2,8 +2,10 @@ package router
 
 import (
 	"encoding/json"
+	"io"
 	"net/http"
 	"path"
+	"slices"
 	"strings"
 	"text/template"
 
@@ -117,13 +119,40 @@ func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (router *Router) FiltersGetHandler(responseWriter http.ResponseWriter, request *http.Request) {
-
+	json.NewEncoder(responseWriter).Encode(router.config.Settings.Filters)
 }
 
 func (router *Router) FiltersAddHandler(responseWriter http.ResponseWriter, request *http.Request) {
-
+	data, _ := io.ReadAll(request.Body)
+	filter := string(data)
+	if router.config.Settings.Filters.CurrentList == "Black list" {
+		if !slices.Contains(router.config.Settings.Filters.BlackList, filter) {
+			router.config.Settings.Filters.BlackList = append(router.config.Settings.Filters.BlackList, filter)
+		}
+	} else {
+		if !slices.Contains(router.config.Settings.Filters.WhiteList, filter) {
+			router.config.Settings.Filters.WhiteList = append(router.config.Settings.Filters.WhiteList, filter)
+		}
+	}
+	router.config.Settings.Dump()
 }
 
 func (router *Router) FiltersRemoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	data, _ := io.ReadAll(request.Body)
+	filter := string(data)
+	if router.config.Settings.Filters.CurrentList == "Black list" {
+		router.config.Settings.Filters.BlackList = slices.DeleteFunc(router.config.Settings.Filters.BlackList, func(value string) bool { return value == filter })
+	} else {
+		router.config.Settings.Filters.WhiteList = slices.DeleteFunc(router.config.Settings.Filters.WhiteList, func(value string) bool { return value == filter })
+	}
+	router.config.Settings.Dump()
+}
 
+func (router *Router) FiltersSwapHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	if router.config.Settings.Filters.CurrentList == "Black list" {
+		router.config.Settings.Filters.CurrentList = "White list"
+	} else {
+		router.config.Settings.Filters.CurrentList = "Black list"
+	}
+	router.config.Settings.Dump()
 }

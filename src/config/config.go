@@ -51,9 +51,10 @@ type Config struct {
 	User        User   `yaml:"user"`
 	Certificate tls.Certificate
 	RootCAs     *x509.CertPool
+	Settings    *Settings `yaml:"settings"`
 }
 
-func Load() (*Config, error) {
+func LoadConfig() (*Config, error) {
 	url := flag.String("url", lan.GetMyLanAddr(), "server url")
 	listenPort := flag.String("listen-port", settings.DefaultListenPort, "server topology listen port")
 
@@ -77,15 +78,20 @@ func Load() (*Config, error) {
 
 	certificate, err := tls.LoadX509KeyPair(*certificateCrt, *certificateKey)
 	if err != nil {
-		return nil, fmt.Errorf("[Config] failed load certificate: %s", err)
+		return nil, fmt.Errorf("[LoadConfig] failed load certificate: %s", err)
 	}
 
 	rootCAs := x509.NewCertPool()
 	certificateAuthority, err := x509.ParseCertificate(certificate.Certificate[0])
 	if err != nil {
-		return nil, fmt.Errorf("[Config] failed parse certificate: %s", err)
+		return nil, fmt.Errorf("[LoadConfig] failed parse certificate: %s", err)
 	}
 	rootCAs.AddCert(certificateAuthority)
+
+	settings, err := LoadSettings()
+	if err != nil {
+		return nil, fmt.Errorf("[LoadConfig] -> %s", err)
+	}
 
 	config := &Config{
 		Url:        *url,
@@ -114,6 +120,7 @@ func Load() (*Config, error) {
 		},
 		Certificate: certificate,
 		RootCAs:     rootCAs,
+		Settings:    settings,
 	}
 
 	return config, nil

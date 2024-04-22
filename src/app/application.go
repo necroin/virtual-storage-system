@@ -91,6 +91,7 @@ func New(config *config.Config) (*Application, error) {
 		server.AddHandler(settings.RouterFiltersGetEndpoint, server.TokenizedHandler(routerRole.FiltersGetHandler), "GET")
 		server.AddHandler(settings.RouterFiltersAddEndpoint, server.TokenizedHandler(routerRole.FiltersAddHandler), "POST")
 		server.AddHandler(settings.RouterFiltersRemoveEndpoint, server.TokenizedHandler(routerRole.FiltersRemoveHandler), "POST")
+		server.AddHandler(settings.RouterFiltersSwapEndpoint, server.TokenizedHandler(routerRole.FiltersSwapHandler), "POST")
 	}
 
 	metricsRegistry := metrics.NewRegistry()
