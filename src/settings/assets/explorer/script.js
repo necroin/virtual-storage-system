@@ -391,10 +391,6 @@ function GetFilers(routerUrl) {
 }
 
 function IsPassFilter(filters, path, name) {
-    console.log(filters)
-    console.log(path)
-    console.log(name)
-
     if (filters.current_list == "Black list") {
         for (patternIndex in filters.black_list) {
             let pattern = filters.black_list[patternIndex]
