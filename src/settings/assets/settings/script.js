@@ -66,3 +66,18 @@ function SwapFiltersListType(url) {
     request("POST", 'https://' + url + "/router/filters/swap")
     UpdateFilters(url, GetFilers(url))
 }
+
+function Collapse(button, id) {
+    
+    if (button.innerText == "Collapse") {
+        document.getElementById(id).style.display = "none"
+        button.innerText = "Expand"
+        return
+    }
+
+    if (button.innerText == "Expand") {
+        document.getElementById(id).style.display = "block"
+        button.innerText = "Collapse"
+        return
+    }
+}
