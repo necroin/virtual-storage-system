@@ -21,9 +21,10 @@ type PageInfo struct {
 	BarHomeIcon       string
 	BarFilesystemIcon string
 	BarSettingsIcon   string
+	Pid               int
 }
 
-type NotifyMessage struct {
+type Notify struct {
 	Type      string `json:"type"`
 	Url       string `json:"url"`
 	Hostname  string `json:"hostname"`
@@ -32,9 +33,9 @@ type NotifyMessage struct {
 	Timestamp int64  `json:"timestamp"`
 }
 
-type TopologyMessage struct {
-	Storages []NotifyMessage `json:"storages"`
-	Runners  []NotifyMessage `json:"runners"`
+type Topology struct {
+	Storages []Notify `json:"storages"`
+	Runners  []Notify `json:"runners"`
 }
 
 type FileInfo struct {
@@ -50,7 +51,7 @@ type FilesystemDirectory struct {
 	Files       map[string][]FileInfo `json:"files"`
 }
 
-type ClientRequest struct {
+type InsertRequest struct {
 	Type string `json:"type"`
 	Path string `json:"path"`
 	Name string `json:"name"`
@@ -61,7 +62,7 @@ type StatusBarResponse struct {
 	Text   string `json:"text"`
 }
 
-type ClientAuth struct {
+type ClientAuthRequest struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
@@ -86,6 +87,8 @@ type OpenRequest struct {
 }
 
 type OpenResponse struct {
-	Message string `json:"message"`
-	Error   error  `json:"error"`
+	Pid       int               `json:"pid"`
+	RunnerUrl string            `json:"runner_url"`
+	Error     error             `json:"error"`
+	StatusBar StatusBarResponse `json:"status_bar"`
 }

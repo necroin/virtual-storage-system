@@ -263,8 +263,7 @@ function CloseDialog(dialog, overlay) {
     document.getElementById(overlay).style.display = "none";
 }
 
-function UpdateStatusBar(raw_data) {
-    let data = JSON.parse(raw_data)
+function UpdateStatusBar(data) {
     document.getElementById("status-bar-progress").innerHTML = data.status
     document.getElementById("status-bar-text").innerText = data.text
 }
@@ -281,7 +280,7 @@ function Create(type) {
     );
     let response = request("POST", "https://" + url + "/storage/insert/" + type, data);
     CloseDialog('create-dialog', 'create-dialog-overlay')
-    UpdateStatusBar(response)
+    UpdateStatusBar(JSON.parse(response))
 }
 
 function Remove(routerUrl) {
@@ -299,7 +298,7 @@ function Remove(routerUrl) {
             path,
             (response) => {
                 GetFilesystem(routerUrl)
-                UpdateStatusBar(response)
+                UpdateStatusBar(JSON.parse(response))
             }
         );
     }
@@ -322,7 +321,7 @@ function Rename(routerUrl) {
             data,
             (response) => {
                 GetFilesystem(routerUrl)
-                UpdateStatusBar(response)
+                UpdateStatusBar(JSON.parse(response))
             }
         );
         CloseDialog('rename-dialog', 'rename-dialog-overlay')
@@ -364,7 +363,7 @@ function Paste(routerUrl) {
         }),
         (response) => {
             GetFilesystem(routerUrl)
-            UpdateStatusBar(response)
+            UpdateStatusBar(JSON.parse(response))
         }
     );
 }
@@ -379,7 +378,11 @@ function OpenFile(routerUrl, item) {
             type: item.__custom__["type"]
         }),
         (response) => {
-            UpdateStatusBar(response)
+            let openResponse = JSON.parse(response)
+            UpdateStatusBar(openResponse.status_bar)
+            let pid = openResponse.pid
+            let runnerUrl = openResponse.runner_url
+            open("https://" + runnerUrl + "/runner/stream/" + String(pid))
         }
     );
 }

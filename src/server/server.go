@@ -3,7 +3,6 @@ package server
 import (
 	"context"
 	"crypto/tls"
-	"crypto/x509"
 	"fmt"
 	"io"
 	"net/http"
@@ -15,7 +14,6 @@ import (
 	"vss/src/connector"
 	"vss/src/logger"
 	"vss/src/settings"
-	"vss/src/utils"
 
 	"github.com/gorilla/mux"
 )
@@ -36,20 +34,20 @@ func New(config *config.Config, connector *connector.Connector) (*Server, error)
 		TLSConfig: &tls.Config{
 			ServerName: "vss",
 			GetCertificate: func(chi *tls.ClientHelloInfo) (*tls.Certificate, error) {
-				logger.Debug("[Server] client requested certificate")
+				// logger.Debug("[Server] client requested certificate")
 				return &config.Certificate, nil
 			},
-			VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
-				if len(verifiedChains) > 0 {
-					logger.Debug("[Server] Verified certificate chain from peer:")
-					for _, certificate := range verifiedChains {
-						for i, cert := range certificate {
-							logger.Debug(fmt.Sprintf("[Server] [Cert %d] %s", i, utils.CertificateInfo(cert)))
-						}
-					}
-				}
-				return nil
-			},
+			// VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
+			// 	if len(verifiedChains) > 0 {
+			// 		logger.Debug("[Server] Verified certificate chain from peer:")
+			// 		for _, certificate := range verifiedChains {
+			// 			for i, cert := range certificate {
+			// 				logger.Debug(fmt.Sprintf("[Server] [Cert %d] %s", i, utils.CertificateInfo(cert)))
+			// 			}
+			// 		}
+			// 	}
+			// 	return nil
+			// },
 		},
 	}
 

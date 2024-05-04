@@ -18,8 +18,8 @@ type Router struct {
 	config    *config.Config
 	connector *connector.Connector
 	server    *server.Server
-	storages  map[string]message.NotifyMessage
-	runners   map[string]message.NotifyMessage
+	storages  map[string]message.Notify
+	runners   map[string]message.Notify
 	hostnames map[string]string
 	filters   *ini.File
 }
@@ -34,8 +34,8 @@ func New(config *config.Config, server *server.Server, connector *connector.Conn
 		config:    config,
 		server:    server,
 		connector: connector,
-		storages:  map[string]message.NotifyMessage{},
-		runners:   map[string]message.NotifyMessage{},
+		storages:  map[string]message.Notify{},
+		runners:   map[string]message.Notify{},
 		hostnames: map[string]string{},
 		filters:   filters,
 	}
@@ -69,20 +69,6 @@ func New(config *config.Config, server *server.Server, connector *connector.Conn
 		}
 	}()
 	return router, nil
-}
-
-func (router *Router) NotifyRunner(instance message.NotifyMessage) {
-	// topology := connector.TopologyMessage{
-	// 	Storages: router.storages,
-	// 	Runners:  router.runners,
-	// }
-	// connector.SendPostRequest(url+settings.RunnerNotifyEndpoint, topology)
-}
-
-func (router *Router) NotifyRunners() {
-	for _, runner := range router.runners {
-		router.NotifyRunner(runner)
-	}
 }
 
 func (router *Router) CollectStorageFileSystem(url string, token string, walkPath string) message.FilesystemDirectory {

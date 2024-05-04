@@ -34,7 +34,7 @@ func (storage *Storage) NotifyRouter(url string) error {
 		return err
 	}
 
-	message := message.NotifyMessage{
+	message := message.Notify{
 		Type:      message.NotifyMessageStorageType,
 		Url:       storage.config.Url,
 		Hostname:  storage.hostname,

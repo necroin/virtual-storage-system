@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{.Style}}
+    {{.Script}}
+    <title>VSS</title>
+</head>
+
+<body onload="window.Init(location.host+'/{{.Token}}', '{{.Pid}}')">
+    <div>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+
+</html>

@@ -29,6 +29,10 @@ func NewCounter(opts CounterOpts) *Counter {
 	}
 }
 
+func (counter *Counter) set(value float64) {
+	counter.value.Set(value)
+}
+
 func (counter *Counter) Get() float64 {
 	return counter.value.Get()
 }
@@ -59,7 +63,7 @@ func NewCounterVector(opts CounterOpts, labels ...string) *CounterVector {
 		NewMetricVector[*Counter](func() *Counter { return NewCounter(CounterOpts{}) }, labels...),
 		&Description{
 			Name: opts.Name,
-			Type: "counter_vector",
+			Type: "counter",
 			Help: opts.Help,
 		},
 	}
@@ -75,7 +79,7 @@ func (counterVector *CounterVector) Write(writer io.Writer) {
 		keyLabels := strings.Split(key, ",")
 		for labelIndex, labelValue := range keyLabels {
 			labelName := counterVector.labels[labelIndex]
-			label := fmt.Sprintf("%s=%v", labelName, labelValue)
+			label := fmt.Sprintf("%s=\"%v\"", labelName, labelValue)
 			labels = append(labels, label)
 		}
 		writer.Write([]byte(fmt.Sprintf("%s{%s} %v\n", counterVector.description.Name, strings.Join(labels, ","), counter.Get())))

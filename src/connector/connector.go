@@ -3,13 +3,9 @@ package connector
 import (
 	"bytes"
 	"crypto/tls"
-	"crypto/x509"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"vss/src/config"
-	"vss/src/logger"
-	"vss/src/utils"
 )
 
 type Connector struct {
@@ -50,17 +46,17 @@ func (connector *Connector) SendRequest(url string, data []byte, method string) 
 			TLSClientConfig: &tls.Config{
 				RootCAs:    connector.config.RootCAs,
 				ServerName: "vss",
-				VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
-					if len(verifiedChains) > 0 {
-						logger.Debug("[Connector] Verified certificate chain from peer:")
-						for _, certificate := range verifiedChains {
-							for i, cert := range certificate {
-								logger.Debug(fmt.Sprintf("[Connector] [Cert %d] %s", i, utils.CertificateInfo(cert)))
-							}
-						}
-					}
-					return nil
-				},
+				// VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
+				// 	if len(verifiedChains) > 0 {
+				// 		logger.Debug("[Connector] Verified certificate chain from peer:")
+				// 		for _, certificate := range verifiedChains {
+				// 			for i, cert := range certificate {
+				// 				logger.Debug(fmt.Sprintf("[Connector] [Cert %d] %s", i, utils.CertificateInfo(cert)))
+				// 			}
+				// 		}
+				// 	}
+				// 	return nil
+				// },
 			},
 		},
 	}

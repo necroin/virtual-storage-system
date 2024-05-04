@@ -2,6 +2,7 @@ package router
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"path"
@@ -19,7 +20,7 @@ import (
 )
 
 func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	response := &message.TopologyMessage{}
+	response := &message.Topology{}
 	for _, storage := range router.storages {
 		response.Storages = append(response.Storages, storage)
 	}
@@ -30,7 +31,7 @@ func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, req
 }
 
 func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	notifyMessage := &message.NotifyMessage{}
+	notifyMessage := &message.Notify{}
 	if err := json.NewDecoder(request.Body).Decode(notifyMessage); err != nil {
 		logger.Error("[Router] [NotifyHandler] failed decode message: %s", err)
 		return
@@ -44,12 +45,10 @@ func (router *Router) NotifyHandler(responseWriter http.ResponseWriter, request 
 	if notifyMessage.Type == message.NotifyMessageStorageType {
 		router.storages[notifyMessage.Hostname] = *notifyMessage
 		router.hostnames[notifyMessage.Hostname] = path.Join(notifyMessage.Url, notifyMessage.Token)
-		router.NotifyRunners()
 	}
 
 	if notifyMessage.Type == message.NotifyMessageRunnerType {
 		router.runners[notifyMessage.Hostname] = *notifyMessage
-		router.NotifyRunner(*notifyMessage)
 	}
 }
 
@@ -84,6 +83,9 @@ func (router *Router) DevicesHandler(responseWriter http.ResponseWriter, request
 }
 
 func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	openResponse := &message.OpenResponse{}
+	defer json.NewEncoder(responseWriter).Encode(openResponse)
+
 	openRequest := &message.OpenRequest{}
 	if err := json.NewDecoder(request.Body).Decode(openRequest); err != nil {
 		roles.HandlerFailed(responseWriter, err)
@@ -100,22 +102,32 @@ func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, reques
 				continue
 			}
 
-			openResponse := &message.OpenResponse{}
-			if err := json.NewDecoder(response.Body).Decode(openResponse); err != nil {
+			runnerOpenResponse := &message.OpenResponse{}
+			if err := json.NewDecoder(response.Body).Decode(runnerOpenResponse); err != nil {
 				logger.Error("[Router] [OpenFileHandler] failed decode open response: %s", err)
 				continue
 			}
 
-			if openResponse.Error != nil {
-				logger.Error("[Router] [OpenFileHandler] failed decode open response: %s", err)
+			if runnerOpenResponse.Error != nil {
+				logger.Error("[Router] [OpenFileHandler] %s runner failed execute: %s", runner.Hostname, err)
 				continue
 			}
 
-			roles.HandlerSuccess(responseWriter, openResponse.Message)
-			break
+			openResponse.Pid = runnerOpenResponse.Pid
+			openResponse.RunnerUrl = path.Join(runner.Url, runner.Token)
+			openResponse.Error = runnerOpenResponse.Error
+			openResponse.StatusBar = message.StatusBarResponse{
+				Status: settings.ExplorerStatusBarSuccess,
+				Text:   fmt.Sprintf("File opened on runner %s", runner.Hostname),
+			}
+			return
 		}
 	}
-	roles.HandlerSuccess(responseWriter, "Нет возможности запустить/открыть файл")
+
+	openResponse.StatusBar = message.StatusBarResponse{
+		Status: settings.ExplorerStatusBarSuccess,
+		Text:   "There is no way to run/open a file",
+	}
 }
 
 func (router *Router) FiltersGetHandler(responseWriter http.ResponseWriter, request *http.Request) {

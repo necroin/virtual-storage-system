@@ -36,7 +36,7 @@ func (server *Server) AuthHandler(responseWriter http.ResponseWriter, request *h
 }
 
 func (server *Server) AuthTokenHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	data := &message.ClientAuth{}
+	data := &message.ClientAuthRequest{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
 		logger.Error("[Server] [AuthTokenHandler] failed decode message: %s", err)
 		return
