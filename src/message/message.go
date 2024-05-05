@@ -92,3 +92,8 @@ type OpenResponse struct {
 	Error     error             `json:"error"`
 	StatusBar StatusBarResponse `json:"status_bar"`
 }
+
+type Coords struct {
+	X int32 `json:"x"`
+	Y int32 `json:"y"`
+}

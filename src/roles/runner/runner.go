@@ -1,13 +1,11 @@
 package runner
 
 import (
-	"fmt"
 	"os"
 	"sync"
 	"time"
 	"vss/src/config"
 	"vss/src/connector"
-	"vss/src/logger"
 	"vss/src/message"
 	"vss/src/roles"
 	"vss/src/settings"
@@ -16,6 +14,7 @@ import (
 	"github.com/necroin/golibs/utils/winapi"
 	"github.com/necroin/golibs/utils/winutils"
 	"github.com/necroin/golibs/winappstream"
+	"golang.org/x/sys/windows"
 )
 
 type StreamSession struct {
@@ -73,18 +72,14 @@ func (runner *Runner) GetRunCommand(path string) (string, []string) {
 	return "open", []string{path}
 }
 
-func (runner *Runner) GetProcessPidByParentId(pid int) (int, error) {
-	processes, err := winutils.GetAllProcesses()
-	if err != nil {
-		return 0, fmt.Errorf("[Runner] [OpenFileHandler] failed get all processes")
+func (runner *Runner) FindValidRect(pid winapi.ProcessId) (windows.Rect, bool) {
+	windowHandles := winutils.GetWindowHandlesByProcessId(pid)
+	clientRects := winutils.GetWindowHandlesClientRects(windowHandles)
+	for _, clientRect := range clientRects {
+		if winutils.RectWidth(clientRect) == 0 || winutils.RectHeight(clientRect) == 0 {
+			continue
+		}
+		return clientRect, true
 	}
-
-	childProcesses := winutils.FindProcessesByParentPid(processes, winapi.ProcessId(pid))
-	if len(childProcesses) == 0 {
-		return 0, fmt.Errorf("[Runner] [OpenFileHandler] failed find child processes for pid %d", pid)
-	}
-	logger.Debug("[Runner] [OpenFileHandler] childs of %d pid: %s", pid, childProcesses)
-	appPid := childProcesses[0].Pid
-	logger.Debug("[Runner] [OpenFileHandler] app process started with pid: %d", appPid)
-	return int(appPid), nil
+	return windows.Rect{}, false
 }

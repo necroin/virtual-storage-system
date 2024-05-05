@@ -2,22 +2,29 @@ package runner
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"strconv"
 	"text/template"
 	"time"
+	"unsafe"
 
 	"vss/src/logger"
 	"vss/src/message"
 	"vss/src/settings"
+	"vss/src/utils"
 
 	"github.com/gorilla/mux"
 	"github.com/necroin/golibs/utils/winapi"
+	"github.com/necroin/golibs/utils/winutils"
 	"github.com/necroin/golibs/winappstream"
+
+	"github.com/lxn/win"
 )
 
 func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -46,7 +53,7 @@ func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, reques
 
 	logger.Info("[Runner] [OpenFileHandler] open %s", openPath)
 
-	execTool, execArgs := runner.GetRunCommand(openPath)
+	execTool, execArgs := runner.GetRunCommand(path.Clean(openPath))
 
 	cmd := exec.Command(execTool, execArgs...)
 	if err := cmd.Start(); err != nil {
@@ -66,14 +73,69 @@ func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, reques
 func (runner *Runner) AppStreamHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	params := mux.Vars(request)
 	pid, _ := strconv.Atoi(params["pid"])
-	time.Sleep(1 * time.Second)
-	appPid, err := runner.GetProcessPidByParentId(pid)
-	if err != nil {
+	appStreamPid := winapi.ProcessId(0)
+	procName := ""
+
+	var childProcesses []*winutils.Process
+	if err := utils.Try(func() error {
+		allProcesses, err := winutils.GetAllProcesses()
+		if err != nil {
+			return fmt.Errorf("[Runner] [AppStreamHandler] failed get all processes")
+		}
+
+		childProcesses = winutils.FindProcessesByParentPid(allProcesses, winapi.ProcessId(pid))
+		if len(childProcesses) == 0 {
+			return fmt.Errorf("[Runner] [AppStreamHandler] failed find child processes for pid %d", pid)
+		}
+		logger.Debug("[Runner] [AppStreamHandler] childs of %d pid: %s", pid, childProcesses)
+
+		for _, childProcess := range childProcesses {
+			procName = childProcess.Executable
+			appPid := childProcess.Pid
+			logger.Debug("[Runner] [AppStreamHandler] app process started with pid: %d", appPid)
+
+			rect, ok := runner.FindValidRect(appPid)
+			logger.Debug("[Runner] [AppStreamHandler] valid rect: %v", rect)
+			if ok {
+				appStreamPid = appPid
+				return nil
+			}
+		}
+
+		return fmt.Errorf("[Runner] [AppStreamHandler] failed find valid rect")
+	}, 10, 1*time.Second); err != nil {
+		logger.Error(err.Error())
+	}
+
+	if appStreamPid == 0 {
+		allProcesses, err := winutils.GetAllProcesses()
+		if err != nil {
+			err = fmt.Errorf("[Runner] [AppStreamHandler] failed get all processes and find app: %s", err)
+			logger.Error(err.Error())
+			responseWriter.Write([]byte(err.Error()))
+			return
+		}
+
+		for _, process := range allProcesses {
+			if process.Executable == procName {
+				_, ok := runner.FindValidRect(process.Pid)
+				if ok {
+					appStreamPid = process.Pid
+					break
+				}
+			}
+		}
+
+	}
+
+	if appStreamPid == 0 {
+		err := errors.New("[Runner] [AppStreamHandler] failed find app")
 		logger.Error(err.Error())
 		responseWriter.Write([]byte(err.Error()))
 		return
 	}
-	response, err := runner.connector.SendRequest(fmt.Sprintf("%s/%s/runner/stream/direct/%d", runner.config.Url, runner.config.User.Token, appPid), []byte{}, "GET")
+
+	response, err := runner.connector.SendRequest(fmt.Sprintf("%s/%s/runner/stream/direct/%d", runner.config.Url, runner.config.User.Token, appStreamPid), []byte{}, "GET")
 	if err != nil {
 		logger.Error(err.Error())
 		responseWriter.Write([]byte(err.Error()))
@@ -92,7 +154,7 @@ func (runner *Runner) AppStreamHandler(responseWriter http.ResponseWriter, reque
 func (runner *Runner) AppDirectStreamHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	params := mux.Vars(request)
 	pid, _ := strconv.Atoi(params["pid"])
-	logger.Info("[Runner] [AppDirectStreamHandler] launch stream with pid: %d", pid)
+	logger.Info("[Runner] [AppDirectStreamHandler] requested stream with pid: %d", pid)
 
 	_, ok := runner.streamSessions[pid]
 	if !ok {
@@ -117,7 +179,7 @@ func (runner *Runner) AppDirectStreamHandler(responseWriter http.ResponseWriter,
 		go func(pid int) {
 			for {
 				now := time.Now()
-				if now.Sub(streamSession.lastHandleTime).Seconds() > time.Duration(10*time.Second).Seconds() {
+				if now.Sub(streamSession.lastHandleTime).Seconds() > time.Duration(30*time.Second).Seconds() {
 					runner.sessuinMutex.Lock()
 					defer runner.sessuinMutex.Unlock()
 					streamSession.app.Destroy()
@@ -154,4 +216,31 @@ func (runner *Runner) AppImageHandler(responseWriter http.ResponseWriter, reques
 	}
 	streamSession.lastHandleTime = time.Now()
 	streamSession.handler.ServeHTTP(responseWriter, request)
+}
+
+func (runner *Runner) AppMouseClickedHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	// params := mux.Vars(request)
+	// pid, _ := strconv.Atoi(params["pid"])
+
+	coords := &message.Coords{}
+	json.NewDecoder(request.Body).Decode(coords)
+
+	cx_screen := win.GetSystemMetrics(win.SM_CXSCREEN)
+	cy_screen := win.GetSystemMetrics(win.SM_CYSCREEN)
+
+	real_x := 65535 * coords.X / cx_screen
+	real_y := 65535 * coords.Y / cy_screen
+
+	mouseInput := win.MOUSE_INPUT{}
+	mouseInput.Type = win.INPUT_MOUSE
+	mouseInput.Mi = win.MOUSEINPUT{
+		Dx: int32(real_x),
+		Dy: int32(real_y),
+	}
+	mouseInput.Mi.DwFlags = win.MOUSEEVENTF_ABSOLUTE | win.MOUSEEVENTF_MOVE | win.MOUSEEVENTF_LEFTDOWN | win.MOUSEEVENTF_LEFTUP
+	mouseInput.Mi.MouseData = 0
+	mouseInput.Mi.DwExtraInfo = 0
+	mouseInput.Mi.Time = 0
+
+	win.SendInput(2, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
 }

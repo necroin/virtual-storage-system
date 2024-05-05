@@ -10,11 +10,12 @@ require (
 )
 
 require (
-	github.com/necroin/golibs v0.0.0-20240504015606-1255f688b714
+	github.com/necroin/golibs v0.0.0-20240504202415-32eede095363
 	gopkg.in/ini.v1 v1.67.0
 )
 
 require (
+	github.com/lxn/win v0.0.0-20210218163916-a377121e959e // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect
 )
