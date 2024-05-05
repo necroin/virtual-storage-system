@@ -12,7 +12,6 @@ import (
 	"strconv"
 	"text/template"
 	"time"
-	"unsafe"
 
 	"vss/src/logger"
 	"vss/src/message"
@@ -20,11 +19,10 @@ import (
 	"vss/src/utils"
 
 	"github.com/gorilla/mux"
+	"github.com/lxn/win"
 	"github.com/necroin/golibs/utils/winapi"
 	"github.com/necroin/golibs/utils/winutils"
 	"github.com/necroin/golibs/winappstream"
-
-	"github.com/lxn/win"
 )
 
 func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -94,7 +92,7 @@ func (runner *Runner) AppStreamHandler(responseWriter http.ResponseWriter, reque
 			appPid := childProcess.Pid
 			logger.Debug("[Runner] [AppStreamHandler] app process started with pid: %d", appPid)
 
-			rect, ok := runner.FindValidRect(appPid)
+			rect, ok := utils.FindValidRect(appPid)
 			logger.Debug("[Runner] [AppStreamHandler] valid rect: %v", rect)
 			if ok {
 				appStreamPid = appPid
@@ -118,7 +116,7 @@ func (runner *Runner) AppStreamHandler(responseWriter http.ResponseWriter, reque
 
 		for _, process := range allProcesses {
 			if process.Executable == procName {
-				_, ok := runner.FindValidRect(process.Pid)
+				_, ok := utils.FindValidRect(process.Pid)
 				if ok {
 					appStreamPid = process.Pid
 					break
@@ -219,28 +217,31 @@ func (runner *Runner) AppImageHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (runner *Runner) AppMouseClickedHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	// params := mux.Vars(request)
-	// pid, _ := strconv.Atoi(params["pid"])
+	params := mux.Vars(request)
+	pid, _ := strconv.Atoi(params["pid"])
 
 	coords := &message.Coords{}
 	json.NewDecoder(request.Body).Decode(coords)
 
-	cx_screen := win.GetSystemMetrics(win.SM_CXSCREEN)
-	cy_screen := win.GetSystemMetrics(win.SM_CYSCREEN)
+	cursorPotion := win.POINT{}
+	win.GetCursorPos(&cursorPotion)
 
-	real_x := 65535 * coords.X / cx_screen
-	real_y := 65535 * coords.Y / cy_screen
+	handles := winutils.GetWindowHandlesByProcessId(winapi.ProcessId(pid))
 
-	mouseInput := win.MOUSE_INPUT{}
-	mouseInput.Type = win.INPUT_MOUSE
-	mouseInput.Mi = win.MOUSEINPUT{
-		Dx: int32(real_x),
-		Dy: int32(real_y),
+	captureRect, _ := winutils.GetCaptureRectByHandles(handles)
+	coords.X += captureRect.Left
+	coords.Y += captureRect.Top
+	for _, handle := range handles {
+		windowRect, _ := winapi.GetWindowRect(handle)
+		clientRect, _ := winapi.GetClientRect(handle)
+		if winutils.RectEqual(captureRect, winutils.GetCaptureRect(windowRect, clientRect)) {
+			win.SetForegroundWindow(win.HWND(handle))
+			win.SetActiveWindow(win.HWND(handle))
+			utils.MouseMove(coords.X, coords.Y)
+			utils.MouseLeftClick(coords.X, coords.Y)
+			break
+		}
 	}
-	mouseInput.Mi.DwFlags = win.MOUSEEVENTF_ABSOLUTE | win.MOUSEEVENTF_MOVE | win.MOUSEEVENTF_LEFTDOWN | win.MOUSEEVENTF_LEFTUP
-	mouseInput.Mi.MouseData = 0
-	mouseInput.Mi.DwExtraInfo = 0
-	mouseInput.Mi.Time = 0
 
-	win.SendInput(2, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
+	utils.MouseMove(cursorPotion.X, cursorPotion.Y)
 }

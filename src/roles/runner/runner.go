@@ -11,10 +11,7 @@ import (
 	"vss/src/settings"
 	"vss/src/utils"
 
-	"github.com/necroin/golibs/utils/winapi"
-	"github.com/necroin/golibs/utils/winutils"
 	"github.com/necroin/golibs/winappstream"
-	"golang.org/x/sys/windows"
 )
 
 type StreamSession struct {
@@ -70,16 +67,4 @@ func (runner *Runner) GetRunCommand(path string) (string, []string) {
 		return "cmd", []string{"/C", path}
 	}
 	return "open", []string{path}
-}
-
-func (runner *Runner) FindValidRect(pid winapi.ProcessId) (windows.Rect, bool) {
-	windowHandles := winutils.GetWindowHandlesByProcessId(pid)
-	clientRects := winutils.GetWindowHandlesClientRects(windowHandles)
-	for _, clientRect := range clientRects {
-		if winutils.RectWidth(clientRect) == 0 || winutils.RectHeight(clientRect) == 0 {
-			continue
-		}
-		return clientRect, true
-	}
-	return windows.Rect{}, false
 }

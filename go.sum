@@ -24,6 +24,8 @@ github.com/necroin/golibs v0.0.0-20240504015606-1255f688b714 h1:M2ImlsVe8AEJfQdc
 github.com/necroin/golibs v0.0.0-20240504015606-1255f688b714/go.mod h1:LZ7xqxBv89h0t3n2DliRFpOtQCz2j1UUgMpUaKxPwLU=
 github.com/necroin/golibs v0.0.0-20240504202415-32eede095363 h1:vvHoG4LOGNhTH4SrcdLk/AGn0I1ePrvTUq8WoCfhHaQ=
 github.com/necroin/golibs v0.0.0-20240504202415-32eede095363/go.mod h1:LZ7xqxBv89h0t3n2DliRFpOtQCz2j1UUgMpUaKxPwLU=
+github.com/necroin/golibs v0.0.0-20240505212329-490d1177c3fc h1:m2G21AO/3kqWEhpWuCzgLNNnsuP71k3p6OU+q02KEAY=
+github.com/necroin/golibs v0.0.0-20240505212329-490d1177c3fc/go.mod h1:LZ7xqxBv89h0t3n2DliRFpOtQCz2j1UUgMpUaKxPwLU=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=

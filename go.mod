@@ -10,7 +10,7 @@ require (
 )
 
 require (
-	github.com/necroin/golibs v0.0.0-20240504202415-32eede095363
+	github.com/necroin/golibs v0.0.0-20240505212329-490d1177c3fc
 	gopkg.in/ini.v1 v1.67.0
 )
 

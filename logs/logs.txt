@@ -6200,3 +6200,1186 @@ created by net/http.(*http2serverConn).scheduleHandler in goroutine 67
 2024/05/05 04:08:59 DEBUG: [Lan Listener] 192.168.0.103:3301
 2024/05/05 04:09:09 DEBUG: [Lan Listener] 192.168.0.103:3301
 2024/05/05 04:09:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:48:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:48:48 http: TLS handshake error from 192.168.0.103:55230: remote error: tls: unknown certificate
+2024/05/05 21:48:48 http: TLS handshake error from 192.168.0.103:55231: remote error: tls: unknown certificate
+2024/05/05 21:48:48 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/05 21:48:48 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/05 21:48:49 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/05 21:48:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:49:01 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/05 21:49:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:49:02 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/05 21:49:04 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/05 21:49:05 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU runner on windows platform
+2024/05/05 21:49:05 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/05 21:49:05 DEBUG: [Runner] [OpenFileHandler] process started with pid: 14960
+2024/05/05 21:49:06 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:49:06 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:49:06 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 439 248}
+2024/05/05 21:49:06 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:49:06 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:49:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:49:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:49:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:49:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:49:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:10 http: TLS handshake error from 192.168.0.103:55346: remote error: tls: unknown certificate
+2024/05/05 21:50:10 http: TLS handshake error from 192.168.0.103:55347: remote error: tls: unknown certificate
+2024/05/05 21:50:10 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:50:10 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:50:10 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/05 21:50:10 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:50:10 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:50:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:50:58 http: TLS handshake error from 192.168.0.103:55380: remote error: tls: unknown certificate
+2024/05/05 21:50:58 http: TLS handshake error from 192.168.0.103:55381: remote error: tls: unknown certificate
+2024/05/05 21:50:58 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:50:58 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:50:58 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/05 21:50:58 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:50:58 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:51:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:51:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:51:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:51:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:51:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:51:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:52:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:52:12 http: TLS handshake error from 192.168.0.103:55426: remote error: tls: unknown certificate
+2024/05/05 21:52:12 http: TLS handshake error from 192.168.0.103:55427: remote error: tls: unknown certificate
+2024/05/05 21:52:12 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:52:12 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:52:12 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/05 21:52:12 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:52:12 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:52:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:52:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:52:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:54:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:54:14 http: TLS handshake error from 192.168.0.103:55473: remote error: tls: unknown certificate
+2024/05/05 21:54:14 http: TLS handshake error from 192.168.0.103:55474: remote error: tls: unknown certificate
+2024/05/05 21:54:14 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:54:14 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:54:14 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/05 21:54:14 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:54:14 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:54:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:54:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:54:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:54:54 http: TLS handshake error from 192.168.0.103:55507: remote error: tls: unknown certificate
+2024/05/05 21:54:56 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:54:56 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:54:56 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/05 21:54:56 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:54:56 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:55:01 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:55:01 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:55:01 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/05 21:55:01 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:55:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:55:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:55:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:55:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:55:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:55:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:56:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:56:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:56:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:56:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:56:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:56:38 http: TLS handshake error from 192.168.0.103:55561: remote error: tls: unknown certificate
+2024/05/05 21:56:41 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:56:41 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:56:41 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 2560 1392}
+2024/05/05 21:56:41 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:56:41 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:56:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:56:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:57:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:57:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:57:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:57:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:57:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:57:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:58:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:58:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:58:17 http: TLS handshake error from 192.168.0.103:55626: remote error: tls: unknown certificate
+2024/05/05 21:58:17 http: TLS handshake error from 192.168.0.103:55627: remote error: tls: unknown certificate
+2024/05/05 21:58:17 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:58:17 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:58:17 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 2560 1392}
+2024/05/05 21:58:17 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:58:17 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:58:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:58:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:58:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:58:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:58:58 http: TLS handshake error from 192.168.0.103:55652: remote error: tls: unknown certificate
+2024/05/05 21:58:58 http: TLS handshake error from 192.168.0.103:55653: remote error: tls: unknown certificate
+2024/05/05 21:58:58 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 21:58:58 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 21:58:58 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 2560 1392}
+2024/05/05 21:58:58 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 21:58:58 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 21:59:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:59:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:59:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:59:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:59:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 21:59:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:00:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:00:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:00:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:00:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:00:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:00:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:01:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:01:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:01:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:01:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:05:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:05:06 http: TLS handshake error from 192.168.0.103:55801: remote error: tls: unknown certificate
+2024/05/05 22:05:06 http: TLS handshake error from 192.168.0.103:55802: remote error: tls: unknown certificate
+2024/05/05 22:05:06 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:05:06 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:05:06 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:05:06 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:05:06 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:05:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:05:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:05:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:05:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:05:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:05:51 http: TLS handshake error from 192.168.0.103:55834: remote error: tls: unknown certificate
+2024/05/05 22:05:51 http: TLS handshake error from 192.168.0.103:55835: remote error: tls: unknown certificate
+2024/05/05 22:05:51 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:05:51 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:05:51 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:05:51 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:05:51 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:05:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:06:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:06:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:06:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:06:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:06:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:06:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:07:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:07:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:07:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:07:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:07:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:07:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:08:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:08:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:08:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:08:33 http: TLS handshake error from 192.168.0.103:56026: remote error: tls: unknown certificate
+2024/05/05 22:08:33 http: TLS handshake error from 192.168.0.103:56027: remote error: tls: unknown certificate
+2024/05/05 22:08:33 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:08:33 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:08:33 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:08:33 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:08:33 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:08:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:08:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:09:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:09:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:09:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:09:23 http: TLS handshake error from 192.168.0.103:56058: remote error: tls: unknown certificate
+2024/05/05 22:09:23 http: TLS handshake error from 192.168.0.103:56059: remote error: tls: unknown certificate
+2024/05/05 22:09:23 http: TLS handshake error from 192.168.0.103:56060: remote error: tls: unknown certificate
+2024/05/05 22:09:23 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:09:23 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:09:23 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:09:23 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:09:23 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:09:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:09:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:09:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:10:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:10:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:10:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:10:23 http: TLS handshake error from 192.168.0.103:56097: remote error: tls: unknown certificate
+2024/05/05 22:10:23 http: TLS handshake error from 192.168.0.103:56098: remote error: tls: unknown certificate
+2024/05/05 22:10:23 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:10:23 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:10:23 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:10:23 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:10:23 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:10:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:10:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:10:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:10:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:11:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:11:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:11:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:11:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:11:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:11:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:12:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:12:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:12:20 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:12:20 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:12:20 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:12:20 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:12:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:12:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:12:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:12:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:13:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:13:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:13:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:13:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:13:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:13:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:14:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:14:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:14:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:14:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:14:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:14:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:15:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:15:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:15:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:15:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:15:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:15:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:16:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:16:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:16:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:16:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:16:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:16:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:17:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:17:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:17:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:17:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:17:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:17:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:18:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:18:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:18:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:18:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:18:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:18:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:19:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:19:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:19:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:19:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:19:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:19:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:20:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:20:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:20:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:20:28 http: TLS handshake error from 192.168.0.103:56571: remote error: tls: unknown certificate
+2024/05/05 22:20:28 http: TLS handshake error from 192.168.0.103:56572: remote error: tls: unknown certificate
+2024/05/05 22:20:28 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:20:28 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:20:28 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:20:28 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:20:28 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:20:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:20:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:20:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:21:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:21:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:21:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:21:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:21:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:21:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:22:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:22:06 http: TLS handshake error from 192.168.0.103:56637: remote error: tls: unknown certificate
+2024/05/05 22:22:06 http: TLS handshake error from 192.168.0.103:56638: remote error: tls: unknown certificate
+2024/05/05 22:22:06 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:22:06 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:22:06 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:22:06 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:22:06 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:22:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:22:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:22:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:22:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:22:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:23:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:23:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:23:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:23:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:23:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:23:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:24:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:24:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:24:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:24:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:24:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:24:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:24:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:25:00 http: TLS handshake error from 192.168.0.103:56758: remote error: tls: unknown certificate
+2024/05/05 22:25:00 http: TLS handshake error from 192.168.0.103:56759: remote error: tls: unknown certificate
+2024/05/05 22:25:00 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:25:00 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:25:00 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:25:00 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:25:00 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:25:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:25:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:25:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:25:28 http: TLS handshake error from 192.168.0.103:56778: remote error: tls: unknown certificate
+2024/05/05 22:25:28 http: TLS handshake error from 192.168.0.103:56779: remote error: tls: unknown certificate
+2024/05/05 22:25:28 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:25:28 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:25:28 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:25:28 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:25:28 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:25:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:25:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:25:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:26:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:26:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:26:21 http: TLS handshake error from 192.168.0.103:56812: remote error: tls: unknown certificate
+2024/05/05 22:26:21 http: TLS handshake error from 192.168.0.103:56813: remote error: tls: unknown certificate
+2024/05/05 22:26:21 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:26:21 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:26:21 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:26:21 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:26:21 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:26:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:26:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:26:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:26:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:27:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:27:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:27:19 http: TLS handshake error from 192.168.0.103:56843: remote error: tls: unknown certificate
+2024/05/05 22:27:22 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:27:22 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:27:22 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:27:22 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:27:22 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:27:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:27:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:27:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:27:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:28:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:28:05 http: TLS handshake error from 192.168.0.103:56887: remote error: tls: unknown certificate
+2024/05/05 22:28:05 http: TLS handshake error from 192.168.0.103:56888: remote error: tls: unknown certificate
+2024/05/05 22:28:05 http: TLS handshake error from 192.168.0.103:56889: remote error: tls: unknown certificate
+2024/05/05 22:28:05 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:28:05 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:28:05 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:28:05 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:28:05 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:28:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:28:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:28:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:28:47 http: TLS handshake error from 192.168.0.103:56909: remote error: tls: unknown certificate
+2024/05/05 22:28:47 http: TLS handshake error from 192.168.0.103:56910: remote error: tls: unknown certificate
+2024/05/05 22:28:47 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:28:47 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:28:47 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/05 22:28:47 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:28:47 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:28:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:29:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:29:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:29:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:29:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:29:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:29:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:30:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:30:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:30:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:30:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:30:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:30:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:31:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:31:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:31:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:31:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:31:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:31:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:32:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:32:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:32:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:32:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:32:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:32:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:33:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:33:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:33:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:33:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:33:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:33:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:33:55 http: TLS handshake error from 192.168.0.103:57078: remote error: tls: unknown certificate
+2024/05/05 22:33:55 http: TLS handshake error from 192.168.0.103:57079: remote error: tls: unknown certificate
+2024/05/05 22:33:55 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 22:33:55 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 22:33:55 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 22:33:55 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 22:33:55 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 22:34:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:34:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:34:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:34:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:34:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:34:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:35:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:35:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:35:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:35:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:35:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:35:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:36:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:36:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:36:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:36:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:36:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:36:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:37:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:37:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:37:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:37:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:37:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:37:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:38:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:38:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:38:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:38:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:38:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:38:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:39:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:39:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:39:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:39:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:39:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:39:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:40:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:40:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:40:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:40:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:40:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:40:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:41:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:41:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:41:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:41:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:41:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:41:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:42:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:42:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:42:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:42:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:42:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:42:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:43:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:43:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:43:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:43:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:43:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:43:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:44:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:44:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:44:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:44:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:44:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:44:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:45:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:45:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:45:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:45:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:45:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:45:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:46:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:46:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:46:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:46:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:46:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:46:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:47:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:47:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:47:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:47:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:47:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:47:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:48:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:48:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:48:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:48:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:48:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:48:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:49:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:49:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:49:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:49:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:49:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:49:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:50:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:50:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:50:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:50:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:50:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:50:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:51:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:51:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:51:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:51:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:51:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:51:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:52:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:52:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:52:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:52:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:52:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:52:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:53:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:53:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:53:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:53:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:53:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:53:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:54:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:54:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:54:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:54:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:54:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:54:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:55:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:55:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:55:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:55:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:55:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:55:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:56:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:56:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:56:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:56:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:56:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:56:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:57:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:57:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:57:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:57:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:57:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:57:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:58:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:58:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:58:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:58:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:58:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:58:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:59:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:59:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:59:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:59:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:59:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 22:59:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:00:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:00:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:00:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:00:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:00:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:00:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:01:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:01:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:01:09 http: TLS handshake error from 192.168.0.103:57979: remote error: tls: unknown certificate
+2024/05/05 23:01:09 http: TLS handshake error from 192.168.0.103:57980: remote error: tls: unknown certificate
+2024/05/05 23:01:09 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:01:09 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:01:09 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:01:09 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:01:09 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:01:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:01:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:01:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:01:36 http: TLS handshake error from 192.168.0.103:58008: remote error: tls: unknown certificate
+2024/05/05 23:01:36 http: TLS handshake error from 192.168.0.103:58009: remote error: tls: unknown certificate
+2024/05/05 23:01:36 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:01:36 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:01:36 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:01:36 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:01:36 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:01:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:01:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:02:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:02:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:02:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:02:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:02:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:02:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:03:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:03:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:03:10 http: TLS handshake error from 192.168.0.103:58058: remote error: tls: unknown certificate
+2024/05/05 23:03:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:03:23 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:03:23 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:03:23 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:03:23 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:03:23 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:03:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:03:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:03:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:03:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:04:07 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:04:07 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:04:07 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:04:07 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:04:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:04:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:04:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:19:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:19:41 http: TLS handshake error from 192.168.0.103:58909: remote error: tls: unknown certificate
+2024/05/05 23:19:41 http: TLS handshake error from 192.168.0.103:58910: remote error: tls: unknown certificate
+2024/05/05 23:19:41 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:19:41 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:19:41 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:19:41 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:19:41 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:19:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:19:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:20:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:20:02 http: TLS handshake error from 192.168.0.103:58937: remote error: tls: unknown certificate
+2024/05/05 23:20:02 http: TLS handshake error from 192.168.0.103:58938: remote error: tls: unknown certificate
+2024/05/05 23:20:02 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:20:02 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:20:02 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:20:02 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:20:02 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:20:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:20:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:20:26 http: TLS handshake error from 192.168.0.103:58963: remote error: tls: unknown certificate
+2024/05/05 23:20:26 http: TLS handshake error from 192.168.0.103:58964: remote error: tls: unknown certificate
+2024/05/05 23:20:26 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:20:26 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:20:26 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:20:26 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:20:26 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:20:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:20:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:20:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:21:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:21:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:21:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:21:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:21:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:21:44 http: TLS handshake error from 192.168.0.103:59045: remote error: tls: unknown certificate
+2024/05/05 23:21:44 http: TLS handshake error from 192.168.0.103:59046: remote error: tls: unknown certificate
+2024/05/05 23:21:44 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:21:44 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:21:44 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:21:44 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:21:44 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:21:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:21:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:22:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:22:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:22:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:22:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:22:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:22:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:23:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:23:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:23:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:23:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:23:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:23:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:24:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:24:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:24:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:24:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:24:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:24:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:25:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:25:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:25:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:25:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:25:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:25:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:26:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:26:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:26:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:26:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:26:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:26:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:27:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:27:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:27:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:27:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:27:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:27:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:28:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:28:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:28:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:28:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:28:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:28:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:29:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:29:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:29:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:29:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:29:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:29:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:30:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:30:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:30:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:30:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:30:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:30:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:31:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:31:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:31:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:31:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:31:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:31:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:32:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:32:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:32:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:32:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:32:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:32:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:33:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:33:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:33:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:33:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:33:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:33:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:34:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:34:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:34:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:34:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:34:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:34:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:35:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:35:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:35:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:35:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:35:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:35:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:36:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:36:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:36:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:36:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:36:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:36:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:37:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:37:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:37:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:37:45 http: TLS handshake error from 192.168.0.103:59988: remote error: tls: unknown certificate
+2024/05/05 23:37:45 http: TLS handshake error from 192.168.0.103:59989: remote error: tls: unknown certificate
+2024/05/05 23:37:45 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:37:45 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:37:45 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:37:45 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:37:45 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:37:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:38:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:38:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:38:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:38:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:38:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:38:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:38:53 http: TLS handshake error from 192.168.0.103:60064: remote error: tls: unknown certificate
+2024/05/05 23:38:53 http: TLS handshake error from 192.168.0.103:60065: remote error: tls: unknown certificate
+2024/05/05 23:38:53 http: TLS handshake error from 192.168.0.103:60066: remote error: tls: unknown certificate
+2024/05/05 23:38:53 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:38:53 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:38:53 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:38:53 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:38:53 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:39:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:39:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:39:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:39:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:39:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:39:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:40:41 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:40:45 http: TLS handshake error from 192.168.0.103:60170: remote error: tls: unknown certificate
+2024/05/05 23:40:45 http: TLS handshake error from 192.168.0.103:60171: remote error: tls: unknown certificate
+2024/05/05 23:40:45 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:40:45 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:40:45 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:40:45 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:40:45 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:40:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:41:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:41:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:41:21 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:41:31 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:41:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:41:58 http: TLS handshake error from 192.168.0.103:60242: remote error: tls: unknown certificate
+2024/05/05 23:41:58 http: TLS handshake error from 192.168.0.103:60243: remote error: tls: unknown certificate
+2024/05/05 23:41:58 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:41:58 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:41:58 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:41:58 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:41:58 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:42:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:42:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:42:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:42:23 http: TLS handshake error from 192.168.0.103:60272: remote error: tls: unknown certificate
+2024/05/05 23:42:23 http: TLS handshake error from 192.168.0.103:60273: remote error: tls: unknown certificate
+2024/05/05 23:42:23 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:42:23 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:42:23 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:42:23 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:42:23 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:42:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:42:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:42:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:43:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:43:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:43:16 http: TLS handshake error from 192.168.0.103:60327: remote error: tls: unknown certificate
+2024/05/05 23:43:16 http: TLS handshake error from 192.168.0.103:60328: remote error: tls: unknown certificate
+2024/05/05 23:43:16 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:43:16 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:43:16 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:43:16 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:43:16 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:43:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:43:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:43:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:43:41 http: TLS handshake error from 192.168.0.103:60365: remote error: tls: unknown certificate
+2024/05/05 23:43:41 http: TLS handshake error from 192.168.0.103:60366: remote error: tls: unknown certificate
+2024/05/05 23:43:41 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:43:41 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:43:41 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:43:41 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:43:41 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:43:49 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:44:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:44:10 http: TLS handshake error from 192.168.0.103:60396: remote error: tls: unknown certificate
+2024/05/05 23:44:10 http: TLS handshake error from 192.168.0.103:60397: remote error: tls: unknown certificate
+2024/05/05 23:44:10 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:44:10 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:44:10 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:44:10 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:44:10 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:44:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:44:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:44:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:44:35 http: TLS handshake error from 192.168.0.103:60435: remote error: tls: unknown certificate
+2024/05/05 23:44:35 http: TLS handshake error from 192.168.0.103:60436: remote error: tls: unknown certificate
+2024/05/05 23:44:35 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:44:35 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:44:35 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:44:35 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:44:35 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:44:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:44:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:45:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:45:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:45:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:45:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:45:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:45:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:46:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:46:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:46:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:46:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:46:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:46:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:47:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:47:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:47:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:47:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:47:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:47:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:48:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:48:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:48:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:48:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:48:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:48:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:49:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:49:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:49:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:49:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:49:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:49:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:50:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:50:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:50:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:50:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:50:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:50:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:51:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:51:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:51:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:51:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:51:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:51:42 http: TLS handshake error from 192.168.0.103:60926: remote error: tls: unknown certificate
+2024/05/05 23:51:42 http: TLS handshake error from 192.168.0.103:60927: remote error: tls: unknown certificate
+2024/05/05 23:51:42 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:51:42 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:51:42 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:51:42 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:51:42 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:51:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:51:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:52:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:52:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:52:18 http: TLS handshake error from 192.168.0.103:60972: remote error: tls: unknown certificate
+2024/05/05 23:52:21 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:52:21 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:52:21 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:52:21 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:52:21 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:52:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:52:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:52:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:52:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:53:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:53:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:53:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:53:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:53:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:53:44 http: TLS handshake error from 192.168.0.103:61408: remote error: tls: unknown certificate
+2024/05/05 23:53:44 http: TLS handshake error from 192.168.0.103:61409: remote error: tls: unknown certificate
+2024/05/05 23:53:44 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:53:44 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:53:44 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:53:44 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:53:44 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:53:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:54:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:54:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:54:17 http: TLS handshake error from 192.168.0.103:61448: remote error: tls: unknown certificate
+2024/05/05 23:54:17 http: TLS handshake error from 192.168.0.103:61449: remote error: tls: unknown certificate
+2024/05/05 23:54:17 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:54:17 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:54:17 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:54:17 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:54:17 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:54:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:54:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:54:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:54:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:55:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:55:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:55:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:55:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:55:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:55:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:56:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:56:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:56:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:56:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:56:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:56:41 http: TLS handshake error from 192.168.0.103:61689: remote error: tls: unknown certificate
+2024/05/05 23:56:41 http: TLS handshake error from 192.168.0.103:61690: remote error: tls: unknown certificate
+2024/05/05 23:56:41 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/05 23:56:41 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/05 23:56:41 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/05 23:56:41 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/05 23:56:41 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/05 23:56:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:56:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:57:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:57:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:57:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:57:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:57:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:57:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:58:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:58:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:58:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:58:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:58:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:58:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:59:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:59:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:59:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:59:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:59:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/05 23:59:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:00:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:00:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:00:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:00:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:00:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:00:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:01:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:01:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:01:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:01:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:01:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:01:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:02:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:02:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:02:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:02:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:02:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:02:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:03:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:03:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:03:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:03:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:03:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:03:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:04:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:04:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:04:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:04:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:04:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:04:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:05:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:05:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:05:21 http: TLS handshake error from 192.168.0.103:62398: remote error: tls: unknown certificate
+2024/05/06 00:05:21 http: TLS handshake error from 192.168.0.103:62399: remote error: tls: unknown certificate
+2024/05/06 00:05:21 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:05:21 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:05:21 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:05:21 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:05:21 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:05:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:05:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:05:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:05:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:06:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:06:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:06:15 http: TLS handshake error from 192.168.0.103:62458: remote error: tls: unknown certificate
+2024/05/06 00:06:15 http: TLS handshake error from 192.168.0.103:62459: remote error: tls: unknown certificate
+2024/05/06 00:06:15 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:06:15 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:06:15 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:06:15 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:06:15 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:06:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:06:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:06:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:06:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:07:01 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:07:04 http: TLS handshake error from 192.168.0.103:62521: remote error: tls: unknown certificate
+2024/05/06 00:07:04 http: TLS handshake error from 192.168.0.103:62522: remote error: tls: unknown certificate
+2024/05/06 00:07:04 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:07:04 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:07:04 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:07:04 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:07:04 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:07:11 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:07:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:07:21 http: TLS handshake error from 192.168.0.103:62545: remote error: tls: unknown certificate
+2024/05/06 00:07:21 http: TLS handshake error from 192.168.0.103:62546: remote error: tls: unknown certificate
+2024/05/06 00:07:21 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:07:21 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:07:21 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:07:21 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:07:21 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:09:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:10:00 http: TLS handshake error from 192.168.0.103:62699: remote error: tls: unknown certificate
+2024/05/06 00:10:00 http: TLS handshake error from 192.168.0.103:62700: remote error: tls: unknown certificate
+2024/05/06 00:10:00 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:10:00 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:10:00 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:10:00 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:10:00 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:10:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:10:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:10:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:10:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:10:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:10:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:11:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:11:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:11:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:11:27 http: TLS handshake error from 192.168.0.103:62802: remote error: tls: unknown certificate
+2024/05/06 00:11:27 http: TLS handshake error from 192.168.0.103:62803: remote error: tls: unknown certificate
+2024/05/06 00:11:27 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:11:27 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:11:27 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:11:27 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:11:27 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:11:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:11:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:11:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:12:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:12:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:12:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:12:29 http: TLS handshake error from 192.168.0.103:62877: remote error: tls: unknown certificate
+2024/05/06 00:12:29 http: TLS handshake error from 192.168.0.103:62878: remote error: tls: unknown certificate
+2024/05/06 00:12:29 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:12:29 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:12:29 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:12:29 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:12:29 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:12:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:12:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:12:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:13:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:13:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:13:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:13:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:13:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:13:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:14:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:14:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:14:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:14:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:14:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:14:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:15:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:15:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:15:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:15:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:15:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:15:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:16:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:16:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:16:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:16:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:16:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:16:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:17:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:17:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:17:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:17:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:17:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:17:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:18:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:18:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:18:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:18:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:18:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:18:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:19:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:19:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:19:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:19:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:19:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:19:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:20:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:20:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:20:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:20:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:20:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:20:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:21:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:21:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:21:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:21:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:21:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:21:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:22:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:22:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:22:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:22:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:22:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:22:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:23:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:25:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:25:33 http: TLS handshake error from 192.168.0.103:63633: remote error: tls: unknown certificate
+2024/05/06 00:25:33 http: TLS handshake error from 192.168.0.103:63634: remote error: tls: unknown certificate
+2024/05/06 00:25:33 DEBUG: [Runner] [AppStreamHandler] childs of 14960 pid: [{ pid: 15800, ppid: 14960, executable: WINWORD.EXE }]
+2024/05/06 00:25:33 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 15800
+2024/05/06 00:25:33 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/06 00:25:33 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 15800
+2024/05/06 00:25:33 INFO: [Runner] [AppDirectStreamHandler] stream for pid 15800 created
+2024/05/06 00:25:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:25:49 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:25:59 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:26:09 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/06 00:26:19 DEBUG: [Lan Listener] 192.168.0.103:3301
