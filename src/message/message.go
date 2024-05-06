@@ -97,3 +97,9 @@ type Coords struct {
 	X int32 `json:"x"`
 	Y int32 `json:"y"`
 }
+
+type MouseEvent struct {
+	Type       string `json:"type"`
+	Coords     Coords `json:"coords"`
+	WheelDelta Coords `json:"wheel_delta"`
+}

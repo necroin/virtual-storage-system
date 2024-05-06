@@ -216,13 +216,14 @@ func (runner *Runner) AppImageHandler(responseWriter http.ResponseWriter, reques
 	streamSession.handler.ServeHTTP(responseWriter, request)
 }
 
-func (runner *Runner) AppMouseClickedHandler(responseWriter http.ResponseWriter, request *http.Request) {
+func (runner *Runner) AppMouseEventHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	params := mux.Vars(request)
 	pid, _ := strconv.Atoi(params["pid"])
 
-	coords := &message.Coords{}
-	json.NewDecoder(request.Body).Decode(coords)
+	event := &message.MouseEvent{}
+	json.NewDecoder(request.Body).Decode(event)
 
+	coords := event.Coords
 	cursorPotion := win.POINT{}
 	win.GetCursorPos(&cursorPotion)
 
@@ -237,11 +238,23 @@ func (runner *Runner) AppMouseClickedHandler(responseWriter http.ResponseWriter,
 		if winutils.RectEqual(captureRect, winutils.GetCaptureRect(windowRect, clientRect)) {
 			win.SetForegroundWindow(win.HWND(handle))
 			win.SetActiveWindow(win.HWND(handle))
-			utils.MouseMove(coords.X, coords.Y)
-			utils.MouseLeftClick(coords.X, coords.Y)
+			if event.Type == "leftDown" {
+				utils.MouseMove(coords.X, coords.Y)
+
+				fmt.Println("leftDown", coords)
+				utils.MouseLeftDown()
+			}
+			if event.Type == "leftUp" {
+				fmt.Println("leftUp", coords)
+				utils.MouseLeftUp()
+			}
+			if event.Type == "wheel" {
+				fmt.Println("wheel", event.WheelDelta)
+				utils.MouseWheel(coords.X, coords.Y, event.WheelDelta.Y)
+			}
 			break
 		}
 	}
 
-	utils.MouseMove(cursorPotion.X, cursorPotion.Y)
+	// utils.MouseMove(cursorPotion.X, cursorPotion.Y)
 }

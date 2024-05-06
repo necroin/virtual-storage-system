@@ -29,7 +29,7 @@ func MouseMove(x int32, y int32) {
 	win.SendInput(1, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
 }
 
-func MouseLeftClick(x int32, y int32) {
+func MouseLeftDown() {
 	mouseInput := win.MOUSE_INPUT{}
 	mouseInput.Type = win.INPUT_MOUSE
 	mouseInput.Mi = win.MOUSEINPUT{
@@ -42,7 +42,18 @@ func MouseLeftClick(x int32, y int32) {
 
 	mouseInput.Mi.DwFlags = win.MOUSEEVENTF_LEFTDOWN
 	win.SendInput(1, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
+}
 
+func MouseLeftUp() {
+	mouseInput := win.MOUSE_INPUT{}
+	mouseInput.Type = win.INPUT_MOUSE
+	mouseInput.Mi = win.MOUSEINPUT{
+		Dx:          0,
+		Dy:          0,
+		MouseData:   0,
+		DwExtraInfo: 0,
+		Time:        0,
+	}
 	mouseInput.Mi.DwFlags = win.MOUSEEVENTF_LEFTUP
 	win.SendInput(1, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
 }
@@ -62,6 +73,21 @@ func MouseRightClick() {
 	win.SendInput(1, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
 
 	mouseInput.Mi.DwFlags = win.MOUSEEVENTF_RIGHTUP
+	win.SendInput(1, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
+}
+
+func MouseWheel(x int32, y int32, delta int32) {
+	mouseInput := win.MOUSE_INPUT{}
+	mouseInput.Type = win.INPUT_MOUSE
+	mouseInput.Mi = win.MOUSEINPUT{
+		Dx:          x,
+		Dy:          y,
+		MouseData:   uint32(delta),
+		DwExtraInfo: 0,
+		Time:        0,
+	}
+
+	mouseInput.Mi.DwFlags = win.MOUSEEVENTF_WHEEL
 	win.SendInput(1, unsafe.Pointer(&mouseInput), int32(unsafe.Sizeof(mouseInput)))
 }
 

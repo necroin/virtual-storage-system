@@ -123,6 +123,7 @@ function GetFilesystem(routerUrl, path) {
             openPath = path + openPath
 
             tableRow.ondblclick = () => GetFilesystem(GetRequestUrl(routerUrl), openPath)
+            tableRow.ontouchend = () => GetFilesystem(GetRequestUrl(routerUrl), openPath)
 
             filesystemTable.appendChild(tableRow)
 
@@ -173,6 +174,7 @@ function GetFilesystem(routerUrl, path) {
                 tableRow.appendChild(sizeElement)
 
                 tableRow.ondblclick = () => OpenFile(routerUrl, tableRow)
+                tableRow.ontouchend = () => OpenFile(routerUrl, tableRow)
 
                 filesystemTable.appendChild(tableRow)
 
@@ -382,7 +384,7 @@ function OpenFile(routerUrl, item) {
             UpdateStatusBar(openResponse.status_bar)
             let pid = openResponse.pid
             let runnerUrl = openResponse.runner_url
-            open("https://" + runnerUrl + "/runner/stream/" + String(pid))
+            window.open("https://" + runnerUrl + "/runner/stream/" + String(pid))
         }
     );
 }
