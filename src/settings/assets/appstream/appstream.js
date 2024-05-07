@@ -1,3 +1,4 @@
+const isTouch = () => 'ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch || navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0
 
 function request(methood, url, data) {
     var req = new XMLHttpRequest();
@@ -7,40 +8,52 @@ function request(methood, url, data) {
 }
 
 function Init(url, pid) {
-    function onWheel(event) {
-        console.log(event)
-        request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "wheel", coords: { x: event.offsetX, y: event.offsetY }, wheel_delta: { x: event.deltaX, y: window.scrollY } }))
+    let canvas = document.getElementById("canvas")
+    canvas.__custom__ = {
+        blockMouse: false
     }
 
-    window.onscroll = onWheel
-
-    let canvas = document.getElementById("canvas")
     canvas.onmousedown = (event) => {
         request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "leftDown", coords: { x: event.offsetX, y: event.offsetY } }))
     }
     canvas.onmouseup = (event) => {
         request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "leftUp", coords: { x: event.offsetX, y: event.offsetY } }))
     }
+    canvas.onmousemove = (event) => {
+        request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "move", coords: { x: event.offsetX, y: event.offsetY } }))
+    }
+    canvas.onwheel = (event) => {
+        request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "scroll", coords: { x: event.offsetX, y: event.offsetY }, scroll_delta: { x: -event.deltaX, y: -event.deltaY } }))
+    }
+
     canvas.onclick = (event) => { }
     canvas.ondblclick = (event) => { }
-    canvas.onmousemove = (event) => { }
 
-    
+    canvas.ontouchstart = (event) => {
+        canvas.__custom__.touchContext = null
+        canvas.__custom__.blockMouse = true
+        if (event.touches.length == 1) {
+            let offsetX = event.touches[0].pageX
+            let offsetY = event.touches[0].pageY
+            canvas.__custom__.touchContext = { x: offsetX, y: offsetY }
+            canvas.__custom__.touchMoveContext = { x: offsetX, y: offsetY }
+        }
+    }
+    canvas.ontouchmove = (event) => {
+        if (event.touches.length == 1 && canvas.__custom__.touchContext != null) {
+            event.preventDefault()
 
-    // if (canvas.addEventListener) {
-    //     if ('onwheel' in document) {
-    //         // IE9+, FF17+, Ch31+
-    //         canvas.addEventListener("wheel", onWheel);
-    //     } else if ('onmousewheel' in document) {
-    //         // устаревший вариант события
-    //         canvas.addEventListener("mousewheel", onWheel);
-    //     } else {
-    //         // Firefox < 17
-    //         canvas.addEventListener("MozMousePixelScroll", onWheel);
-    //     }
-    // } else { // IE8-
-    //     canvas.attachEvent("onmousewheel", onWheel);
-    // }
+            let offsetX = event.touches[0].pageX
+            let offsetY = event.touches[0].pageY
+            canvas.__custom__.touchMoveContext = { x: offsetX, y: offsetY }
+
+            let deltaX = (canvas.__custom__.touchContext.x - offsetX) / 2
+            let deltaY = (canvas.__custom__.touchContext.y - offsetY) / 2
+
+            request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "scroll", coords: { x: offsetX, y: offsetY }, scroll_delta: { x: deltaX, y: deltaY } }))
+        }
+    }
+    canvas.ontouchend = (event) => { }
 
     setTimeout(window.LaunchStream, 0, url, pid)
 }

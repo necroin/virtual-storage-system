@@ -99,7 +99,7 @@ type Coords struct {
 }
 
 type MouseEvent struct {
-	Type       string `json:"type"`
-	Coords     Coords `json:"coords"`
-	WheelDelta Coords `json:"wheel_delta"`
+	Type   string `json:"type"`
+	Coords Coords `json:"coords"`
+	Scroll Coords `json:"scroll_delta"`
 }

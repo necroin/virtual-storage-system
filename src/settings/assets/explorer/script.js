@@ -371,7 +371,7 @@ function Paste(routerUrl) {
 }
 
 function OpenFile(routerUrl, item) {
-    async_request("POST",
+    response = request("POST",
         "https://" + routerUrl + "/router/open",
         JSON.stringify({
             platform: item.__custom__["platform"],
@@ -379,14 +379,13 @@ function OpenFile(routerUrl, item) {
             src_url: item.__custom__["storageUrl"],
             type: item.__custom__["type"]
         }),
-        (response) => {
-            let openResponse = JSON.parse(response)
-            UpdateStatusBar(openResponse.status_bar)
-            let pid = openResponse.pid
-            let runnerUrl = openResponse.runner_url
-            window.open("https://" + runnerUrl + "/runner/stream/" + String(pid))
-        }
     );
+
+    let openResponse = JSON.parse(response)
+    UpdateStatusBar(openResponse.status_bar)
+    let pid = openResponse.pid
+    let runnerUrl = openResponse.runner_url
+    window.open("https://" + runnerUrl + "/runner/stream/" + String(pid))
 }
 
 function GetFilers(routerUrl) {

@@ -11,3 +11,7 @@ html, body {
     -ms-user-select: none;
     user-select: none;
 }
+
+.uscrollable {
+    overflow: hidden;
+}

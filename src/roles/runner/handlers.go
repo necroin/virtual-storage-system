@@ -239,18 +239,21 @@ func (runner *Runner) AppMouseEventHandler(responseWriter http.ResponseWriter, r
 			win.SetForegroundWindow(win.HWND(handle))
 			win.SetActiveWindow(win.HWND(handle))
 			if event.Type == "leftDown" {
+				// fmt.Println("leftDown", coords)
 				utils.MouseMove(coords.X, coords.Y)
-
-				fmt.Println("leftDown", coords)
 				utils.MouseLeftDown()
 			}
 			if event.Type == "leftUp" {
-				fmt.Println("leftUp", coords)
+				// fmt.Println("leftUp", coords)
 				utils.MouseLeftUp()
 			}
-			if event.Type == "wheel" {
-				fmt.Println("wheel", event.WheelDelta)
-				utils.MouseWheel(coords.X, coords.Y, event.WheelDelta.Y)
+			if event.Type == "move" {
+				// fmt.Println("move", coords)
+				utils.MouseMove(coords.X, coords.Y)
+			}
+			if event.Type == "scroll" {
+				// fmt.Println("scroll", event.Scroll)
+				utils.MouseWheel(coords.X, coords.Y, event.Scroll.Y)
 			}
 			break
 		}
