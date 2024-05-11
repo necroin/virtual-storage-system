@@ -1,7 +1,6 @@
 package runner
 
 import (
-	"os"
 	"sync"
 	"time"
 	"vss/src/config"
@@ -23,20 +22,16 @@ type StreamSession struct {
 type Runner struct {
 	config         *config.Config
 	connector      *connector.Connector
-	hostname       string
 	streamSessions map[int]*StreamSession
-	sessuinMutex   sync.Mutex
+	sessionMutex   sync.Mutex
 }
 
 func New(config *config.Config, connector *connector.Connector) (*Runner, error) {
-	hostname, _ := os.Hostname()
-
 	return &Runner{
 		config:         config,
 		connector:      connector,
-		hostname:       hostname,
 		streamSessions: map[int]*StreamSession{},
-		sessuinMutex:   sync.Mutex{},
+		sessionMutex:   sync.Mutex{},
 	}, nil
 }
 
@@ -49,7 +44,7 @@ func (runner *Runner) NotifyRouter(url string) error {
 	message := message.Notify{
 		Type:      message.NotifyMessageRunnerType,
 		Url:       runner.config.Url,
-		Hostname:  runner.hostname,
+		Hostname:  runner.config.Hostname,
 		Token:     runner.config.User.Token,
 		Platform:  runner.config.Roles.Runner.Platform,
 		Timestamp: time.Now().UnixNano(),

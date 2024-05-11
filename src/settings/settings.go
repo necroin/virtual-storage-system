@@ -21,6 +21,5 @@ const (
 )
 
 const (
-	DefaultLanIP      = "192.168.0."
 	DefaultLanTimeout = 10 * time.Second
 )

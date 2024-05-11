@@ -17,10 +17,10 @@ var (
 
 var (
 	//go:embed assets/explorer/explorer.html
-	ExplorerTemlate string
+	ExplorerPage string
 	//go:embed assets/explorer/explorer.css
 	ExplorerStyle string
-	//go:embed assets/explorer/script.js
+	//go:embed assets/explorer/explorer.js
 	ExplorerScript string
 	//go:embed assets/explorer/icons/create_plus.svg
 	ExplorerIconCreate string
@@ -54,41 +54,75 @@ func GetExplorerPageStyle() string {
 }
 
 func GetExplorerPageScript() string {
-	data, _ := os.ReadFile("src/settings/assets/explorer/script.js")
+	data, _ := os.ReadFile("src/settings/assets/explorer/explorer.js")
 	script := string(data)
 	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script)
 }
 
 func GetHomePage() string {
-	data, _ := os.ReadFile("src/settings/assets/home/page.html")
+	data, _ := os.ReadFile("src/settings/assets/home/home.html")
 	return string(data)
 }
 
 func GetHomePageStyle() string {
-	data, _ := os.ReadFile("src/settings/assets/home/style.css")
+	data, _ := os.ReadFile("src/settings/assets/home/home.css")
 	style := string(data)
 	return fmt.Sprintf(`<style type="text/css">%s</style>`, style)
 }
 
 func GetHomePageScript() string {
-	data, _ := os.ReadFile("src/settings/assets/home/script.js")
+	data, _ := os.ReadFile("src/settings/assets/home/home.js")
 	script := string(data)
 	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script)
 }
 
 func GetSettingsPage() string {
-	data, _ := os.ReadFile("src/settings/assets/settings/page.html")
+	data, _ := os.ReadFile("src/settings/assets/settings/settings.html")
 	return string(data)
 }
 
 func GetSettingsPageStyle() string {
-	data, _ := os.ReadFile("src/settings/assets/settings/style.css")
+	data, _ := os.ReadFile("src/settings/assets/settings/settings.css")
 	style := string(data)
 	return fmt.Sprintf(`<style type="text/css">%s</style>`, style)
 }
 
 func GetSettingsPageScript() string {
-	data, _ := os.ReadFile("src/settings/assets/settings/script.js")
+	data, _ := os.ReadFile("src/settings/assets/settings/settings.js")
+	script := string(data)
+	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script)
+}
+
+func GetAuthenticationTemlate() string {
+	data, _ := os.ReadFile("src/settings/assets/authentication/authentication.html")
+	return string(data)
+}
+
+func GetAuthenticationStyle() string {
+	data, _ := os.ReadFile("src/settings/assets/authentication/authentication.css")
+	style := string(data)
+	return fmt.Sprintf(`<style type="text/css">%s</style>`, style)
+}
+
+func GetAuthenticationScript() string {
+	data, _ := os.ReadFile("src/settings/assets/authentication/authentication.js")
+	script := string(data)
+	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script)
+}
+
+func GetAppStreamPage() string {
+	data, _ := os.ReadFile("src/settings/assets/appstream/appstream.html")
+	return string(data)
+}
+
+func GetAppStreamPageStyle() string {
+	data, _ := os.ReadFile("src/settings/assets/appstream/appstream.css")
+	style := string(data)
+	return fmt.Sprintf(`<style type="text/css">%s</style>`, style)
+}
+
+func GetAppStreamPageScript() string {
+	data, _ := os.ReadFile("src/settings/assets/appstream/appstream.js")
 	script := string(data)
 	return fmt.Sprintf(`<script type="text/javascript">%s</script>`, script)
 }

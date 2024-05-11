@@ -69,3 +69,7 @@ func (settings *Settings) Dump() error {
 	}
 	return nil
 }
+
+func (replication *ReplicationSettings) String() string {
+	return fmt.Sprintf("[Host] (%s -> %s): [Path] (%s -> %s)", replication.SrcHostname, replication.DstHostname, replication.SrcPath, replication.DstPath)
+}

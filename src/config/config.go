@@ -5,6 +5,7 @@ import (
 	"crypto/x509"
 	"flag"
 	"fmt"
+	"os"
 	"runtime"
 	"time"
 	"vss/src/lan"
@@ -45,6 +46,7 @@ type User struct {
 
 type Config struct {
 	Url         string `yaml:"url"`
+	Hostname    string `yaml:"hostname"`
 	ListenPort  string `yaml:"listen_port"`
 	Roles       Roles  `yaml:"roles"`
 	Log         Log    `yaml:"log"`
@@ -93,8 +95,11 @@ func LoadConfig() (*Config, error) {
 		return nil, fmt.Errorf("[LoadConfig] -> %s", err)
 	}
 
+	hostname, _ := os.Hostname()
+
 	config := &Config{
 		Url:        *url,
+		Hostname:   hostname,
 		ListenPort: *listenPort,
 		Roles: Roles{
 			Storage: StorageRole{

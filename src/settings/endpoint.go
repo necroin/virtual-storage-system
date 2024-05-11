@@ -26,7 +26,7 @@ const (
 	RunnerAppStreamEndpoint       = "/{token}/runner/stream/{pid:[0-9]+}"
 	RunnerAppDirectStreamEndpoint = "/{token}/runner/stream/direct/{pid:[0-9]+}"
 	RunnerAppImageEndpoint        = "/{token}/runner/image/{pid:[0-9]+}"
-	RunnerAppClickedEndpoint      = "/{token}/runner/mouseevent/{pid:[0-9]+}"
+	RunnerAppMouseEventEndpoint   = "/{token}/runner/mouseevent/{pid:[0-9]+}"
 )
 
 const (

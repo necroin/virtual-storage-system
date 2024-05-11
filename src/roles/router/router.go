@@ -13,35 +13,28 @@ import (
 	"vss/src/settings"
 	"vss/src/utils"
 
-	"gopkg.in/ini.v1"
-
 	"github.com/robfig/cron"
 )
 
 type Router struct {
-	config    *config.Config
-	connector *connector.Connector
-	server    *server.Server
-	storages  map[string]message.Notify
-	runners   map[string]message.Notify
-	hostnames map[string]string
-	filters   *ini.File
+	config           *config.Config
+	connector        *connector.Connector
+	server           *server.Server
+	storages         map[string]message.Notify
+	runners          map[string]message.Notify
+	hostnames        map[string]string
+	replicationTasks map[string]*cron.Cron
 }
 
 func New(config *config.Config, server *server.Server, connector *connector.Connector) (*Router, error) {
-	filters, err := ini.LooseLoad("filters.ini")
-	if err != nil {
-		return nil, fmt.Errorf("[Router] failed create filters file")
-	}
-
 	router := &Router{
-		config:    config,
-		server:    server,
-		connector: connector,
-		storages:  map[string]message.Notify{},
-		runners:   map[string]message.Notify{},
-		hostnames: map[string]string{},
-		filters:   filters,
+		config:           config,
+		server:           server,
+		connector:        connector,
+		storages:         map[string]message.Notify{},
+		runners:          map[string]message.Notify{},
+		hostnames:        map[string]string{},
+		replicationTasks: map[string]*cron.Cron{},
 	}
 
 	go func() {
@@ -74,33 +67,13 @@ func New(config *config.Config, server *server.Server, connector *connector.Conn
 		}
 	}()
 
-	for _, replication := range config.Settings.Replication {
-		replicationCron := cron.New()
-
-		replicationCron.AddFunc(replication.Cron, func() {
-			srcStorage, ok := router.storages[replication.SrcHostname]
-			if !ok {
-				logger.Error("[Router] [Replcation] [Cron] failed source storage %s", replication.SrcHostname)
-			}
-			dstStorage, ok := router.storages[replication.DstHostname]
-			if !ok {
-				logger.Error("[Router] [Replcation] [Cron] failed destination storage %s", replication.DstHostname)
-			}
-
-			copyRequest := &message.CopyRequest{
-				SrcPath: replication.SrcPath,
-				DstPath: replication.DstPath,
-				SrcUrl:  path.Join(srcStorage.Url, srcStorage.Token),
-			}
-
-			_, err := router.connector.SendPostRequest(dstStorage.Url+utils.FormatTokemizedEndpoint(settings.StorageCopyEndpoint, dstStorage.Token), copyRequest)
-			if err != nil {
-				logger.Error("[Router] [Replcation] [Cron] failed copy: %s", err)
-			}
-		})
-	}
-
 	return router, nil
+}
+
+func (router *Router) StartReplicationTasks() {
+	for _, replicationCron := range router.replicationTasks {
+		replicationCron.Start()
+	}
 }
 
 func (router *Router) CollectStorageFileSystem(url string, token string, walkPath string) message.FilesystemDirectory {
@@ -165,4 +138,38 @@ func (router *Router) SendOpenRequest(runner message.Notify, openRequest *messag
 	}
 
 	return openResponse, nil
+}
+
+func (router *Router) AddReplicationTask(replication config.ReplicationSettings) {
+	replicationCron := cron.New()
+
+	replicationCron.AddFunc(replication.Cron, func() {
+		srcStorage, ok := router.storages[replication.SrcHostname]
+		if !ok {
+			logger.Error("[Router] [Replcation] [Cron] failed source storage %s", replication.SrcHostname)
+		}
+		dstStorage, ok := router.storages[replication.DstHostname]
+		if !ok {
+			logger.Error("[Router] [Replcation] [Cron] failed destination storage %s", replication.DstHostname)
+		}
+
+		copyRequest := &message.CopyRequest{
+			SrcPath: replication.SrcPath,
+			DstPath: replication.DstPath,
+			SrcUrl:  path.Join(srcStorage.Url, srcStorage.Token),
+		}
+
+		_, err := router.connector.SendPostRequest(dstStorage.Url+utils.FormatTokemizedEndpoint(settings.StorageCopyEndpoint, dstStorage.Token), copyRequest)
+		if err != nil {
+			logger.Error("[Router] [Replcation] [Cron] failed copy: %s", err)
+		}
+	})
+
+	router.replicationTasks[replication.String()] = replicationCron
+}
+
+func (router *Router) AddReplicationTasks(replication ...config.ReplicationSettings) {
+	for _, replication := range router.config.Settings.Replication {
+		router.AddReplicationTask(replication)
+	}
 }

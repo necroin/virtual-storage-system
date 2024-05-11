@@ -3,18 +3,18 @@ package connector
 import (
 	"bytes"
 	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
 	"net/http"
-	"vss/src/config"
 )
 
 type Connector struct {
-	config *config.Config
+	rootCAs *x509.CertPool
 }
 
-func NewConnector(config *config.Config) (*Connector, error) {
+func NewConnector(rootCAs *x509.CertPool) (*Connector, error) {
 	return &Connector{
-		config: config,
+		rootCAs: rootCAs,
 	}, nil
 }
 
@@ -41,29 +41,36 @@ func (connector *Connector) SendRequestWithDataEncode(url string, data any, meth
 }
 
 func (connector *Connector) SendRequest(url string, data []byte, method string) (*http.Response, error) {
+	proto := "http://"
+	var tlsConfig *tls.Config = nil
+	if connector.rootCAs != nil {
+		tlsConfig = &tls.Config{
+			RootCAs:    connector.rootCAs,
+			ServerName: "vss",
+			// VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
+			// 	if len(verifiedChains) > 0 {
+			// 		logger.Debug("[Connector] Verified certificate chain from peer:")
+			// 		for _, certificate := range verifiedChains {
+			// 			for i, cert := range certificate {
+			// 				logger.Debug(fmt.Sprintf("[Connector] [Cert %d] %s", i, utils.CertificateInfo(cert)))
+			// 			}
+			// 		}
+			// 	}
+			// 	return nil
+			// },
+		}
+		proto = "https://"
+	}
+
 	client := http.Client{
 		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{
-				RootCAs:    connector.config.RootCAs,
-				ServerName: "vss",
-				// VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
-				// 	if len(verifiedChains) > 0 {
-				// 		logger.Debug("[Connector] Verified certificate chain from peer:")
-				// 		for _, certificate := range verifiedChains {
-				// 			for i, cert := range certificate {
-				// 				logger.Debug(fmt.Sprintf("[Connector] [Cert %d] %s", i, utils.CertificateInfo(cert)))
-				// 			}
-				// 		}
-				// 	}
-				// 	return nil
-				// },
-			},
+			TLSClientConfig: tlsConfig,
 		},
 	}
 
 	request, err := http.NewRequest(
 		method,
-		"https://"+url,
+		proto+url,
 		bytes.NewReader(data),
 	)
 	if err != nil {

@@ -132,20 +132,20 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 }
 
 func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	copyRequest := &message.MoveRequest{}
-	copyRequest.DstPath = utils.HandleFilesystemPath(copyRequest.DstPath)
-	copyRequest.SrcPath = utils.HandleFilesystemPath(copyRequest.SrcPath)
+	moveRequest := &message.MoveRequest{}
+	moveRequest.DstPath = utils.HandleFilesystemPath(moveRequest.DstPath)
+	moveRequest.SrcPath = utils.HandleFilesystemPath(moveRequest.SrcPath)
 
-	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
+	if err := json.NewDecoder(request.Body).Decode(moveRequest); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed decode response: %s", err)
 		return
 	}
-	logger.Debug("[MoveHandler] request: %#v", copyRequest)
+	logger.Debug("[MoveHandler] request: %#v", moveRequest)
 
-	copyRequest.DstPath = path.Dir(copyRequest.DstPath)
+	moveRequest.DstPath = path.Dir(moveRequest.DstPath)
 
-	selectResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.SrcPath)
+	selectResponse, err := storage.connector.SendPostRequest(moveRequest.SrcUrl+"/storage/select", moveRequest.SrcPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
@@ -153,13 +153,13 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 	}
 	logger.Debug("[MoveHandler] select response: %#v", selectResponse)
 
-	if err := utils.Decompress(selectResponse.Body, copyRequest.DstPath); err != nil {
+	if err := utils.Decompress(selectResponse.Body, moveRequest.DstPath); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed unzip file: %s", err)
 		return
 	}
 
-	deleteResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.SrcPath)
+	deleteResponse, err := storage.connector.SendPostRequest(moveRequest.SrcUrl+"/storage/delete", moveRequest.SrcPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)

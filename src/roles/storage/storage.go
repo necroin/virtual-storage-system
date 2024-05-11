@@ -15,16 +15,13 @@ import (
 type Storage struct {
 	config    *config.Config
 	connector *connector.Connector
-	hostname  string
 }
 
 func New(config *config.Config, connector *connector.Connector) (*Storage, error) {
-	hostname, _ := os.Hostname()
 
 	return &Storage{
 		config:    config,
 		connector: connector,
-		hostname:  hostname,
 	}, nil
 }
 
@@ -37,7 +34,7 @@ func (storage *Storage) NotifyRouter(url string) error {
 	message := message.Notify{
 		Type:      message.NotifyMessageStorageType,
 		Url:       storage.config.Url,
-		Hostname:  storage.hostname,
+		Hostname:  storage.config.Hostname,
 		Token:     storage.config.User.Token,
 		Platform:  storage.config.Roles.Runner.Platform,
 		Timestamp: time.Now().UnixNano(),
@@ -80,7 +77,7 @@ func (storage *Storage) CollectFileSystem(walkPath string) message.FilesystemDir
 			Size:     size,
 			Url:      path.Join(storage.config.Url, storage.config.User.Token),
 			Platform: storage.config.Roles.Runner.Platform,
-			Hostname: storage.hostname,
+			Hostname: storage.config.Hostname,
 		}
 
 		if entry.IsDir() {
@@ -99,6 +96,6 @@ func (storage *Storage) GetUrl() string {
 
 func (storage *Storage) GetHostnames() map[string]string {
 	return map[string]string{
-		storage.hostname: path.Join(storage.config.Url, storage.config.User.Token),
+		storage.config.Hostname: path.Join(storage.config.Url, storage.config.User.Token),
 	}
 }

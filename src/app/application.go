@@ -29,7 +29,7 @@ type Application struct {
 }
 
 func New(config *config.Config) (*Application, error) {
-	connector, err := connector.NewConnector(config)
+	connector, err := connector.NewConnector(config.RootCAs)
 	if err != nil {
 		return nil, err
 	}
@@ -39,11 +39,11 @@ func New(config *config.Config) (*Application, error) {
 		return nil, err
 	}
 
-	server.AddHandler(settings.ServerStatusEndpoint, server.StatusHandler, "GET")
-	server.AddHandler(settings.ServerAuthEndpoint, server.AuthHandler, "GET")
-	server.AddHandler(settings.ServerAuthTokenEndpoint, server.AuthTokenHandler, "POST")
-	server.AddHandler(settings.ServerHomeEndpoint, server.HomeHandler, "GET")
-	server.AddHandler(settings.ServerSettingsEndpoint, server.SettingsHandler, "GET")
+	server.AddHandlerFunc(settings.ServerStatusEndpoint, server.StatusHandler, "GET")
+	server.AddHandlerFunc(settings.ServerAuthEndpoint, server.AuthHandler, "GET")
+	server.AddHandlerFunc(settings.ServerAuthTokenEndpoint, server.AuthTokenHandler, "POST")
+	server.AddHandlerFunc(settings.ServerHomeEndpoint, server.HomeHandler, "GET")
+	server.AddHandlerFunc(settings.ServerSettingsEndpoint, server.SettingsHandler, "GET")
 
 	var storageRole *storage.Storage = nil
 	if config.Roles.Storage.Enable {
@@ -52,14 +52,14 @@ func New(config *config.Config) (*Application, error) {
 			return nil, fmt.Errorf("[App] failed create storage role: %s", err)
 		}
 
-		server.AddHandler(settings.StorageFilesystemEndpoint, server.TokenizedHandler(storageRole.FilesystemHandler), "POST", "GET")
-		server.AddHandler(settings.StorageInsertEndpoint, server.TokenizedHandler(storageRole.InsertHandler), "POST")
-		server.AddHandler(settings.StorageSelectEndpoint, server.TokenizedHandler(storageRole.SelectHandler), "POST")
-		server.AddHandler(settings.StorageUpdateEndpoint, server.TokenizedHandler(storageRole.UpdateHandler), "POST")
-		server.AddHandler(settings.StorageDeleteEndpoint, server.TokenizedHandler(storageRole.DeleteHandler), "POST")
-		server.AddHandler(settings.StorageCopyEndpoint, server.TokenizedHandler(storageRole.CopyHandler), "POST")
-		server.AddHandler(settings.StorageMoveEndpoint, server.TokenizedHandler(storageRole.MoveHandler), "POST")
-		server.AddHandler(settings.StorageRenameEndpoint, server.TokenizedHandler(storage.RenameHandler), "POST")
+		server.AddHandlerFunc(settings.StorageFilesystemEndpoint, server.TokenizedHandler(storageRole.FilesystemHandler), "POST", "GET")
+		server.AddHandlerFunc(settings.StorageInsertEndpoint, server.TokenizedHandler(storageRole.InsertHandler), "POST")
+		server.AddHandlerFunc(settings.StorageSelectEndpoint, server.TokenizedHandler(storageRole.SelectHandler), "POST")
+		server.AddHandlerFunc(settings.StorageUpdateEndpoint, server.TokenizedHandler(storageRole.UpdateHandler), "POST")
+		server.AddHandlerFunc(settings.StorageDeleteEndpoint, server.TokenizedHandler(storageRole.DeleteHandler), "POST")
+		server.AddHandlerFunc(settings.StorageCopyEndpoint, server.TokenizedHandler(storageRole.CopyHandler), "POST")
+		server.AddHandlerFunc(settings.StorageMoveEndpoint, server.TokenizedHandler(storageRole.MoveHandler), "POST")
+		server.AddHandlerFunc(settings.StorageRenameEndpoint, server.TokenizedHandler(storage.RenameHandler), "POST")
 	}
 
 	var runnerRole *runner.Runner = nil
@@ -69,12 +69,12 @@ func New(config *config.Config) (*Application, error) {
 			return nil, fmt.Errorf("[App] failed create runner role: %s", err)
 		}
 
-		server.AddHandler(settings.RunnerOpenEndpoint, server.TokenizedHandler(runnerRole.OpenFileHandler), "POST")
+		server.AddHandlerFunc(settings.RunnerOpenEndpoint, server.TokenizedHandler(runnerRole.OpenFileHandler), "POST")
 
-		server.AddHandler(settings.RunnerAppImageEndpoint, server.TokenizedHandler(runnerRole.AppImageHandler), "GET")
-		server.AddHandler(settings.RunnerAppStreamEndpoint, server.TokenizedHandler(runnerRole.AppStreamHandler), "GET")
-		server.AddHandler(settings.RunnerAppDirectStreamEndpoint, server.TokenizedHandler(runnerRole.AppDirectStreamHandler), "GET")
-		server.AddHandler(settings.RunnerAppClickedEndpoint, server.TokenizedHandler(runnerRole.AppMouseEventHandler), "POST")
+		server.AddHandlerFunc(settings.RunnerAppImageEndpoint, server.TokenizedHandler(runnerRole.AppImageHandler), "GET")
+		server.AddHandlerFunc(settings.RunnerAppStreamEndpoint, server.TokenizedHandler(runnerRole.AppStreamHandler), "GET")
+		server.AddHandlerFunc(settings.RunnerAppDirectStreamEndpoint, server.TokenizedHandler(runnerRole.AppDirectStreamHandler), "GET")
+		server.AddHandlerFunc(settings.RunnerAppMouseEventEndpoint, server.TokenizedHandler(runnerRole.AppMouseEventHandler), "POST")
 	}
 
 	var routerRole *router.Router = nil
@@ -84,23 +84,25 @@ func New(config *config.Config) (*Application, error) {
 			return nil, fmt.Errorf("[App] failed create router role: %s", err)
 		}
 
-		server.AddHandler(settings.RouterExplorerEndpoint, server.TokenizedHandler(routerRole.ExplorerHandler), "POST", "GET")
-		server.AddHandler(settings.RouterFilesystemEndpoint, server.TokenizedHandler(routerRole.FilesystemHandler), "POST", "GET")
-		server.AddHandler(settings.RouterDevicesEndpoint, server.TokenizedHandler(routerRole.DevicesHandler), "POST", "GET")
+		server.AddHandlerFunc(settings.RouterExplorerEndpoint, server.TokenizedHandler(routerRole.ExplorerHandler), "POST", "GET")
+		server.AddHandlerFunc(settings.RouterFilesystemEndpoint, server.TokenizedHandler(routerRole.FilesystemHandler), "POST", "GET")
+		server.AddHandlerFunc(settings.RouterDevicesEndpoint, server.TokenizedHandler(routerRole.DevicesHandler), "POST", "GET")
 
-		server.AddHandler(settings.RouterTopologyEndpoint, server.TokenizedHandler(routerRole.GetTopologyHandler), "GET")
-		server.AddHandler(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
+		server.AddHandlerFunc(settings.RouterTopologyEndpoint, server.TokenizedHandler(routerRole.GetTopologyHandler), "GET")
+		server.AddHandlerFunc(settings.RouterNotifyEndpoint, server.TokenizedHandler(routerRole.NotifyHandler), "POST")
 
-		server.AddHandler(settings.RouterOpenEndpoint, server.TokenizedHandler(routerRole.OpenFileHandler), "POST")
+		server.AddHandlerFunc(settings.RouterOpenEndpoint, server.TokenizedHandler(routerRole.OpenFileHandler), "POST")
 
-		server.AddHandler(settings.RouterFiltersGetEndpoint, server.TokenizedHandler(routerRole.FiltersGetHandler), "GET")
-		server.AddHandler(settings.RouterFiltersAddEndpoint, server.TokenizedHandler(routerRole.FiltersAddHandler), "POST")
-		server.AddHandler(settings.RouterFiltersRemoveEndpoint, server.TokenizedHandler(routerRole.FiltersRemoveHandler), "POST")
-		server.AddHandler(settings.RouterFiltersSwapEndpoint, server.TokenizedHandler(routerRole.FiltersSwapHandler), "POST")
+		server.AddHandlerFunc(settings.RouterFiltersGetEndpoint, server.TokenizedHandler(routerRole.FiltersGetHandler), "GET")
+		server.AddHandlerFunc(settings.RouterFiltersAddEndpoint, server.TokenizedHandler(routerRole.FiltersAddHandler), "POST")
+		server.AddHandlerFunc(settings.RouterFiltersRemoveEndpoint, server.TokenizedHandler(routerRole.FiltersRemoveHandler), "POST")
+		server.AddHandlerFunc(settings.RouterFiltersSwapEndpoint, server.TokenizedHandler(routerRole.FiltersSwapHandler), "POST")
+
+		routerRole.AddReplicationTasks(config.Settings.Replication...)
 	}
 
 	metricsRegistry := metrics.NewRegistry()
-	server.AddHandler(settings.ServerMetricsEndpoint, metricsRegistry.Handler().ServeHTTP, "GET")
+	server.AddHandler(settings.ServerMetricsEndpoint, metricsRegistry.Handler(), "GET")
 
 	return &Application{
 		storageRole: storageRole,
@@ -168,6 +170,7 @@ func (app *Application) Run() error {
 
 	if app.routerRole != nil {
 		app.lanObserver.Start()
+		app.routerRole.StartReplicationTasks()
 	}
 
 	fmt.Printf("Platform is %s\n", app.config.Roles.Runner.Platform)

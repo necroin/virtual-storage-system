@@ -155,8 +155,8 @@ func (runner *Runner) AppDirectStreamHandler(responseWriter http.ResponseWriter,
 
 	_, ok := runner.streamSessions[pid]
 	if !ok {
-		runner.sessuinMutex.Lock()
-		defer runner.sessuinMutex.Unlock()
+		runner.sessionMutex.Lock()
+		defer runner.sessionMutex.Unlock()
 
 		app, err := winappstream.NewApp(winapi.ProcessId(pid))
 		if err != nil {
@@ -177,8 +177,8 @@ func (runner *Runner) AppDirectStreamHandler(responseWriter http.ResponseWriter,
 			for {
 				now := time.Now()
 				if now.Sub(streamSession.lastHandleTime).Seconds() > time.Duration(30*time.Second).Seconds() {
-					runner.sessuinMutex.Lock()
-					defer runner.sessuinMutex.Unlock()
+					runner.sessionMutex.Lock()
+					defer runner.sessionMutex.Unlock()
 					streamSession.app.Destroy()
 					delete(runner.streamSessions, pid)
 					logger.Info("[Runner] [AppDirectStreamHandler] stream pid %d closed by expiration", pid)

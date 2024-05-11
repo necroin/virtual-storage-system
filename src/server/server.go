@@ -72,7 +72,11 @@ func (server *Server) Start() {
 	server.instance.ListenAndServeTLS("", "")
 }
 
-func (server *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), methods ...string) {
+func (server *Server) AddHandler(path string, handler http.Handler, methods ...string) {
+	server.router.Handle(path, handler).Methods(methods...)
+}
+
+func (server *Server) AddHandlerFunc(path string, handler func(http.ResponseWriter, *http.Request), methods ...string) {
 	server.router.HandleFunc(path, handler).Methods(methods...)
 }
 

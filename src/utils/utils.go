@@ -5,8 +5,6 @@ import (
 	"crypto/x509"
 	"encoding/hex"
 	"fmt"
-	"io"
-	"os"
 	"path"
 	"strings"
 	"time"
@@ -30,53 +28,6 @@ func GenerateSecureToken(length int) string {
 
 func FormatTokemizedEndpoint(endpoint string, token string) string {
 	return strings.NewReplacer("{token}", token).Replace(endpoint)
-}
-
-func CreateNewDirectory(dirPath string, name string) {
-	os.MkdirAll(path.Join(dirPath, name), os.ModePerm)
-}
-
-func CreateNewFile(dirPath string, name string) error {
-	file, err := os.OpenFile(path.Join(dirPath, name), os.O_CREATE, os.ModePerm)
-	if err != nil {
-		return err
-	}
-	file.Close()
-	return nil
-}
-
-func RemoveFile(dirPath string) error {
-	return os.RemoveAll(dirPath)
-}
-
-func CopyFile(srcPath string, dstPath string) error {
-	in, err := os.Open(srcPath)
-	if err != nil {
-		return err
-	}
-	defer in.Close()
-
-	out, err := os.Create(dstPath)
-	if err != nil {
-		return err
-	}
-
-	defer func() {
-		cerr := out.Close()
-		if err == nil {
-			err = cerr
-		}
-	}()
-
-	if _, err = io.Copy(out, in); err != nil {
-		return err
-	}
-	err = out.Sync()
-	return nil
-}
-
-func Rename(srcPath string, oldName string, newName string) error {
-	return os.Rename(path.Join(srcPath, oldName), path.Join(srcPath, newName))
 }
 
 func HandleFilesystemPath(value string) string {
