@@ -101,12 +101,9 @@ func (storage *Storage) DeleteHandler(responseWriter http.ResponseWriter, reques
 }
 
 func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	vars := mux.Vars(request)
-	handlerType := vars["type"]
-
 	copyRequest := &message.CopyRequest{}
-	copyRequest.NewPath = utils.HandleFilesystemPath(copyRequest.NewPath)
-	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
+	copyRequest.DstPath = utils.HandleFilesystemPath(copyRequest.DstPath)
+	copyRequest.SrcPath = utils.HandleFilesystemPath(copyRequest.SrcPath)
 
 	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
 		roles.HandlerFailed(responseWriter, err)
@@ -115,11 +112,9 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 	}
 	logger.Debug("[CopyHandler] request: %#v", copyRequest)
 
-	if handlerType != "dir" {
-		copyRequest.NewPath = path.Dir(copyRequest.NewPath)
-	}
+	copyRequest.DstPath = path.Dir(copyRequest.DstPath)
 
-	response, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
+	response, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.SrcPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed send request: %s", err)
@@ -127,7 +122,7 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 	}
 	logger.Debug("[CopyHandler] response: %#v", response)
 
-	if err := utils.Decompress(response.Body, copyRequest.NewPath); err != nil {
+	if err := utils.Decompress(response.Body, copyRequest.DstPath); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[CopyHandler] failed unzip file: %s", err)
 		return
@@ -137,12 +132,9 @@ func (storage *Storage) CopyHandler(responseWriter http.ResponseWriter, request 
 }
 
 func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	vars := mux.Vars(request)
-	handlerType := vars["type"]
-
-	copyRequest := &message.CopyRequest{}
-	copyRequest.NewPath = utils.HandleFilesystemPath(copyRequest.NewPath)
-	copyRequest.OldPath = utils.HandleFilesystemPath(copyRequest.OldPath)
+	copyRequest := &message.MoveRequest{}
+	copyRequest.DstPath = utils.HandleFilesystemPath(copyRequest.DstPath)
+	copyRequest.SrcPath = utils.HandleFilesystemPath(copyRequest.SrcPath)
 
 	if err := json.NewDecoder(request.Body).Decode(copyRequest); err != nil {
 		roles.HandlerFailed(responseWriter, err)
@@ -151,11 +143,9 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 	}
 	logger.Debug("[MoveHandler] request: %#v", copyRequest)
 
-	if handlerType != "dir" {
-		copyRequest.NewPath = path.Dir(copyRequest.NewPath)
-	}
+	copyRequest.DstPath = path.Dir(copyRequest.DstPath)
 
-	selectResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.OldPath)
+	selectResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/select", copyRequest.SrcPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)
@@ -163,13 +153,13 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 	}
 	logger.Debug("[MoveHandler] select response: %#v", selectResponse)
 
-	if err := utils.Decompress(selectResponse.Body, copyRequest.NewPath); err != nil {
+	if err := utils.Decompress(selectResponse.Body, copyRequest.DstPath); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed unzip file: %s", err)
 		return
 	}
 
-	deleteResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.OldPath)
+	deleteResponse, err := storage.connector.SendPostRequest(copyRequest.SrcUrl+"/storage/delete", copyRequest.SrcPath)
 	if err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		logger.Error("[MoveHandler] failed send request: %s", err)

@@ -74,17 +74,18 @@ type RenameRequest struct {
 }
 
 type CopyRequest struct {
-	OldPath string `json:"old_path"`
-	NewPath string `json:"new_path"`
+	SrcPath string `json:"src_path"`
+	DstPath string `json:"dst_path"`
 	SrcUrl  string `json:"src_url"`
 }
+
+type MoveRequest CopyRequest
 
 type OpenRequest struct {
 	Platform string `json:"platform"`
 	Path     string `json:"path"`
 	SrcUrl   string `json:"src_url"`
 	Hostname string `json:"hostname"`
-	Type     string `json:"type"`
 }
 
 type OpenResponse struct {

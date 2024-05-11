@@ -12,8 +12,17 @@ type FiltersSettings struct {
 	CurrentList string   `json:"current_list" yaml:"current_list"`
 }
 
+type ReplicationSettings struct {
+	SrcHostname string `json:"src_hostname" yaml:"src_hostname"`
+	DstHostname string `json:"dst_hostname" yaml:"dst_hostname"`
+	SrcPath     string `json:"src_path" yaml:"src_path"`
+	DstPath     string `json:"dst_path" yaml:"dst_path"`
+	Cron        string `json:"cron" yaml:"cron"`
+}
+
 type Settings struct {
-	Filters FiltersSettings `json:"filters" yaml:"filters"`
+	Filters     FiltersSettings       `json:"filters" yaml:"filters"`
+	Replication []ReplicationSettings `json:"replication" yaml:"replication"`
 }
 
 func LoadSettings() (*Settings, error) {
@@ -25,6 +34,7 @@ func LoadSettings() (*Settings, error) {
 				WhiteList:   []string{},
 				CurrentList: "Black list",
 			},
+			Replication: []ReplicationSettings{},
 		}, nil
 	}
 	if err != nil {
@@ -39,6 +49,12 @@ func LoadSettings() (*Settings, error) {
 	if settings.Filters.CurrentList == "" {
 		settings.Filters.CurrentList = "Black list"
 	}
+
+	if settings.Replication == nil {
+		settings.Replication = []ReplicationSettings{}
+	}
+
+	settings.Dump()
 
 	return settings, nil
 }

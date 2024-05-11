@@ -3,6 +3,7 @@ package router
 import (
 	"encoding/json"
 	"fmt"
+	"path"
 	"time"
 	"vss/src/config"
 	"vss/src/connector"
@@ -13,6 +14,8 @@ import (
 	"vss/src/utils"
 
 	"gopkg.in/ini.v1"
+
+	"github.com/robfig/cron"
 )
 
 type Router struct {
@@ -64,11 +67,39 @@ func New(config *config.Config, server *server.Server, connector *connector.Conn
 
 		for _, hostname := range deleteStorages {
 			delete(router.storages, hostname)
+			delete(router.hostnames, hostname)
 		}
 		for _, hostname := range deleteRunners {
 			delete(router.runners, hostname)
 		}
 	}()
+
+	for _, replication := range config.Settings.Replication {
+		replicationCron := cron.New()
+
+		replicationCron.AddFunc(replication.Cron, func() {
+			srcStorage, ok := router.storages[replication.SrcHostname]
+			if !ok {
+				logger.Error("[Router] [Replcation] [Cron] failed source storage %s", replication.SrcHostname)
+			}
+			dstStorage, ok := router.storages[replication.DstHostname]
+			if !ok {
+				logger.Error("[Router] [Replcation] [Cron] failed destination storage %s", replication.DstHostname)
+			}
+
+			copyRequest := &message.CopyRequest{
+				SrcPath: replication.SrcPath,
+				DstPath: replication.DstPath,
+				SrcUrl:  path.Join(srcStorage.Url, srcStorage.Token),
+			}
+
+			_, err := router.connector.SendPostRequest(dstStorage.Url+utils.FormatTokemizedEndpoint(settings.StorageCopyEndpoint, dstStorage.Token), copyRequest)
+			if err != nil {
+				logger.Error("[Router] [Replcation] [Cron] failed copy: %s", err)
+			}
+		})
+	}
+
 	return router, nil
 }
 

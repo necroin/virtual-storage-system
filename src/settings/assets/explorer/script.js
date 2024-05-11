@@ -90,7 +90,6 @@ function GetFilesystem(routerUrl, path) {
             tableRow.tabIndex = String(rowsCount)
             tableRow.__custom__ = {}
             tableRow.__custom__["name"] = directory
-            tableRow.__custom__["type"] = "dir"
 
             let storageUrl = info["url"]
             let storageUrlParse = new URL("https://" + storageUrl)
@@ -144,7 +143,6 @@ function GetFilesystem(routerUrl, path) {
                 tableRow.tabIndex = String(rowsCount)
                 tableRow.__custom__ = {}
                 tableRow.__custom__["name"] = file
-                tableRow.__custom__["type"] = "file"
                 tableRow.__custom__["platform"] = info["platform"]
                 tableRow.__custom__["hostname"] = info["hostname"]
 
@@ -335,10 +333,9 @@ function Cut() {
     window.__context__.paste = {
         path: GetCurrentPath(),
         name: focusItem.__custom__.name,
-        type: focusItem.__custom__.type,
         url: focusItem.__custom__.storageUrl
     }
-    window.__context__.paste_endpoint = "/storage/move/"
+    window.__context__.paste_endpoint = "/storage/move"
 }
 
 function Copy() {
@@ -346,22 +343,20 @@ function Copy() {
     window.__context__.paste = {
         path: GetCurrentPath(),
         name: focusItem.__custom__.name,
-        type: focusItem.__custom__.type,
         url: focusItem.__custom__.storageUrl
     }
-    window.__context__.paste_endpoint = "/storage/copy/"
+    window.__context__.paste_endpoint = "/storage/copy"
 }
 
 function Paste(routerUrl) {
     let pasteData = window.__context__.paste
     let pasteEndpoint = window.__context__.paste_endpoint
-    let pasteType = window.__context__.paste.type
     async_request("POST",
-        "https://" + GetRequestUrl(routerUrl) + pasteEndpoint + pasteType,
+        "https://" + GetRequestUrl(routerUrl) + pasteEndpoint,
         JSON.stringify({
-            old_path: [pasteData.path, pasteData.name].join("/"),
-            new_path: [GetCurrentPath(), pasteData.name].join("/"),
-            src_url: pasteData.url
+            src_path: [pasteData.path, pasteData.name].join("/"),
+            dst_path: [GetCurrentPath(), pasteData.name].join("/"),
+            src_url: pasteData.url,
         }),
         (response) => {
             GetFilesystem(routerUrl)
@@ -376,7 +371,6 @@ function OpenFile(routerUrl, item) {
     let path = [GetCurrentPath(), itemName].join("/")
     let srcUrl = item.__custom__["storageUrl"]
     let hostname = item.__custom__["hostname"]
-    let type = item.__custom__["type"]
 
     response = request("POST",
         "https://" + routerUrl + "/router/open",
@@ -385,7 +379,6 @@ function OpenFile(routerUrl, item) {
             path: path,
             src_url: srcUrl,
             hostname: hostname,
-            type: type
         }),
     );
 

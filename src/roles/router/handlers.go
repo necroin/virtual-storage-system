@@ -12,6 +12,7 @@ import (
 
 	_ "embed"
 
+	"vss/src/config"
 	"vss/src/logger"
 	"vss/src/message"
 	"vss/src/roles"
@@ -176,5 +177,23 @@ func (router *Router) FiltersSwapHandler(responseWriter http.ResponseWriter, req
 	} else {
 		router.config.Settings.Filters.CurrentList = "Black list"
 	}
+	router.config.Settings.Dump()
+}
+
+func (router *Router) ReplciationGetHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	json.NewEncoder(responseWriter).Encode(router.config.Settings.Replication)
+}
+
+func (router *Router) ReplciationAddHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	replication := &config.ReplicationSettings{}
+
+	if err := json.NewDecoder(request.Body).Decode(replication); err != nil {
+		roles.HandlerFailed(responseWriter, err)
+		logger.Error("[Router] [OpenFileHandler] failed decode message: %s", err)
+		return
+	}
+
+	router.config.Settings.Replication = append(router.config.Settings.Replication, *replication)
+
 	router.config.Settings.Dump()
 }

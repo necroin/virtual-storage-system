@@ -17,6 +17,9 @@ github.com/necroin/golibs/utils/promise
 github.com/necroin/golibs/utils/winapi
 github.com/necroin/golibs/utils/winutils
 github.com/necroin/golibs/winappstream
+# github.com/robfig/cron v1.2.0
+## explicit
+github.com/robfig/cron
 # github.com/stretchr/testify v1.9.0
 ## explicit; go 1.17
 # golang.org/x/sys v0.19.0

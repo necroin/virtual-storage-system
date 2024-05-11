@@ -30,9 +30,10 @@
                     <button id="settings-filters-list-button"
                         onclick="window.SwapFiltersListType(location.host+'/{{.Token}}')"></button>
                     <div class="spacer"></div>
-                    <button onclick="window.Collapse(this, 'settings-item-body')" style="width: 100px;">Expand</button>
+                    <button onclick="window.Collapse(this, 'settings-item-body-filters')"
+                        style="width: 100px;">Expand</button>
                 </span>
-                <div id="settings-item-body" style="display: none;">
+                <div id="settings-item-body-filters" style="display: none;">
                     <div>
                         <input id="settings-filters-input" type="text">
                         <button
@@ -40,10 +41,28 @@
                     </div>
                     <div id="settings-filters-list" class="list"></div>
                 </div>
-
             </div>
             <div class="settings-item">
-                <span class="settings-item-headline">Replication</span>
+                <span class="settings-item-headline">Replication
+                    <div class="spacer"></div>
+                    <button onclick="window.Collapse(this, 'settings-item-body-replication')"
+                        style="width: 100px;">Expand</button>
+                </span>
+                <div id="settings-item-body-replication">
+                    <div>
+                        <div>
+                            <select id="settings-replication-src-device"></select>
+                            <input id="settings-replication-src-input" type="text" placeholder="Sorce path">
+                        </div>
+                        <div>
+                            <select id="settings-replication-dst-device"></select>
+                            <input id="settings-replication-dst-input" type="text" placeholder="Destination path">
+                        </div>
+                        <button
+                            onclick="window.AddFiler(location.host+'/{{.Token}}', document.getElementById('settings-filters-input').value)">Apply</button>
+                    </div>
+                    <div id="settings-replication-list" class="list"></div>
+                </div>
             </div>
         </div>
     </div>

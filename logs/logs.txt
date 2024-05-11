@@ -11600,3 +11600,472 @@ created by net/http.(*http2serverConn).scheduleHandler in goroutine 67
 2024/05/11 22:04:26 DEBUG: [Lan Listener] 192.168.0.103:3301
 2024/05/11 22:04:36 DEBUG: [Lan Listener] 192.168.0.103:3301
 2024/05/11 22:04:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:34:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:34:41 http: TLS handshake error from 192.168.0.103:59941: remote error: tls: unknown certificate
+2024/05/11 22:34:41 http: TLS handshake error from 192.168.0.103:59942: remote error: tls: unknown certificate
+2024/05/11 22:34:41 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:34:49 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:34:59 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:35:09 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:35:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:35:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:35:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:35:49 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:35:59 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:36:09 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:36:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:36:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:36:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:36:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:37:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:37:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:37:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:37:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:37:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:37:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:38:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:38:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:38:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:38:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:38:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:38:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:39:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:39:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:39:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:39:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:39:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:39:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:40:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:40:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:40:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:40:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:40:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:40:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:41:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:41:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:41:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:41:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:41:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:41:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:42:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:42:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:42:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:42:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:42:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:42:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:43:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:43:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:43:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:43:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:43:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:43:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:44:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:44:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:44:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:44:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:44:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:44:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:45:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:45:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:45:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:45:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:45:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:45:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:46:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:46:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:46:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:46:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:46:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:46:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:47:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:47:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:47:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:47:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:47:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:47:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:48:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:48:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:48:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:48:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:48:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:48:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:49:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:49:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:49:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:49:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:49:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:49:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:50:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:50:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:50:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:50:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:50:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:50:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:51:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:51:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:51:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:51:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:51:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:51:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:52:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:52:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:52:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:52:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:52:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:52:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:53:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:53:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:53:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:53:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:53:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:53:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:54:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:54:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:54:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:54:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:54:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:54:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:55:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:55:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:55:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:55:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:55:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:55:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:56:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:56:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:56:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:56:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:56:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:56:51 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:57:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:57:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:57:49 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:57:59 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:58:09 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:58:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:58:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:58:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:58:49 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:58:59 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:59:09 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:59:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:31:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:32:00 http: TLS handshake error from 192.168.0.103:62597: remote error: tls: unknown certificate
+2024/05/12 00:32:00 http: TLS handshake error from 192.168.0.103:62598: remote error: tls: unknown certificate
+2024/05/12 00:32:01 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:04 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:32:09 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:11 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:32:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:32:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:32:37 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:40 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:43 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:32:47 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:32:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:33:01 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:33:02 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:33:04 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:33:05 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs", DstPath:"/projects/my/virtual-storage-system/vss-docs", SrcUrl:"192.168.0.103:3301/abc", FileType:"dir"}
+2024/05/12 00:33:05 DEBUG: [SelectHandler] select path: /projects/my/vss-docs
+2024/05/12 00:33:05 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:33:05 GMT"}}, Body:(*http.bodyEOFSignal)(0xc0002a6480), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0000bf200), TLS:(*tls.ConnectionState)(0xc00026e9a0)}
+2024/05/12 00:33:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:33:08 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:33:11 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:33:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:33:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:33:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:33:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:33:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:09 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:11 http: TLS handshake error from 192.168.0.103:62749: remote error: tls: unknown certificate
+2024/05/12 00:34:11 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:14 DEBUG: [DeleteHandler] delete path: /projects/my/virtual-storage-system/vss-docs
+2024/05/12 00:34:14 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:15 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:17 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:19 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:20 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx", DstPath:"/projects/my/Разработка персональной распределенной файловой системы.docx", SrcUrl:"192.168.0.103:3301/abc", FileType:"file"}
+2024/05/12 00:34:20 DEBUG: [SelectHandler] select path: /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:34:20 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:34:20 GMT"}}, Body:(*http.bodyEOFSignal)(0xc000114380), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0002a4ea0), TLS:(*tls.ConnectionState)(0xc0001c0370)}
+2024/05/12 00:34:20 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:47 http: TLS handshake error from 192.168.0.103:62801: remote error: tls: unknown certificate
+2024/05/12 00:34:47 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:49 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:52 DEBUG: [DeleteHandler] delete path: /projects/my/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:34:52 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:53 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:34:56 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:56 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx", DstPath:"/projects/my/Разработка персональной распределенной файловой системы.docx", SrcUrl:"192.168.0.103:3301/abc", FileType:"file"}
+2024/05/12 00:34:56 DEBUG: [SelectHandler] select path: /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:34:56 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:34:56 GMT"}}, Body:(*http.bodyEOFSignal)(0xc00007e580), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0001625a0), TLS:(*tls.ConnectionState)(0xc0002d86e0)}
+2024/05/12 00:34:56 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:34:58 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:35:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:35:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:35:26 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:34 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:35:42 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:43 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:35:45 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs", DstPath:"/projects/my/g/vss-docs", SrcUrl:"192.168.0.103:3301/abc", FileType:"dir"}
+2024/05/12 00:35:45 DEBUG: [SelectHandler] select path: /projects/my/vss-docs
+2024/05/12 00:35:45 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:35:45 GMT"}}, Body:(*http.bodyEOFSignal)(0xc00022a240), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0002a5680), TLS:(*tls.ConnectionState)(0xc00026ea50)}
+2024/05/12 00:35:47 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:50 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:35:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:35:55 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:36:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:36:10 DEBUG: [DeleteHandler] delete path: /projects/my/g/vss-docs
+2024/05/12 00:36:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:36:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:36:12 DEBUG: [DeleteHandler] delete path: /projects/my/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:36:12 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:36:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:36:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:36:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:36:39 http: TLS handshake error from 192.168.0.103:62942: remote error: tls: unknown certificate
+2024/05/12 00:36:39 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:36:40 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs", DstPath:"/projects/my/g/vss-docs", SrcUrl:"192.168.0.103:3301/abc", FileType:"dir"}
+2024/05/12 00:36:40 DEBUG: [SelectHandler] select path: /projects/my/vss-docs
+2024/05/12 00:36:40 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:36:40 GMT"}}, Body:(*http.bodyEOFSignal)(0xc00011e240), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc000157560), TLS:(*tls.ConnectionState)(0xc0002ee0b0)}
+2024/05/12 00:36:42 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:36:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:36:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:37:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:37:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:37:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:37:25 DEBUG: [DeleteHandler] delete path: /projects/my/g/Чуркин_К.Ю_zad_mag.doc
+2024/05/12 00:37:25 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:37:26 DEBUG: [DeleteHandler] delete path: /projects/my/g/images
+2024/05/12 00:37:26 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:37:27 DEBUG: [DeleteHandler] delete path: /projects/my/g/ПРФС_уч_практика.pptx
+2024/05/12 00:37:27 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:37:28 DEBUG: [DeleteHandler] delete path: /projects/my/g/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:37:28 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:37:29 DEBUG: [DeleteHandler] delete path: /projects/my/g/Разработка персональной распределенной файловой системы.pdf
+2024/05/12 00:37:29 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:37:30 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:37:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:37:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:37:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:38:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:38:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:38:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:38:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:38:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:38:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:39:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:39:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:39:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:39:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:39:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:39:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:40:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:40:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:40:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:40:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:40:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:40:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:41:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:41:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:41:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:41:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:41:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:41:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:42:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:42:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:42:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:42:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:42:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:42:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:43:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:43:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:43:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:43:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:43:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:43:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:44:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:44:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:44:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:44:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:44:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:44:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:45:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:45:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:45:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:45:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:45:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:45:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:46:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:46:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:46:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:46:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:46:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:46:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:47:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:47:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:47:18 http: TLS handshake error from 192.168.0.103:63651: remote error: tls: unknown certificate
+2024/05/12 00:47:18 http: TLS handshake error from 192.168.0.103:63652: remote error: tls: unknown certificate
+2024/05/12 00:47:18 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:21 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:21 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs", DstPath:"/projects/my/g/vss-docs", SrcUrl:"192.168.0.103:3301/abc", FileType:"dir"}
+2024/05/12 00:47:21 DEBUG: [SelectHandler] select path: /projects/my/vss-docs
+2024/05/12 00:47:21 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:47:21 GMT"}}, Body:(*http.bodyEOFSignal)(0xc000116240), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc000142d80), TLS:(*tls.ConnectionState)(0xc0002d82c0)}
+2024/05/12 00:47:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:47:24 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:25 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:27 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:28 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:29 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:31 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:47:33 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx", DstPath:"/projects/my/g/Разработка персональной распределенной файловой системы.docx", SrcUrl:"192.168.0.103:3301/abc", FileType:"file"}
+2024/05/12 00:47:33 DEBUG: [SelectHandler] select path: /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:47:33 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:47:33 GMT"}}, Body:(*http.bodyEOFSignal)(0xc0006c0200), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0006c4480), TLS:(*tls.ConnectionState)(0xc0000b2d10)}
+2024/05/12 00:47:33 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:47:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:47:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:48:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:48:09 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:09 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:09 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:11 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/g/vss-docs", DstPath:"//vss-docs", SrcUrl:"192.168.0.103:3301/abc", FileType:"dir"}
+2024/05/12 00:48:11 DEBUG: [SelectHandler] select path: /projects/my/g/vss-docs
+2024/05/12 00:48:11 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:48:11 GMT"}}, Body:(*http.bodyEOFSignal)(0xc00007e580), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc000624360), TLS:(*tls.ConnectionState)(0xc0003eed10)}
+2024/05/12 00:48:13 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:48:14 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:48:29 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:30 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:33 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/vss-docs/Разработка персональной распределенной файловой системы.docx", DstPath:"//Разработка персональной распределенной файловой системы.docx", SrcUrl:"192.168.0.103:3301/abc", FileType:"file"}
+2024/05/12 00:48:33 DEBUG: [SelectHandler] select path: /vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:48:33 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:48:33 GMT"}}, Body:(*http.bodyEOFSignal)(0xc0003a0700), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0002fd7a0), TLS:(*tls.ConnectionState)(0xc0001473f0)}
+2024/05/12 00:48:33 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:48:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:48:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:48:52 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/12 00:48:52 INFO: [Runner] [OpenFileHandler] open //Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:48:52 DEBUG: [Runner] [OpenFileHandler] process started with pid: 29652
+2024/05/12 00:48:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:48:59 DEBUG: [DeleteHandler] delete path: /Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:48:59 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:00 DEBUG: [DeleteHandler] delete path: /vss-docs
+2024/05/12 00:49:01 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:02 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:03 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:49:04 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:04 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:06 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:06 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:08 DEBUG: [DeleteHandler] delete path: /projects/my/g
+2024/05/12 00:49:08 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:49:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:49:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:49:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:49:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:49:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:50:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:50:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:50:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:50:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:50:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:50:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:51:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:51:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:51:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:51:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:51:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:51:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:52:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:52:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:52:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:52:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:52:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:52:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:44 http: TLS handshake error from 192.168.0.103:64108: remote error: tls: unknown certificate
+2024/05/12 00:53:44 http: TLS handshake error from 192.168.0.103:64109: remote error: tls: unknown certificate
+2024/05/12 00:53:44 http: TLS handshake error from 192.168.0.103:64110: remote error: tls: unknown certificate
+2024/05/12 00:53:44 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:53:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:51 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:53:53 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:53:54 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs", DstPath:"/projects/my/g/vss-docs", SrcUrl:"192.168.0.103:3301/abc"}
+2024/05/12 00:53:54 DEBUG: [SelectHandler] select path: /projects/my/vss-docs
+2024/05/12 00:53:54 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:53:54 GMT"}}, Body:(*http.bodyEOFSignal)(0xc000110340), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0002a0240), TLS:(*tls.ConnectionState)(0xc0000b29a0)}
+2024/05/12 00:53:57 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:53:57 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:53:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:53:59 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:02 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:03 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:04 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx", DstPath:"/projects/my/g/Разработка персональной распределенной файловой системы.docx", SrcUrl:"192.168.0.103:3301/abc"}
+2024/05/12 00:54:04 DEBUG: [SelectHandler] select path: /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:54:04 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:54:04 GMT"}}, Body:(*http.bodyEOFSignal)(0xc000220200), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc000170ea0), TLS:(*tls.ConnectionState)(0xc0004648f0)}
+2024/05/12 00:54:04 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:54:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:54:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:54:31 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:33 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:54:40 DEBUG: [DeleteHandler] delete path: /projects/my/g/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:54:40 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:42 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:46 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:47 DEBUG: [MoveHandler] request: &message.MoveRequest{SrcPath:"/projects/my/g/G/Разработка персональной распределенной файловой системы.docx", DstPath:"/projects/my/g/Разработка персональной распределенной файловой системы.docx", SrcUrl:"192.168.0.103:3301/abc"}
+2024/05/12 00:54:47 DEBUG: [SelectHandler] select path: /projects/my/g/G/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:54:47 DEBUG: [MoveHandler] select response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sat, 11 May 2024 21:54:47 GMT"}}, Body:(*http.bodyEOFSignal)(0xc000110940), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc0000bfc20), TLS:(*tls.ConnectionState)(0xc0002d4c60)}
+2024/05/12 00:54:47 DEBUG: [DeleteHandler] delete path: /projects/my/g/G/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:54:47 DEBUG: [MoveHandler] delete response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Length":[]string{"349"}, "Content-Type":[]string{"text/plain; charset=utf-8"}, "Date":[]string{"Sat, 11 May 2024 21:54:47 GMT"}}, Body:(*http.bodyEOFSignal)(0xc00029e900), ContentLength:349, TransferEncoding:[]string(nil), Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc00024a000), TLS:(*tls.ConnectionState)(0xc00025ad10)}
+2024/05/12 00:54:47 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:54:48 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:51 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:52 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:54 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:54:56 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/12 00:54:56 INFO: [Runner] [OpenFileHandler] open /projects/my/g/G/images/arch-app-roles.drawio.png
+2024/05/12 00:54:56 DEBUG: [Runner] [OpenFileHandler] process started with pid: 18220
+2024/05/12 00:54:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:55:01 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:55:03 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:55:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:55:08 DEBUG: [DeleteHandler] delete path: /projects/my/g/Разработка персональной распределенной файловой системы.docx
+2024/05/12 00:55:08 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:55:09 DEBUG: [DeleteHandler] delete path: /projects/my/g/G
+2024/05/12 00:55:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:55:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:55:14 DEBUG: [DeleteHandler] delete path: /projects/my/g
+2024/05/12 00:55:14 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/12 00:55:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:55:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:55:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:55:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:55:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:56:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:56:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/12 00:56:28 DEBUG: [Lan Listener] 192.168.0.103:3301

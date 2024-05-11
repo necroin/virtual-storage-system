@@ -45,7 +45,7 @@ func Compress(archivePath string, buffer io.Writer) error {
 				return fmt.Errorf("[Compress] failed get header by file info: %s", err)
 			}
 
-			relativePath, err := filepath.Rel(archivePath, file)
+			relativePath, err := filepath.Rel(filepath.Dir(archivePath), file)
 			if err != nil {
 				return fmt.Errorf("[FindFilesInDir] failed get relative path: %s", err)
 			}

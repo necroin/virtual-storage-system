@@ -8,6 +8,20 @@ function request(method, url, data) {
     return req.responseText
 }
 
+function Collapse(button, id) {
+    if (button.innerText == "Collapse") {
+        document.getElementById(id).style.display = "none"
+        button.innerText = "Expand"
+        return
+    }
+
+    if (button.innerText == "Expand") {
+        document.getElementById(id).style.display = "block"
+        button.innerText = "Collapse"
+        return
+    }
+}
+
 function GetSettings(url) {
     let filters = GetFilers(url)
     UpdateFilters(url, filters)
@@ -67,17 +81,47 @@ function SwapFiltersListType(url) {
     UpdateFilters(url, GetFilers(url))
 }
 
-function Collapse(button, id) {
-    
-    if (button.innerText == "Collapse") {
-        document.getElementById(id).style.display = "none"
-        button.innerText = "Expand"
-        return
-    }
+function GetDevices(url) {
+    callback = (devicesResponse) => {
+        let devices = JSON.parse(devicesResponse)
 
-    if (button.innerText == "Expand") {
-        document.getElementById(id).style.display = "block"
-        button.innerText = "Collapse"
-        return
+        let devicesList = document.getElementById("devices")
+        devicesList.replaceChildren()
+        let allDevicesElement = document.createElement("span")
+        allDevicesElement.innerText = "All"
+        allDevicesElement.onclick = () => {
+            SetStorage(null)
+            GetFilesystem(routerUrl)
+        }
+        devicesList.appendChild(allDevicesElement)
+
+        let createOptions = document.getElementById("create-storage-select")
+
+        for (let device in devices) {
+            let deviceUrl = devices[device]
+            let deviceUrlParse = new URL("https://" + deviceUrl)
+            if (deviceUrlParse.hostname == "localhost") {
+                deviceUrl = [location.host, deviceUrlParse.pathname.split("/")[1]].join("/")
+            }
+
+            let deviceElement = document.createElement("span")
+            deviceElement.innerText = device
+            deviceElement.onclick = () => {
+                SetStorage(deviceUrl)
+                GetFilesystem(routerUrl)
+            }
+            devicesList.appendChild(deviceElement)
+
+            let createOptionDeviceElement = document.createElement("option")
+            createOptionDeviceElement.innerText = device
+            createOptionDeviceElement.__custom__ = {}
+            createOptionDeviceElement.__custom__.storageUrl = deviceUrl
+            createOptions.appendChild(createOptionDeviceElement)
+        }
     }
+    async_request("GET", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/devices", null, callback)
+}
+
+function UpdateDevices() {
+
 }

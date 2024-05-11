@@ -40,13 +40,12 @@ func (runner *Runner) OpenFileHandler(responseWriter http.ResponseWriter, reques
 	selfUrl := fmt.Sprintf("%s/%s", runner.config.Url, runner.config.User.Token)
 	if selfUrl != openRequest.SrcUrl {
 		openPath = fmt.Sprintf("./tmp/%s", filepath.Base(openRequest.Path))
-
 		copyRequest := &message.CopyRequest{
-			OldPath: openRequest.Path,
-			NewPath: openPath,
+			SrcPath: openRequest.Path,
+			DstPath: openPath,
 			SrcUrl:  openRequest.SrcUrl,
 		}
-		runner.connector.SendPostRequest(fmt.Sprintf("%s/storage/copy/%s", selfUrl, openRequest.Type), copyRequest)
+		runner.connector.SendPostRequest(fmt.Sprintf("%s/storage/copy", selfUrl), copyRequest)
 	}
 
 	logger.Info("[Runner] [OpenFileHandler] open %s", openPath)
