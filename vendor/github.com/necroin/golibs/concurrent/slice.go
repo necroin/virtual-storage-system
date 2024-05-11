@@ -26,7 +26,9 @@ func NewConcurrentSlice[V any]() *ConcurrentSlice[V] {
 
 // Inserts element at the specified location in the container.
 func (concurrentSlice *ConcurrentSlice[V]) Insert(index uint, value V) error {
-	if int(index) >= len(concurrentSlice.data) {
+	size := concurrentSlice.Size()
+
+	if int(index) >= size {
 		return fmt.Errorf("[ConcurrentSlice] [Error] index out of range")
 	}
 
@@ -48,7 +50,9 @@ func (concurrentSlice *ConcurrentSlice[V]) Append(values ...V) {
 // Returns the element at specified location index, with bounds checking.
 // If index is not within the range of the container, an error is returned.
 func (concurrentSlice *ConcurrentSlice[V]) At(index uint) (V, error) {
-	if int(index) >= len(concurrentSlice.data) {
+	size := concurrentSlice.Size()
+
+	if int(index) >= size {
 		return *new(V), fmt.Errorf("[ConcurrentSlice] [Error] index out of range")
 	}
 
@@ -133,6 +137,10 @@ func (concurrentSlice *ConcurrentSlice[V]) End() *ConcurrentSliceIterator[V] {
 		index: uint(concurrentSlice.Size()),
 		mutex: &sync.RWMutex{},
 	}
+}
+
+func (concurrentSlice *ConcurrentSlice[V]) String() string {
+	return fmt.Sprintf("(len = %d) %v", concurrentSlice.Size(), concurrentSlice.data)
 }
 
 func (iterator *ConcurrentSliceIterator[V]) Next() *ConcurrentSliceIterator[V] {

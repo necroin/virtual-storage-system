@@ -70,6 +70,11 @@ func New(config *config.Config) (*Application, error) {
 		}
 
 		server.AddHandler(settings.RunnerOpenEndpoint, server.TokenizedHandler(runnerRole.OpenFileHandler), "POST")
+
+		server.AddHandler(settings.RunnerAppImageEndpoint, server.TokenizedHandler(runnerRole.AppImageHandler), "GET")
+		server.AddHandler(settings.RunnerAppStreamEndpoint, server.TokenizedHandler(runnerRole.AppStreamHandler), "GET")
+		server.AddHandler(settings.RunnerAppDirectStreamEndpoint, server.TokenizedHandler(runnerRole.AppDirectStreamHandler), "GET")
+		server.AddHandler(settings.RunnerAppClickedEndpoint, server.TokenizedHandler(runnerRole.AppMouseEventHandler), "POST")
 	}
 
 	var routerRole *router.Router = nil

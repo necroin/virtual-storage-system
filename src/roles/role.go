@@ -28,7 +28,7 @@ func DevicesHandler(role Role, responseWriter http.ResponseWriter, request *http
 }
 
 func GetRouterToken(connector *connector.Connector, url string, username string, password string) (string, error) {
-	message := message.ClientAuth{
+	message := message.ClientAuthRequest{
 		Username: username,
 		Password: password,
 	}

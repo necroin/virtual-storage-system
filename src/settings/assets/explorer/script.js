@@ -123,6 +123,7 @@ function GetFilesystem(routerUrl, path) {
             openPath = path + openPath
 
             tableRow.ondblclick = () => GetFilesystem(GetRequestUrl(routerUrl), openPath)
+            tableRow.ontouchend = () => GetFilesystem(GetRequestUrl(routerUrl), openPath)
 
             filesystemTable.appendChild(tableRow)
 
@@ -144,6 +145,8 @@ function GetFilesystem(routerUrl, path) {
                 tableRow.__custom__ = {}
                 tableRow.__custom__["name"] = file
                 tableRow.__custom__["type"] = "file"
+                tableRow.__custom__["platform"] = info["platform"]
+                tableRow.__custom__["hostname"] = info["hostname"]
 
                 let storageUrl = info["url"]
                 let storageUrlParse = new URL("https://" + storageUrl)
@@ -151,8 +154,6 @@ function GetFilesystem(routerUrl, path) {
                     storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
                 }
                 tableRow.__custom__["storageUrl"] = storageUrl
-
-                tableRow.__custom__["platform"] = info["platform"]
 
                 let nameElement = document.createElement("td")
                 let storageElement = document.createElement("td")
@@ -173,6 +174,7 @@ function GetFilesystem(routerUrl, path) {
                 tableRow.appendChild(sizeElement)
 
                 tableRow.ondblclick = () => OpenFile(routerUrl, tableRow)
+                tableRow.ontouchend = () => OpenFile(routerUrl, tableRow)
 
                 filesystemTable.appendChild(tableRow)
 
@@ -263,8 +265,7 @@ function CloseDialog(dialog, overlay) {
     document.getElementById(overlay).style.display = "none";
 }
 
-function UpdateStatusBar(raw_data) {
-    let data = JSON.parse(raw_data)
+function UpdateStatusBar(data) {
     document.getElementById("status-bar-progress").innerHTML = data.status
     document.getElementById("status-bar-text").innerText = data.text
 }
@@ -281,7 +282,7 @@ function Create(type) {
     );
     let response = request("POST", "https://" + url + "/storage/insert/" + type, data);
     CloseDialog('create-dialog', 'create-dialog-overlay')
-    UpdateStatusBar(response)
+    UpdateStatusBar(JSON.parse(response))
 }
 
 function Remove(routerUrl) {
@@ -299,7 +300,7 @@ function Remove(routerUrl) {
             path,
             (response) => {
                 GetFilesystem(routerUrl)
-                UpdateStatusBar(response)
+                UpdateStatusBar(JSON.parse(response))
             }
         );
     }
@@ -322,7 +323,7 @@ function Rename(routerUrl) {
             data,
             (response) => {
                 GetFilesystem(routerUrl)
-                UpdateStatusBar(response)
+                UpdateStatusBar(JSON.parse(response))
             }
         );
         CloseDialog('rename-dialog', 'rename-dialog-overlay')
@@ -364,24 +365,44 @@ function Paste(routerUrl) {
         }),
         (response) => {
             GetFilesystem(routerUrl)
-            UpdateStatusBar(response)
+            UpdateStatusBar(JSON.parse(response))
         }
     );
 }
 
 function OpenFile(routerUrl, item) {
-    async_request("POST",
+    let platform = item.__custom__["platform"]
+    let itemName = item.__custom__["name"]
+    let path = [GetCurrentPath(), itemName].join("/")
+    let srcUrl = item.__custom__["storageUrl"]
+    let hostname = item.__custom__["hostname"]
+    let type = item.__custom__["type"]
+
+    response = request("POST",
         "https://" + routerUrl + "/router/open",
         JSON.stringify({
-            platform: item.__custom__["platform"],
-            path: [GetCurrentPath(), item.__custom__["name"]].join("/"),
-            src_url: item.__custom__["storageUrl"],
-            type: item.__custom__["type"]
+            platform: platform,
+            path: path,
+            src_url: srcUrl,
+            hostname: hostname,
+            type: type
         }),
-        (response) => {
-            UpdateStatusBar(response)
-        }
     );
+
+    let openResponse = JSON.parse(response)
+    UpdateStatusBar(openResponse.status_bar)
+
+    let runnerUrl = openResponse.runner_url
+    let clientUrl = openResponse.client_url
+
+    console.log(runnerUrl.split(":")[0])
+    console.log(clientUrl)
+
+    if (runnerUrl.split(":")[0] == clientUrl) {
+        return
+    }
+    let pid = openResponse.pid
+    window.open("https://" + runnerUrl + "/runner/stream/" + String(pid))
 }
 
 function GetFilers(routerUrl) {

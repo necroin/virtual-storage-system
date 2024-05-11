@@ -44,7 +44,7 @@ func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, reques
 	vars := mux.Vars(request)
 	handlerType := vars["type"]
 
-	data := &message.ClientRequest{}
+	data := &message.InsertRequest{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		return

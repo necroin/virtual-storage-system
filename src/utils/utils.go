@@ -9,6 +9,7 @@ import (
 	"os"
 	"path"
 	"strings"
+	"time"
 )
 
 func GetMapKeys[K comparable, V any](value map[K]V) []K {
@@ -104,4 +105,16 @@ func CertificateInfo(cert *x509.Certificate) []string {
 	result = append(result, fmt.Sprintf("(Issued by) %s", cert.Issuer.SerialNumber))
 
 	return result
+}
+
+func Try(handler func() error, count int, sleep time.Duration) error {
+	var err error = nil
+	for i := 0; i < count; i++ {
+		err = handler()
+		if err == nil {
+			return nil
+		}
+		time.Sleep(sleep)
+	}
+	return err
 }

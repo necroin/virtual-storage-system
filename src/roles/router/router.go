@@ -1,6 +1,7 @@
 package router
 
 import (
+	"encoding/json"
 	"fmt"
 	"time"
 	"vss/src/config"
@@ -18,8 +19,8 @@ type Router struct {
 	config    *config.Config
 	connector *connector.Connector
 	server    *server.Server
-	storages  map[string]message.NotifyMessage
-	runners   map[string]message.NotifyMessage
+	storages  map[string]message.Notify
+	runners   map[string]message.Notify
 	hostnames map[string]string
 	filters   *ini.File
 }
@@ -34,8 +35,8 @@ func New(config *config.Config, server *server.Server, connector *connector.Conn
 		config:    config,
 		server:    server,
 		connector: connector,
-		storages:  map[string]message.NotifyMessage{},
-		runners:   map[string]message.NotifyMessage{},
+		storages:  map[string]message.Notify{},
+		runners:   map[string]message.Notify{},
 		hostnames: map[string]string{},
 		filters:   filters,
 	}
@@ -69,20 +70,6 @@ func New(config *config.Config, server *server.Server, connector *connector.Conn
 		}
 	}()
 	return router, nil
-}
-
-func (router *Router) NotifyRunner(instance message.NotifyMessage) {
-	// topology := connector.TopologyMessage{
-	// 	Storages: router.storages,
-	// 	Runners:  router.runners,
-	// }
-	// connector.SendPostRequest(url+settings.RunnerNotifyEndpoint, topology)
-}
-
-func (router *Router) NotifyRunners() {
-	for _, runner := range router.runners {
-		router.NotifyRunner(runner)
-	}
 }
 
 func (router *Router) CollectStorageFileSystem(url string, token string, walkPath string) message.FilesystemDirectory {
@@ -129,4 +116,22 @@ func (router *Router) GetUrl() string {
 
 func (router *Router) GetHostnames() map[string]string {
 	return router.hostnames
+}
+
+func (router *Router) SendOpenRequest(runner message.Notify, openRequest *message.OpenRequest) (*message.OpenResponse, error) {
+	response, err := router.connector.SendPostRequest(runner.Url+utils.FormatTokemizedEndpoint(settings.RunnerOpenEndpoint, runner.Token), openRequest)
+	if err != nil {
+		return nil, fmt.Errorf("[Router] [SendOpenRequest] selected runner failed execute: %s", err)
+	}
+
+	openResponse := &message.OpenResponse{}
+	if err := json.NewDecoder(response.Body).Decode(openResponse); err != nil {
+		return nil, fmt.Errorf("[Router] [SendOpenRequest] failed decode open response: %s", err)
+	}
+
+	if openResponse.Error != nil {
+		return nil, fmt.Errorf("[Router] [SendOpenRequest] %s runner failed execute: %s", runner.Hostname, err)
+	}
+
+	return openResponse, nil
 }
