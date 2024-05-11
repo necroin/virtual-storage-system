@@ -98,6 +98,10 @@ func New(config *config.Config) (*Application, error) {
 		server.AddHandlerFunc(settings.RouterFiltersRemoveEndpoint, server.TokenizedHandler(routerRole.FiltersRemoveHandler), "POST")
 		server.AddHandlerFunc(settings.RouterFiltersSwapEndpoint, server.TokenizedHandler(routerRole.FiltersSwapHandler), "POST")
 
+		server.AddHandlerFunc(settings.RouterReplicationGetEndpoint, server.TokenizedHandler(routerRole.ReplicationGetHandler), "GET")
+		server.AddHandlerFunc(settings.RouterReplicationAddEndpoint, server.TokenizedHandler(routerRole.ReplicationAddHandler), "POST")
+		server.AddHandlerFunc(settings.RouterReplicationRemoveEndpoint, server.TokenizedHandler(routerRole.ReplicationRemoveHandler), "POST")
+
 		routerRole.AddReplicationTasks(config.Settings.Replication...)
 	}
 

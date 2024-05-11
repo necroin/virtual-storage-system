@@ -140,7 +140,7 @@ func (router *Router) SendOpenRequest(runner message.Notify, openRequest *messag
 	return openResponse, nil
 }
 
-func (router *Router) AddReplicationTask(replication config.ReplicationSettings) {
+func (router *Router) AddReplicationTask(replication config.ReplicationSettings) *cron.Cron {
 	replicationCron := cron.New()
 
 	replicationCron.AddFunc(replication.Cron, func() {
@@ -166,6 +166,7 @@ func (router *Router) AddReplicationTask(replication config.ReplicationSettings)
 	})
 
 	router.replicationTasks[replication.String()] = replicationCron
+	return replicationCron
 }
 
 func (router *Router) AddReplicationTasks(replication ...config.ReplicationSettings) {

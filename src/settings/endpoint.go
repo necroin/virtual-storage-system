@@ -30,14 +30,17 @@ const (
 )
 
 const (
-	RouterExplorerEndpoint      = "/{token}/router/explorer"
-	RouterFilesystemEndpoint    = "/{token}/router/filesystem"
-	RouterDevicesEndpoint       = "/{token}/router/devices"
-	RouterTopologyEndpoint      = "/{token}/router/topology"
-	RouterNotifyEndpoint        = "/{token}/router/notify"
-	RouterOpenEndpoint          = "/{token}/router/open"
-	RouterFiltersGetEndpoint    = "/{token}/router/filters/get"
-	RouterFiltersAddEndpoint    = "/{token}/router/filters/add"
-	RouterFiltersRemoveEndpoint = "/{token}/router/filters/remove"
-	RouterFiltersSwapEndpoint   = "/{token}/router/filters/swap"
+	RouterExplorerEndpoint          = "/{token}/router/explorer"
+	RouterFilesystemEndpoint        = "/{token}/router/filesystem"
+	RouterDevicesEndpoint           = "/{token}/router/devices"
+	RouterTopologyEndpoint          = "/{token}/router/topology"
+	RouterNotifyEndpoint            = "/{token}/router/notify"
+	RouterOpenEndpoint              = "/{token}/router/open"
+	RouterFiltersGetEndpoint        = "/{token}/router/filters/get"
+	RouterFiltersAddEndpoint        = "/{token}/router/filters/add"
+	RouterFiltersRemoveEndpoint     = "/{token}/router/filters/remove"
+	RouterFiltersSwapEndpoint       = "/{token}/router/filters/swap"
+	RouterReplicationGetEndpoint    = "/{token}/router/replication/get"
+	RouterReplicationAddEndpoint    = "/{token}/router/replication/add"
+	RouterReplicationRemoveEndpoint = "/{token}/router/replication/remove"
 )

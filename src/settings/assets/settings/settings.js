@@ -8,6 +8,17 @@ function request(method, url, data) {
     return req.responseText
 }
 
+function async_request(methood, url, data, callback) {
+    var req = new XMLHttpRequest();
+    req.onload = () => {
+        if (req.readyState === XMLHttpRequest.DONE) {
+            callback(req.responseText)
+        }
+    }
+    req.open(methood, url, true);
+    req.send(data);
+}
+
 function Collapse(button, id) {
     if (button.innerText == "Collapse") {
         document.getElementById(id).style.display = "none"
@@ -25,6 +36,7 @@ function Collapse(button, id) {
 function GetSettings(url) {
     let filters = GetFilers(url)
     UpdateFilters(url, filters)
+    UpdateDevices(url)
 }
 
 function GetFilers(url) {
@@ -33,14 +45,14 @@ function GetFilers(url) {
     return filters
 }
 
-function AddFiler(url, path) {
+function AddFilter(url, path) {
     if (path != "") {
         request("POST", 'https://' + url + "/router/filters/add", path)
         UpdateFilters(url, GetFilers(url))
     }
 }
 
-function RemoveFiler(url, path) {
+function RemoveFilter(url, path) {
     request("POST", 'https://' + url + "/router/filters/remove", path)
     UpdateFilters(url, GetFilers(url))
 }
@@ -67,7 +79,7 @@ function UpdateFilters(url, filters) {
         let filterButtonElement = document.createElement("button")
         filterButtonElement.innerText = "✖"
         filterButtonElement.onclick = () => {
-            RemoveFiler(url, filter)
+            RemoveFilter(url, filter)
         }
 
         filterElement.appendChild(filterNameElement)
@@ -81,47 +93,25 @@ function SwapFiltersListType(url) {
     UpdateFilters(url, GetFilers(url))
 }
 
-function GetDevices(url) {
+function UpdateDevices(url) {
     callback = (devicesResponse) => {
         let devices = JSON.parse(devicesResponse)
 
-        let devicesList = document.getElementById("devices")
-        devicesList.replaceChildren()
-        let allDevicesElement = document.createElement("span")
-        allDevicesElement.innerText = "All"
-        allDevicesElement.onclick = () => {
-            SetStorage(null)
-            GetFilesystem(routerUrl)
-        }
-        devicesList.appendChild(allDevicesElement)
+        let srcDevices = document.getElementById("settings-replication-src-devices")
+        let dstDevices = document.getElementById("settings-replication-dst-devices")
 
-        let createOptions = document.getElementById("create-storage-select")
+        srcDevices.replaceChildren()
+        dstDevices.replaceChildren()
 
         for (let device in devices) {
-            let deviceUrl = devices[device]
-            let deviceUrlParse = new URL("https://" + deviceUrl)
-            if (deviceUrlParse.hostname == "localhost") {
-                deviceUrl = [location.host, deviceUrlParse.pathname.split("/")[1]].join("/")
-            }
+            let srcDeviceOption = document.createElement("option")
+            srcDeviceOption.innerText = device
+            srcDevices.appendChild(srcDeviceOption)
 
-            let deviceElement = document.createElement("span")
-            deviceElement.innerText = device
-            deviceElement.onclick = () => {
-                SetStorage(deviceUrl)
-                GetFilesystem(routerUrl)
-            }
-            devicesList.appendChild(deviceElement)
-
-            let createOptionDeviceElement = document.createElement("option")
-            createOptionDeviceElement.innerText = device
-            createOptionDeviceElement.__custom__ = {}
-            createOptionDeviceElement.__custom__.storageUrl = deviceUrl
-            createOptions.appendChild(createOptionDeviceElement)
+            let dstDeviceOption = document.createElement("option")
+            dstDeviceOption.innerText = device
+            dstDevices.appendChild(dstDeviceOption)
         }
     }
-    async_request("GET", "https://" + GetRequestUrl(routerUrl) + GetRequestRole() + "/devices", null, callback)
-}
-
-function UpdateDevices() {
-
+    async_request("GET", "https://" + url + "/router/devices", null, callback)
 }

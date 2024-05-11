@@ -180,11 +180,11 @@ func (router *Router) FiltersSwapHandler(responseWriter http.ResponseWriter, req
 	router.config.Settings.Dump()
 }
 
-func (router *Router) ReplciationGetHandler(responseWriter http.ResponseWriter, request *http.Request) {
+func (router *Router) ReplicationGetHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	json.NewEncoder(responseWriter).Encode(router.config.Settings.Replication)
 }
 
-func (router *Router) ReplciationAddHandler(responseWriter http.ResponseWriter, request *http.Request) {
+func (router *Router) ReplicationAddHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	replication := &config.ReplicationSettings{}
 
 	if err := json.NewDecoder(request.Body).Decode(replication); err != nil {
@@ -194,6 +194,23 @@ func (router *Router) ReplciationAddHandler(responseWriter http.ResponseWriter, 
 	}
 
 	router.config.Settings.Replication = append(router.config.Settings.Replication, *replication)
-
 	router.config.Settings.Dump()
+
+	router.AddReplicationTask(*replication).Start()
+}
+
+func (router *Router) ReplicationRemoveHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	replication := &config.ReplicationSettings{}
+
+	if err := json.NewDecoder(request.Body).Decode(replication); err != nil {
+		roles.HandlerFailed(responseWriter, err)
+		logger.Error("[Router] [OpenFileHandler] failed decode message: %s", err)
+		return
+	}
+
+	router.config.Settings.Replication = slices.DeleteFunc(router.config.Settings.Replication, func(value config.ReplicationSettings) bool { return value.String() == replication.String() })
+	router.config.Settings.Dump()
+
+	router.replicationTasks[replication.String()].Stop()
+	delete(router.replicationTasks, replication.String())
 }

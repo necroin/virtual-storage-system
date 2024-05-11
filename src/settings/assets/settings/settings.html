@@ -37,7 +37,7 @@
                     <div>
                         <input id="settings-filters-input" type="text">
                         <button
-                            onclick="window.AddFiler(location.host+'/{{.Token}}', document.getElementById('settings-filters-input').value)">Apply</button>
+                            onclick="window.AddFilter(location.host+'/{{.Token}}', document.getElementById('settings-filters-input').value)">Apply</button>
                     </div>
                     <div id="settings-filters-list" class="list"></div>
                 </div>
@@ -51,11 +51,11 @@
                 <div id="settings-item-body-replication">
                     <div>
                         <div>
-                            <select id="settings-replication-src-device"></select>
+                            <select id="settings-replication-src-devices"></select>
                             <input id="settings-replication-src-input" type="text" placeholder="Sorce path">
                         </div>
                         <div>
-                            <select id="settings-replication-dst-device"></select>
+                            <select id="settings-replication-dst-devices"></select>
                             <input id="settings-replication-dst-input" type="text" placeholder="Destination path">
                         </div>
                         <button
