@@ -83,12 +83,14 @@ type OpenRequest struct {
 	Platform string `json:"platform"`
 	Path     string `json:"path"`
 	SrcUrl   string `json:"src_url"`
+	Hostname string `json:"hostname"`
 	Type     string `json:"type"`
 }
 
 type OpenResponse struct {
 	Pid       int               `json:"pid"`
 	RunnerUrl string            `json:"runner_url"`
+	ClientUrl string            `json:"client_url"`
 	Error     error             `json:"error"`
 	StatusBar StatusBarResponse `json:"status_bar"`
 }

@@ -145,6 +145,8 @@ function GetFilesystem(routerUrl, path) {
                 tableRow.__custom__ = {}
                 tableRow.__custom__["name"] = file
                 tableRow.__custom__["type"] = "file"
+                tableRow.__custom__["platform"] = info["platform"]
+                tableRow.__custom__["hostname"] = info["hostname"]
 
                 let storageUrl = info["url"]
                 let storageUrlParse = new URL("https://" + storageUrl)
@@ -152,8 +154,6 @@ function GetFilesystem(routerUrl, path) {
                     storageUrl = [location.host, storageUrlParse.pathname.split("/")[1]].join("/")
                 }
                 tableRow.__custom__["storageUrl"] = storageUrl
-
-                tableRow.__custom__["platform"] = info["platform"]
 
                 let nameElement = document.createElement("td")
                 let storageElement = document.createElement("td")
@@ -371,20 +371,37 @@ function Paste(routerUrl) {
 }
 
 function OpenFile(routerUrl, item) {
+    let platform = item.__custom__["platform"]
+    let itemName = item.__custom__["name"]
+    let path = [GetCurrentPath(), itemName].join("/")
+    let srcUrl = item.__custom__["storageUrl"]
+    let hostname = item.__custom__["hostname"]
+    let type = item.__custom__["type"]
+
     response = request("POST",
         "https://" + routerUrl + "/router/open",
         JSON.stringify({
-            platform: item.__custom__["platform"],
-            path: [GetCurrentPath(), item.__custom__["name"]].join("/"),
-            src_url: item.__custom__["storageUrl"],
-            type: item.__custom__["type"]
+            platform: platform,
+            path: path,
+            src_url: srcUrl,
+            hostname: hostname,
+            type: type
         }),
     );
 
     let openResponse = JSON.parse(response)
     UpdateStatusBar(openResponse.status_bar)
-    let pid = openResponse.pid
+
     let runnerUrl = openResponse.runner_url
+    let clientUrl = openResponse.client_url
+
+    console.log(runnerUrl.split(":")[0])
+    console.log(clientUrl)
+
+    if (runnerUrl.split(":")[0] == clientUrl) {
+        return
+    }
+    let pid = openResponse.pid
     window.open("https://" + runnerUrl + "/runner/stream/" + String(pid))
 }
 

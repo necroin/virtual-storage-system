@@ -11101,3 +11101,502 @@ created by net/http.(*http2serverConn).scheduleHandler in goroutine 67
 2024/05/07 04:11:04 DEBUG: [Lan Listener] 192.168.0.103:3301
 2024/05/07 04:11:14 DEBUG: [Lan Listener] 192.168.0.103:3301
 2024/05/07 04:11:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:17:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:17:03 http: TLS handshake error from 192.168.0.103:56272: remote error: tls: unknown certificate
+2024/05/11 21:17:03 http: TLS handshake error from 192.168.0.103:56273: remote error: tls: unknown certificate
+2024/05/11 21:17:05 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:17:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:17:13 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:17:13 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.pdf
+2024/05/11 21:17:13 DEBUG: [Runner] [OpenFileHandler] process started with pid: 5940
+2024/05/11 21:17:14 DEBUG: [Runner] [AppStreamHandler] childs of 5940 pid: [{ pid: 25932, ppid: 5940, executable: Acrobat.exe }]
+2024/05/11 21:17:14 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 25932
+2024/05/11 21:17:14 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 21:17:14 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 25932
+2024/05/11 21:17:14 INFO: [Runner] [AppDirectStreamHandler] stream for pid 25932 created
+2024/05/11 21:17:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:17:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:17:36 ERROR: [Runner] [OpenFileHandler] failed finish process by wait: exit status 1
+2024/05/11 21:17:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:17:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:17:54 INFO: [Runner] [AppDirectStreamHandler] stream pid 25932 closed by expiration
+2024/05/11 21:18:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:18:01 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:18:01 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:18:01 DEBUG: [Runner] [OpenFileHandler] process started with pid: 12908
+2024/05/11 21:18:02 DEBUG: [Runner] [AppStreamHandler] childs of 12908 pid: [{ pid: 23092, ppid: 12908, executable: WINWORD.EXE }]
+2024/05/11 21:18:02 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 23092
+2024/05/11 21:18:02 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 21:18:02 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 23092
+2024/05/11 21:18:02 INFO: [Runner] [AppDirectStreamHandler] stream for pid 23092 created
+2024/05/11 21:18:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:18:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:18:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:18:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:18:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:18:52 INFO: [Runner] [AppDirectStreamHandler] stream pid 23092 closed by expiration
+2024/05/11 21:19:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:19:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:19:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:19:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:19:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:19:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:20:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:20:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:20:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:20:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:20:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:20:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:21:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:21:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:21:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:21:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:21:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:21:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:22:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:22:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:22:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:22:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:22:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:22:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:23:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:23:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:23:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:23:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:23:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:23:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:24:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:24:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:24:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:24:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:24:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:24:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:25:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:25:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:25:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:25:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:25:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:25:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:26:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:26:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:26:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:26:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:26:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:26:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:27:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:27:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:27:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:27:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:27:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:27:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:28:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:28:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:28:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:28:30 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:28:40 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:28:50 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:29:00 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:29:10 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:29:20 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:29:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:29:35 http: TLS handshake error from 192.168.0.103:56861: remote error: tls: unknown certificate
+2024/05/11 21:29:35 http: TLS handshake error from 192.168.0.103:56862: remote error: tls: unknown certificate
+2024/05/11 21:29:35 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:29:36 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:29:36 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.pdf
+2024/05/11 21:29:36 DEBUG: [Runner] [OpenFileHandler] process started with pid: 16036
+2024/05/11 21:29:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:29:45 ERROR: [Runner] [OpenFileHandler] failed finish process by wait: exit status 1
+2024/05/11 21:29:52 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:30:02 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:30:12 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:30:18 http: TLS handshake error from 192.168.0.105:49826: EOF
+2024/05/11 21:30:18 http: TLS handshake error from 192.168.0.105:49828: EOF
+2024/05/11 21:30:18 http: TLS handshake error from 192.168.0.105:49829: EOF
+2024/05/11 21:30:18 http: TLS handshake error from 192.168.0.105:49830: EOF
+2024/05/11 21:30:18 http: TLS handshake error from 192.168.0.105:49832: EOF
+2024/05/11 21:30:18 http: TLS handshake error from 192.168.0.105:49833: EOF
+2024/05/11 21:30:18 http: TLS handshake error from 192.168.0.105:49834: EOF
+2024/05/11 21:30:22 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:30:24 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:30:27 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:30:28 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:30:28 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:30:28 DEBUG: [Runner] [OpenFileHandler] process started with pid: 22428
+2024/05/11 21:30:28 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:30:28 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:30:28 DEBUG: [Runner] [OpenFileHandler] process started with pid: 23340
+2024/05/11 21:30:28 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:30:28 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:30:28 DEBUG: [Runner] [OpenFileHandler] process started with pid: 20228
+2024/05/11 21:30:29 ERROR: [Runner] [AppStreamHandler] failed find child processes for pid 10252
+2024/05/11 21:30:29 ERROR: [Runner] [AppStreamHandler] failed find app
+2024/05/11 21:30:32 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:30:42 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:30:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:31:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:31:07 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:31:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:31:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:31:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:31:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:31:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:32:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:32:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:32:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:32:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:32:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:32:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:33:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:33:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:33:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:33:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:33:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:33:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:34:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:34:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:34:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:34:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:34:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:34:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:34:59 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:35:00 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:35:00 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:35:00 DEBUG: [Runner] [OpenFileHandler] process started with pid: 25812
+2024/05/11 21:35:00 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:35:00 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:35:00 DEBUG: [Runner] [OpenFileHandler] process started with pid: 6296
+2024/05/11 21:35:00 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:35:00 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:35:00 DEBUG: [Runner] [OpenFileHandler] process started with pid: 14856
+2024/05/11 21:35:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:35:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:35:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:35:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:35:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:35:51 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:35:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:36:01 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:03 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:36:08 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:13 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:36:14 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:15 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:16 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:36:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:36:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:36:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:36:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:37:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:37:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:37:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:37:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:37:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:37:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:37:55 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:37:59 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:37:59 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:37:59 DEBUG: [Runner] [OpenFileHandler] process started with pid: 11560
+2024/05/11 21:38:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:38:10 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:38:11 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:38:11 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:38:11 DEBUG: [Runner] [OpenFileHandler] process started with pid: 6576
+2024/05/11 21:38:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:38:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:38:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:38:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:38:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:39:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:39:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:39:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:39:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:39:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:39:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:40:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:40:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:40:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:40:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:40:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:40:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:41:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:41:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:41:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:41:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:41:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:41:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:42:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:42:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:42:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:42:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:42:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:42:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:42:56 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:42:57 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:42:57 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:42:57 DEBUG: [Runner] [OpenFileHandler] process started with pid: 25432
+2024/05/11 21:43:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:43:08 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:43:08 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:43:08 DEBUG: [Runner] [OpenFileHandler] process started with pid: 15076
+2024/05/11 21:43:08 ERROR: [Runner] [OpenFileHandler] failed finish process by wait: exit status 1
+2024/05/11 21:43:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:43:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:43:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:43:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:43:48 INFO: 192.168.0.105:49942
+2024/05/11 21:43:48 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:43:48 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:43:48 DEBUG: [Runner] [OpenFileHandler] process started with pid: 10836
+2024/05/11 21:43:48 ERROR: [Runner] [OpenFileHandler] failed finish process by wait: exit status 1
+2024/05/11 21:43:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:44:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:44:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:44:17 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:44:19 INFO: 192.168.0.105:49942
+2024/05/11 21:44:19 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:44:19 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:44:19 DEBUG: [Runner] [OpenFileHandler] process started with pid: 26976
+2024/05/11 21:44:19 ERROR: [Runner] [OpenFileHandler] failed finish process by wait: exit status 1
+2024/05/11 21:44:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:44:25 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:44:26 INFO: 192.168.0.105:49942
+2024/05/11 21:44:26 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:44:26 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:44:26 DEBUG: [Runner] [OpenFileHandler] process started with pid: 19228
+2024/05/11 21:44:26 ERROR: [Runner] [OpenFileHandler] failed finish process by wait: exit status 1
+2024/05/11 21:44:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:44:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:44:35 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:44:36 INFO: 192.168.0.105:49942
+2024/05/11 21:44:36 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:44:36 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:44:36 DEBUG: [Runner] [OpenFileHandler] process started with pid: 28128
+2024/05/11 21:44:36 ERROR: [Runner] [OpenFileHandler] failed finish process by wait: exit status 1
+2024/05/11 21:44:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:44:45 INFO: 192.168.0.105:49942
+2024/05/11 21:44:45 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:44:45 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:44:45 DEBUG: [Runner] [OpenFileHandler] process started with pid: 14044
+2024/05/11 21:44:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:45:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:45:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:45:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:45:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:45:39 INFO: 192.168.0.105:49942
+2024/05/11 21:45:39 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:45:39 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:45:39 DEBUG: [Runner] [OpenFileHandler] process started with pid: 5108
+2024/05/11 21:45:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:45:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:46:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:46:07 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:46:09 INFO: 192.168.0.105:49942
+2024/05/11 21:46:09 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:46:09 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:46:09 DEBUG: [Runner] [OpenFileHandler] process started with pid: 14116
+2024/05/11 21:46:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:46:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:46:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:46:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:46:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:47:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:47:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:47:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:47:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:47:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:47:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:48:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:48:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:48:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:48:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:48:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:48:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:49:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:49:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:49:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:49:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 21:49:33 INFO: 192.168.0.105:49949
+2024/05/11 21:49:33 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 21:49:33 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 21:49:33 DEBUG: [Runner] [OpenFileHandler] process started with pid: 9412
+2024/05/11 21:49:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:49:35 DEBUG: [Runner] [AppStreamHandler] childs of 9412 pid: [{ pid: 10596, ppid: 9412, executable: WINWORD.EXE }]
+2024/05/11 21:49:35 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10596
+2024/05/11 21:49:35 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 21:49:35 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10596
+2024/05/11 21:49:35 INFO: [Runner] [AppDirectStreamHandler] stream for pid 10596 created
+2024/05/11 21:49:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:49:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:50:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:50:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:50:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:50:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:50:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:50:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:51:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:51:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:51:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:51:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:51:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:51:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:52:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:52:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:52:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:52:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:52:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:52:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:53:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:53:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:53:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:53:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:53:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:53:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:54:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:54:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:54:15 INFO: [Runner] [AppDirectStreamHandler] stream pid 10596 closed by expiration
+2024/05/11 21:54:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:54:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:54:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:54:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:55:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:55:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:55:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:55:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:55:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:55:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:56:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:56:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:56:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:56:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:56:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:56:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:57:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:57:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:57:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:57:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:57:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:57:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:58:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:58:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:58:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:58:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:58:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:58:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:59:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:59:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:59:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:59:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:59:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 21:59:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:00:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:00:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:00:20 http: TLS handshake error from 192.168.0.103:58323: remote error: tls: unknown certificate
+2024/05/11 22:00:20 http: TLS handshake error from 192.168.0.103:58324: remote error: tls: unknown certificate
+2024/05/11 22:00:20 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:00:21 INFO: 192.168.0.103:58325
+2024/05/11 22:00:21 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 22:00:21 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 22:00:21 DEBUG: [Runner] [OpenFileHandler] process started with pid: 2944
+2024/05/11 22:00:23 DEBUG: [Runner] [AppStreamHandler] childs of 2944 pid: [{ pid: 20692, ppid: 2944, executable: WINWORD.EXE }]
+2024/05/11 22:00:23 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 20692
+2024/05/11 22:00:23 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:00:23 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 20692
+2024/05/11 22:00:23 INFO: [Runner] [AppDirectStreamHandler] stream for pid 20692 created
+2024/05/11 22:00:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:00:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:00:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:00:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:01:00 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:01:03 INFO: 192.168.0.103:58325
+2024/05/11 22:01:03 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 22:01:03 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 22:01:03 DEBUG: [Runner] [OpenFileHandler] process started with pid: 13164
+2024/05/11 22:01:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:01:04 DEBUG: [Runner] [AppStreamHandler] childs of 13164 pid: [{ pid: 16216, ppid: 13164, executable: WINWORD.EXE }]
+2024/05/11 22:01:04 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 16216
+2024/05/11 22:01:04 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:01:04 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 16216
+2024/05/11 22:01:04 INFO: [Runner] [AppDirectStreamHandler] stream for pid 16216 created
+2024/05/11 22:01:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:01:23 INFO: [Runner] [AppDirectStreamHandler] stream pid 20692 closed by expiration
+2024/05/11 22:01:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:01:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:01:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:01:45 http: TLS handshake error from 192.168.0.103:58424: remote error: tls: unknown certificate
+2024/05/11 22:01:45 http: TLS handshake error from 192.168.0.103:58425: remote error: tls: unknown certificate
+2024/05/11 22:01:45 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:01:46 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 22:01:46 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 22:01:46 DEBUG: [Runner] [OpenFileHandler] process started with pid: 17072
+2024/05/11 22:01:47 DEBUG: [Runner] [AppStreamHandler] childs of 17072 pid: [{ pid: 14220, ppid: 17072, executable: WINWORD.EXE }]
+2024/05/11 22:01:47 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 14220
+2024/05/11 22:01:47 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:01:47 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 14220
+2024/05/11 22:01:47 INFO: [Runner] [AppDirectStreamHandler] stream for pid 14220 created
+2024/05/11 22:01:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:02:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:02:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:02:16 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:02:17 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 22:02:17 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 22:02:17 DEBUG: [Runner] [OpenFileHandler] process started with pid: 5768
+2024/05/11 22:02:18 DEBUG: [Runner] [AppStreamHandler] childs of 5768 pid: [{ pid: 8792, ppid: 5768, executable: WINWORD.EXE }]
+2024/05/11 22:02:18 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 8792
+2024/05/11 22:02:18 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:02:18 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 8792
+2024/05/11 22:02:18 INFO: [Runner] [AppDirectStreamHandler] stream for pid 8792 created
+2024/05/11 22:02:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:02:27 INFO: [Runner] [AppDirectStreamHandler] stream pid 14220 closed by expiration
+2024/05/11 22:02:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:02:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:02:48 http: TLS handshake error from 192.168.0.103:58512: remote error: tls: unknown certificate
+2024/05/11 22:02:48 http: TLS handshake error from 192.168.0.103:58513: remote error: tls: unknown certificate
+2024/05/11 22:02:48 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:02:49 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 22:02:49 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 22:02:49 DEBUG: [Runner] [OpenFileHandler] process started with pid: 13076
+2024/05/11 22:02:50 DEBUG: [Runner] [AppStreamHandler] childs of 13076 pid: [{ pid: 1724, ppid: 13076, executable: WINWORD.EXE }]
+2024/05/11 22:02:50 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 1724
+2024/05/11 22:02:50 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:02:50 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 1724
+2024/05/11 22:02:50 INFO: [Runner] [AppDirectStreamHandler] stream for pid 1724 created
+2024/05/11 22:02:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:03:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:03:16 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:03:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:03:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:03:30 INFO: [Runner] [AppDirectStreamHandler] stream pid 1724 closed by expiration
+2024/05/11 22:03:32 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:03:33 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 22:03:33 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 22:03:33 DEBUG: [Runner] [OpenFileHandler] process started with pid: 21160
+2024/05/11 22:03:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:03:46 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:03:54 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:03:54 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:03:56 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/11 22:03:56 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:03:57 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/11 22:03:57 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/11 22:03:57 DEBUG: [Runner] [OpenFileHandler] process started with pid: 15468
+2024/05/11 22:03:57 DEBUG: [Runner] [AppStreamHandler] childs of 15468 pid: [{ pid: 29316, ppid: 15468, executable: WINWORD.EXE }]
+2024/05/11 22:03:57 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 29316
+2024/05/11 22:03:57 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:03:58 DEBUG: [Runner] [AppStreamHandler] childs of 15468 pid: [{ pid: 29316, ppid: 15468, executable: WINWORD.EXE }]
+2024/05/11 22:03:58 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 29316
+2024/05/11 22:03:58 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:03:58 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 29316
+2024/05/11 22:03:58 INFO: [Runner] [AppDirectStreamHandler] stream for pid 29316 created
+2024/05/11 22:03:58 DEBUG: [Runner] [AppStreamHandler] childs of 15468 pid: [{ pid: 29316, ppid: 15468, executable: WINWORD.EXE }]
+2024/05/11 22:03:58 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 29316
+2024/05/11 22:03:58 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 0 0}
+2024/05/11 22:03:58 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 29316
+2024/05/11 22:04:06 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:04:16 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:04:26 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:04:36 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/11 22:04:46 DEBUG: [Lan Listener] 192.168.0.103:3301

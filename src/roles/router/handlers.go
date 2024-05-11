@@ -16,7 +16,6 @@ import (
 	"vss/src/message"
 	"vss/src/roles"
 	"vss/src/settings"
-	"vss/src/utils"
 )
 
 func (router *Router) GetTopologyHandler(responseWriter http.ResponseWriter, request *http.Request) {
@@ -84,6 +83,8 @@ func (router *Router) DevicesHandler(responseWriter http.ResponseWriter, request
 
 func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, request *http.Request) {
 	openResponse := &message.OpenResponse{}
+	openResponse.ClientUrl = strings.Split(request.RemoteAddr, ":")[0]
+
 	defer json.NewEncoder(responseWriter).Encode(openResponse)
 
 	openRequest := &message.OpenRequest{}
@@ -93,26 +94,35 @@ func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, reques
 		return
 	}
 
+	srcRunner, ok := router.runners[openRequest.Hostname]
+	if ok && srcRunner.Platform == openRequest.Platform {
+		logger.Info("[Router] [OpenFileHandler] send open request to %s source runner on %s platform", srcRunner.Hostname, srcRunner.Platform)
+
+		runnerOpenResponse, err := router.SendOpenRequest(srcRunner, openRequest)
+		if err != nil {
+			logger.Error(err.Error())
+		}
+		if err == nil {
+			openResponse.Pid = runnerOpenResponse.Pid
+			openResponse.RunnerUrl = path.Join(srcRunner.Url, srcRunner.Token)
+			openResponse.Error = runnerOpenResponse.Error
+			openResponse.StatusBar = message.StatusBarResponse{
+				Status: settings.ExplorerStatusBarSuccess,
+				Text:   fmt.Sprintf("File opened on source runner %s", srcRunner.Hostname),
+			}
+			return
+		}
+	}
+
 	for _, runner := range router.runners {
 		if runner.Platform == openRequest.Platform {
 			logger.Info("[Router] [OpenFileHandler] send open request to %s runner on %s platform", runner.Hostname, runner.Platform)
-			response, err := router.connector.SendPostRequest(runner.Url+utils.FormatTokemizedEndpoint(settings.RunnerOpenEndpoint, runner.Token), openRequest)
+
+			runnerOpenResponse, err := router.SendOpenRequest(runner, openRequest)
 			if err != nil {
-				logger.Error("[Router] [OpenFileHandler] selected runner failed execute: %s", err)
+				logger.Error(err.Error())
 				continue
 			}
-
-			runnerOpenResponse := &message.OpenResponse{}
-			if err := json.NewDecoder(response.Body).Decode(runnerOpenResponse); err != nil {
-				logger.Error("[Router] [OpenFileHandler] failed decode open response: %s", err)
-				continue
-			}
-
-			if runnerOpenResponse.Error != nil {
-				logger.Error("[Router] [OpenFileHandler] %s runner failed execute: %s", runner.Hostname, err)
-				continue
-			}
-
 			openResponse.Pid = runnerOpenResponse.Pid
 			openResponse.RunnerUrl = path.Join(runner.Url, runner.Token)
 			openResponse.Error = runnerOpenResponse.Error

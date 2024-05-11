@@ -1,6 +1,7 @@
 package router
 
 import (
+	"encoding/json"
 	"fmt"
 	"time"
 	"vss/src/config"
@@ -115,4 +116,22 @@ func (router *Router) GetUrl() string {
 
 func (router *Router) GetHostnames() map[string]string {
 	return router.hostnames
+}
+
+func (router *Router) SendOpenRequest(runner message.Notify, openRequest *message.OpenRequest) (*message.OpenResponse, error) {
+	response, err := router.connector.SendPostRequest(runner.Url+utils.FormatTokemizedEndpoint(settings.RunnerOpenEndpoint, runner.Token), openRequest)
+	if err != nil {
+		return nil, fmt.Errorf("[Router] [SendOpenRequest] selected runner failed execute: %s", err)
+	}
+
+	openResponse := &message.OpenResponse{}
+	if err := json.NewDecoder(response.Body).Decode(openResponse); err != nil {
+		return nil, fmt.Errorf("[Router] [SendOpenRequest] failed decode open response: %s", err)
+	}
+
+	if openResponse.Error != nil {
+		return nil, fmt.Errorf("[Router] [SendOpenRequest] %s runner failed execute: %s", runner.Hostname, err)
+	}
+
+	return openResponse, nil
 }
