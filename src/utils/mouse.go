@@ -95,7 +95,7 @@ func FindValidRect(pid winapi.ProcessId) (windows.Rect, bool) {
 	windowHandles := winutils.GetWindowHandlesByProcessId(pid)
 	clientRects := winutils.GetWindowHandlesClientRects(windowHandles)
 	for _, clientRect := range clientRects {
-		if winutils.IsValidRect(clientRect) {
+		if !winutils.IsValidRect(clientRect) {
 			continue
 		}
 		return clientRect, true

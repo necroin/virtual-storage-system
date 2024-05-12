@@ -23,11 +23,9 @@ input {
     background-color: var(--backgroud-color);
     color: var(--default-color);
     border: 2px gray solid;
-    width: 80%;
     height: 20px;
     margin-bottom: 20px;
 }
-
 
 button {
     background-color: var(--backgroud-color);
@@ -42,6 +40,14 @@ button:hover {
     background-color: var(--elements-bg-color);
 }
 
+select {
+    background-color: var(--elements-bg-color);
+    color: var(--default-color);
+    border: 1px solid gray;
+    height: 25px;
+    width: 20%;
+}
+
 ::-webkit-scrollbar {
     background-color: var(--backgroud-color);
 }
@@ -50,6 +56,20 @@ button:hover {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background-color: gray;
+}
+
+.vertical-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.width60{
+    width: 60%;
+}
+
+.width80{
+    width: 80%;
 }
 
 #global-bar {
@@ -142,6 +162,11 @@ button:hover {
     flex-grow: 1;
     padding-left: 10px;
     word-break: break-all;
+}
+
+.list-item div {
+    flex-grow: 1;
+    padding-left: 10px;
 }
 
 .list-item button {

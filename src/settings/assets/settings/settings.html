@@ -35,7 +35,7 @@
                 </span>
                 <div id="settings-item-body-filters" style="display: none;">
                     <div>
-                        <input id="settings-filters-input" type="text">
+                        <input class="width80" id="settings-filters-input" type="text" placeholder="Path or expression">
                         <button
                             onclick="window.AddFilter(location.host+'/{{.Token}}', document.getElementById('settings-filters-input').value)">Apply</button>
                     </div>
@@ -48,18 +48,28 @@
                     <button onclick="window.Collapse(this, 'settings-item-body-replication')"
                         style="width: 100px;">Expand</button>
                 </span>
-                <div id="settings-item-body-replication">
+                <div id="settings-item-body-replication" style="display: none;">
                     <div>
                         <div>
                             <select id="settings-replication-src-devices"></select>
-                            <input id="settings-replication-src-input" type="text" placeholder="Sorce path">
+                            <input class="width60" id="settings-replication-src-input" type="text" placeholder="Sorce path">
                         </div>
                         <div>
                             <select id="settings-replication-dst-devices"></select>
-                            <input id="settings-replication-dst-input" type="text" placeholder="Destination path">
+                            <input  class="width60" id="settings-replication-dst-input" type="text" placeholder="Destination path">
                         </div>
-                        <button
-                            onclick="window.AddFiler(location.host+'/{{.Token}}', document.getElementById('settings-filters-input').value)">Apply</button>
+                        <div>
+                            <select id="settings-replication-cron">
+                                <option cron="0 0 * * * *">every hour</option>
+                                <option cron="0 0 */2 * * *">every 2 hour</option>
+                                <option cron="0 0 */3 * * *">every 3 hour</option>
+                                <option cron="0 0 */4 * * *">every 4 hour</option>
+                                <option cron="0 0 */8 * * *">every 8 hour</option>
+                                <option cron="0 0 0 * * *">every day</option>
+                                <option cron="0 0 0 * * 0">every week</option>
+                            </select>
+                            <button onclick="window.AddReplication(location.host+'/{{.Token}}')">Apply</button>
+                        </div>
                     </div>
                     <div id="settings-replication-list" class="list"></div>
                 </div>

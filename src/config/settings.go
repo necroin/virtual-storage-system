@@ -18,6 +18,7 @@ type ReplicationSettings struct {
 	SrcPath     string `json:"src_path" yaml:"src_path"`
 	DstPath     string `json:"dst_path" yaml:"dst_path"`
 	Cron        string `json:"cron" yaml:"cron"`
+	CronName    string `json:"cron_name" yaml:"cron_name"`
 }
 
 type Settings struct {
