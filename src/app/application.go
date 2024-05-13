@@ -75,6 +75,7 @@ func New(config *config.Config) (*Application, error) {
 		server.AddHandlerFunc(settings.RunnerAppStreamEndpoint, server.TokenizedHandler(runnerRole.AppStreamHandler), "GET")
 		server.AddHandlerFunc(settings.RunnerAppDirectStreamEndpoint, server.TokenizedHandler(runnerRole.AppDirectStreamHandler), "GET")
 		server.AddHandlerFunc(settings.RunnerAppMouseEventEndpoint, server.TokenizedHandler(runnerRole.AppMouseEventHandler), "POST")
+		server.AddHandlerFunc(settings.RunnerAppKeyboardEventEndpoint, server.TokenizedHandler(runnerRole.AppKeyboardEventHandler), "POST")
 	}
 
 	var routerRole *router.Router = nil

@@ -106,3 +106,8 @@ type MouseEvent struct {
 	Coords Coords `json:"coords"`
 	Scroll Coords `json:"scroll_delta"`
 }
+
+type KeyboardEvent struct {
+	Type    string `json:"type"`
+	Keycode uint16 `json:"keycode"`
+}

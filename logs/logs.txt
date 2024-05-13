@@ -13940,3 +13940,682 @@ created by net/http.(*http2serverConn).scheduleHandler in goroutine 67
 2024/05/12 23:19:00 ERROR: [CopyHandler] failed unzip file: [Decompress] failed create file: open \vss-docs\.git\modules\virtual-storage-system\objects\pack\tmp_pack_6jpB5I: Access is denied.
 2024/05/12 23:19:09 DEBUG: [Lan Listener] 192.168.0.103:3301
 2024/05/12 23:19:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:23:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:23:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:23:39 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:23:49 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:23:59 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:24:00 DEBUG: [CopyHandler] request: &message.CopyRequest{SrcPath:"/projects/my/vss-docs", DstPath:"/vss-docs", SrcUrl:"192.168.0.103:3301/abc"}
+2024/05/13 02:24:00 DEBUG: [SelectHandler] select path: /projects/my/vss-docs
+2024/05/13 02:24:00 http: TLS handshake error from 192.168.0.103:61757: remote error: tls: unknown certificate
+2024/05/13 02:24:00 http: TLS handshake error from 192.168.0.103:61758: remote error: tls: unknown certificate
+2024/05/13 02:24:00 DEBUG: [CopyHandler] response: &http.Response{Status:"200 OK", StatusCode:200, Proto:"HTTP/1.1", ProtoMajor:1, ProtoMinor:1, Header:http.Header{"Access-Control-Allow-Origin":[]string{"*"}, "Content-Type":[]string{"application/x-gzip"}, "Date":[]string{"Sun, 12 May 2024 23:24:00 GMT"}}, Body:(*http.bodyEOFSignal)(0xc000320200), ContentLength:-1, TransferEncoding:[]string{"chunked"}, Close:false, Uncompressed:false, Trailer:http.Header(nil), Request:(*http.Request)(0xc000138b40), TLS:(*tls.ConnectionState)(0xc0001646e0)}
+2024/05/13 02:24:00 ERROR: [CopyHandler] failed unzip file: [Decompress] failed create file: open \vss-docs\.git\modules\virtual-storage-system\objects\pack\tmp_pack_6jpB5I: Access is denied.
+2024/05/13 02:24:09 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:24:19 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:24:29 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:24:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:24:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:24:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:25:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:25:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:25:22 http: TLS handshake error from 192.168.0.103:61833: remote error: tls: unknown certificate
+2024/05/13 02:25:22 http: TLS handshake error from 192.168.0.103:61834: remote error: tls: unknown certificate
+2024/05/13 02:25:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:25:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:25:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:25:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:26:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:26:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:26:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:26:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:26:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:26:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:27:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:27:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:27:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:27:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:27:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:27:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:28:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:28:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:28:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:28:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:28:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:28:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:29:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:29:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:29:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:29:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:29:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:29:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:30:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:30:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:30:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:30:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:30:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:30:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:31:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:31:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:31:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:31:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:31:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:31:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:32:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:32:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:32:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:32:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:32:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:32:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:33:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:33:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:33:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:33:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:33:38 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:39 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:41 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:41 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:42 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:33:45 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:46 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:47 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:48 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:50 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:52 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:53 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:33:54 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:55 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:56 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:57 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:33:58 DEBUG: [Router] [CollectStorageFileSystem] collect on 192.168.0.103:3301/abc/storage/filesystem
+2024/05/13 02:34:02 INFO: [Router] [OpenFileHandler] send open request to LAPTOP-UI5A9QEU source runner on windows platform
+2024/05/13 02:34:02 INFO: [Runner] [OpenFileHandler] open /projects/my/vss-docs/Разработка персональной распределенной файловой системы.docx
+2024/05/13 02:34:02 DEBUG: [Runner] [OpenFileHandler] process started with pid: 11440
+2024/05/13 02:34:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:34:03 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:34:03 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:34:03 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 439 248}
+2024/05/13 02:34:03 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:34:03 INFO: [Runner] [AppDirectStreamHandler] stream for pid 10376 created
+2024/05/13 02:34:03 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:34:03 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:34:03 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 439 248}
+2024/05/13 02:34:03 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:34:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:34:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:34:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:34:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:34:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:35:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:35:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:35:17 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:35:17 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:35:17 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/13 02:35:17 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:35:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:35:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:35:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:35:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:36:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:36:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:36:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:36:26 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:36:26 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:36:26 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/13 02:36:26 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:36:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:36:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:36:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:37:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:37:06 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:37:06 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:37:06 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/13 02:37:06 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:37:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:37:21 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:37:21 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:37:21 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 59 59}
+2024/05/13 02:37:21 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:37:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:37:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:37:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:37:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:38:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:38:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:38:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:38:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:38:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:38:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:39:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:39:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:39:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:39:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:39:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:39:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:40:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:40:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:40:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:40:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:40:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:40:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:40:54 INFO: [Runner] [AppDirectStreamHandler] stream pid 10376 closed by expiration
+2024/05/13 02:41:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:41:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:41:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:41:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:41:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:41:53 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:42:03 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:42:13 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:42:23 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:42:33 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:42:43 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:42:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:43:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:43:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:43:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:43:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:43:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:43:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:44:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:44:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:44:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:44:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:44:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:44:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:45:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:45:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:45:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:45:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:45:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:45:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:46:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:46:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:46:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:46:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:46:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:46:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:47:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:47:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:47:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:47:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:47:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:47:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:48:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:48:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:48:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:48:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:48:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:48:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:49:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:49:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:49:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:49:34 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:49:44 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:49:54 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:50:04 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:50:14 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:50:24 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:51:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:51:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:51:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:51:25 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:51:25 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:51:25 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 02:51:25 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:51:25 INFO: [Runner] [AppDirectStreamHandler] stream for pid 10376 created
+2024/05/13 02:51:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:51:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:51:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:52:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:52:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:52:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:52:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:52:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:52:46 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:52:46 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:52:46 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 02:52:46 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:52:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:53:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:53:08 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:53:08 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:53:08 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 02:53:08 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:53:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:53:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:53:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:53:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:53:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:54:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:54:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:54:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:54:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:54:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:54:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:55:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:55:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:55:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:55:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:55:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:55:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:56:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:56:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:56:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:56:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:56:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:56:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:57:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:57:15 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:57:25 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:57:35 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:57:45 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:57:55 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:58:05 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:58:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:58:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:58:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:58:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:59:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:59:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:59:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:59:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:59:41 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 02:59:41 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 02:59:41 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 02:59:41 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 02:59:41 INFO: [Runner] [AppDirectStreamHandler] stream for pid 10376 created
+2024/05/13 02:59:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 02:59:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:00:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:00:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:00:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:00:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:00:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:00:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:01:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:01:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:01:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:01:30 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:01:30 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:01:30 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:01:30 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:01:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:01:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:01:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:02:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:02:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:02:27 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:02:27 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:02:27 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:02:27 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:02:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:02:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:02:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:02:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:03:03 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:03:03 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:03:03 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:03:03 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:03:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:03:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:03:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:03:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:03:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:03:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:04:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:04:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:04:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:04:37 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:04:47 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:04:57 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:05:07 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:05:17 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:05:27 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:05:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:05:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:05:51 INFO: [Runner] [AppDirectStreamHandler] stream pid 10376 closed by expiration
+2024/05/13 03:05:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:06:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:06:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:06:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:06:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:06:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:06:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:07:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:07:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:07:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:07:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:07:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:07:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:08:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:08:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:08:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:08:30 http: TLS handshake error from 192.168.0.104:61568: remote error: tls: unknown certificate
+2024/05/13 03:08:30 http: TLS handshake error from 192.168.0.104:61569: remote error: tls: unknown certificate
+2024/05/13 03:08:36 http: TLS handshake error from 192.168.0.104:61575: remote error: tls: unknown certificate
+2024/05/13 03:08:36 http: TLS handshake error from 192.168.0.104:61576: remote error: tls: unknown certificate
+2024/05/13 03:08:36 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:08:36 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:08:36 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 284 161}
+2024/05/13 03:08:36 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:08:36 INFO: [Runner] [AppDirectStreamHandler] stream for pid 10376 created
+2024/05/13 03:08:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:08:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:08:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:09:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:09:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:09:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:09:29 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:09:29 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:09:29 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:09:29 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:09:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:09:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:09:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:10:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:10:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:10:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:10:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:10:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:10:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:11:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:11:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:11:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:11:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:11:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:11:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:12:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:12:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:12:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:12:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:12:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:12:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:13:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:13:10 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:13:10 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:13:10 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:13:10 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:13:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:13:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:13:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:13:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:13:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:14:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:14:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:14:26 INFO: [Runner] [AppDirectStreamHandler] stream pid 10376 closed by expiration
+2024/05/13 03:14:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:14:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:14:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:14:51 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:14:51 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:14:51 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:14:51 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:14:51 INFO: [Runner] [AppDirectStreamHandler] stream for pid 10376 created
+2024/05/13 03:14:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:15:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:15:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:15:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:15:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:15:46 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:15:46 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:15:46 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:15:46 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:15:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:15:52 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:15:52 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:15:52 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:15:52 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:15:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:16:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:16:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:16:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:16:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:16:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:16:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:17:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:17:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:17:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:17:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:17:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:17:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:18:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:18:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:18:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:18:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:18:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:18:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:19:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:19:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:19:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:19:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:19:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:19:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:20:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:20:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:20:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:20:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:20:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:20:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:21:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:21:11 INFO: [Runner] [AppDirectStreamHandler] stream pid 10376 closed by expiration
+2024/05/13 03:21:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:21:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:21:30 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:21:30 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:21:30 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:21:30 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:21:30 INFO: [Runner] [AppDirectStreamHandler] stream for pid 10376 created
+2024/05/13 03:21:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:21:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:21:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:22:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:22:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:22:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:22:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:22:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:22:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:23:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:23:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:23:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:23:28 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:23:28 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:23:28 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:23:28 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:23:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:23:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:23:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:24:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:24:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:24:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:24:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:24:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:24:50 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:24:50 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:24:50 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:24:50 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:24:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:25:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:25:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:25:23 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:25:23 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:25:23 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:25:23 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:25:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:25:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:25:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:25:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:26:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:26:14 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:26:14 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:26:14 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:26:14 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:26:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:26:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:26:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:26:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:26:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:27:02 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:27:02 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:27:02 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:27:02 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:27:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:27:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:27:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:27:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:27:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:27:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:28:02 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:28:02 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:28:02 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:28:02 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:28:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:28:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:28:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:28:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:28:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:28:51 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:28:51 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:28:51 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:28:51 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:28:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:29:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:29:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:29:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:29:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:29:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:29:57 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:29:57 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:29:57 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:29:57 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:29:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:30:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:30:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:30:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:30:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50814: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50816: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50817: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50818: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50819: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50820: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50823: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50824: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50825: EOF
+2024/05/13 03:30:40 http: TLS handshake error from 192.168.0.105:50826: EOF
+2024/05/13 03:30:41 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:30:41 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:30:41 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:30:41 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:30:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:30:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:31:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:31:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:31:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:31:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:31:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:31:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:32:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:32:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:32:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:32:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:32:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:32:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:33:05 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:33:05 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:33:05 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:33:05 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:33:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:33:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:33:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:33:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:33:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:33:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:34:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:34:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:34:25 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:34:25 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:34:25 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:34:25 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:34:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:34:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:34:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:34:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:35:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:35:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:35:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:35:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:35:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:35:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:36:01 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:36:01 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:36:01 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:36:01 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:36:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:36:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:36:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:36:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:36:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:36:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:37:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:37:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:37:24 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:37:24 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:37:24 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:37:24 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:37:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:37:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:37:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:37:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:38:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:38:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:38:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:38:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:38:45 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:38:45 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:38:45 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:38:45 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:38:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:38:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:39:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:39:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:39:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:39:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:39:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:39:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:40:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:40:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:40:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:40:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:40:43 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:40:43 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:40:43 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:40:43 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:40:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:40:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:41:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:41:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:41:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:41:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:41:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:41:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:42:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:42:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:42:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:42:31 DEBUG: [Runner] [AppStreamHandler] childs of 11440 pid: [{ pid: 10376, ppid: 11440, executable: WINWORD.EXE }]
+2024/05/13 03:42:31 DEBUG: [Runner] [AppStreamHandler] app process started with pid: 10376
+2024/05/13 03:42:31 DEBUG: [Runner] [AppStreamHandler] valid rect: {0 0 1920 1032}
+2024/05/13 03:42:31 INFO: [Runner] [AppDirectStreamHandler] requested stream with pid: 10376
+2024/05/13 03:42:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:42:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:42:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:43:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:43:18 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:43:28 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:43:38 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:43:48 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:43:58 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:44:08 DEBUG: [Lan Listener] 192.168.0.103:3301
+2024/05/13 03:44:18 DEBUG: [Lan Listener] 192.168.0.103:3301

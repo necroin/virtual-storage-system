@@ -238,25 +238,30 @@ func (runner *Runner) AppMouseEventHandler(responseWriter http.ResponseWriter, r
 			win.SetForegroundWindow(win.HWND(handle))
 			win.SetActiveWindow(win.HWND(handle))
 			if event.Type == "leftDown" {
-				// fmt.Println("leftDown", coords)
 				utils.MouseMove(coords.X, coords.Y)
 				utils.MouseLeftDown()
 			}
 			if event.Type == "leftUp" {
-				// fmt.Println("leftUp", coords)
 				utils.MouseLeftUp()
 			}
 			if event.Type == "move" {
-				// fmt.Println("move", coords)
 				utils.MouseMove(coords.X, coords.Y)
 			}
 			if event.Type == "scroll" {
-				// fmt.Println("scroll", event.Scroll)
 				utils.MouseWheel(coords.X, coords.Y, event.Scroll.Y)
 			}
 			break
 		}
 	}
+}
 
-	// utils.MouseMove(cursorPotion.X, cursorPotion.Y)
+func (runner *Runner) AppKeyboardEventHandler(responseWriter http.ResponseWriter, request *http.Request) {
+	event := &message.KeyboardEvent{}
+	json.NewDecoder(request.Body).Decode(event)
+	switch event.Type {
+	case "keydown":
+		utils.KeyboardDown(event.Keycode)
+	case "keyup":
+		utils.KeyboardUp(event.Keycode)
+	}
 }
