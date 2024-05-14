@@ -21,7 +21,7 @@ function Init(url, pid) {
         request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "move", coords: { x: event.offsetX, y: event.offsetY } }))
     }
     canvas.onwheel = (event) => {
-        request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "scroll", coords: { x: event.offsetX, y: event.offsetY }, scroll_delta: { x: -event.deltaX, y: -event.deltaY } }))
+        request("POST", "https://" + url + "/runner/mouseevent/" + pid, JSON.stringify({ type: "scroll", coords: { x: event.offsetX, y: event.offsetY }, scroll_delta: { x: Math.floor(-event.deltaX), y: Math.floor(-event.deltaY) } }))
     }
 
     canvas.onclick = (event) => { }
