@@ -46,7 +46,7 @@ func (storage *Storage) NotifyRouter(url string) error {
 	return err
 }
 
-func (storage *Storage) CollectFileSystem(walkPath string) message.FilesystemDirectory {
+func (storage *Storage) CollectFilesystem(walkPath string) message.FilesystemDirectory {
 	fileSystemDirectory := message.FilesystemDirectory{
 		Directories: map[string]message.FileInfo{},
 		Files:       map[string][]message.FileInfo{},

@@ -51,20 +51,15 @@ type FilesystemDirectory struct {
 	Files       map[string][]FileInfo `json:"files"`
 }
 
+type ClientAuthRequest struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
 type InsertRequest struct {
 	Type string `json:"type"`
 	Path string `json:"path"`
 	Name string `json:"name"`
-}
-
-type StatusBarResponse struct {
-	Status string `json:"status"`
-	Text   string `json:"text"`
-}
-
-type ClientAuthRequest struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
 }
 
 type RenameRequest struct {
@@ -88,6 +83,11 @@ type OpenRequest struct {
 	Hostname string `json:"hostname"`
 }
 
+type StatusBarResponse struct {
+	Status string `json:"status"`
+	Text   string `json:"text"`
+}
+
 type OpenResponse struct {
 	Pid       int               `json:"pid"`
 	RunnerUrl string            `json:"runner_url"`
@@ -101,10 +101,12 @@ type Coords struct {
 	Y int32 `json:"y"`
 }
 
+type CoordsDelta Coords
+
 type MouseEvent struct {
-	Type   string `json:"type"`
-	Coords Coords `json:"coords"`
-	Scroll Coords `json:"scroll_delta"`
+	Type   string      `json:"type"`
+	Coords Coords      `json:"coords"`
+	Scroll CoordsDelta `json:"scroll_delta"`
 }
 
 type KeyboardEvent struct {

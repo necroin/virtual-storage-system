@@ -91,7 +91,7 @@ func (router *Router) CollectStorageFileSystem(url string, token string, walkPat
 	return *result
 }
 
-func (router *Router) CollectFileSystem(walkPath string) message.FilesystemDirectory {
+func (router *Router) CollectFilesystem(walkPath string) message.FilesystemDirectory {
 	fileSystemDirectory := message.FilesystemDirectory{
 		Directories: map[string]message.FileInfo{},
 		Files:       map[string][]message.FileInfo{},

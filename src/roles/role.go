@@ -10,7 +10,7 @@ import (
 )
 
 type Role interface {
-	CollectFileSystem(walkPath string) message.FilesystemDirectory
+	CollectFilesystem(walkPath string) message.FilesystemDirectory
 	GetUrl() string
 	GetHostnames() map[string]string
 }
@@ -18,7 +18,7 @@ type Role interface {
 func FilesystemHandler(role Role, responseWriter http.ResponseWriter, request *http.Request) {
 	msgPath, _ := io.ReadAll(request.Body)
 
-	fileSystemMessage := role.CollectFileSystem(string(msgPath))
+	fileSystemMessage := role.CollectFilesystem(string(msgPath))
 	json.NewEncoder(responseWriter).Encode(fileSystemMessage)
 }
 
