@@ -10,8 +10,6 @@ import (
 	"vss/src/message"
 	"vss/src/roles"
 	"vss/src/utils"
-
-	"github.com/gorilla/mux"
 )
 
 var (
@@ -41,16 +39,13 @@ var (
 )
 
 func (storage *Storage) InsertHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	vars := mux.Vars(request)
-	handlerType := vars["type"]
-
 	data := &message.InsertRequest{}
 	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		return
 	}
 
-	insertHandler := insertHandlers[handlerType]
+	insertHandler := insertHandlers[data.Type]
 	if err := insertHandler(data.Path, data.Name); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		return

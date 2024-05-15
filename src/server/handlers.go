@@ -59,7 +59,6 @@ func (server *Server) TokenizedHandler(handler func(http.ResponseWriter, *http.R
 			responseWriter.Header().Set("Access-Control-Allow-Origin", "*")
 			handler(responseWriter, request)
 		}
-
 	}
 }
 

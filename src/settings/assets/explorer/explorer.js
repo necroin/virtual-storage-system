@@ -278,7 +278,7 @@ function Create(type) {
             "name": document.getElementById("create-dialog-name").value
         }
     );
-    let response = request("POST", "https://" + url + "/storage/insert/" + type, data);
+    let response = request("POST", "https://" + url + "/storage/insert", data);
     CloseDialog('create-dialog', 'create-dialog-overlay')
     UpdateStatusBar(JSON.parse(response))
 }

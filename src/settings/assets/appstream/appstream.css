@@ -15,3 +15,7 @@ html, body {
 .uscrollable {
     overflow: hidden;
 }
+
+#canvas{
+    cursor: default;
+}

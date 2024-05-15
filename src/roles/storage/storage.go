@@ -47,7 +47,7 @@ func (storage *Storage) NotifyRouter(url string) error {
 }
 
 func (storage *Storage) CollectFilesystem(walkPath string) message.FilesystemDirectory {
-	fileSystemDirectory := message.FilesystemDirectory{
+	filesystemDirectory := message.FilesystemDirectory{
 		Directories: map[string]message.FileInfo{},
 		Files:       map[string][]message.FileInfo{},
 	}
@@ -58,7 +58,7 @@ func (storage *Storage) CollectFilesystem(walkPath string) message.FilesystemDir
 
 	entries, err := os.ReadDir(walkPath)
 	if err != nil {
-		return fileSystemDirectory
+		return filesystemDirectory
 	}
 
 	for _, entry := range entries {
@@ -81,13 +81,13 @@ func (storage *Storage) CollectFilesystem(walkPath string) message.FilesystemDir
 		}
 
 		if entry.IsDir() {
-			fileSystemDirectory.Directories[entry.Name()] = info
+			filesystemDirectory.Directories[entry.Name()] = info
 		} else {
-			fileSystemDirectory.Files[entry.Name()] = append(fileSystemDirectory.Files[entry.Name()], info)
+			filesystemDirectory.Files[entry.Name()] = append(filesystemDirectory.Files[entry.Name()], info)
 		}
 	}
 
-	return fileSystemDirectory
+	return filesystemDirectory
 }
 
 func (storage *Storage) GetUrl() string {
