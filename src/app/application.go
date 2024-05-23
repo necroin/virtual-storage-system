@@ -80,7 +80,7 @@ func New(config *config.Config) (*Application, error) {
 
 	var routerRole *router.Router = nil
 	if config.Roles.Router.Enable {
-		routerRole, err = router.New(config, server, connector)
+		routerRole, err = router.New(config, connector)
 		if err != nil {
 			return nil, fmt.Errorf("[App] failed create router role: %s", err)
 		}

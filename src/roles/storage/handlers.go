@@ -166,19 +166,19 @@ func (storage *Storage) MoveHandler(responseWriter http.ResponseWriter, request 
 }
 
 func RenameHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	data := &message.RenameRequest{}
+	renameRequest := &message.RenameRequest{}	
 
-	if err := json.NewDecoder(request.Body).Decode(data); err != nil {
+	if err := json.NewDecoder(request.Body).Decode(renameRequest); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		return
 	}
 
-	if data.NewName == "" {
+	if renameRequest.NewName == "" {
 		roles.HandlerFailed(responseWriter, fmt.Errorf("Не указано новое имя"))
 		return
 	}
 
-	if err := utils.Rename(data.Path, data.OldName, data.NewName); err != nil {
+	if err := utils.Rename(renameRequest.Path, renameRequest.OldName, renameRequest.NewName); err != nil {
 		roles.HandlerFailed(responseWriter, err)
 		return
 	}

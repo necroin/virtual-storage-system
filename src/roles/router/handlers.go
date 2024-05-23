@@ -103,6 +103,11 @@ func (router *Router) OpenFileHandler(responseWriter http.ResponseWriter, reques
 		if err != nil {
 			logger.Error(err.Error())
 		}
+
+		if openResponse.Error != nil {
+			logger.Error(openResponse.Error.Error())
+		}
+
 		if err == nil {
 			openResponse.Pid = runnerOpenResponse.Pid
 			openResponse.RunnerUrl = path.Join(srcRunner.Url, srcRunner.Token)

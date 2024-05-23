@@ -9,7 +9,6 @@ import (
 	"vss/src/connector"
 	"vss/src/logger"
 	"vss/src/message"
-	"vss/src/server"
 	"vss/src/settings"
 	"vss/src/utils"
 
@@ -19,17 +18,15 @@ import (
 type Router struct {
 	config           *config.Config
 	connector        *connector.Connector
-	server           *server.Server
 	storages         map[string]message.Notify
 	runners          map[string]message.Notify
 	hostnames        map[string]string
 	replicationTasks map[string]*cron.Cron
 }
 
-func New(config *config.Config, server *server.Server, connector *connector.Connector) (*Router, error) {
+func New(config *config.Config, connector *connector.Connector) (*Router, error) {
 	router := &Router{
 		config:           config,
-		server:           server,
 		connector:        connector,
 		storages:         map[string]message.Notify{},
 		runners:          map[string]message.Notify{},

@@ -223,9 +223,6 @@ func (runner *Runner) AppMouseEventHandler(responseWriter http.ResponseWriter, r
 	json.NewDecoder(request.Body).Decode(event)
 
 	coords := event.Coords
-	cursorPotion := win.POINT{}
-	win.GetCursorPos(&cursorPotion)
-
 	handles := winutils.GetWindowHandlesByProcessId(winapi.ProcessId(pid))
 
 	captureRect, _ := winutils.GetCaptureRectByHandles(handles)
